@@ -1,49 +1,31 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useTranslation } from 'react-i18next'
-import tw, { styled } from 'twin.macro'
-
-import { FlexRow } from 'components/Common'
+import tw from 'twin.macro'
 
 type SidebarHeaderProps = {
-  fullSidebar: boolean
+  fullSidebar?: boolean
   handleToggleSidebar: () => void
 }
 
-type TwSidebarHeaderProps = {
-  fullSidebar: boolean
-}
+const TwIconBurger = tw.div`h-6 w-6 rounded bg-[#9ca3af]`
 
-const Container = tw(FlexRow)`relative items-center justify-between bg-space-blue px-6 min-h-[78px]`
-const HeaderIcon = tw(FlexRow)`items-center`
-const HeaderLabel = tw.div`flex items-center justify-center text-white text-base ml-[8px]`
-const HamburgerButton = styled.div(({ fullSidebar }: TwSidebarHeaderProps) => [
-  tw`cursor-pointer`,
-  !fullSidebar && tw`absolute`,
-])
+const TwContainer = tw.div`flex h-16 items-center justify-between px-6`
+const TwWrapLogo = tw.div`flex h-16 items-center`
+const TwLogo = tw.div`h-8 w-8 rounded-full bg-[#9ca3af]`
+const TwTitle = tw.div`ml-2 select-none text-white`
+const TwWrapBurger = tw.div`cursor-pointer p-2 hover:(rounded bg-black bg-opacity-40)`
 
-export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
-  fullSidebar,
-  handleToggleSidebar,
-}) => {
+export const SidebarHeader: React.FC<SidebarHeaderProps> = () => {
   const { t } = useTranslation('sidebar')
 
   return (
-    <Container>
-      {fullSidebar && (
-        <HeaderIcon>
-          <FontAwesomeIcon icon='house' className='text-white' size='1x' />
-
-          <HeaderLabel>{t('header.title')}</HeaderLabel>
-        </HeaderIcon>
-      )}
-
-      <HamburgerButton
-        data-testid='hamburger-btn'
-        fullSidebar={fullSidebar}
-        onClick={() => handleToggleSidebar()}
-      >
-        <FontAwesomeIcon icon='bars' className='text-white' size='lg' />
-      </HamburgerButton>
-    </Container>
+    <TwContainer>
+      <TwWrapLogo>
+        <TwLogo />
+        <TwTitle>{t('header.title')}</TwTitle>
+      </TwWrapLogo>
+      <TwWrapBurger>
+        <TwIconBurger />
+      </TwWrapBurger>
+    </TwContainer>
   )
 }

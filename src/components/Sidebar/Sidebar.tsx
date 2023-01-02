@@ -1,34 +1,30 @@
-import tw, { styled } from 'twin.macro'
-
-import { FlexCol } from 'components/Common'
+import tw from 'twin.macro'
 
 import { SidebarContent } from './SidebarContent'
 import { SidebarFooter } from './SidebarFooter'
 import { SidebarHeader } from './SidebarHeader'
 
-export type MenuItem = {
+type MenuItemChildren = {
+  to?: string
   label: string
-  to: string
+  icon?: JSX.Element
+  children?: MenuItemChildren[]
+}
+
+export type MenuItem = {
+  title: string
+  children: MenuItemChildren[]
 }
 
 export type SidebarProps = {
   menuList: MenuItem[]
   itemSelected: string
-  fullSidebar: boolean
+  fullSidebar?: boolean
   handleToggleSidebar: () => void
   handleClickItem: (key: string, item: MenuItem) => void
 }
 
-type TwSidebarProps = Partial<Pick<SidebarProps, 'fullSidebar'>> & {
-  isActive?: boolean
-}
-
-const Container = styled(FlexCol)(({ fullSidebar }: TwSidebarProps) => [
-  tw`absolute h-full transition-all min-w-[290px]`,
-  fullSidebar
-    ? tw`left-0 translate-x-0 duration-500`
-    : tw`duration-500 left-[-160px] translate-x-[-160px]`,
-])
+const TwSidebar = tw.div`border-r min-w-[290px] border-[#374151]`
 
 export const Sidebar: React.FC<SidebarProps> = ({
   menuList,
@@ -38,7 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   handleClickItem,
 }) => {
   return (
-    <Container fullSidebar={fullSidebar}>
+    <TwSidebar>
       <SidebarHeader fullSidebar={fullSidebar} handleToggleSidebar={handleToggleSidebar} />
 
       <SidebarContent
@@ -48,6 +44,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
       />
 
       <SidebarFooter />
-    </Container>
+    </TwSidebar>
   )
 }

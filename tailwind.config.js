@@ -38,87 +38,15 @@ module.exports = {
         'bright-gray': '#f8f9fa',
         'bright2-gray': '#f6f7fb',
       },
-      borderRadius: {
-        '4xl': '50px',
-      },
-      boxShadow: {
-        ...defaultTheme.boxShadow,
-        round: '0 0 4px 4px rgb(0 0 0 / 8%)',
-        t: '0 -4px 4px 0 rgb(0 0 0 / 8%)',
-        tr: '4px -4px 4px 0 rgb(0 0 0 / 8%)',
-        b: '0 4px 4px 0 rgb(0 0 0 / 8%)',
-        l: '-4px 0 4px 0 rgb(0 0 0 / 8%)',
-        r: '4px 0 4px 0 rgb(0 0 0 / 8%)',
-        around: '4px 4px 4px 4px rgb(0 0 0 / 8%)',
-      },
-      animation: {
-        fadeIn: 'fadeIn 1s ease-out-in',
-        fadeOut: 'fadeOut 1s ease-in-out',
-      },
-      keyframes: (theme) => ({
-        fadeIn: {
-          '100%': { backgroundColor: theme('colors.transparent') },
-          '0%': { backgroundColor: theme('colors.red.300') },
-        },
-        fadeOut: {
-          '0%': { backgroundColor: theme('colors.red.300') },
-          '100%': { backgroundColor: theme('colors.transparent') },
-        },
-      }),
     },
   },
-  variantOrder: [
-    'first',
-    'last',
-    'odd',
-    'even',
-    'visited',
-    'checked',
-    'empty',
-    'read-only',
-    'group-hover',
-    'group-focus',
-    'focus-within',
-    'hover',
-    'focus',
-    'focus-visible',
-    'active',
-    'disabled',
-  ],
   plugins: [
     plugin(({ addComponents }) => {
       addComponents({
-        '.flex-center': {
+        '.example': {
           display: 'flex',
           'justify-content': 'center',
           'align-items': 'center',
-        },
-        '.absolute-center': {
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-        },
-        '.rotate-180deg': {
-          transform: 'rotate(180deg)',
-        },
-        '.rotate-90deg': {
-          transform: 'rotate(90deg)',
-        },
-        '.rotate-270deg': {
-          transform: 'rotate(270deg)',
-        },
-        '.transform-scale-1': {
-          transform: 'scale(2)',
-        },
-        '.font-thaisans-nue': {
-          'font-family': 'ThaiSans Neue',
-        },
-        '.font-sarabun': {
-          'font-family': 'Sarabun',
-        },
-        '.font-lato': {
-          'font-family': 'Lato',
         },
       })
     }),

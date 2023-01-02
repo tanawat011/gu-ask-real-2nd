@@ -1,11 +1,6 @@
-import tw, { styled } from 'twin.macro'
+import type { MenuItem } from './Sidebar'
 
-import { FlexCol } from 'components/Common'
-
-export type MenuItem = {
-  label: string
-  to: string
-}
+import tw from 'twin.macro'
 
 export type SidebarContentProps = {
   menuList: MenuItem[]
@@ -13,44 +8,34 @@ export type SidebarContentProps = {
   handleClickItem: (key: string, item: MenuItem) => void
 }
 
-type TwSidebarContentProps = Partial<SidebarContentProps> & {
-  isActive?: boolean
-}
+const TwIconArrow = tw.div`h-4 w-4 rounded bg-[#9ca3af]`
 
-const Container = tw(FlexCol)`h-full w-full bg-space-blue pt-[26px]`
-const Item = styled.div(({ isActive }: TwSidebarContentProps) => [
-  tw`relative flex cursor-pointer flex-row items-center h-[40px] mb-[12px]`,
-  isActive && tw`bg-iron-gray`,
-])
-const ItemActive = tw.div`absolute z-0 h-full rounded-r bg-toy-red w-[6px]`
-const ItemLabel = styled.div(({ isActive }: TwSidebarContentProps) => [
-  tw`font-thaisans-nue z-0 font-semibold text-iron-gray text-[18px] ml-[22px] pb-[6px]`,
-  isActive && tw`text-white`,
-])
+// all height - header - footer - border
+const TwContainer = tw.div`select-none px-4 pb-4 font-semibold text-sm h-[calc(100% - 64px - 64px - 1px)] [overflow-y: overlay]`
+const TwContentWrap = tw.div`flex flex-col`
+const TwContentTitle = tw.div`mt-4 mb-2 px-3`
+const TwContentItemWrap = tw.div`mb-2 flex h-10 cursor-pointer items-center justify-between rounded-lg px-3 hover:(text-white bg-[hsla(0,0%,100%,.1)])`
+const TwContentItem = tw.div`flex items-center`
 
-export const SidebarContent: React.FC<SidebarContentProps> = ({
-  menuList,
-  itemSelected,
-  handleClickItem,
-}) => {
+export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList }) => {
   return (
-    <Container>
-      {menuList.map((item, index) => {
-        const keyName = item.to.split('/')[1]
-        const isActive = keyName === itemSelected
-
-        return (
-          <Item
-            key={`sidebar-menu-item-${index}`}
-            onClick={() => handleClickItem(keyName, item)}
-            isActive={isActive}
-          >
-            {isActive && <ItemActive />}
-
-            <ItemLabel isActive={isActive}>{item.label}</ItemLabel>
-          </Item>
-        )
-      })}
-    </Container>
+    <TwContainer>
+      {menuList.map((menu) => (
+        <TwContentWrap key={`sidebar-menu-${menu.title.replaceAll(' ', '-')}`}>
+          <TwContentTitle>{menu.title}</TwContentTitle>
+          <ul>
+            {menu.children.map((item) => (
+              <TwContentItemWrap key={`sidebar-menu-item-${item.label.replaceAll(' ', '-')}`}>
+                <TwContentItem>
+                  {item.icon}
+                  <span>{item.label}</span>
+                </TwContentItem>
+                <TwIconArrow />
+              </TwContentItemWrap>
+            ))}
+          </ul>
+        </TwContentWrap>
+      ))}
+    </TwContainer>
   )
 }

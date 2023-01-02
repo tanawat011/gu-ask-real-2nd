@@ -15,7 +15,7 @@ jest.mock('components/Sidebar', () => ({
         </button>
         <button
           data-testid='btn2'
-          onClick={() => handleClickItem('test', { label: 'label', to: '/' })}
+          onClick={() => handleClickItem('test', { title: 'test', children: [{ label: 'xxx' }] })}
         >
           Menu Item
         </button>

@@ -12,12 +12,19 @@ describe('<Sidebar />', () => {
     const handleToggleSidebar = jest.fn()
     const menuList = [
       {
-        label: 'menu-1',
-        to: '/',
-      },
-      {
-        label: 'menu-2',
-        to: '/menu-2',
+        title: 'APPS',
+        children: [
+          {
+            to: '/',
+            label: 'Todo',
+            icon: <div>xxx</div>,
+          },
+          {
+            to: '/',
+            label: 'Article',
+            icon: <div>xxx</div>,
+          },
+        ],
       },
     ]
 
@@ -50,12 +57,19 @@ describe('<Sidebar />', () => {
     const handleToggleSidebar = jest.fn()
     const menuList = [
       {
-        label: 'menu-1',
-        to: '/',
-      },
-      {
-        label: 'menu-2',
-        to: '/menu-2',
+        title: 'APPS',
+        children: [
+          {
+            to: '/',
+            label: 'Todo',
+            icon: <div>xxx</div>,
+          },
+          {
+            to: '/',
+            label: 'Article',
+            icon: <div>xxx</div>,
+          },
+        ],
       },
     ]
 

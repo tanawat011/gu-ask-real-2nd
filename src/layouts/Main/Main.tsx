@@ -2,28 +2,27 @@ import type { MenuItem } from 'components/Sidebar'
 
 import { useEffect, useState } from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useTranslation } from 'react-i18next'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import tw, { styled } from 'twin.macro'
 
 import { mainRoutes } from 'Routes'
 import { FlexCol, FlexRow } from 'components/Common'
+import { Navbar } from 'components/Navbar'
 import { Sidebar } from 'components/Sidebar'
 
 type MainLayoutProps = {
   fullSidebar: boolean
 }
 
-const Container = tw(FlexRow)`relative h-screen w-full bg-slate-200`
-const Content = styled(FlexCol)(({ fullSidebar }: MainLayoutProps) => [
-  tw`w-full overflow-auto bg-bright2-gray transition-all`,
-  fullSidebar ? tw`duration-500 ml-[290px]` : tw`duration-500 ml-[60px]`,
-])
-const ContentHeader = tw.nav`flex items-center justify-between px-8 py-8 max-h-[32px]`
+const Container = tw(FlexRow)`relative h-screen w-full text-[#9ca3af] bg-[#111827]`
+const Content = tw(FlexCol)`w-full overflow-auto bg-[#1F2937]`
+// const Navbar = tw.nav`flex items-center justify-between px-8 py-8 max-h-[32px]`
 const ContentContainer = tw(FlexRow)`relative h-full overflow-x-auto`
 
 export const MainLayout: React.FC = () => {
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -31,17 +30,6 @@ export const MainLayout: React.FC = () => {
   const [itemSelected, setItemSelected] = useState('')
 
   const { home, home2 } = mainRoutes.children
-
-  const menuList = [
-    {
-      label: t('hello'),
-      to: home.fullPath,
-    },
-    {
-      label: t('hello'),
-      to: home2.fullPath,
-    },
-  ]
 
   useEffect(() => {
     const pathName = location.pathname
@@ -73,24 +61,60 @@ export const MainLayout: React.FC = () => {
   const handleClickItem = (key: string, item: MenuItem) => {
     setItemSelected(key)
     // setBreadcrumbs([{ to: item.to, label: item.label }])
-    navigate(item.to)
+    // navigate(item.to)
   }
+
+  const TwIconItem = tw.div`mr-2 h-6 w-6 rounded bg-[#9ca3af]`
+
+  const menuList: MenuItem[] = [
+    {
+      title: 'APPS',
+      children: [
+        {
+          to: '/',
+          label: 'Todo',
+          icon: <TwIconItem />,
+        },
+        {
+          to: '/',
+          label: 'Article',
+          icon: <TwIconItem />,
+        },
+      ],
+    },
+    {
+      title: 'UI COMPONENTS',
+      children: [
+        {
+          to: '/',
+          label: 'Common',
+          icon: <TwIconItem />,
+        },
+        {
+          to: '/',
+          label: 'Button',
+          icon: <TwIconItem />,
+        },
+        {
+          to: '/',
+          label: 'Input',
+          icon: <TwIconItem />,
+        },
+      ],
+    },
+  ]
 
   return (
     <Container>
       <Sidebar
         menuList={menuList}
         itemSelected={itemSelected}
-        fullSidebar={fullSidebar}
         handleToggleSidebar={handleToggleSidebar}
         handleClickItem={handleClickItem}
       />
 
-      <Content fullSidebar={fullSidebar}>
-        <ContentHeader>
-          {/* <Breadcrumb pages={breadcrumbs} />
-          <Avatar profileName='xxx xxxxx' /> */}
-        </ContentHeader>
+      <Content>
+        <Navbar />
 
         <ContentContainer>
           <Outlet />
