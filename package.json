@@ -33,6 +33,9 @@
     "v:patch": "yarn version --patch"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@hookform/resolvers": "^2.9.10",
     "@tanstack/react-query": "^4.20.4",
     "axios": "^1.2.2",

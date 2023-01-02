@@ -1,4 +1,4 @@
-export const PATTERN = {
+export const REGEX = {
   AUTHORIZATION: '^Bearer \\S+$',
 
   // * 1976-10-10T06:47:13Z

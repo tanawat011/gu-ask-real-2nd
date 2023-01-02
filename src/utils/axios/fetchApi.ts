@@ -5,9 +5,10 @@ import type { HTTP_METHOD, ObjectAnyKey } from 'types'
 import axios from 'axios'
 import qs from 'qs'
 
+import { ERROR_CODE } from 'types'
+
 // import { errorRoutes } from 'Routes'
 // import { logout } from 'apiServices/auth/logout'
-import { ERROR_CODE } from 'types'
 
 export type Fetch = {
   uri: string

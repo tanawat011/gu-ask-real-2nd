@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainLayout /> should render to match snapshot 1`] = `
+<DocumentFragment>
+  .c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c1 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.c3 {
+  width: 100%;
+  overflow: auto;
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 247 251 / var(--tw-bg-opacity));
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  margin-left: 60px;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 32px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.c5 {
+  position: relative;
+  height: 100%;
+  overflow-x: auto;
+}
+
+<div
+    class="c0 c1"
+  >
+    <div>
+      <button
+        data-testid="btn1"
+      >
+        Toggle Sidebar
+      </button>
+      <button
+        data-testid="btn2"
+      >
+        Menu Item
+      </button>
+    </div>
+    <div
+      class="c2 c3"
+    >
+      <nav
+        class="c4"
+      />
+      <div
+        class="c0 c5"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<MainLayout /> should render to wrong location path 1`] = `
+<DocumentFragment>
+  .c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c1 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.c3 {
+  width: 100%;
+  overflow: auto;
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 247 251 / var(--tw-bg-opacity));
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  margin-left: 220px;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 32px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.c5 {
+  position: relative;
+  height: 100%;
+  overflow-x: auto;
+}
+
+<div
+    class="c0 c1"
+  >
+    <div>
+      <button
+        data-testid="btn1"
+      >
+        Toggle Sidebar
+      </button>
+      <button
+        data-testid="btn2"
+      >
+        Menu Item
+      </button>
+    </div>
+    <div
+      class="c2 c3"
+    >
+      <nav
+        class="c4"
+      />
+      <div
+        class="c0 c5"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
@@ -19,33 +20,23 @@ module.exports = {
         'desktop-xl': '1600px', // * => @media (min-width: 1600px) { ... }
       },
       colors: {
-        // Primary color
         'space-blue': '#181c23',
         'toy-red': '#e73439',
-        // Secondary color
         'lapis-blue': '#1762c1',
         'soft-lapis-blue': '#e5f0fc',
-        // Neutral color
         'onyx-gray': '#3b4050',
         'iron-gray': '#626672',
-        'iron-hover-gray': '#636976',
-        'iron-active-gray': '#1c232c',
+        'dove-gray': '#707070',
         'surface-gray': '#83899b',
         'shark-gray': '#a3a8af',
         'smoke-gray': '#b5b9c3',
         'dolphin-gray': '#c3c9d1',
         'jade-gray': '#d7dbe0',
+        'light-grey': '#E4E5EA',
         'glory-gray': '#e5e8ec',
         'wolf-gray': '#e5e8ec',
         'bright-gray': '#f8f9fa',
         'bright2-gray': '#f6f7fb',
-        'dove-gray': '#707070',
-        'american-silver-gray': '#cfcfcf',
-        'weathered-stone-grey': '#c4c4c4',
-        'aged-moustache-grey': '#7E7E7E',
-        'light-grey': '#E4E5EA',
-        'night-rider-grey': '#333333',
-        'zambezi-grey': '#5E5E5E',
       },
       borderRadius: {
         '4xl': '50px',
