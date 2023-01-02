@@ -1,0 +1,10 @@
+export type Variant =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'info'
+  | 'light'
+  | 'dark'
