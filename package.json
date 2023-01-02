@@ -2,25 +2,99 @@
   "name": "gu-ask-real-2nd",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.11",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.4",
-    "web-vitals": "^2.1.4"
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "yarn": ">=1.22.0 <2.0.0",
+    "node": ">=16.14.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build:css": "postcss src/styles/styles.scss -o postcss.css",
+    "serve": "npx serve -s build -l 4000",
+    "serve:coverage": "npx http-server coverage/lcov-report -p 4001",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "yarn lint --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "test": "react-scripts test --maxWorkers=1 --watchAll=false",
+    "test:w": "react-scripts test --maxWorkers=1",
+    "test:cv": "yarn test --coverage",
+    "test:cv:msg": "yarn test:cv --verbose",
+    "_test:cv:msg": "/bin/sh ./scripts/jest.sh",
+    "test:cv:w": "yarn test:w --coverage",
+    "test:cv:msg:w": "yarn test:cv:w --verbose",
+    "pre:commit": "yarn lint && yarn build && yarn build:css",
+    "pre:push": "yarn test:cv",
+    "husky:install": "husky install",
+    "husky:add": "husky add",
+    "v:major": "yarn version --major",
+    "v:minor": "yarn version --minor",
+    "v:patch": "yarn version --patch"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
+    "@tanstack/react-query": "^4.20.4",
+    "axios": "^1.2.2",
+    "date-fns": "^2.29.3",
+    "i18next": "^22.4.6",
+    "jsonwebtoken": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.41.3",
+    "react-i18next": "^12.1.1",
+    "react-router-dom": "^6.6.1",
+    "react-scripts": "5.0.1",
+    "recoil": "^0.7.6",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@tanstack/react-query-devtools": "^4.20.4",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.2.5",
+    "@types/jsonwebtoken": "^9.0.0",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "autoprefixer": "^10.4.13",
+    "axios-mock-adapter": "^1.21.2",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.2.0",
+    "eslint-plugin-jest-formatting": "^3.1.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "jest-location-mock": "^1.0.9",
+    "jest-mock": "^29.3.1",
+    "jest-styled-components": "^7.1.1",
+    "postcss": "^8.4.20",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "prettier": "^2.8.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "prettier-plugin-twin.macro": "^1.0.11",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "styled-components": "^5.3.6",
+    "tailwindcss": "^3.2.4",
+    "ts-jest": "^29.0.3",
+    "twin.macro": "^3.1.0",
+    "typescript": "^4.9.4"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +113,53 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,md}": [
+      "eslint --fix"
+    ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(axios)/)"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/data/**/*"
+    ],
+    "coveragePathIgnorePatterns": [
+      "index.tsx",
+      "index.ts",
+      "mocks.ts",
+      "types.ts",
+      "src/reportWebVitals.ts",
+      "src/configs",
+      "src/constants",
+      "src/locales",
+      "src/types",
+      "src/mocks",
+      "Routes.tsx"
+    ]
+  },
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components",
+      "autoCssProp": false
+    }
   }
 }

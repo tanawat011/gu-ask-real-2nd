@@ -1,0 +1,126 @@
+{
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true,
+    "source.fixAll.prettier": true
+  },
+  "prettier.enable": true,
+  "eslint.format.enable": true,
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.codeAction.disableRuleComment": {
+    "enable": true
+  },
+  "eslint.codeAction.showDocumentation": { "enable": true },
+  "eslint.validate": [
+    "vue",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "jsx",
+    "json"
+  ],
+  "eslint.workingDirectories": ["."],
+  "eslint.alwaysShowStatus": true,
+  "cSpell.words": [
+    "backoffice",
+    "browserslist",
+    "camelcase",
+    "configmap",
+    "Dsonar",
+    "fileupload",
+    "Firestore",
+    "fixtab",
+    "hookform",
+    "Keycloak",
+    "Lato",
+    "lcov",
+    "lrta",
+    "Magicbox",
+    "microsite",
+    "middlewares",
+    "Neue",
+    "Sarabun",
+    "SILOM",
+    "SONARQUBE",
+    "tanstack",
+    "testid",
+    "thaisans",
+    "tscpaths"
+  ],
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "typescript": "javascript", // if you are using typescript
+    "typescriptreact": "javascript" // if you are using typescript with react
+  },
+  "editor.quickSuggestions": {
+    "strings": true // forces VS Code to trigger completions when editing "string" content
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)", // tw`...`
+    "tw\\.[^`]+`([^`]*)`", // tw.xxx<xxx>`...`
+    "tw\\(.*?\\).*?`([^`]*)", // tw(Component)<xxx>`...`
+    "return\\ '([^']*)'" // return '...'
+  ],
+  "better-comments.tags": [
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "note",
+      "color": "#ceeaf7",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    }
+  ]
+}

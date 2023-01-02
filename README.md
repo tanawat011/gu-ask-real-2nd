@@ -2,45 +2,90 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+```text
+A Frontend Backoffice Project.
+```
 
-### `npm start`
+## 🛣 Active Branch
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] `main` (protected) => Production mode.
+- [ ] `staging` protected) => Staging mode for QA testing.
+- [ ] `uat` protected) => UAT mode for development user.
+- [x] `dev` (default & protected) => Development mode for developer.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📋 Usage
 
-### `npm test`
+⚠ Before develop features please create `.env` file contain these variables.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+| ENV VARIABLES            | VALUE                   | type     | REMARK |
+| ------------------------ | ----------------------- | -------- | ------ |
+| **NODE_ENV**             | development             | `public` |        |
+| **SKIP_PREFLIGHT_CHECK** | true                    | `public` |        |
+| **GENERATE_SOURCEMAP**   | false                   | `public` |        |
+| **REACT_APP_API_URL**    | `http://localhost:8001` | `public` |        |
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- To learn React, check out the [React documentation](https://reactjs.org/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Code Features
+
+- [x] [Typescript](https://www.typescriptlang.org/docs/) support
+- [ ] [SCSS](https://sass-lang.com/documentation/) support
+- [ ] [Tailwind CSS](https://tailwindcss.com/docs/installation) (with Tailwind preset)
+- [ ] [Styled Components](https://styled-components.com/docs) (with Styled Components preset)
+- [ ] [Twin.macro](https://github.com/ben-rogerson/twin.macro) (with Styled Component for Tailwind)
+- [ ] [Jest](https://jestjs.io/docs/getting-started) (for unit testing)
+- [ ] [ESLint](https://eslint.org/docs/latest/) (for linting)
+- [ ] [Prettier](https://prettier.io/docs/en/index.html) (for formatting)
+- [ ] [i18n](https://www.i18next.com/) (for internationalization)
+- [ ] [Husky](https://typicode.github.io/husky/#/) (for linting)
+- [ ] [React Hook Form](https://react-hook-form.com/get-started/) (for form validation)
+- [ ] [Yup](https://www.npmjs.com/package/yup) (for schema form validation)
+- [ ] [React Router Dom V6](https://reactrouter.com/en/main/start/overview) (for routing)
+- [ ] [Axios](https://github.com/axios/axios) (for HTTP requests)
+- [ ] [Sentry](https://docs.sentry.io/platforms/javascript/guides/react/) (for error reporting)
+- [ ] [Recoil](https://recoiljs.org/docs/introduction/getting-started) (for state management)
+- [ ] [Tanstack Query](https://react-query.tanstack.com/) (for data fetching)
+- [ ] [Date fns](https://date-fns.org/) (for date formatting)
+
+## Utilities Support
+
+- [ ] `Simple error Page` (for error handling)
+- [ ] `Simple loading component` (for loading handling)
+- [ ] `Simple modal component` (for modal handling)
+
+## Document
+
+- [Git & Changelog format](./docs/git_and_changelog_format.md)
+- [Available scripts](./docs/available_scripts.md)
+- [Unit-test](./docs/unit_test.md)
+- [Better comment](./docs/better-comments.md)
+
+## HOW TO
+
+### How to add a new component
+
+- Create a new folder in `src/components` with the component name.
+- Create a new file with the component name.
+  - Each component will have at least 2 files.
+    - `Button.test.tsx` (for unit testing)
+    - `Button.ts` (for component)
+    - `index.ts` (for exporting component)
+
+### How to add a new page
+
+- Add a new route in the `src/Routes.tsx` file.
+- Update a type of a new route in the type folder -> `types/routes.ts`.
+
+### How to add a new env
+
+- Add a new env in the `.env` file (for your local application).
+- Add a new env in the `.env.example` file (this is the example env for your team member).
+- Add a new env in the `README.md` file (for is documentation).
+- Add a new env in the `public/template-config.js` file (for production environment).
+- Add a new env in the `k8s/deployment.yaml` file (for deployment).
+- Update a type of a new env in the type folder -> `types/windowEnv.d.ts`.
