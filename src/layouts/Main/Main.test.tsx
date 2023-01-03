@@ -7,18 +7,13 @@ import { renderWithProviders } from 'utils/jest'
 import { MainLayout } from './Main'
 
 jest.mock('components/Sidebar', () => ({
-  Sidebar: ({ handleToggleSidebar, handleClickItem }: SidebarProps) => {
+  Sidebar: ({ handleToggleSidebar }: SidebarProps) => {
     return (
       <div>
         <button data-testid='btn1' onClick={() => handleToggleSidebar()}>
           Toggle Sidebar
         </button>
-        <button
-          data-testid='btn2'
-          onClick={() => handleClickItem('test', { title: 'test', children: [{ label: 'xxx' }] })}
-        >
-          Menu Item
-        </button>
+        <button data-testid='btn2'>Menu Item</button>
       </div>
     )
   },

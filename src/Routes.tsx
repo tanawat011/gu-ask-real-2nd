@@ -18,10 +18,36 @@ export const mainRoutes: MainRoutes = {
       element: <div>home</div>,
       isIndex: true,
     },
-    home2: {
-      path: 'home2',
-      fullPath: '/home2',
-      element: <div>home2</div>,
+    todo: {
+      path: 'todo',
+      fullPath: '/todo',
+      element: <div>todo</div>,
+    },
+    article: {
+      path: 'article',
+      fullPath: '/article',
+      element: <div>article</div>,
+    },
+    component: {
+      path: 'component',
+      fullPath: '/component',
+      children: {
+        card: {
+          path: 'card',
+          fullPath: '/card',
+          element: <div>card</div>,
+        },
+        button: {
+          path: 'button',
+          fullPath: '/button',
+          element: <div>button</div>,
+        },
+        input: {
+          path: 'input',
+          fullPath: '/input',
+          element: <div>input</div>,
+        },
+      },
     },
   },
 }

@@ -4,11 +4,13 @@ import { SidebarContent } from './SidebarContent'
 import { SidebarFooter } from './SidebarFooter'
 import { SidebarHeader } from './SidebarHeader'
 
-type MenuItemChildren = {
+export type MenuItemChildren = {
   to?: string
   label: string
   icon?: JSX.Element
-  children?: MenuItemChildren[]
+  children?: Pick<MenuItemChildren, 'to' | 'label' | 'selected'>[]
+  expanded?: boolean
+  selected?: boolean
 }
 
 export type MenuItem = {
@@ -18,30 +20,26 @@ export type MenuItem = {
 
 export type SidebarProps = {
   menuList: MenuItem[]
+  setMenuList: (menuList: MenuItem[]) => void
   itemSelected: string
   fullSidebar?: boolean
   handleToggleSidebar: () => void
-  handleClickItem: (key: string, item: MenuItem) => void
 }
 
 const TwSidebar = tw.div`border-r min-w-[theme(width.sidebar)] border-[#374151]`
 
 export const Sidebar: React.FC<SidebarProps> = ({
   menuList,
+  setMenuList,
   itemSelected,
   fullSidebar,
   handleToggleSidebar,
-  handleClickItem,
 }) => {
   return (
     <TwSidebar>
       <SidebarHeader fullSidebar={fullSidebar} handleToggleSidebar={handleToggleSidebar} />
 
-      <SidebarContent
-        menuList={menuList}
-        itemSelected={itemSelected}
-        handleClickItem={handleClickItem}
-      />
+      <SidebarContent menuList={menuList} setMenuList={setMenuList} itemSelected={itemSelected} />
 
       <SidebarFooter />
     </TwSidebar>

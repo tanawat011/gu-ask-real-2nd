@@ -7,9 +7,17 @@ export type AuthRoutes = WithChildrenRoute<{
   login: RenderRoute
 }>
 
+export type ComponentRoutes = WithChildrenRoute<{
+  card: RenderRoute
+  button: RenderRoute
+  input: RenderRoute
+}>
+
 export type MainRoutes = WithChildrenRoute<{
   home: RenderRoute
-  home2: RenderRoute
+  todo: RenderRoute
+  article: RenderRoute
+  component: ComponentRoutes
 }>
 
 export type ErrorRoutes = WithChildrenRoute<{

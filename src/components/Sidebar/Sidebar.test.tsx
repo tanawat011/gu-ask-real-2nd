@@ -8,7 +8,6 @@ describe('<Sidebar />', () => {
   test('should render without crashing and match snapshot', () => {
     expect.hasAssertions()
 
-    const handleClickItem = jest.fn()
     const handleToggleSidebar = jest.fn()
     const menuList = [
       {
@@ -31,10 +30,10 @@ describe('<Sidebar />', () => {
     const { asFragment } = renderWithProviders(
       <Sidebar
         menuList={menuList}
+        setMenuList={jest.fn()}
         itemSelected=''
         fullSidebar
         handleToggleSidebar={handleToggleSidebar}
-        handleClickItem={handleClickItem}
       />,
     )
 
@@ -53,7 +52,6 @@ describe('<Sidebar />', () => {
   test('should render with mini sidebar', () => {
     expect.hasAssertions()
 
-    const handleClickItem = jest.fn()
     const handleToggleSidebar = jest.fn()
     const menuList = [
       {
@@ -76,10 +74,10 @@ describe('<Sidebar />', () => {
     const { asFragment } = renderWithProviders(
       <Sidebar
         menuList={menuList}
+        setMenuList={jest.fn()}
         itemSelected='menu-2'
         fullSidebar={false}
         handleToggleSidebar={handleToggleSidebar}
-        handleClickItem={handleClickItem}
       />,
     )
 

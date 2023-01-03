@@ -28,8 +28,60 @@ export const MainLayout: React.FC = () => {
 
   const [fullSidebar, setFullSidebar] = useState(true)
   const [itemSelected, setItemSelected] = useState('')
+  const [menuList, setMenuList] = useState<MenuItem[]>([
+    {
+      title: 'APPS',
+      children: [
+        {
+          to: '/',
+          label: 'Home',
+          icon: <FontAwesomeIcon icon='house' size='lg' />,
+        },
+        {
+          label: 'Todo',
+          icon: <FontAwesomeIcon icon='house' size='lg' />,
+          children: [
+            {
+              to: '/todo',
+              label: 'Dashboard',
+            },
+          ],
+        },
+        {
+          to: '/article',
+          label: 'Article',
+          icon: <FontAwesomeIcon icon='user' size='lg' />,
+        },
+      ],
+    },
+    {
+      title: 'UI COMPONENTS',
+      children: [
+        {
+          label: 'Common',
+          icon: <FontAwesomeIcon icon='house' size='lg' />,
+          children: [
+            {
+              to: '/component/card',
+              label: 'Card',
+            },
+          ],
+        },
+        {
+          to: '/component/button',
+          label: 'Button',
+          icon: <FontAwesomeIcon icon='house' size='lg' />,
+        },
+        {
+          to: '/component/input',
+          label: 'Input',
+          icon: <FontAwesomeIcon icon='user' size='lg' />,
+        },
+      ],
+    },
+  ])
 
-  const { home, home2 } = mainRoutes.children
+  const { home } = mainRoutes.children
 
   useEffect(() => {
     const pathName = location.pathname
@@ -64,66 +116,13 @@ export const MainLayout: React.FC = () => {
     // navigate(item.to)
   }
 
-  const TwIconItem = tw.div`mr-2 h-6 w-6 rounded bg-[#9ca3af]`
-
-  const menuList: MenuItem[] = [
-    {
-      title: 'APPS',
-      children: [
-        {
-          to: '/',
-          label: 'Todo',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
-          children: [
-            {
-              to: '/',
-              label: 'Dashboard',
-              icon: <FontAwesomeIcon icon='house' size='lg' />,
-            },
-          ],
-        },
-        {
-          to: '/',
-          label: 'Article',
-          icon: <FontAwesomeIcon icon='user' size='lg' />,
-        },
-      ],
-    },
-    {
-      title: 'UI COMPONENTS',
-      children: [
-        {
-          label: 'Common',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
-          children: [
-            {
-              to: '/',
-              label: 'Card',
-              icon: <FontAwesomeIcon icon='house' size='lg' />,
-            },
-          ],
-        },
-        {
-          to: '/',
-          label: 'Button',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
-        },
-        {
-          to: '/',
-          label: 'Input',
-          icon: <FontAwesomeIcon icon='user' size='lg' />,
-        },
-      ],
-    },
-  ]
-
   return (
     <Container>
       <Sidebar
         menuList={menuList}
+        setMenuList={setMenuList}
         itemSelected={itemSelected}
         handleToggleSidebar={handleToggleSidebar}
-        handleClickItem={handleClickItem}
       />
 
       <Content>
