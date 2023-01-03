@@ -38,6 +38,13 @@ module.exports = {
         'bright-gray': '#f8f9fa',
         'bright2-gray': '#f6f7fb',
       },
+      width: {
+        'sidebar': '290px',
+      },
+      height: {
+        'sidebar-header': '64px',
+        'sidebar-footer': '64px',
+      },
     },
   },
   plugins: [

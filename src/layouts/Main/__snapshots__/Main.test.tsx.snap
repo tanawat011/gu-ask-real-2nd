@@ -22,28 +22,133 @@ exports[`<MainLayout /> should render to match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c1 {
-  position: relative;
-  height: 100vh;
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
-.c3 {
+.c6 {
   width: 100%;
-  overflow: auto;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(246 247 251 / var(--tw-bg-opacity));
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
-  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  margin-left: 60px;
-  -webkit-transition-duration: 500ms;
-  transition-duration: 500ms;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.c6:focus-within {
+  --tw-border-opacity: 1;
+  border-color: rgb(79 70 229 / var(--tw-border-opacity));
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity));
+}
+
+.c6:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(79 70 229 / var(--tw-border-opacity));
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity));
+}
+
+.c9 {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.c11 {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c8 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.c8:hover {
+  border-radius: 9999px;
+  --tw-bg-opacity: 0.4;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.c10 {
+  margin-left: 0.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c12 {
+  margin-left: 0.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c13 {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.c14 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
 }
 
 .c4 {
@@ -51,7 +156,7 @@ exports[`<MainLayout /> should render to match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-height: 32px;
+  height: 4rem;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -60,13 +165,31 @@ exports[`<MainLayout /> should render to match snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.c5 {
+.c1 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.c3 {
+  width: 100%;
+  overflow: auto;
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+.c15 {
   position: relative;
   height: 100%;
   overflow-x: auto;
@@ -90,11 +213,66 @@ exports[`<MainLayout /> should render to match snapshot 1`] = `
     <div
       class="c2 c3"
     >
-      <nav
-        class="c4"
-      />
       <div
-        class="c0 c5"
+        class="c4"
+      >
+        <div
+          class="c5"
+        >
+          <input
+            class="c6"
+            placeholder="Search..."
+          />
+        </div>
+        <div
+          class="c7"
+        >
+          <div
+            class="c8"
+          >
+            <div
+              class="c9"
+            />
+          </div>
+          <div
+            class="c8"
+          >
+            <div
+              class="c9"
+            />
+          </div>
+          <div
+            class="c8"
+          >
+            <div
+              class="c9"
+            />
+          </div>
+          <div
+            class="c10"
+          >
+            <div
+              class="c11"
+            />
+            <div
+              class="c12"
+            >
+              <span
+                class="c13"
+              >
+                Admin
+              </span>
+              <span
+                class="c14"
+              >
+                Tanawat P
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c0 c15"
       />
     </div>
   </div>
@@ -123,28 +301,133 @@ exports[`<MainLayout /> should render to wrong location path 1`] = `
   flex-direction: row;
 }
 
-.c1 {
-  position: relative;
-  height: 100vh;
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
-.c3 {
+.c6 {
   width: 100%;
-  overflow: auto;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(246 247 251 / var(--tw-bg-opacity));
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
-  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  margin-left: 220px;
-  -webkit-transition-duration: 500ms;
-  transition-duration: 500ms;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.c6:focus-within {
+  --tw-border-opacity: 1;
+  border-color: rgb(79 70 229 / var(--tw-border-opacity));
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity));
+}
+
+.c6:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(79 70 229 / var(--tw-border-opacity));
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity));
+}
+
+.c9 {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.c11 {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c8 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.c8:hover {
+  border-radius: 9999px;
+  --tw-bg-opacity: 0.4;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.c10 {
+  margin-left: 0.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c12 {
+  margin-left: 0.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c13 {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.c14 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
 }
 
 .c4 {
@@ -152,7 +435,7 @@ exports[`<MainLayout /> should render to wrong location path 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-height: 32px;
+  height: 4rem;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -161,13 +444,31 @@ exports[`<MainLayout /> should render to wrong location path 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.c5 {
+.c1 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.c3 {
+  width: 100%;
+  overflow: auto;
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+.c15 {
   position: relative;
   height: 100%;
   overflow-x: auto;
@@ -191,11 +492,66 @@ exports[`<MainLayout /> should render to wrong location path 1`] = `
     <div
       class="c2 c3"
     >
-      <nav
-        class="c4"
-      />
       <div
-        class="c0 c5"
+        class="c4"
+      >
+        <div
+          class="c5"
+        >
+          <input
+            class="c6"
+            placeholder="Search..."
+          />
+        </div>
+        <div
+          class="c7"
+        >
+          <div
+            class="c8"
+          >
+            <div
+              class="c9"
+            />
+          </div>
+          <div
+            class="c8"
+          >
+            <div
+              class="c9"
+            />
+          </div>
+          <div
+            class="c8"
+          >
+            <div
+              class="c9"
+            />
+          </div>
+          <div
+            class="c10"
+          >
+            <div
+              class="c11"
+            />
+            <div
+              class="c12"
+            >
+              <span
+                class="c13"
+              >
+                Admin
+              </span>
+              <span
+                class="c14"
+              >
+                Tanawat P
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c0 c15"
       />
     </div>
   </div>

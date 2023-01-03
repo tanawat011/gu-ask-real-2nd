@@ -19,7 +19,7 @@ type MainLayoutProps = {
 const Container = tw(FlexRow)`relative h-screen w-full text-[#9ca3af] bg-[#111827]`
 const Content = tw(FlexCol)`w-full overflow-auto bg-[#1F2937]`
 // const Navbar = tw.nav`flex items-center justify-between px-8 py-8 max-h-[32px]`
-const ContentContainer = tw(FlexRow)`relative h-full overflow-x-auto`
+const ContentContainer = tw(FlexRow)`relative overflow-x-auto`
 
 export const MainLayout: React.FC = () => {
   // const { t } = useTranslation()
@@ -73,12 +73,19 @@ export const MainLayout: React.FC = () => {
         {
           to: '/',
           label: 'Todo',
-          icon: <TwIconItem />,
+          icon: <FontAwesomeIcon icon='house' size='lg' />,
+          children: [
+            {
+              to: '/',
+              label: 'Dashboard',
+              icon: <FontAwesomeIcon icon='house' size='lg' />,
+            },
+          ],
         },
         {
           to: '/',
           label: 'Article',
-          icon: <TwIconItem />,
+          icon: <FontAwesomeIcon icon='user' size='lg' />,
         },
       ],
     },
@@ -86,19 +93,25 @@ export const MainLayout: React.FC = () => {
       title: 'UI COMPONENTS',
       children: [
         {
-          to: '/',
           label: 'Common',
-          icon: <TwIconItem />,
+          icon: <FontAwesomeIcon icon='house' size='lg' />,
+          children: [
+            {
+              to: '/',
+              label: 'Card',
+              icon: <FontAwesomeIcon icon='house' size='lg' />,
+            },
+          ],
         },
         {
           to: '/',
           label: 'Button',
-          icon: <TwIconItem />,
+          icon: <FontAwesomeIcon icon='house' size='lg' />,
         },
         {
           to: '/',
           label: 'Input',
-          icon: <TwIconItem />,
+          icon: <FontAwesomeIcon icon='user' size='lg' />,
         },
       ],
     },

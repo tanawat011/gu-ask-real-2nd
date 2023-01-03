@@ -3,7 +3,7 @@ import tw from 'twin.macro'
 
 import packages from '../../../package.json'
 
-const TwContainer = tw.div`flex flex-col items-center justify-center border-t py-2 text-sm leading-6 border-[#374151]`
+const TwContainer = tw.div`flex h-sidebar-footer flex-col items-center justify-center border-t py-2 text-sm leading-6 border-[#374151]`
 
 export const SidebarFooter = () => {
   const { t } = useTranslation('sidebar')

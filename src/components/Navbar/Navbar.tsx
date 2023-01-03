@@ -7,7 +7,7 @@ export type NavbarProps = {
   x?: string
 }
 
-const TwNavbar = tw.div`flex h-16 items-center justify-between border-b px-4 border-[#374151]`
+const TwNavbar = tw.div`flex h-sidebar-header items-center justify-between border-b px-4 border-[#374151]`
 
 export const Navbar: React.FC<NavbarProps> = () => {
   return (

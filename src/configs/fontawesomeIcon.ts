@@ -1,6 +1,13 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faHouse } from '@fortawesome/free-solid-svg-icons'
+import {
+  faAngleDown,
+  faBars,
+  faBell,
+  faGear,
+  faHouse,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
 
 export const execFontAwesomeIcon = () => {
-  library.add(faBars, faHouse)
+  library.add(faBars, faHouse, faUser, faAngleDown, faBell, faGear)
 }

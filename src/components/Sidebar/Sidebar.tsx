@@ -24,7 +24,7 @@ export type SidebarProps = {
   handleClickItem: (key: string, item: MenuItem) => void
 }
 
-const TwSidebar = tw.div`border-r min-w-[290px] border-[#374151]`
+const TwSidebar = tw.div`border-r min-w-[theme(width.sidebar)] border-[#374151]`
 
 export const Sidebar: React.FC<SidebarProps> = ({
   menuList,
