@@ -2,15 +2,15 @@ import type { MenuItem } from 'components/Sidebar'
 
 import { useEffect, useState } from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useTranslation } from 'react-i18next'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
-import tw, { styled } from 'twin.macro'
+import tw from 'twin.macro'
 
 import { mainRoutes } from 'Routes'
 import { FlexCol, FlexRow } from 'components/Common'
 import { Navbar } from 'components/Navbar'
 import { Sidebar } from 'components/Sidebar'
+import { useSidebarMenuList } from 'hooks/useSidebarMenuList'
 
 type MainLayoutProps = {
   fullSidebar: boolean
@@ -18,7 +18,6 @@ type MainLayoutProps = {
 
 const Container = tw(FlexRow)`relative h-screen w-full text-[#9ca3af] bg-[#111827]`
 const Content = tw(FlexCol)`w-full overflow-auto bg-[#1F2937]`
-// const Navbar = tw.nav`flex items-center justify-between px-8 py-8 max-h-[32px]`
 const ContentContainer = tw(FlexRow)`relative overflow-x-auto`
 
 export const MainLayout: React.FC = () => {
@@ -28,58 +27,7 @@ export const MainLayout: React.FC = () => {
 
   const [fullSidebar, setFullSidebar] = useState(true)
   const [itemSelected, setItemSelected] = useState('')
-  const [menuList, setMenuList] = useState<MenuItem[]>([
-    {
-      title: 'APPS',
-      children: [
-        {
-          to: '/',
-          label: 'Home',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
-        },
-        {
-          label: 'Todo',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
-          children: [
-            {
-              to: '/todo',
-              label: 'Dashboard',
-            },
-          ],
-        },
-        {
-          to: '/article',
-          label: 'Article',
-          icon: <FontAwesomeIcon icon='user' size='lg' />,
-        },
-      ],
-    },
-    {
-      title: 'UI COMPONENTS',
-      children: [
-        {
-          label: 'Common',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
-          children: [
-            {
-              to: '/component/card',
-              label: 'Card',
-            },
-          ],
-        },
-        {
-          to: '/component/button',
-          label: 'Button',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
-        },
-        {
-          to: '/component/input',
-          label: 'Input',
-          icon: <FontAwesomeIcon icon='user' size='lg' />,
-        },
-      ],
-    },
-  ])
+  const [menuList, setMenuList] = useSidebarMenuList()
 
   const { home } = mainRoutes.children
 

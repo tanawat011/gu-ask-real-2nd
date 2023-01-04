@@ -34,17 +34,17 @@ export const mainRoutes: MainRoutes = {
       children: {
         card: {
           path: 'card',
-          fullPath: '/card',
+          fullPath: '/component/card',
           element: <div>card</div>,
         },
         button: {
           path: 'button',
-          fullPath: '/button',
+          fullPath: '/component/button',
           element: <div>button</div>,
         },
         input: {
           path: 'input',
-          fullPath: '/input',
+          fullPath: '/component/input',
           element: <div>input</div>,
         },
       },

@@ -39,13 +39,9 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMen
 
     if (parentItem) {
       setMenuList(selectChildItem(menuList, key, parentItem))
-
-      navigate(menuItem.to || '/')
-
-      return
+    } else {
+      setMenuList(selectItem(menuList, key))
     }
-
-    setMenuList(selectItem(menuList, key))
 
     navigate(menuItem.to || '/')
   }
