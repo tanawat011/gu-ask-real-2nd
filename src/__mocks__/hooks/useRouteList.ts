@@ -1,4 +1,3 @@
-
 export const authRoutes = {
   fullPath: '/auth',
   children: {
@@ -8,10 +7,34 @@ export const authRoutes = {
   },
 }
 
+export const componentRoutes = {
+  children: {
+    card: {
+      fullPath: '/',
+    },
+    button: {
+      fullPath: '/',
+    },
+    input: {
+      fullPath: '/',
+    },
+  },
+}
+
 export const mainRoutes = {
   children: {
     home: {
       fullPath: '/',
+    },
+    todo: {
+      fullPath: '/',
+    },
+    article: {
+      fullPath: '/',
+    },
+    component: {
+      fullPath: '/',
+      ...componentRoutes,
     },
   },
 }
@@ -44,6 +67,13 @@ export const errorRoutes = {
 
 export const allRoutes = {
   auth: authRoutes,
-  backoffice: mainRoutes,
+  mainRoutes: mainRoutes,
   error: errorRoutes,
 }
+
+export const useRouteList = () => ({
+  allRoutes,
+  authRoutes,
+  mainRoutes,
+  errorRoutes,
+})

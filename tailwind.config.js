@@ -40,6 +40,7 @@ module.exports = {
       },
       width: {
         'sidebar': '290px',
+        'mini-sidebar': '80px',
       },
       height: {
         'sidebar-header': '64px',

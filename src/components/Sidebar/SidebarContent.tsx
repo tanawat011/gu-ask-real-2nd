@@ -13,7 +13,7 @@ import { SidebarItemChild } from './SidebarItemChild'
 export type SidebarContentProps = {
   menuList: MenuItem[]
   setMenuList: (menuList: MenuItem[]) => void
-  itemSelected: string
+  fullSidebar: boolean
 }
 
 const TwHeightContainer = tw.div`h-[calc(100% - theme(height.sidebar-header) - theme(height.sidebar-footer) - 1px)]`
@@ -23,7 +23,11 @@ const TwContainer = tw(
 const TwContentWrap = tw.div`flex flex-col`
 const TwContentTitle = tw.div`mt-4 mb-2 px-3`
 
-export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMenuList }) => {
+export const SidebarContent: React.FC<SidebarContentProps> = ({
+  menuList,
+  setMenuList,
+  fullSidebar,
+}) => {
   const navigate = useNavigate()
 
   const handleClickItem = (
@@ -50,7 +54,8 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMen
     <TwContainer>
       {menuList.map((menu) => (
         <TwContentWrap key={`sidebar-menu-${menu.title.replaceAll(' ', '-')}`}>
-          <TwContentTitle>{menu.title}</TwContentTitle>
+          {fullSidebar && <TwContentTitle>{menu.title}</TwContentTitle>}
+
           <ul>
             {menu.children.map((item, i) => (
               <Fragment key={`sidebar-menu-item-${item.label.replaceAll(' ', '-')}-${i}`}>
@@ -60,6 +65,7 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMen
                   hasChildren={!!item.children}
                   onClick={() => handleClickItem(item.label, item)}
                   selected={item.selected}
+                  fullSidebar={fullSidebar}
                 />
 
                 {item.expanded &&

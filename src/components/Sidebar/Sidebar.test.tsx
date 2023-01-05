@@ -8,7 +8,6 @@ describe('<Sidebar />', () => {
   test('should render without crashing and match snapshot', () => {
     expect.hasAssertions()
 
-    const handleToggleSidebar = jest.fn()
     const menuList = [
       {
         title: 'APPS',
@@ -28,13 +27,7 @@ describe('<Sidebar />', () => {
     ]
 
     const { asFragment } = renderWithProviders(
-      <Sidebar
-        menuList={menuList}
-        setMenuList={jest.fn()}
-        itemSelected=''
-        fullSidebar
-        handleToggleSidebar={handleToggleSidebar}
-      />,
+      <Sidebar menuList={menuList} setMenuList={jest.fn()} fullSidebar />,
     )
 
     const menuItemButton1 = screen.getByText(/menu-2/i)
@@ -52,7 +45,6 @@ describe('<Sidebar />', () => {
   test('should render with mini sidebar', () => {
     expect.hasAssertions()
 
-    const handleToggleSidebar = jest.fn()
     const menuList = [
       {
         title: 'APPS',
@@ -72,13 +64,7 @@ describe('<Sidebar />', () => {
     ]
 
     const { asFragment } = renderWithProviders(
-      <Sidebar
-        menuList={menuList}
-        setMenuList={jest.fn()}
-        itemSelected='menu-2'
-        fullSidebar={false}
-        handleToggleSidebar={handleToggleSidebar}
-      />,
+      <Sidebar menuList={menuList} setMenuList={jest.fn()} fullSidebar={false} />,
     )
 
     expect(asFragment()).toMatchSnapshot()

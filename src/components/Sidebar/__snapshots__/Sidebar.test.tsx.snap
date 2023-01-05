@@ -2,15 +2,7 @@
 
 exports[`<Sidebar /> should render with mini sidebar 1`] = `
 <DocumentFragment>
-  .c12 {
-  height: 1rem;
-  width: 1rem;
-  border-radius: 0.25rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
-
-.c10 {
+  .c10 {
   margin-bottom: 0.5rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -48,8 +40,29 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   align-items: center;
 }
 
-.c7 {
+.c12 {
+  margin-right: 0.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1.5rem;
+  width: 1.5rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c6 {
   height: calc(100% - 64px - 64px - 1px);
+}
+
+.c7 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -85,6 +98,7 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  height: 64px;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
@@ -105,20 +119,12 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   line-height: 1.5rem;
 }
 
-.c6 {
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 0.25rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 4rem;
+  height: 64px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -136,7 +142,7 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 4rem;
+  height: 100%;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -163,11 +169,14 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
 
 .c5 {
   cursor: pointer;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .c5:hover {
-  border-radius: 0.25rem;
+  border-radius: 9999px;
   --tw-bg-opacity: 0.4;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
@@ -177,6 +186,7 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   border-right-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
+  min-width: 290px;
 }
 
 <div
@@ -200,13 +210,25 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
       <div
         class="c5"
       >
-        <div
-          class="c6"
-        />
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-bars fa-lg "
+          data-icon="bars"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            fill="currentColor"
+          />
+        </svg>
       </div>
     </div>
     <div
-      class="c7"
+      class="c6 c7"
     >
       <div
         class="c8"
@@ -223,16 +245,19 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
             <div
               class="c11"
             >
-              <div>
-                xxx
+              <div
+                class="c12"
+              >
+                <div>
+                  xxx
+                </div>
               </div>
-              <span>
+              <span
+                class="mt-0.5"
+              >
                 Todo
               </span>
             </div>
-            <div
-              class="c12"
-            />
           </div>
           <div
             class="c10"
@@ -240,16 +265,19 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
             <div
               class="c11"
             >
-              <div>
-                xxx
+              <div
+                class="c12"
+              >
+                <div>
+                  xxx
+                </div>
               </div>
-              <span>
+              <span
+                class="mt-0.5"
+              >
                 Article
               </span>
             </div>
-            <div
-              class="c12"
-            />
           </div>
         </ul>
       </div>

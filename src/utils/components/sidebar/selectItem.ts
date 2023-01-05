@@ -9,9 +9,6 @@ export const selectItem = (menuList: MenuItem[], key: string) => {
           return {
             ...itemLv2,
             selected: true,
-            children: itemLv2.children?.map((itemLv3) => {
-              return { ...itemLv3, selected: false }
-            }),
           }
         }
 

@@ -3,20 +3,25 @@ import tw, { styled } from 'twin.macro'
 
 export type SidebarItemProps = {
   icon?: JSX.Element
-  label: string
+  label?: string
   hasChildren?: boolean
   onClick?: () => void
   selected?: boolean
+  fullSidebar: boolean
 }
 
-type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected'>
+type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected' | 'fullSidebar'>
 
-const TwContainer = styled.div(({ selected }: SidebarItemContainerProps) => [
-  tw`mb-2 flex h-10 cursor-pointer items-center justify-between rounded-lg px-3 hover:(text-white bg-[hsla(0,0%,100%,.1)])`,
+const TwContainer = styled.div(({ selected, fullSidebar }: SidebarItemContainerProps) => [
+  tw`mb-2 flex h-10 cursor-pointer items-center rounded-lg hover:(text-white bg-[hsla(0,0%,100%,.1)])`,
   selected && tw`text-white bg-[hsla(0,0%,100%,.1)]`,
+  fullSidebar ? tw`justify-between px-3` : tw`justify-center px-0`,
 ])
 const TwItem = tw.div`flex items-center`
-const TwWrapIcon = tw.div`mr-2 flex h-6 w-6 items-center justify-center`
+const TwWrapIcon = styled.div(({ fullSidebar }: SidebarItemContainerProps) => [
+  tw`flex h-6 w-6 items-center justify-center`,
+  fullSidebar && tw`mr-2`,
+])
 
 export const SidebarItem: React.FC<SidebarItemProps> = ({
   icon,
@@ -24,15 +29,17 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
   hasChildren,
   onClick,
   selected,
+  fullSidebar,
 }) => {
   return (
-    <TwContainer onClick={onClick} selected={selected}>
+    <TwContainer onClick={onClick} selected={selected} fullSidebar={fullSidebar}>
       <TwItem>
-        <TwWrapIcon>{icon}</TwWrapIcon>
-        <span className='mt-0.5'>{label}</span>
+        <TwWrapIcon fullSidebar={fullSidebar}>{icon}</TwWrapIcon>
+
+        {fullSidebar && <span className='mt-0.5'>{label}</span>}
       </TwItem>
 
-      {hasChildren && <FontAwesomeIcon icon='angle-down' size='lg' />}
+      {fullSidebar && hasChildren && <FontAwesomeIcon icon='angle-down' size='lg' />}
     </TwContainer>
   )
 }

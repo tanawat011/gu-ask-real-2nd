@@ -5,9 +5,11 @@ import { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { mainRoutes } from 'Routes'
+import { useRouteList } from 'hooks/useRouteList'
 
 export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuItem[]>>] => {
+  const { mainRoutes } = useRouteList()
+
   const { home, todo, article, component } = mainRoutes.children
   const { button, card, input } = component.children
 

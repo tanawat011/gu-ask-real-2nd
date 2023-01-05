@@ -1,5 +1,3 @@
-import type { SidebarProps } from 'components/Sidebar'
-
 import { fireEvent, screen } from '@testing-library/react'
 
 import { renderWithProviders } from 'utils/jest'
@@ -7,12 +5,10 @@ import { renderWithProviders } from 'utils/jest'
 import { MainLayout } from './Main'
 
 jest.mock('components/Sidebar', () => ({
-  Sidebar: ({ handleToggleSidebar }: SidebarProps) => {
+  Sidebar: () => {
     return (
       <div>
-        <button data-testid='btn1' onClick={() => handleToggleSidebar()}>
-          Toggle Sidebar
-        </button>
+        <button data-testid='btn1'>Toggle Sidebar</button>
         <button data-testid='btn2'>Menu Item</button>
       </div>
     )

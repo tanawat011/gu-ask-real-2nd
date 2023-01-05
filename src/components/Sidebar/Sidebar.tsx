@@ -1,4 +1,4 @@
-import tw from 'twin.macro'
+import tw, { styled } from 'twin.macro'
 
 import { SidebarContent } from './SidebarContent'
 import { SidebarFooter } from './SidebarFooter'
@@ -21,27 +21,24 @@ export type MenuItem = {
 export type SidebarProps = {
   menuList: MenuItem[]
   setMenuList: (menuList: MenuItem[]) => void
-  itemSelected: string
-  fullSidebar?: boolean
-  handleToggleSidebar: () => void
+  fullSidebar: boolean
 }
 
-const TwSidebar = tw.div`border-r min-w-[theme(width.sidebar)] border-[#374151]`
+export type TwSidebarProps = Pick<SidebarProps, 'fullSidebar'>
 
-export const Sidebar: React.FC<SidebarProps> = ({
-  menuList,
-  setMenuList,
-  itemSelected,
-  fullSidebar,
-  handleToggleSidebar,
-}) => {
+const TwSidebar = styled.div(({ fullSidebar }: TwSidebarProps) => [
+  tw`border-r min-w-[theme(width.sidebar)] border-[#374151]`,
+  fullSidebar ? tw`min-w-[theme(width.sidebar)]` : tw`min-w-[theme(width.mini-sidebar)]`,
+])
+
+export const Sidebar: React.FC<SidebarProps> = ({ menuList, setMenuList, fullSidebar }) => {
   return (
-    <TwSidebar>
-      <SidebarHeader fullSidebar={fullSidebar} handleToggleSidebar={handleToggleSidebar} />
+    <TwSidebar fullSidebar={fullSidebar}>
+      <SidebarHeader fullSidebar={fullSidebar} />
 
-      <SidebarContent menuList={menuList} setMenuList={setMenuList} itemSelected={itemSelected} />
+      <SidebarContent fullSidebar={fullSidebar} menuList={menuList} setMenuList={setMenuList} />
 
-      <SidebarFooter />
+      <SidebarFooter fullSidebar={fullSidebar} />
     </TwSidebar>
   )
 }
