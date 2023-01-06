@@ -8,8 +8,17 @@ jest.mock('components/Sidebar', () => ({
   Sidebar: () => {
     return (
       <div>
-        <button data-testid='btn1'>Toggle Sidebar</button>
         <button data-testid='btn2'>Menu Item</button>
+      </div>
+    )
+  },
+}))
+
+jest.mock('components/Navbar', () => ({
+  Sidebar: () => {
+    return (
+      <div>
+        <button data-testid='btn1'>Toggle Sidebar</button>
       </div>
     )
   },

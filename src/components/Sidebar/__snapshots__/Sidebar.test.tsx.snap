@@ -2,7 +2,7 @@
 
 exports[`<Sidebar /> should render with mini sidebar 1`] = `
 <DocumentFragment>
-  .c10 {
+  .c7 {
   margin-bottom: 0.5rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -14,22 +14,22 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   border-radius: 0.5rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
-.c10:hover {
+.c7:hover {
   background-color: hsla(0,0%,100%,.1);
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.c11 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -40,8 +40,7 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   align-items: center;
 }
 
-.c12 {
-  margin-right: 0.5rem;
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -58,11 +57,11 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   justify-content: center;
 }
 
-.c6 {
+.c4 {
   height: calc(100% - 64px - 64px - 1px);
 }
 
-.c7 {
+.c5 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -76,7 +75,7 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   overflow-y: overlay;
 }
 
-.c8 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -86,14 +85,7 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   flex-direction: column;
 }
 
-.c9 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.c13 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -157,36 +149,18 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
-.c4 {
-  margin-left: 0.5rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.c5 {
-  cursor: pointer;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.c5:hover {
-  border-radius: 9999px;
-  --tw-bg-opacity: 0.4;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
 .c0 {
   min-width: 290px;
   border-right-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
-  min-width: 290px;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  min-width: 80px;
 }
 
 <div
@@ -201,93 +175,53 @@ exports[`<Sidebar /> should render with mini sidebar 1`] = `
         <div
           class="c3"
         />
-        <div
-          class="c4"
-        >
-          header.title
-        </div>
-      </div>
-      <div
-        class="c5"
-      >
-        <svg
-          aria-hidden="true"
-          class="svg-inline--fa fa-bars fa-lg "
-          data-icon="bars"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          viewBox="0 0 448 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
-            fill="currentColor"
-          />
-        </svg>
       </div>
     </div>
     <div
-      class="c6 c7"
+      class="c4 c5"
     >
       <div
-        class="c8"
+        class="c6"
       >
         <div
-          class="c9"
+          class="relative"
         >
-          APPS
-        </div>
-        <ul>
           <div
-            class="c10"
+            class="c7"
           >
             <div
-              class="c11"
+              class="c8"
             >
               <div
-                class="c12"
+                class="c9"
               >
                 <div>
                   xxx
                 </div>
               </div>
-              <span
-                class="mt-0.5"
-              >
-                Todo
-              </span>
             </div>
           </div>
           <div
-            class="c10"
+            class="c7"
           >
             <div
-              class="c11"
+              class="c8"
             >
               <div
-                class="c12"
+                class="c9"
               >
                 <div>
                   xxx
                 </div>
               </div>
-              <span
-                class="mt-0.5"
-              >
-                Article
-              </span>
             </div>
           </div>
-        </ul>
+        </div>
       </div>
     </div>
     <div
-      class="c13"
+      class="c10"
     >
-      <span>
-        footer.powered-by
-      </span>
       <span>
         0.1.0
       </span>

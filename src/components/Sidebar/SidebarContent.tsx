@@ -1,10 +1,13 @@
 import type { MenuItem, MenuItemChildren } from './Sidebar'
+import type { SidebarState } from 'recoils/atoms'
 
 import { Fragment } from 'react'
 
 import { useNavigate } from 'react-router-dom'
-import tw from 'twin.macro'
+import { useRecoilValue } from 'recoil'
+import tw, { styled } from 'twin.macro'
 
+import { sidebarAtom } from 'recoils/atoms'
 import { expandItem, selectChildItem, selectItem } from 'utils/components/sidebar'
 
 import { SidebarItem } from './SidebarItem'
@@ -13,21 +16,19 @@ import { SidebarItemChild } from './SidebarItemChild'
 export type SidebarContentProps = {
   menuList: MenuItem[]
   setMenuList: (menuList: MenuItem[]) => void
-  fullSidebar: boolean
 }
 
 const TwHeightContainer = tw.div`h-[calc(100% - theme(height.sidebar-header) - theme(height.sidebar-footer) - 1px)]`
-const TwContainer = tw(
-  TwHeightContainer,
-)`select-none px-4 pb-4 font-semibold text-sm [overflow-y: overlay]`
+const TwContainer = styled(TwHeightContainer)(({ fullSidebar }: SidebarState) => [
+  tw`select-none px-4 pb-4 font-semibold text-sm`,
+  fullSidebar && tw`[overflow-y: overlay]`,
+])
 const TwContentWrap = tw.div`flex flex-col`
 const TwContentTitle = tw.div`mt-4 mb-2 px-3`
 
-export const SidebarContent: React.FC<SidebarContentProps> = ({
-  menuList,
-  setMenuList,
-  fullSidebar,
-}) => {
+export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMenuList }) => {
+  const { fullSidebar } = useRecoilValue(sidebarAtom)
+
   const navigate = useNavigate()
 
   const handleClickItem = (
@@ -51,12 +52,12 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({
   }
 
   return (
-    <TwContainer>
+    <TwContainer fullSidebar={fullSidebar}>
       {menuList.map((menu) => (
         <TwContentWrap key={`sidebar-menu-${menu.title.replaceAll(' ', '-')}`}>
           {fullSidebar && <TwContentTitle>{menu.title}</TwContentTitle>}
 
-          <ul>
+          <div className='relative'>
             {menu.children.map((item, i) => (
               <Fragment key={`sidebar-menu-item-${item.label.replaceAll(' ', '-')}-${i}`}>
                 <SidebarItem
@@ -68,7 +69,10 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({
                   fullSidebar={fullSidebar}
                 />
 
-                {item.expanded &&
+                {!fullSidebar && item.expanded && <div className='absolute left-14'>xxx</div>}
+
+                {fullSidebar &&
+                  item.expanded &&
                   item.children &&
                   item.children.map((child, j) => (
                     <SidebarItemChild
@@ -80,7 +84,7 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({
                   ))}
               </Fragment>
             ))}
-          </ul>
+          </div>
         </TwContentWrap>
       ))}
     </TwContainer>

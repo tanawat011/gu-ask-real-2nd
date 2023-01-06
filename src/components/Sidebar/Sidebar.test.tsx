@@ -27,7 +27,7 @@ describe('<Sidebar />', () => {
     ]
 
     const { asFragment } = renderWithProviders(
-      <Sidebar menuList={menuList} setMenuList={jest.fn()} fullSidebar />,
+      <Sidebar menuList={menuList} setMenuList={jest.fn()} />,
     )
 
     const menuItemButton1 = screen.getByText(/menu-2/i)
@@ -64,7 +64,7 @@ describe('<Sidebar />', () => {
     ]
 
     const { asFragment } = renderWithProviders(
-      <Sidebar menuList={menuList} setMenuList={jest.fn()} fullSidebar={false} />,
+      <Sidebar menuList={menuList} setMenuList={jest.fn()} />,
     )
 
     expect(asFragment()).toMatchSnapshot()
