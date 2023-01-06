@@ -7,6 +7,6 @@ export type SidebarState = {
 export const sidebarAtom = atom<SidebarState>({
   key: 'sidebarAtom',
   default: {
-    fullSidebar: false,
+    fullSidebar: true,
   },
 })

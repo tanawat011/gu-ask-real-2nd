@@ -1,5 +1,10 @@
+import type { SidebarState } from 'recoils/atoms'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRecoilValue } from 'recoil'
 import tw, { styled } from 'twin.macro'
+
+import { sidebarAtom } from 'recoils/atoms'
 
 export type SidebarItemProps = {
   icon?: JSX.Element
@@ -7,10 +12,10 @@ export type SidebarItemProps = {
   hasChildren?: boolean
   onClick?: () => void
   selected?: boolean
-  fullSidebar: boolean
+  expanded?: boolean
 }
 
-type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected' | 'fullSidebar'>
+type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected'> & SidebarState
 
 const TwContainer = styled.div(({ selected, fullSidebar }: SidebarItemContainerProps) => [
   tw`mb-2 flex h-10 cursor-pointer items-center rounded-lg hover:(text-white bg-[hsla(0,0%,100%,.1)])`,
@@ -22,6 +27,10 @@ const TwWrapIcon = styled.div(({ fullSidebar }: SidebarItemContainerProps) => [
   tw`flex h-6 w-6 items-center justify-center`,
   fullSidebar && tw`mr-2`,
 ])
+const TwWrapAngleIcon = styled.div(({ expanded }: Pick<SidebarItemProps, 'expanded'>) => [
+  tw`transition-all`,
+  expanded && tw`rotate-180`,
+])
 
 export const SidebarItem: React.FC<SidebarItemProps> = ({
   icon,
@@ -29,8 +38,10 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
   hasChildren,
   onClick,
   selected,
-  fullSidebar,
+  expanded,
 }) => {
+  const { fullSidebar } = useRecoilValue(sidebarAtom)
+
   return (
     <TwContainer onClick={onClick} selected={selected} fullSidebar={fullSidebar}>
       <TwItem>
@@ -39,7 +50,11 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
         {fullSidebar && <span className='mt-0.5'>{label}</span>}
       </TwItem>
 
-      {fullSidebar && hasChildren && <FontAwesomeIcon icon='angle-down' size='lg' />}
+      {fullSidebar && hasChildren && (
+        <TwWrapAngleIcon expanded={expanded}>
+          <FontAwesomeIcon icon='angle-down' size='lg' />
+        </TwWrapAngleIcon>
+      )}
     </TwContainer>
   )
 }
