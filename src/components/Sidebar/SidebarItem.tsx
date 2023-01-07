@@ -11,6 +11,8 @@ export type SidebarItemProps = {
   label?: string
   hasChildren?: boolean
   onClick?: () => void
+  onHover?: () => void
+  onLeave?: () => void
   selected?: boolean
   expanded?: boolean
 }
@@ -37,13 +39,21 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
   label,
   hasChildren,
   onClick,
+  onHover,
+  onLeave,
   selected,
   expanded,
 }) => {
   const { fullSidebar } = useRecoilValue(sidebarAtom)
 
   return (
-    <TwContainer onClick={onClick} selected={selected} fullSidebar={fullSidebar}>
+    <TwContainer
+      onClick={onClick}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+      selected={selected}
+      fullSidebar={fullSidebar}
+    >
       <TwItem>
         <TwWrapIcon fullSidebar={fullSidebar}>{icon}</TwWrapIcon>
 

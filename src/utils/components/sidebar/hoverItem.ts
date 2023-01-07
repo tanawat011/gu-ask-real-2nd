@@ -1,6 +1,6 @@
 import type { MenuItem } from 'components/Sidebar'
 
-export const expandItem = (menuList: MenuItem[], key: string) => {
+export const hoverItem = (menuList: MenuItem[], key: string, hover?: boolean) => {
   return menuList.map((itemLv1) => {
     return {
       ...itemLv1,
@@ -8,7 +8,7 @@ export const expandItem = (menuList: MenuItem[], key: string) => {
         if (itemLv2.label === key) {
           return {
             ...itemLv2,
-            expanded: !itemLv2.expanded,
+            hover: (typeof hover === 'boolean' && hover) || !itemLv2.hover,
           }
         }
 

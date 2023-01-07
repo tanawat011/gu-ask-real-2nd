@@ -18,7 +18,7 @@ const Container = styled(FlexRow)(({ fullSidebar }: SidebarState) => [
   fullSidebar ? tw`h-screen` : tw`min-h-screen`,
 ])
 const Content = tw(FlexCol)`w-full bg-[#1F2937]`
-const ContentContainer = tw(FlexRow)`relative overflow-x-auto`
+const ContentContainer = tw(FlexRow)`relative h-full overflow-x-auto`
 
 export const MainLayout: React.FC = () => {
   const location = useLocation()

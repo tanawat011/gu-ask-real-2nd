@@ -1,7 +1,7 @@
 import type { SidebarState } from 'recoils/atoms'
 
 import { useRecoilValue } from 'recoil'
-import tw, { styled } from 'twin.macro'
+import tw, { styled, css } from 'twin.macro'
 
 import { sidebarAtom } from 'recoils/atoms'
 
@@ -16,6 +16,7 @@ export type MenuItemChildren = {
   children?: Pick<MenuItemChildren, 'to' | 'label' | 'selected'>[]
   expanded?: boolean
   selected?: boolean
+  hover?: boolean
 }
 
 export type MenuItem = {

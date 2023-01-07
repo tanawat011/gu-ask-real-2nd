@@ -30,26 +30,6 @@ export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuI
               to: todo.fullPath,
               label: 'Dashboard',
             },
-            {
-              to: todo.fullPath,
-              label: 'Dashboard 2',
-            },
-            {
-              to: todo.fullPath,
-              label: 'Dashboard',
-            },
-            {
-              to: todo.fullPath,
-              label: 'Dashboard 2',
-            },
-            {
-              to: todo.fullPath,
-              label: 'Dashboard',
-            },
-            {
-              to: todo.fullPath,
-              label: 'Dashboard 2',
-            },
           ],
         },
         {

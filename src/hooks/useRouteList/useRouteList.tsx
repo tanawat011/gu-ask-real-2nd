@@ -23,7 +23,18 @@ export const mainRoutes: MainRoutes = {
     article: {
       path: 'article',
       fullPath: '/article',
-      element: <div>article</div>,
+      element: (
+        <div>
+          <div className='popover'>
+            <a href='#'>
+              <h2 className='popover__title'>Hover:me</h2>
+            </a>
+            <div className='popover-content'>
+              <p className='popover__message'>Joseph Francis </p>
+            </div>
+          </div>
+        </div>
+      ),
     },
     component: {
       path: 'component',
