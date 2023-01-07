@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import tw, { css, styled } from 'twin.macro'
 
+import { IconCaretLeft } from 'components/Icons'
+import { Popover } from 'components/Popover'
 import { sidebarAtom } from 'recoils/atoms'
-import { expandItem, selectChildItem, selectItem, hoverItem } from 'utils/components/sidebar'
+import { expandItem, selectChildItem, selectItem } from 'utils/components/sidebar'
 
 import { SidebarItem } from './SidebarItem'
 import { SidebarItemChild } from './SidebarItemChild'
@@ -36,14 +38,10 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMen
 
   const navigate = useNavigate()
 
-  const handleClickItem = (
-    key: string,
-    menuItem: MenuItemChildren,
-    parentItem?: MenuItemChildren,
-  ) => {
+  const handleClickItem = (menuItem: MenuItemChildren, key = '', parentItem?: MenuItemChildren) => {
     if (fullSidebar) {
       if (menuItem.children) {
-        setMenuList(expandItem(menuList, key))
+        setMenuList(expandItem(menuList, key).newMenuList)
 
         return
       }
@@ -64,12 +62,6 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMen
     }
   }
 
-  const handleHoverItem = (key: string, menuItem: MenuItemChildren, isHover: boolean) => {
-    if (!fullSidebar && menuItem.children) {
-      setMenuList(hoverItem(menuList, key, isHover))
-    }
-  }
-
   return (
     <TwContainer fullSidebar={fullSidebar}>
       {menuList.map((menu) => (
@@ -79,24 +71,42 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMen
           {menu.children.map((item, i) => (
             <div
               key={`sidebar-menu-item-${item.label.replaceAll(' ', '-')}-${i}`}
-              className='sidebar-popover'
+              className='popover inline-block relative'
             >
               <SidebarItem
                 icon={item.icon}
                 label={item.label}
                 hasChildren={!!item.children}
-                onClick={() => handleClickItem(item.label, item)}
-                onHover={() => handleHoverItem(item.label, item, true)}
-                onLeave={() => handleHoverItem(item.label, item, false)}
+                onClick={() => handleClickItem(item, item.to || item.label)}
                 selected={item.selected}
                 expanded={item.expanded}
               />
 
-              {!fullSidebar && (
-                <div className='sidebar-popover-content'>
-                  {item.children ? <div>xxx</div> : item.label}
-                </div>
-              )}
+              {!fullSidebar &&
+                (item.children ? (
+                  <Popover>
+                    <div className='relative'>
+                      <IconCaretLeft className='absolute text-[#374151] left-1 top-1/2 -translate-y-1/2' />
+
+                      <div className='bg-[#374151] ml-2 text-white rounded-lg shadow-lg mb-2'>
+                        {item.children.map((child, j) => (
+                          <SidebarItemChild
+                            key={`sidebar-menu-item-child-${child.label.replaceAll(
+                              ' ',
+                              '-',
+                            )}-${i}-${j}`}
+                            label={child.label}
+                            onClick={() => handleClickItem(child, child.to, item)}
+                            selected={child.selected}
+                            fullSidebar={fullSidebar}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </Popover>
+                ) : (
+                  <Popover text={item.label} />
+                ))}
 
               {fullSidebar && item.children && (
                 <TwWrapChildItem expanded={item.expanded} totalItem={item.children.length}>
@@ -104,8 +114,9 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMen
                     <SidebarItemChild
                       key={`sidebar-menu-item-child-${child.label.replaceAll(' ', '-')}-${i}-${j}`}
                       label={child.label}
-                      onClick={() => handleClickItem(child.label, child, item)}
+                      onClick={() => handleClickItem(child, child.to, item)}
                       selected={child.selected}
+                      fullSidebar={fullSidebar}
                     />
                   ))}
                 </TwWrapChildItem>

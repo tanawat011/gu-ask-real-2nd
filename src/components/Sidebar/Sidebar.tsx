@@ -1,7 +1,7 @@
 import type { SidebarState } from 'recoils/atoms'
 
 import { useRecoilValue } from 'recoil'
-import tw, { styled, css } from 'twin.macro'
+import tw, { styled } from 'twin.macro'
 
 import { sidebarAtom } from 'recoils/atoms'
 

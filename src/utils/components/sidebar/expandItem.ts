@@ -1,11 +1,15 @@
-import type { MenuItem } from 'components/Sidebar'
+import type { MenuItem, MenuItemChildren } from 'components/Sidebar'
 
 export const expandItem = (menuList: MenuItem[], key: string) => {
-  return menuList.map((itemLv1) => {
+  let itemExpanded: MenuItemChildren | undefined
+
+  const newMenuList = menuList.map((itemLv1) => {
     return {
       ...itemLv1,
       children: itemLv1.children.map((itemLv2) => {
-        if (itemLv2.label === key) {
+        if (itemLv2.to === key || itemLv2.label === key) {
+          itemExpanded = itemLv2
+
           return {
             ...itemLv2,
             expanded: !itemLv2.expanded,
@@ -16,4 +20,9 @@ export const expandItem = (menuList: MenuItem[], key: string) => {
       }),
     }
   })
+
+  return {
+    newMenuList,
+    itemExpanded,
+  }
 }

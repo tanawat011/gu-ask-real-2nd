@@ -14,7 +14,7 @@ export const selectChildItem = (
             ...itemLv2,
             selected: false,
             children: itemLv2.children?.map((itemLv3) => {
-              if (itemLv3.label === key) {
+              if (itemLv3.to === key) {
                 return { ...itemLv3, selected: true }
               }
 

@@ -5,7 +5,7 @@ export const selectItem = (menuList: MenuItem[], key: string) => {
     return {
       ...itemLv1,
       children: itemLv1.children.map((itemLv2) => {
-        if (itemLv2.label === key) {
+        if (itemLv2.to === key) {
           return {
             ...itemLv2,
             selected: true,
