@@ -34,21 +34,21 @@ A Frontend Backoffice Project.
 ## Code Features
 
 - [x] [Typescript](https://www.typescriptlang.org/docs/) support
-- [ ] [SCSS](https://sass-lang.com/documentation/) support
-- [ ] [Tailwind CSS](https://tailwindcss.com/docs/installation) (with Tailwind preset)
-- [ ] [Styled Components](https://styled-components.com/docs) (with Styled Components preset)
-- [ ] [Twin.macro](https://github.com/ben-rogerson/twin.macro) (with Styled Component for Tailwind)
-- [ ] [Jest](https://jestjs.io/docs/getting-started) (for unit testing)
-- [ ] [ESLint](https://eslint.org/docs/latest/) (for linting)
-- [ ] [Prettier](https://prettier.io/docs/en/index.html) (for formatting)
-- [ ] [i18n](https://www.i18next.com/) (for internationalization)
-- [ ] [Husky](https://typicode.github.io/husky/#/) (for linting)
+- [x] [SCSS](https://sass-lang.com/documentation/) support
+- [x] [Tailwind CSS](https://tailwindcss.com/docs/installation) (with Tailwind preset)
+- [x] [Styled Components](https://styled-components.com/docs) (with Styled Components preset)
+- [x] [Twin.macro](https://github.com/ben-rogerson/twin.macro) (with Styled Component for Tailwind)
+- [x] [Jest](https://jestjs.io/docs/getting-started) (for unit testing)
+- [x] [ESLint](https://eslint.org/docs/latest/) (for linting)
+- [x] [Prettier](https://prettier.io/docs/en/index.html) (for formatting)
+- [x] [i18n](https://www.i18next.com/) (for internationalization)
+- [x] [Husky](https://typicode.github.io/husky/#/) (for linting)
 - [ ] [React Hook Form](https://react-hook-form.com/get-started/) (for form validation)
 - [ ] [Yup](https://www.npmjs.com/package/yup) (for schema form validation)
-- [ ] [React Router Dom V6](https://reactrouter.com/en/main/start/overview) (for routing)
+- [x] [React Router Dom V6](https://reactrouter.com/en/main/start/overview) (for routing)
 - [ ] [Axios](https://github.com/axios/axios) (for HTTP requests)
 - [ ] [Sentry](https://docs.sentry.io/platforms/javascript/guides/react/) (for error reporting)
-- [ ] [Recoil](https://recoiljs.org/docs/introduction/getting-started) (for state management)
+- [x] [Recoil](https://recoiljs.org/docs/introduction/getting-started) (for state management)
 - [ ] [Tanstack Query](https://react-query.tanstack.com/) (for data fetching)
 - [ ] [Date fns](https://date-fns.org/) (for date formatting)
 
