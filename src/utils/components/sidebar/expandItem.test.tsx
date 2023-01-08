@@ -29,9 +29,9 @@ describe('expandItem', () => {
       },
     ]
 
-    const result = expandItem(menuList, 'label 1')
+    const { newMenuList } = expandItem(menuList, 'label 1')
 
-    expect(result).toEqual([
+    expect(newMenuList).toEqual([
       {
         title: 'title',
         children: [

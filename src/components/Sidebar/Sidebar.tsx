@@ -1,9 +1,7 @@
 import type { SidebarState } from 'recoils/atoms'
+import type { WithRequired } from 'types'
 
-import { useRecoilValue } from 'recoil'
 import tw, { styled } from 'twin.macro'
-
-import { sidebarAtom } from 'recoils/atoms'
 
 import { SidebarContent } from './SidebarContent'
 import { SidebarFooter } from './SidebarFooter'
@@ -13,7 +11,7 @@ export type MenuItemChildren = {
   to?: string
   label: string
   icon?: JSX.Element
-  children?: Pick<MenuItemChildren, 'to' | 'label' | 'selected'>[]
+  children?: WithRequired<Pick<MenuItemChildren, 'to' | 'label' | 'selected'>, 'to'>[]
   expanded?: boolean
   selected?: boolean
   hover?: boolean
@@ -27,6 +25,7 @@ export type MenuItem = {
 export type SidebarProps = {
   menuList: MenuItem[]
   setMenuList: (menuList: MenuItem[]) => void
+  fullSidebar: boolean
 }
 
 const TwSidebar = styled.div(({ fullSidebar }: SidebarState) => [
@@ -34,14 +33,12 @@ const TwSidebar = styled.div(({ fullSidebar }: SidebarState) => [
   fullSidebar ? tw`min-w-[theme(width.sidebar)]` : tw`min-w-[theme(width.mini-sidebar)]`,
 ])
 
-export const Sidebar: React.FC<SidebarProps> = ({ menuList, setMenuList }) => {
-  const { fullSidebar } = useRecoilValue(sidebarAtom)
-
+export const Sidebar: React.FC<SidebarProps> = ({ menuList, setMenuList, fullSidebar }) => {
   return (
     <TwSidebar fullSidebar={fullSidebar}>
-      <SidebarHeader />
+      <SidebarHeader fullSidebar={fullSidebar} />
 
-      <SidebarContent menuList={menuList} setMenuList={setMenuList} />
+      <SidebarContent menuList={menuList} setMenuList={setMenuList} fullSidebar={fullSidebar} />
 
       {fullSidebar && <SidebarFooter />}
     </TwSidebar>

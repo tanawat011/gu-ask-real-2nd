@@ -47,7 +47,7 @@ describe('selectChildItem', () => {
 
     const parentItem = menuList[0].children[1]
 
-    const result = selectChildItem(menuList, 'label 2.1', parentItem)
+    const result = selectChildItem(menuList, '/to2.1', parentItem)
 
     expect(result).toEqual([
       {

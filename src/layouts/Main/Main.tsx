@@ -49,7 +49,7 @@ export const MainLayout: React.FC = () => {
 
   return (
     <Container fullSidebar={fullSidebar}>
-      <Sidebar menuList={menuList} setMenuList={setMenuList} />
+      <Sidebar menuList={menuList} setMenuList={setMenuList} fullSidebar={fullSidebar} />
 
       <Content>
         <Navbar handleToggleSidebar={handleToggleSidebar} />

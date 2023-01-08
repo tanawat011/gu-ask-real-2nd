@@ -1,20 +1,16 @@
 import type { SidebarState } from 'recoils/atoms'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useRecoilValue } from 'recoil'
 import tw, { styled } from 'twin.macro'
-
-import { sidebarAtom } from 'recoils/atoms'
 
 export type SidebarItemProps = {
   icon?: JSX.Element
   label?: string
   hasChildren?: boolean
   onClick?: () => void
-  onHover?: () => void
-  onLeave?: () => void
   selected?: boolean
   expanded?: boolean
+  fullSidebar: boolean
 }
 
 type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected'> & SidebarState
@@ -41,9 +37,8 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
   onClick,
   selected,
   expanded,
+  fullSidebar,
 }) => {
-  const { fullSidebar } = useRecoilValue(sidebarAtom)
-
   return (
     <TwContainer onClick={onClick} selected={selected} fullSidebar={fullSidebar}>
       <TwItem>

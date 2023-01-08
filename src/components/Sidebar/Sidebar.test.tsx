@@ -1,8 +1,10 @@
-import { fireEvent, screen } from '@testing-library/react'
-
 import { renderWithProviders } from 'utils/jest'
 
 import { Sidebar } from './Sidebar'
+
+jest.mock('./SidebarHeader')
+jest.mock('./SidebarContent')
+jest.mock('./SidebarFooter')
 
 describe('<Sidebar />', () => {
   test('should render without crashing and match snapshot', () => {
@@ -27,22 +29,13 @@ describe('<Sidebar />', () => {
     ]
 
     const { asFragment } = renderWithProviders(
-      <Sidebar menuList={menuList} setMenuList={jest.fn()} />,
+      <Sidebar menuList={menuList} setMenuList={jest.fn()} fullSidebar />,
     )
-
-    const menuItemButton1 = screen.getByText(/menu-2/i)
-    fireEvent.click(menuItemButton1)
-
-    const menuItemButton2 = screen.getByText(/menu-1/i)
-    fireEvent.click(menuItemButton2)
-
-    const toggleSidebarButton = screen.getByTestId('hamburger-btn')
-    fireEvent.click(toggleSidebarButton)
 
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should render with mini sidebar', () => {
+  test('should render without crashing and match snapshot with mini sidebar', () => {
     expect.hasAssertions()
 
     const menuList = [
@@ -64,7 +57,7 @@ describe('<Sidebar />', () => {
     ]
 
     const { asFragment } = renderWithProviders(
-      <Sidebar menuList={menuList} setMenuList={jest.fn()} />,
+      <Sidebar menuList={menuList} setMenuList={jest.fn()} fullSidebar={false} />,
     )
 
     expect(asFragment()).toMatchSnapshot()

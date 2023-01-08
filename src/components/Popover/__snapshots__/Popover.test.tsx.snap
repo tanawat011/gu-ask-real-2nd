@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Popover /> should render without crashing and match snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-top: 7px solid;
+  border-right: 7px solid;
+}
+
+.c1 {
+  --tw-rotate: -135deg;
+  -webkit-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  -ms-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+<div
+    class="popover-content hidden absolute left-full top-1/2 -translate-y-1/2 z-10"
+  >
+    <div
+      class="relative"
+    >
+      <i
+        class="c0 c1 absolute left-1 top-1/2 -translate-y-1/2"
+      />
+      <div
+        class="bg-black ml-2 text-white p-2 rounded-lg shadow-lg mb-2"
+      >
+        xxx
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Popover /> should render without crashing with mini sidebar 1`] = `
+<DocumentFragment>
+  <div
+    class="popover-content hidden absolute left-full top-1/2 -translate-y-1/2 z-10"
+  >
+    <div>
+      xxx
+    </div>
+  </div>
+</DocumentFragment>
+`;

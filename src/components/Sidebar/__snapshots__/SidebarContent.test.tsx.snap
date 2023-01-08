@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SidebarContent /> should render without crashing and full sidebar but no route 1`] = `
+<DocumentFragment>
+  .c0 {
+  height: calc(100% - 64px - 64px - 1px);
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  overflow-y: overlay;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.c4 {
+  overflow: hidden;
+  opacity: 1;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  height: 0px;
+  opacity: 0;
+}
+
+<div
+    class="c0 c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        APPS
+      </div>
+      <div
+        class="popover inline-block relative"
+      >
+        <div>
+          sidebar item
+        </div>
+      </div>
+      <div
+        class="popover inline-block relative"
+      >
+        <div>
+          sidebar item
+        </div>
+        <div
+          class="c4"
+        >
+          <div>
+            sidebar item child
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<SidebarContent /> should render without crashing and match snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  height: calc(100% - 64px - 64px - 1px);
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  overflow-y: overlay;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.c4 {
+  overflow: hidden;
+  opacity: 1;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+<div
+    class="c0 c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        APPS
+      </div>
+      <div
+        class="popover inline-block relative"
+      >
+        <div>
+          sidebar item
+        </div>
+      </div>
+      <div
+        class="popover inline-block relative"
+      >
+        <div>
+          sidebar item
+        </div>
+        <div
+          class="c4"
+        >
+          <div>
+            sidebar item child
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<SidebarContent /> should render without crashing and mini sidebar 1`] = `
+<DocumentFragment>
+  .c3 {
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-top: 7px solid;
+  border-right: 7px solid;
+}
+
+.c4 {
+  --tw-rotate: -135deg;
+  -webkit-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  -ms-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.c0 {
+  height: calc(100% - 64px - 64px - 1px);
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div
+    class="c0 c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="popover inline-block relative"
+      >
+        <div>
+          sidebar item
+        </div>
+        <div
+          class="popover-content hidden absolute left-full top-1/2 -translate-y-1/2 z-10"
+        >
+          <div
+            class="relative"
+          >
+            <i
+              class="c3 c4 absolute left-1 top-1/2 -translate-y-1/2"
+            />
+            <div
+              class="bg-black ml-2 text-white p-2 rounded-lg shadow-lg mb-2"
+            >
+              Todo
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="popover inline-block relative"
+      >
+        <div>
+          sidebar item
+        </div>
+        <div
+          class="popover-content hidden absolute left-full top-1/2 -translate-y-1/2 z-10"
+        >
+          <div
+            class="relative"
+          >
+            <i
+              class="c3 c4 absolute text-[#374151] left-1 top-1/2 -translate-y-1/2"
+            />
+            <div
+              class="bg-[#374151] ml-2 text-white rounded-lg shadow-lg mb-2"
+            >
+              <div>
+                sidebar item child
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<SidebarContent /> should render without crashing and mini sidebar but no route 1`] = `
+<DocumentFragment>
+  .c3 {
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-top: 7px solid;
+  border-right: 7px solid;
+}
+
+.c4 {
+  --tw-rotate: -135deg;
+  -webkit-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  -ms-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.c0 {
+  height: calc(100% - 64px - 64px - 1px);
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div
+    class="c0 c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="popover inline-block relative"
+      >
+        <div>
+          sidebar item
+        </div>
+        <div
+          class="popover-content hidden absolute left-full top-1/2 -translate-y-1/2 z-10"
+        >
+          <div
+            class="relative"
+          >
+            <i
+              class="c3 c4 absolute left-1 top-1/2 -translate-y-1/2"
+            />
+            <div
+              class="bg-black ml-2 text-white p-2 rounded-lg shadow-lg mb-2"
+            >
+              Todo
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="popover inline-block relative"
+      >
+        <div>
+          sidebar item
+        </div>
+        <div
+          class="popover-content hidden absolute left-full top-1/2 -translate-y-1/2 z-10"
+        >
+          <div
+            class="relative"
+          >
+            <i
+              class="c3 c4 absolute text-[#374151] left-1 top-1/2 -translate-y-1/2"
+            />
+            <div
+              class="bg-[#374151] ml-2 text-white rounded-lg shadow-lg mb-2"
+            >
+              <div>
+                sidebar item child
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

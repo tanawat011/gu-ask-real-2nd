@@ -45,7 +45,7 @@ describe('selectItem', () => {
       },
     ]
 
-    const result = selectItem(menuList, 'label 1')
+    const result = selectItem(menuList, '/to1')
 
     expect(result).toEqual([
       {

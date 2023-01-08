@@ -2,12 +2,10 @@ import type { MenuItem, MenuItemChildren } from './Sidebar'
 import type { SidebarState } from 'recoils/atoms'
 
 import { useNavigate } from 'react-router-dom'
-import { useRecoilValue } from 'recoil'
 import tw, { css, styled } from 'twin.macro'
 
 import { IconCaretLeft } from 'components/Icons'
 import { Popover } from 'components/Popover'
-import { sidebarAtom } from 'recoils/atoms'
 import { expandItem, selectChildItem, selectItem } from 'utils/components/sidebar'
 
 import { SidebarItem } from './SidebarItem'
@@ -16,6 +14,7 @@ import { SidebarItemChild } from './SidebarItemChild'
 export type SidebarContentProps = {
   menuList: MenuItem[]
   setMenuList: (menuList: MenuItem[]) => void
+  fullSidebar: boolean
 }
 
 const TwHeightContainer = tw.div`h-[calc(100% - theme(height.sidebar-header) - theme(height.sidebar-footer) - 1px)]`
@@ -27,18 +26,24 @@ const TwContentWrap = tw.div`flex flex-col`
 const TwContentTitle = tw.div`mt-4 mb-2 px-3`
 
 const TwWrapChildItem = styled.div(
-  ({ expanded, totalItem }: { expanded?: boolean; totalItem?: number }) => [
+  ({ expanded, totalItem }: { expanded?: boolean; totalItem: number }) => [
     tw`overflow-hidden opacity-100 transition-all`,
-    expanded ? [css({ height: `${(totalItem || 0) * 40}px` }), tw`mb-2`] : tw`h-0 opacity-0`,
+    expanded ? [css({ height: `${totalItem * 40}px` }), tw`mb-2`] : tw`h-0 opacity-0`,
   ],
 )
 
-export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMenuList }) => {
-  const { fullSidebar } = useRecoilValue(sidebarAtom)
-
+export const SidebarContent: React.FC<SidebarContentProps> = ({
+  menuList,
+  setMenuList,
+  fullSidebar,
+}) => {
   const navigate = useNavigate()
 
-  const handleClickItem = (menuItem: MenuItemChildren, key = '', parentItem?: MenuItemChildren) => {
+  const handleClickItem = (
+    menuItem: MenuItemChildren,
+    key: string,
+    parentItem?: MenuItemChildren,
+  ) => {
     if (fullSidebar) {
       if (menuItem.children) {
         setMenuList(expandItem(menuList, key).newMenuList)
@@ -80,6 +85,7 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ menuList, setMen
                 onClick={() => handleClickItem(item, item.to || item.label)}
                 selected={item.selected}
                 expanded={item.expanded}
+                fullSidebar={fullSidebar}
               />
 
               {!fullSidebar &&

@@ -5,20 +5,24 @@ import { renderWithProviders } from 'utils/jest'
 import { MainLayout } from './Main'
 
 jest.mock('components/Sidebar', () => ({
-  Sidebar: () => {
+  Sidebar: ({ setMenuList }: { setMenuList: () => void }) => {
     return (
       <div>
-        <button data-testid='btn2'>Menu Item</button>
+        <button data-testid='btn2' onClick={setMenuList}>
+          Menu Item
+        </button>
       </div>
     )
   },
 }))
 
 jest.mock('components/Navbar', () => ({
-  Sidebar: () => {
+  Navbar: ({ handleToggleSidebar }: { handleToggleSidebar: () => void }) => {
     return (
       <div>
-        <button data-testid='btn1'>Toggle Sidebar</button>
+        <button data-testid='btn1' onClick={handleToggleSidebar}>
+          Toggle Sidebar
+        </button>
       </div>
     )
   },
@@ -26,9 +30,9 @@ jest.mock('components/Navbar', () => ({
 
 describe('<MainLayout />', () => {
   test('should render to match snapshot', () => {
-    expect.assertions(2)
+    expect.assertions(1)
 
-    const { asFragment, container } = renderWithProviders(<MainLayout />)
+    const { asFragment } = renderWithProviders(<MainLayout />)
 
     const toggleSidebarButton = screen.getByTestId(/btn1/i)
 
@@ -38,7 +42,6 @@ describe('<MainLayout />', () => {
 
     fireEvent.click(menuItemButton)
 
-    expect(container).toBeInTheDocument()
     expect(asFragment()).toMatchSnapshot()
   })
 
