@@ -13,8 +13,8 @@ export type NavbarProps = {
 }
 
 const TwNavbar = styled.div(({ fullSidebar }: SidebarState) => [
-  tw`flex h-sidebar-header items-center justify-between border-b px-4 border-[#374151]`,
-  !fullSidebar && tw`sticky top-0 z-10 bg-[#1F2937]`,
+  tw`flex h-sidebar-header items-center justify-between border-charcoal border-b px-4`,
+  !fullSidebar && tw`sticky top-0 z-10 bg-yankees-blue`,
 ])
 
 export const Navbar: React.FC<NavbarProps> = ({ handleToggleSidebar }) => {

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { US } from 'country-flag-icons/react/3x2'
 import tw from 'twin.macro'
 
-const TwIconProfile = tw.div`h-8 w-8 rounded-full bg-[#9ca3af]`
+const TwIconProfile = tw.div`h-8 w-8 rounded-full bg-cadet-grey`
 
 const TwNavbarRight = tw.div`flex w-full items-center justify-end`
 const TwNavbarItem = tw.div`mx-1 cursor-pointer p-2 hover:(rounded-full bg-black bg-opacity-40)`

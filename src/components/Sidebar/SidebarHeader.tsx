@@ -7,7 +7,7 @@ type SidebarHeaderProps = {
 
 const TwContainer = styled.div(() => [tw`flex h-sidebar-header items-center justify-between px-6`])
 const TwWrapLogo = tw.div`flex h-full items-center`
-const TwLogo = tw.div`h-8 w-8 rounded-full bg-[#9ca3af]`
+const TwLogo = tw.div`h-8 w-8 rounded-full bg-cadet-grey`
 const TwTitle = tw.div`ml-2 select-none text-white`
 
 export const SidebarHeader: React.FC<SidebarHeaderProps> = ({ fullSidebar }) => {

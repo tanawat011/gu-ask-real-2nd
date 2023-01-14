@@ -14,10 +14,10 @@ import { useSidebarMenuList } from 'hooks/useSidebarMenuList'
 import { sidebarAtom } from 'recoils/atoms/sidebar'
 
 const Container = styled(FlexRow)(({ fullSidebar }: SidebarState) => [
-  tw`relative w-full text-[#9ca3af] bg-[#111827]`,
+  tw`relative w-full bg-eerie-black text-cadet-grey`,
   fullSidebar ? tw`h-screen` : tw`min-h-screen`,
 ])
-const Content = tw(FlexCol)`w-full bg-[#1F2937]`
+const Content = tw(FlexCol)`w-full bg-yankees-blue`
 const ContentContainer = tw(FlexRow)`relative h-full overflow-x-auto`
 
 export const MainLayout: React.FC = () => {

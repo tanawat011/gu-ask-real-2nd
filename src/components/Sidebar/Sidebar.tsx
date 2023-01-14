@@ -29,7 +29,7 @@ export type SidebarProps = {
 }
 
 const TwSidebar = styled.div(({ fullSidebar }: SidebarState) => [
-  tw`border-r transition-all min-w-[theme(width.sidebar)] border-[#374151]`,
+  tw`border-charcoal border-r transition-all min-w-[theme(width.sidebar)]`,
   fullSidebar ? tw`min-w-[theme(width.sidebar)]` : tw`min-w-[theme(width.mini-sidebar)]`,
 ])
 

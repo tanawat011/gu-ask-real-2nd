@@ -1,3 +1,3 @@
 import tw from 'twin.macro'
 
-export const Card = tw.div`rounded-lg bg-shark-gray p-4`
+export const Card = tw.div`rounded-lg p-4`

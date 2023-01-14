@@ -16,7 +16,7 @@ const TwContainer = styled.div(({ selected, fullSidebar }: SidebarItemContainerP
   selected && tw`text-white bg-[hsla(0,0%,100%,.1)]`,
   fullSidebar
     ? tw`ml-5 h-10 pl-3 hover:(text-white bg-[hsla(0,0%,100%,.1)])`
-    : tw`ml-0 h-9 px-4 py-1 text-[#9ca3af] hover:text-white`,
+    : tw`ml-0 h-9 px-4 py-1 text-cadet-grey hover:text-white`,
 ])
 const TwItem = tw.div`flex items-center`
 

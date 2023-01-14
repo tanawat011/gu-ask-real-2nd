@@ -45,6 +45,7 @@
     "lcov",
     "lrta",
     "Magicbox",
+    "majorelle",
     "microsite",
     "middlewares",
     "Neue",
@@ -58,6 +59,7 @@
     "thaisans",
     "tscpaths"
   ],
+  "scss.lint.unknownAtRules": "ignore",
   "tailwindCSS.includeLanguages": {
     "plaintext": "html",
     "typescript": "javascript", // if you are using typescript

@@ -20,23 +20,14 @@ module.exports = {
         'desktop-xl': '1600px', // * => @media (min-width: 1600px) { ... }
       },
       colors: {
-        'space-blue': '#181c23',
-        'toy-red': '#e73439',
-        'lapis-blue': '#1762c1',
-        'soft-lapis-blue': '#e5f0fc',
-        'onyx-gray': '#3b4050',
-        'iron-gray': '#626672',
-        'dove-gray': '#707070',
-        'surface-gray': '#83899b',
-        'shark-gray': '#a3a8af',
-        'smoke-gray': '#b5b9c3',
-        'dolphin-gray': '#c3c9d1',
-        'jade-gray': '#d7dbe0',
-        'light-grey': '#E4E5EA',
-        'glory-gray': '#e5e8ec',
-        'wolf-gray': '#e5e8ec',
-        'bright-gray': '#f8f9fa',
-        'bright2-gray': '#f6f7fb',
+        'anti-flash-white': '#F3F4F6',
+        'cadet-grey': '#9CA3AF',
+        'charcoal': '#374151',
+        'eerie-black': '#111827',
+        'independence': '#4B5563',
+        'majorelle-blue': '#4F46E5',
+        'very-light-blue': '#6366F1',
+        'yankees-blue': '#1F2937',
       },
       width: {
         'sidebar': '290px',
@@ -49,12 +40,13 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(({ addComponents }) => {
+    plugin(({ addComponents, theme, }) => {
       addComponents({
         '.example': {
-          display: 'flex',
-          'justify-content': 'center',
-          'align-items': 'center',
+          background: theme('colors.majorelle-blue'),
+          '&:hover': {
+            background: theme('colors.very-light-blue'),
+          },
         },
       })
     }),
