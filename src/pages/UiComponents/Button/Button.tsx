@@ -2,6 +2,9 @@ import tw from 'twin.macro'
 
 import { Title } from 'components/PageUiComponent'
 
+import { ButtonDisabled } from './ButtonDisabled'
+import { ButtonOutline } from './ButtonOutline'
+import { ButtonShape } from './ButtonShape'
 import { ButtonSize } from './ButtonSize'
 import { ButtonVariant } from './ButtonVariant'
 
@@ -21,6 +24,9 @@ export const ButtonUi = () => {
 
         <ButtonVariant />
         <ButtonSize />
+        <ButtonOutline />
+        <ButtonShape />
+        <ButtonDisabled />
       </TwWrapContent>
 
       <TwWrapMenu>
@@ -37,19 +43,25 @@ export const ButtonUi = () => {
             <a href='#'>Outline</a>
           </li>
           <li>
-            <a href='#'>Block</a>
+            <a href='#'>Shape</a>
           </li>
           <li>
-            <a href='#'>Rounded</a>
+            <a href='#'>Disabled</a>
           </li>
           <li>
             <a href='#'>Icon</a>
+          </li>
+          <li>
+            <a href='#'>With Icon</a>
           </li>
           <li>
             <a href='#'>Loading</a>
           </li>
           <li>
             <a href='#'>Disabled</a>
+          </li>
+          <li>
+            <a href='#'>Block</a>
           </li>
         </ul>
       </TwWrapMenu>
