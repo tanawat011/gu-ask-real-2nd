@@ -7,9 +7,10 @@ import {
   faCopy,
   faGear,
   faHouse,
+  faSpinner,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const execFontAwesomeIcon = () => {
-  library.add(faBars, faHouse, faUser, faAngleDown, faBell, faGear, faCopy, faCode)
+  library.add(faBars, faHouse, faUser, faAngleDown, faBell, faGear, faCopy, faCode, faSpinner)
 }

@@ -4,6 +4,8 @@ import type { MouseEvent } from 'react'
 
 import tw, { styled } from 'twin.macro'
 
+import { Loading } from 'components/Loading'
+
 import { twShape, twSize, twSizeIcon, twVariant } from './styles'
 
 type ButtonProps = {
@@ -16,21 +18,41 @@ type ButtonProps = {
   outline?: boolean
   shape?: Shape
   disabled?: boolean
+  loading?: boolean
+  block?: boolean
 }
 
 type TwButtonProps = Omit<ButtonProps, 'label' | 'icon' | 'onClick' | 'disabled'> & {
   iconOnly?: boolean
+  disabledOnly?: boolean
   isDisabled?: boolean
+  isLoading?: boolean
+  isBlocked?: boolean
 }
 
+const TwContainer = tw.div`relative`
 const TwButton = styled.button(
-  ({ variant, size, outline, shape, isDisabled, iconOnly }: TwButtonProps) => {
+  ({
+    variant,
+    size,
+    outline,
+    shape,
+    iconOnly,
+    disabledOnly,
+    isDisabled,
+    isLoading,
+    isBlocked,
+  }: TwButtonProps) => {
     return [
       variant && (outline ? twVariant.border[variant] : twVariant.bg[variant]),
       size && (iconOnly ? twSizeIcon[size] : twSize[size]),
       shape && twShape[shape],
       iconOnly && tw`rounded-full`,
-      isDisabled && tw`cursor-not-allowed bg-charcoal! text-anti-flash-white! opacity-40!`,
+      isDisabled && tw`cursor-not-allowed select-none`,
+      disabledOnly && tw`(bg-charcoal text-anti-flash-white opacity-40)!`,
+      isLoading && tw`text-opacity-30 opacity-50!`,
+      isBlocked && tw`w-full`,
+      tw`relative`,
     ]
   },
 )
@@ -46,6 +68,8 @@ export const Button: React.FC<ButtonProps> = ({
   outline,
   shape = 'rounded',
   disabled,
+  loading,
+  block,
 }) => {
   const handleOnClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
@@ -54,27 +78,38 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   const isIconOnly = !!icon && !label
+  const disabledOnly = disabled && !loading
+  const isDisabled = disabled || loading
 
   return (
-    <TwButton
-      onClick={handleOnClick}
-      variant={variant}
-      size={size}
-      outline={outline}
-      iconOnly={isIconOnly}
-      shape={shape}
-      disabled={disabled}
-      isDisabled={disabled}
-    >
-      {isIconOnly ? (
-        icon
-      ) : (
-        <TwSpan>
-          {icon}
-          {label}
-          {iconR}
-        </TwSpan>
-      )}
-    </TwButton>
+    <TwContainer>
+      <TwButton
+        onClick={handleOnClick}
+        variant={variant}
+        size={size}
+        outline={outline}
+        iconOnly={isIconOnly}
+        shape={shape}
+        disabled={isDisabled}
+        disabledOnly={disabledOnly}
+        isDisabled={isDisabled}
+        isLoading={loading}
+        isBlocked={block}
+      >
+        {isIconOnly ? (
+          icon
+        ) : (
+          <>
+            <TwSpan>
+              {icon}
+              {label}
+              {iconR}
+            </TwSpan>
+          </>
+        )}
+      </TwButton>
+
+      {loading && <Loading />}
+    </TwContainer>
   )
 }
