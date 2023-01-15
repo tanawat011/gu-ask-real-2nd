@@ -10,6 +10,7 @@ export type Variant =
   | 'info'
   | 'light'
   | 'dark'
+  | 'plain'
   | 'link'
 
 export type TwVariantObject = { [key in Variant]: TwStyle | TwStyle[] }

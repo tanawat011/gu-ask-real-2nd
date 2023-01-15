@@ -9,4 +9,5 @@ export const TwTextWarning = tw`text-yellow-500 hover:text-yellow-600`
 export const TwTextInfo = tw`text-blue-500 hover:text-blue-600`
 export const TwTextLight = tw`text-gray-200 hover:text-gray-300`
 export const TwTextDark = tw`text-gray-800 hover:text-gray-900`
+export const TwTextPlain = tw`text-transparent hover:text-independence`
 export const TwTextLink = tw`text-transparent hover:text-transparent`

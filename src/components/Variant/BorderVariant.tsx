@@ -9,4 +9,5 @@ export const TwBorderWarning = tw`border-yellow-500 hover:border-yellow-600`
 export const TwBorderInfo = tw`border-blue-500 hover:border-blue-600`
 export const TwBorderLight = tw`border-gray-200 hover:border-gray-300`
 export const TwBorderDark = tw`border-gray-800 hover:border-gray-900`
+export const TwBorderPlain = tw`border-transparent hover:border-independence`
 export const TwBorderLink = tw`border-transparent hover:border-transparent`

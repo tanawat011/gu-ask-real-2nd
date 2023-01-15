@@ -31,6 +31,7 @@ export const ButtonVariant = () => {
             <Button label='Info' variant='info' />
             <Button label='Light' variant='light' />
             <Button label='Dark' variant='dark' />
+            <Button label='Plain' variant='plain' />
             <Button label='Link' variant='link' />
           </div>
         }
@@ -47,6 +48,7 @@ export const Component = () => {
     <Button label='Info' variant='info' />
     <Button label='Light' variant='light' />
     <Button label='Dark' variant='dark' />
+    <Button label='Plain' variant='plain' />
     <Button label='Link' variant='link' />
   )
 }`}

@@ -4,11 +4,12 @@ import type { MouseEvent } from 'react'
 
 import tw, { styled } from 'twin.macro'
 
-import { twShape, twSize, twVariant } from './data'
+import { twShape, twSize, twSizeIcon, twVariant } from './styles'
 
 type ButtonProps = {
   label?: string
   icon?: React.ReactNode
+  iconR?: React.ReactNode
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   variant?: Variant
   size?: Size
@@ -18,25 +19,27 @@ type ButtonProps = {
 }
 
 type TwButtonProps = Omit<ButtonProps, 'label' | 'icon' | 'onClick' | 'disabled'> & {
-  hasIcon?: boolean
+  iconOnly?: boolean
   isDisabled?: boolean
 }
 
 const TwButton = styled.button(
-  ({ variant, size, outline, shape, isDisabled, hasIcon }: TwButtonProps) => {
+  ({ variant, size, outline, shape, isDisabled, iconOnly }: TwButtonProps) => {
     return [
       variant && (outline ? twVariant.border[variant] : twVariant.bg[variant]),
-      size && twSize[size],
+      size && (iconOnly ? twSizeIcon[size] : twSize[size]),
       shape && twShape[shape],
-      hasIcon && tw`h-7 w-7 rounded-full p-0! hover:(rounded-full bg-independence)`,
+      iconOnly && tw`rounded-full`,
       isDisabled && tw`cursor-not-allowed bg-charcoal! text-anti-flash-white! opacity-40!`,
     ]
   },
 )
+const TwSpan = tw.span`flex items-center justify-center gap-2`
 
 export const Button: React.FC<ButtonProps> = ({
   label,
   icon,
+  iconR,
   onClick,
   variant = 'primary',
   size = 'md',
@@ -50,25 +53,28 @@ export const Button: React.FC<ButtonProps> = ({
     onClick && onClick(event)
   }
 
-  if (icon && !label) {
-    return (
-      <TwButton onClick={handleOnClick} disabled={disabled} isDisabled={disabled} hasIcon>
-        {icon}
-      </TwButton>
-    )
-  }
+  const isIconOnly = !!icon && !label
 
   return (
     <TwButton
       onClick={handleOnClick}
       variant={variant}
-      disabled={disabled}
       size={size}
       outline={outline}
+      iconOnly={isIconOnly}
       shape={shape}
+      disabled={disabled}
       isDisabled={disabled}
     >
-      {label}
+      {isIconOnly ? (
+        icon
+      ) : (
+        <TwSpan>
+          {icon}
+          {label}
+          {iconR}
+        </TwSpan>
+      )}
     </TwButton>
   )
 }

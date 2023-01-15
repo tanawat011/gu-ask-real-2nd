@@ -26,9 +26,13 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code }) => {
     <TwContainer>
       <TwWrapButton>
         <TwWrapButton2>
-          <Button icon={<FontAwesomeIcon icon='copy' />} />
+          <Button variant='plain' size='xs' icon={<FontAwesomeIcon icon='copy' />} />
 
-          <Button icon={<FontAwesomeIcon icon='code' onClick={handleShowCode} />} />
+          <Button
+            variant='plain'
+            size='xs'
+            icon={<FontAwesomeIcon icon='code' onClick={handleShowCode} />}
+          />
         </TwWrapButton2>
       </TwWrapButton>
 

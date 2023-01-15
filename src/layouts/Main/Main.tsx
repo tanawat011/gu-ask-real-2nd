@@ -1,6 +1,8 @@
 import type { SidebarState } from 'recoils/atoms'
+import type { OutletContextProps } from 'types'
 
-import { useEffect } from 'react'
+import type { UIEvent } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
@@ -23,6 +25,13 @@ const ContentContainer = tw(FlexRow)`relative h-full overflow-x-auto`
 export const MainLayout: React.FC = () => {
   const location = useLocation()
   const navigate = useNavigate()
+
+  const [scroll, setScroll] = useState({
+    top: 0,
+    left: 0,
+    height: 0,
+    width: 0,
+  })
 
   const [{ fullSidebar }, setFullSidebar] = useRecoilState(sidebarAtom)
 
@@ -47,6 +56,19 @@ export const MainLayout: React.FC = () => {
     setFullSidebar({ fullSidebar: !fullSidebar })
   }
 
+  const handleScroll = (event?: UIEvent<HTMLElement>) => {
+    if (event) {
+      const { scrollTop, scrollLeft, scrollHeight, scrollWidth } = event.currentTarget
+
+      setScroll({
+        top: scrollTop,
+        left: scrollLeft,
+        height: scrollHeight,
+        width: scrollWidth,
+      })
+    }
+  }
+
   return (
     <Container fullSidebar={fullSidebar}>
       <Sidebar menuList={menuList} setMenuList={setMenuList} fullSidebar={fullSidebar} />
@@ -54,8 +76,8 @@ export const MainLayout: React.FC = () => {
       <Content>
         <Navbar handleToggleSidebar={handleToggleSidebar} />
 
-        <ContentContainer>
-          <Outlet />
+        <ContentContainer onScroll={handleScroll}>
+          <Outlet context={{ scroll } as OutletContextProps} />
         </ContentContainer>
       </Content>
     </Container>
