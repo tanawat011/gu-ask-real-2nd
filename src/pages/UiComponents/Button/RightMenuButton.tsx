@@ -24,6 +24,7 @@ export const RightMenuButton = () => {
           'With Icon',
           'Loading',
           'Block',
+          'API',
         ]}
       />
     </TwContainer>

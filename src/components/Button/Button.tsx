@@ -10,8 +10,8 @@ import { twShape, twSize, twSizeIcon, twVariant } from './styles'
 
 type ButtonProps = {
   label?: string
-  icon?: React.ReactNode
-  iconR?: React.ReactNode
+  icon?: string | React.ReactNode
+  iconR?: string | React.ReactNode
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   variant?: Variant
   size?: Size

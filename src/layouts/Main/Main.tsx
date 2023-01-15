@@ -20,7 +20,7 @@ const Container = styled(FlexRow)(({ fullSidebar }: SidebarState) => [
   fullSidebar ? tw`h-screen` : tw`min-h-screen`,
 ])
 const Content = tw(FlexCol)`w-full bg-yankees-blue`
-const ContentContainer = tw(FlexRow)`relative h-full overflow-x-auto`
+const ContentContainer = tw(FlexRow)`relative flex h-full flex-col overflow-x-auto`
 
 export const MainLayout: React.FC = () => {
   const location = useLocation()
@@ -78,6 +78,7 @@ export const MainLayout: React.FC = () => {
 
         <ContentContainer onScroll={handleScroll}>
           <Outlet context={{ scroll } as OutletContextProps} />
+          <div>Container Footer Template</div>
         </ContentContainer>
       </Content>
     </Container>

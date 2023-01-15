@@ -8,3 +8,8 @@
 ## Icons
 
 - [Icon from Font Awesome](https://fontawesome.com/search?o=r&m=free)
+
+## Fonts
+
+- [Google Fonts](https://fonts.google.com/)
+- [REM to PX](https://nekocalc.com/px-to-rem-converter)

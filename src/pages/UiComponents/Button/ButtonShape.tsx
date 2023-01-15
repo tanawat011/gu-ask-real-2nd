@@ -13,7 +13,7 @@ export const ButtonShape = () => {
         description={
           <>
             Shape style of the button, can set the <code>shape</code> prop value to{' '}
-            <code>none</code>, <code>rounded</code> or <code>circle</code>, The default shape is{' '}
+            <code>square</code>, <code>rounded</code> or <code>circle</code>, The default shape is{' '}
             <code>rounded</code>.
           </>
         }
@@ -21,7 +21,7 @@ export const ButtonShape = () => {
       <ComponentDisplay
         components={
           <div className='flex gap-2 items-center flex-wrap'>
-            <Button label='None' shape='none' />
+            <Button label='Square' shape='square' />
             <Button label='Rounded' shape='rounded' />
             <Button label='Circle' shape='circle' />
           </div>
@@ -30,7 +30,7 @@ export const ButtonShape = () => {
 
 export const Component = () => {
   return (
-    <Button label='None' shape='none' />
+    <Button label='Square' shape='square' />
     <Button label='Rounded' shape='rounded' />
     <Button label='Circle' shape='circle' />
   )

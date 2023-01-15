@@ -81,7 +81,7 @@ export const twSizeIcon: TwSizeObject = {
 }
 
 export const twShape: TwShapeObject = {
-  none: tw`rounded-none`,
+  square: tw`rounded-none`,
   rounded: tw`rounded-md`,
   circle: tw`rounded-full`,
 }
