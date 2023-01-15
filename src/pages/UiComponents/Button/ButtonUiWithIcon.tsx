@@ -6,7 +6,7 @@ import { ComponentDisplay, Title } from 'components/PageUiComponent'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonWithIcon = () => {
+export const ButtonUiWithIcon = () => {
   return (
     <TwContainer>
       <Title

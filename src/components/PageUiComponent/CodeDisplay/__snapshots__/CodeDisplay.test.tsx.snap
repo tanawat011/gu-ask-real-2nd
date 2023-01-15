@@ -50,6 +50,9 @@ exports[`<CodeDisplay /> renders correctly 1`] = `
         </button>
       </div>
     </div>
+    <div>
+      SyntaxHighlighter
+    </div>
   </div>
 </DocumentFragment>
 `;

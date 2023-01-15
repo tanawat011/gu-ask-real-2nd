@@ -7,7 +7,7 @@ import { ButtonApiColumns, ButtonApiData } from './data'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonApi = () => {
+export const ButtonUiApi = () => {
   return (
     <TwContainer>
       <Title title='API' />

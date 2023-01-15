@@ -5,7 +5,7 @@ import { ComponentDisplay, Title } from 'components/PageUiComponent'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonDisabled = () => {
+export const ButtonUiDisabled = () => {
   return (
     <TwContainer>
       <Title

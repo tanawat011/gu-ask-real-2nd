@@ -7,7 +7,7 @@ const TwContainer = styled.div(({ scrolled }: { scrolled: boolean }) => {
   return [tw`z-10`, scrolled && tw`fixed`]
 })
 
-export const RightMenuButton = () => {
+export const RightMenuButtonUi = () => {
   const isScrolled = useIsScrolled()
 
   return (
