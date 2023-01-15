@@ -31,7 +31,8 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code }) => {
           <Button
             variant='plain'
             size='xs'
-            icon={<FontAwesomeIcon icon='code' onClick={handleShowCode} />}
+            icon={<FontAwesomeIcon icon='code' />}
+            onClick={handleShowCode}
           />
         </TwWrapButton2>
       </TwWrapButton>

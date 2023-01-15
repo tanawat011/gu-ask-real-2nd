@@ -42,6 +42,9 @@ describe('<MainLayout />', () => {
 
     fireEvent.click(menuItemButton)
 
+    const scrollableContent = screen.getByTestId(/scrollable-content/i)
+    fireEvent.scroll(scrollableContent, { target: { scrollTop: 100 } })
+
     expect(asFragment()).toMatchSnapshot()
   })
 

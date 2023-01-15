@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ComponentDisplay /> renders correctly 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
+.c1 {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.25rem;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div>
+        xxx
+      </div>
+    </div>
+    <div>
+      CodeDisplay
+    </div>
+  </div>
+</DocumentFragment>
+`;

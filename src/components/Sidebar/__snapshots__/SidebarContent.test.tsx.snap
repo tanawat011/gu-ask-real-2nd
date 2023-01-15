@@ -262,10 +262,10 @@ exports[`<SidebarContent /> should render without crashing and mini sidebar 1`] 
             class="relative"
           >
             <i
-              class="c3 c4 absolute text-[#374151] left-1 top-1/2 -translate-y-1/2"
+              class="c3 c4 absolute text-charcoal left-1 top-1/2 -translate-y-1/2"
             />
             <div
-              class="bg-[#374151] ml-2 text-white rounded-lg shadow-lg mb-2"
+              class="bg-charcoal ml-2 text-white rounded-lg shadow-lg mb-2"
             >
               <div>
                 sidebar item child
@@ -367,10 +367,10 @@ exports[`<SidebarContent /> should render without crashing and mini sidebar but 
             class="relative"
           >
             <i
-              class="c3 c4 absolute text-[#374151] left-1 top-1/2 -translate-y-1/2"
+              class="c3 c4 absolute text-charcoal left-1 top-1/2 -translate-y-1/2"
             />
             <div
-              class="bg-[#374151] ml-2 text-white rounded-lg shadow-lg mb-2"
+              class="bg-charcoal ml-2 text-white rounded-lg shadow-lg mb-2"
             >
               <div>
                 sidebar item child
