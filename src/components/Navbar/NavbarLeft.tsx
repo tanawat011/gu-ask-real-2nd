@@ -1,5 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import tw from 'twin.macro'
+
+import { IconBars } from 'components/Icons'
 
 export type NavbarLeftProps = {
   handleToggleSidebar: () => void
@@ -14,7 +15,7 @@ export const NavbarLeft: React.FC<NavbarLeftProps> = ({ handleToggleSidebar }) =
   return (
     <TwNavbarLeft>
       <TwWrapBurger onClick={handleToggleSidebar}>
-        <FontAwesomeIcon icon='bars' size='lg' />
+        <IconBars size='lg' />
       </TwWrapBurger>
 
       <TwNavbarSearchInput placeholder='Search...' />

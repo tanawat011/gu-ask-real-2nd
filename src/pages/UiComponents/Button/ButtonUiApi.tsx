@@ -1,7 +1,7 @@
 import tw from 'twin.macro'
 
 import { Title } from 'components/PageUiComponent'
-import { Table } from 'components/Table'
+import { TableCommon } from 'components/Table'
 
 import { ButtonApiColumns, ButtonApiData } from './data'
 
@@ -12,7 +12,7 @@ export const ButtonUiApi = () => {
     <TwContainer>
       <Title title='API' />
 
-      <Table columns={ButtonApiColumns} data={ButtonApiData} />
+      <TableCommon columns={ButtonApiColumns} data={ButtonApiData} />
     </TwContainer>
   )
 }

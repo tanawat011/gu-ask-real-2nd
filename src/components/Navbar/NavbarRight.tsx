@@ -1,6 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { US } from 'country-flag-icons/react/3x2'
 import tw from 'twin.macro'
+
+import { IconBell, IconGear } from 'components/Icons'
 
 const TwIconProfile = tw.div`h-8 w-8 rounded-full bg-cadet-grey`
 
@@ -23,13 +24,13 @@ export const NavbarRight = () => {
 
       <TwNavbarItem>
         <TwWrapIcon>
-          <FontAwesomeIcon icon='bell' size='lg' />
+          <IconBell size='lg' />
         </TwWrapIcon>
       </TwNavbarItem>
 
       <TwNavbarItem>
         <TwWrapIcon>
-          <FontAwesomeIcon icon='gear' size='lg' />
+          <IconGear size='lg' />
         </TwWrapIcon>
       </TwNavbarItem>
 

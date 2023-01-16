@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark as theme } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
+import { IconCode, IconCopy } from 'components/Icons'
 
 type CodeDisplayProps = {
   code: string
@@ -26,14 +26,9 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code }) => {
     <TwContainer>
       <TwWrapButton>
         <TwWrapButton2>
-          <Button variant='plain' size='xs' icon={<FontAwesomeIcon icon='copy' />} />
+          <Button variant='plain' size='xs' icon={<IconCopy />} />
 
-          <Button
-            variant='plain'
-            size='xs'
-            icon={<FontAwesomeIcon icon='code' />}
-            onClick={handleShowCode}
-          />
+          <Button variant='plain' size='xs' icon={<IconCode />} onClick={handleShowCode} />
         </TwWrapButton2>
       </TwWrapButton>
 

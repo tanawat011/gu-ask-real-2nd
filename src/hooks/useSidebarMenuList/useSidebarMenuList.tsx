@@ -3,8 +3,7 @@ import type { MenuItem } from 'components/Sidebar'
 import type { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { IconHouse, IconUser } from 'components/Icons'
 import { useRouteList } from 'hooks/useRouteList'
 
 export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuItem[]>>] => {
@@ -20,11 +19,11 @@ export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuI
         {
           to: home.fullPath,
           label: 'Home',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
+          icon: <IconHouse size='lg' />,
         },
         {
           label: 'Todo',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
+          icon: <IconHouse size='lg' />,
           children: [
             {
               to: todo.fullPath,
@@ -35,7 +34,7 @@ export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuI
         {
           to: article.fullPath,
           label: 'Article',
-          icon: <FontAwesomeIcon icon='user' size='lg' />,
+          icon: <IconUser size='lg' />,
         },
       ],
     },
@@ -44,7 +43,7 @@ export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuI
       children: [
         {
           label: 'Common',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
+          icon: <IconHouse size='lg' />,
           children: [
             {
               to: card.fullPath,
@@ -55,12 +54,12 @@ export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuI
         {
           to: button.fullPath,
           label: 'Button',
-          icon: <FontAwesomeIcon icon='house' size='lg' />,
+          icon: <IconHouse size='lg' />,
         },
         {
           to: input.fullPath,
           label: 'Input',
-          icon: <FontAwesomeIcon icon='user' size='lg' />,
+          icon: <IconUser size='lg' />,
         },
       ],
     },

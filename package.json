@@ -11,8 +11,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:css": "postcss src/styles/styles.scss -o postcss.css",
+    "build:tw": "tailwind-config-viewer export ./tailwindViewer",
     "serve": "npx serve -s build -l 4000",
     "serve:coverage": "npx http-server coverage/lcov-report -p 4001",
+    "serve:tw": "tailwind-config-viewer serve",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "yarn lint --fix",
@@ -97,6 +99,7 @@
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "styled-components": "^5.3.6",
+    "tailwind-config-viewer": "^1.7.2",
     "tailwindcss": "^3.2.4",
     "ts-jest": "^29.0.3",
     "twin.macro": "^3.1.0",
@@ -146,7 +149,8 @@
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
       "!src/**/*.d.ts",
-      "!src/data/**/*"
+      "!src/data/**/*",
+      "!src/pages/**/*"
     ],
     "coveragePathIgnorePatterns": [
       "index.tsx",
@@ -159,6 +163,7 @@
       "src/locales",
       "src/types",
       "src/mocks",
+      "src/pages",
       "Routes.tsx"
     ]
   },

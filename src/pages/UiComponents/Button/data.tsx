@@ -59,9 +59,9 @@ export const ButtonApiData: ButtonApiDataType[] = [
     desc: 'The variant of the button',
     val: (
       <>
-        <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>danger</code>,{' '}
-        <code>warning</code>, <code>info</code>, <code>light</code>, <code>dark</code>,{' '}
-        <code>link</code>
+        <code>primary</code>, <code>secondary</code>, <code>tertiary</code>, <code>success</code>,{' '}
+        <code>danger</code>, <code>warning</code>, <code>info</code>, <code>light</code>,{' '}
+        <code>dark</code>, <code>link</code>
       </>
     ),
     default: <code>primary</code>,

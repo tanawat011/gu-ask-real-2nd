@@ -1,14 +1,14 @@
-import { renderWithProviders } from 'utils/jest'
+import { render } from '@testing-library/react'
 
 import { Loading } from './Loading'
 
-jest.mock('@fortawesome/react-fontawesome')
+jest.mock('./Loading', () => jest.requireActual('./Loading'))
 
 describe('<Loading />', () => {
   test('renders correctly', () => {
     expect.assertions(1)
 
-    const { asFragment } = renderWithProviders(<Loading />)
+    const { asFragment } = render(<Loading />)
 
     expect(asFragment()).toMatchSnapshot()
   })

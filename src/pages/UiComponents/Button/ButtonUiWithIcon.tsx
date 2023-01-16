@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
+import { IconGear, IconHome, IconUser } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 
 const TwContainer = tw.div`mb-8`
@@ -20,28 +20,24 @@ export const ButtonUiWithIcon = () => {
       <ComponentDisplay
         components={
           <div className='flex gap-2 items-center flex-wrap'>
-            <Button icon={<FontAwesomeIcon icon='home' />} label='Home' />
-            <Button icon={<FontAwesomeIcon icon='user' />} label='Profile' />
-            <Button icon={<FontAwesomeIcon icon='gear' />} label='Setting' />
-            <Button iconR={<FontAwesomeIcon icon='home' />} label='Right Icon' />
-            <Button
-              icon={<FontAwesomeIcon icon='home' />}
-              iconR={<FontAwesomeIcon icon='home' />}
-              label='Between Icons'
-            />
+            <Button icon={<IconHome />} label='Home' />
+            <Button icon={<IconUser />} label='Profile' />
+            <Button icon={<IconGear />} label='Setting' />
+            <Button iconR={<IconHome />} label='Right Icon' />
+            <Button icon={<IconHome />} iconR={<IconHome />} label='Between Icons' />
           </div>
         }
         code={`import React from "react"
 
 export const Component = () => {
   return (
-    <Button icon={<FontAwesomeIcon icon='home' />} label='Home' />
-    <Button icon={<FontAwesomeIcon icon='user' />} label='Profile' />
-    <Button icon={<FontAwesomeIcon icon='gear' />} label='Setting' />
-    <Button iconR={<FontAwesomeIcon icon='home' />} label='Right Icon' />
+    <Button icon={<IconHome />} label='Home' />
+    <Button icon={<IconUser />} label='Profile' />
+    <Button icon={<IconGear />} label='Setting' />
+    <Button iconR={<IconHome />} label='Right Icon' />
     <Button
-      icon={<FontAwesomeIcon icon='home' />}
-      iconR={<FontAwesomeIcon icon='home' />}
+      icon={<IconHome />}
+      iconR={<IconHome />}
       label='Between Icons'
     />
   )

@@ -30,7 +30,7 @@ type TwButtonProps = Omit<ButtonProps, 'label' | 'icon' | 'onClick' | 'disabled'
   isBlocked?: boolean
 }
 
-const TwContainer = tw.div`relative`
+const TwContainer = tw.div`relative select-none`
 const TwButton = styled.button(
   ({
     variant,
@@ -48,11 +48,10 @@ const TwButton = styled.button(
       size && (iconOnly ? twSizeIcon[size] : twSize[size]),
       shape && twShape[shape],
       iconOnly && tw`rounded-full`,
-      isDisabled && tw`cursor-not-allowed select-none`,
-      disabledOnly && tw`(bg-charcoal text-anti-flash-white opacity-40)!`,
-      isLoading && tw`text-opacity-30 opacity-50!`,
+      isDisabled && tw`cursor-not-allowed`,
+      disabledOnly && tw`(bg-disabled text-nickel)!`,
+      isLoading && tw`text-opacity-30 opacity-50`,
       isBlocked && tw`w-full`,
-      tw`relative`,
     ]
   },
 )
@@ -72,8 +71,6 @@ export const Button: React.FC<ButtonProps> = ({
   block,
 }) => {
   const handleOnClick = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-
     onClick && onClick(event)
   }
 

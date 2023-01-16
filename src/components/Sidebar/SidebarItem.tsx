@@ -1,7 +1,8 @@
 import type { SidebarState } from 'recoils/atoms'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import tw, { styled } from 'twin.macro'
+
+import { IconAngleDown } from 'components/Icons'
 
 export type SidebarItemProps = {
   icon?: JSX.Element
@@ -49,7 +50,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
 
       {fullSidebar && hasChildren && (
         <TwWrapAngleIcon expanded={expanded}>
-          <FontAwesomeIcon icon='angle-down' size='lg' />
+          <IconAngleDown size='lg' />
         </TwWrapAngleIcon>
       )}
     </TwContainer>

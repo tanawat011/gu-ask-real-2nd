@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
+import { IconHome } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 
 const TwContainer = tw.div`mb-8`
@@ -23,9 +23,9 @@ export const ButtonUiLoading = () => {
           <div className='flex gap-2 items-center flex-wrap'>
             <Button label='Home' loading size='xs' />
             <Button label='Home' loading />
-            <Button icon={<FontAwesomeIcon icon='home' />} label='Home' loading />
-            <Button icon={<FontAwesomeIcon icon='home' />} loading size='xs' />
-            <Button icon={<FontAwesomeIcon icon='home' />} loading />
+            <Button icon={<IconHome />} label='Home' loading />
+            <Button icon={<IconHome />} loading size='xs' />
+            <Button icon={<IconHome />} loading />
           </div>
         }
         code={`import React from "react"
@@ -34,9 +34,9 @@ export const Component = () => {
   return (
     <Button label='Home' loading size='xs' />
     <Button label='Home' loading />
-    <Button icon={<FontAwesomeIcon icon='home' />} label='Home' loading />
-    <Button icon={<FontAwesomeIcon icon='home' />} loading size='xs' />
-    <Button icon={<FontAwesomeIcon icon='home' />} loading />
+    <Button icon={<IconHome />} label='Home' loading />
+    <Button icon={<IconHome />} loading size='xs' />
+    <Button icon={<IconHome />} loading />
   )
 }`}
       />
