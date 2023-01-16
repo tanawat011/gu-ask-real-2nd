@@ -1,7 +1,11 @@
 import { hex2rgb } from 'utils/color'
 
-export const twColor = (hexColor: string) => {
+export const twColor = (hexColor: string, type?: 'bg' | 'border') => {
   const rgb = hex2rgb(hexColor)
 
-  return `rgb(${rgb} / var(--tw-bg-opacity))`
+  if (!type) {
+    type = 'bg'
+  }
+
+  return `rgb(${rgb} / var(--tw-${type}-opacity))`
 }

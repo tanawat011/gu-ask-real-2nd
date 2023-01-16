@@ -2,9 +2,7 @@ import { renderWithProviders } from 'utils/jest'
 
 import { RightMenuContent } from './RightMenuContent'
 
-jest.mock('../Title', () => ({
-  Title: () => <div>Title</div>,
-}))
+jest.mock('./RightMenuContent', () => jest.requireActual('./RightMenuContent'))
 
 describe('<RightMenuContent />', () => {
   test('renders correctly', () => {

@@ -1,4 +1,4 @@
-import { Title } from '../Title'
+import { Title } from 'components/PageUiComponent'
 
 type RightMenuContentProps = {
   title: string

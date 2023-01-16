@@ -42,10 +42,14 @@ exports[`<CodeDisplay /> renders correctly 1`] = `
       <div
         class="c2"
       >
-        <button>
+        <button
+          data-testid="button"
+        >
           Button
         </button>
-        <button>
+        <button
+          data-testid="button"
+        >
           Button
         </button>
       </div>

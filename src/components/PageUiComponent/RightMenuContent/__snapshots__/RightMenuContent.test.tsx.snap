@@ -2,7 +2,9 @@
 
 exports[`<RightMenuContent /> renders correctly 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    data-testid="title"
+  >
     Title
   </div>
   <ul

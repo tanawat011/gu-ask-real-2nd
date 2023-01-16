@@ -4,14 +4,7 @@ import { renderWithProviders } from 'utils/jest'
 
 import { CodeDisplay } from './CodeDisplay'
 
-jest.mock('@fortawesome/react-fontawesome')
-jest.mock('react-syntax-highlighter')
-jest.mock('react-syntax-highlighter/dist/esm/styles/prism', () => ({
-  oneDark: {},
-}))
-jest.mock('components/Button', () => ({
-  Button: ({ onClick }: any) => <button onClick={onClick}>Button</button>,
-}))
+jest.mock('./CodeDisplay', () => jest.requireActual('./CodeDisplay'))
 
 describe('<CodeDisplay />', () => {
   test('renders correctly', () => {

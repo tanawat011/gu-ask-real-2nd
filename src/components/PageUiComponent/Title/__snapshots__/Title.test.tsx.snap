@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Title /> renders correctly 1`] = `
+exports[`<Title /> renders correctly with default size 1`] = `
 <DocumentFragment>
   .c0 {
   margin-bottom: 1.5rem;
@@ -8,11 +8,14 @@ exports[`<Title /> renders correctly 1`] = `
 
 <div
     class="c0"
+    data-testid="container"
   >
     <h4>
       Title
     </h4>
-    <span />
+    <span>
+      Detail
+    </span>
   </div>
 </DocumentFragment>
 `;

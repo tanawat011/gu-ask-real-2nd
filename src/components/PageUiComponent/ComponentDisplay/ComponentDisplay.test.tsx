@@ -1,19 +1,21 @@
-import { renderWithProviders } from 'utils/jest'
+import { renderWithProviders, twColor } from 'utils/jest'
 
 import { ComponentDisplay } from './ComponentDisplay'
 
-jest.mock('../CodeDisplay', () => ({
-  CodeDisplay: () => <div>CodeDisplay</div>,
-}))
+jest.mock('./ComponentDisplay', () => jest.requireActual('./ComponentDisplay'))
 
 describe('<ComponentDisplay />', () => {
   test('renders correctly', () => {
-    expect.assertions(1)
+    expect.assertions(7)
 
-    const { asFragment } = renderWithProviders(
-      <ComponentDisplay code='' components={<div>xxx</div>} />,
-    )
+    const {
+      asFragment,
+      container: { firstChild },
+    } = renderWithProviders(<ComponentDisplay code='code' components={<div>xxx</div>} />)
 
+    expect(firstChild).toHaveStyleRule('border-width', '1px')
+    expect(firstChild).toHaveStyleRule('border-radius', '0.5rem')
+    expect(firstChild).toHaveStyleRule('border-color', twColor('#4B5563', 'border'))
     expect(asFragment()).toMatchSnapshot()
   })
 })
