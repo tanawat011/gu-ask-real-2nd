@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+  app:
+    container_name: app_local
+    image: app_local
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.local
+    restart: always
+    ports:
+      - 3000:3000
+    env_file:
+      - ./.env
+    tty: true
+    volumes:
+      - ./:/app

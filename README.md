@@ -77,5 +77,7 @@ A Frontend Backoffice Project.
 
 - Add a new env in the `.env` file (for your local application).
 - Add a new env in the `.env.example` file (this is the example env for your team member).
-- Add a new env in the `README.md` file (for is documentation).
+- Add a new env in the `README.md` file (for documentation).
+- Add a new env in the `public/template-config.js` file (for production deployment).
+- Add a new env in the `k8s/deployment.yaml` file (for production deployment).
 - Update a type of a new env in the type folder -> `types/windowEnv.d.ts`.
