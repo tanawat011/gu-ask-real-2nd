@@ -3,7 +3,7 @@ import type { AssembleRoutes, AuthRoutes, ErrorRoutes, MainRoutes } from 'types'
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
-import { ButtonUi } from 'pages/UiComponents'
+import { ButtonUi, InputUi } from 'pages/UiComponents'
 
 export const mainRoutes: MainRoutes = {
   path: '/',
@@ -54,7 +54,7 @@ export const mainRoutes: MainRoutes = {
         input: {
           path: 'input',
           fullPath: '/component/input',
-          element: <div>input</div>,
+          element: <InputUi />,
         },
       },
     },
