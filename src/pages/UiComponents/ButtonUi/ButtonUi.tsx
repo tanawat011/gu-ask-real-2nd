@@ -4,6 +4,7 @@ import { Title } from 'components/PageUiComponent'
 
 import { ButtonUiApi } from './ButtonUiApi'
 import { ButtonUiBlock } from './ButtonUiBlock'
+import { ButtonUiColor } from './ButtonUiColor'
 import { ButtonUiDisabled } from './ButtonUiDisabled'
 import { ButtonUiIcon } from './ButtonUiIcon'
 import { ButtonUiLoading } from './ButtonUiLoading'
@@ -30,6 +31,7 @@ export const ButtonUi = () => {
           />
 
           <ButtonUiVariant />
+          <ButtonUiColor />
           <ButtonUiSize />
           <ButtonUiOutline />
           <ButtonUiShape />

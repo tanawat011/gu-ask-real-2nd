@@ -25,12 +25,8 @@ export const ButtonUiVariant = () => {
             <Button label='Primary' variant='primary' />
             <Button label='Secondary' variant='secondary' />
             <Button label='Tertiary' variant='tertiary' />
-            <Button label='Success' variant='success' />
-            <Button label='Danger' variant='danger' />
-            <Button label='Warning' variant='warning' />
-            <Button label='Info' variant='info' />
-            <Button label='Light' variant='light' />
-            <Button label='Dark' variant='dark' />
+            <Button label='Solid' variant='solid' />
+            <Button label='Two Tone' variant='twoTone' />
             <Button label='Plain' variant='plain' />
             <Button label='Link' variant='link' />
           </div>
@@ -42,12 +38,8 @@ export const Component = () => {
     <Button label='Primary' variant='primary' />
     <Button label='Secondary' variant='secondary' />
     <Button label='Tertiary' variant='tertiary' />
-    <Button label='Success' variant='success' />
-    <Button label='Danger' variant='danger' />
-    <Button label='Warning' variant='warning' />
-    <Button label='Info' variant='info' />
-    <Button label='Light' variant='light' />
-    <Button label='Dark' variant='dark' />
+    <Button label='Solid' variant='solid' />
+    <Button label='Two Tone' variant='twoTone' />
     <Button label='Plain' variant='plain' />
     <Button label='Link' variant='link' />
   )

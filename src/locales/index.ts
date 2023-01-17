@@ -8,6 +8,9 @@ import sidebarEn from './en/sidebar.json'
 import commonTh from './th/common.json'
 import sidebarTh from './th/sidebar.json'
 
+export type Language = 'th' | 'en'
+
+export const availableLanguages: Language[] = ['th', 'en']
 export const defaultNS = 'common'
 export const resources = {
   en: {
@@ -44,6 +47,6 @@ i18next
     },
   })
 
-i18next.languages = ['th', 'en']
+i18next.languages = availableLanguages
 
 export default i18next

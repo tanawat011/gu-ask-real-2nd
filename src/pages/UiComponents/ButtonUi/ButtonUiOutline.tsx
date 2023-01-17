@@ -23,12 +23,8 @@ export const ButtonUiOutline = () => {
             <Button label='Primary' variant='primary' outline />
             <Button label='Secondary' variant='secondary' outline />
             <Button label='Tertiary' variant='tertiary' outline />
-            <Button label='Success' variant='success' outline />
-            <Button label='Danger' variant='danger' outline />
-            <Button label='Warning' variant='warning' outline />
-            <Button label='Info' variant='info' outline />
-            <Button label='Light' variant='light' outline />
-            <Button label='Dark' variant='dark' outline />
+            <Button label='Solid' variant='solid' outline />
+            <Button label='Two Tone' variant='twoTone' outline />
             <Button label='Plain' variant='plain' outline />
             <Button label='Link' variant='link' outline />
           </div>
@@ -40,12 +36,8 @@ export const Component = () => {
     <Button label='Primary' variant='primary' outline />
     <Button label='Secondary' variant='secondary' outline />
     <Button label='Tertiary' variant='tertiary' outline />
-    <Button label='Success' variant='success' outline />
-    <Button label='Danger' variant='danger' outline />
-    <Button label='Warning' variant='warning' outline />
-    <Button label='Info' variant='info' outline />
-    <Button label='Light' variant='light' outline />
-    <Button label='Dark' variant='dark' outline />
+    <Button label='Solid' variant='solid' outline />
+    <Button label='Two Tone' variant='twoTone' outline />
     <Button label='Plain' variant='plain' outline />
     <Button label='Link' variant='link' outline />
   )

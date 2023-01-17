@@ -16,6 +16,7 @@ export const RightMenuButtonUi = () => {
         title='TABLE OF CONTENT'
         menuList={[
           'Variant',
+          'Color',
           'Size',
           'Outline',
           'Shape',

@@ -22,7 +22,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
     prop: 'label',
     desc: 'Text label of the button',
     val: <code>string</code>,
-    default: <code>-</code>,
+    default: '-',
   },
   {
     prop: 'icon',
@@ -32,7 +32,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
         <code>string</code>, <code>ReactNode</code>
       </>
     ),
-    default: <code>-</code>,
+    default: '-',
   },
   {
     prop: 'iconR',
@@ -42,7 +42,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
         <code>string</code>, <code>ReactNode</code>
       </>
     ),
-    default: <code>-</code>,
+    default: '-',
   },
   {
     prop: 'onClick',
@@ -52,7 +52,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
         <code>{'(event) => void'}</code>
       </>
     ),
-    default: <code>-</code>,
+    default: '-',
   },
   {
     prop: 'variant',
@@ -65,6 +65,16 @@ export const ButtonApiData: ButtonApiDataType[] = [
       </>
     ),
     default: <code>primary</code>,
+  },
+  {
+    prop: 'color',
+    desc: 'Custom color of the button',
+    val: (
+      <>
+        available colors option based on tailwind <code>theme.colors</code>
+      </>
+    ),
+    default: '-',
   },
   {
     prop: 'size',
