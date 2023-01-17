@@ -24,7 +24,6 @@ export const ButtonUiIcon = () => {
             <Button size='sm' icon={<IconHome />} />
             <Button size='md' icon={<IconHome />} />
             <Button size='lg' icon={<IconHome />} />
-            <Button size='xl' icon={<IconHome />} />
           </div>
         }
         code={`import React from "react"

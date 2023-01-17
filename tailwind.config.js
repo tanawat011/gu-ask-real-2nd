@@ -7,7 +7,7 @@ module.exports = {
   mode: 'jit',
   content: ['./src/**/*.{ts,tsx}'],
   presets: [],
-  darkMode: 'media', // or 'class'
+  darkMode: 'class', // or 'class'
   important: true,
   theme: {
     ...defaultTheme,

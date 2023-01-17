@@ -1,0 +1,28 @@
+import type { TwStyle } from 'twin.macro'
+
+export type TwColor =
+  | 'slate'
+  | 'gray'
+  | 'blue'
+  | 'zinc'
+  | 'neutral'
+  | 'stone'
+  | 'red'
+  | 'orange'
+  | 'amber'
+  | 'yellow'
+  | 'lime'
+  | 'green'
+  | 'emerald'
+  | 'teal'
+  | 'cyan'
+  | 'sky'
+  | 'blue'
+  | 'indigo'
+  | 'violet'
+  | 'purple'
+  | 'fuchsia'
+  | 'pink'
+  | 'rose'
+
+export type TwColorObject = { [key in TwColor]: TwStyle | TwStyle[] }

@@ -2,19 +2,18 @@ import { renderHook } from '@testing-library/react'
 import { mocked } from 'jest-mock'
 import { useOutletContext } from 'react-router-dom'
 
-import { useIsScrolled } from './useIsScrolled'
+import { useSetting } from './useSetting'
 
-jest.mock('./useIsScrolled', () => jest.requireActual('./useIsScrolled'))
-jest.mock('react-router-dom')
+jest.mock('./useSetting', () => jest.requireActual('./useSetting'))
 
-describe('useIsScrolled', () => {
+describe('useSetting', () => {
   test('should return correctly result', () => {
     expect.hasAssertions()
 
     mocked(useOutletContext).mockReturnValue({ scroll: { top: 0 } })
 
-    const { result } = renderHook(() => useIsScrolled())
+    const { result } = renderHook(() => useSetting())
 
-    expect(result.current).toEqual(false)
+    expect('theme' in result.current[0]).toEqual(true)
   })
 })

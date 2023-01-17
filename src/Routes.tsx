@@ -1,18 +1,22 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { useRouteList } from 'hooks/useRouteList'
+import { useSetting } from 'hooks/useSetting'
 import { renderRoutes } from 'utils/route'
 
 export const AppRoutes = () => {
   const { allRoutes } = useRouteList()
+  const [localSetting] = useSetting()
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {renderRoutes(allRoutes)}
+    <div className={localSetting.theme.mode || 'light'}>
+      <BrowserRouter>
+        <Routes>
+          {renderRoutes(allRoutes)}
 
-        <Route path='*' element={<div>error 404</div>} />
-      </Routes>
-    </BrowserRouter>
+          <Route path='*' element={<div>error 404</div>} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }

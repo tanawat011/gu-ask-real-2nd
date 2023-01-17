@@ -127,13 +127,6 @@ describe('<Button />', () => {
       paddingX: '2rem',
       paddingY: '0.5rem',
     },
-    xl: {
-      fontSize: '1.125rem',
-      lineHeight: '1.75rem',
-      height: '5rem',
-      paddingX: '2rem',
-      paddingY: '0.5rem',
-    },
   }
 
   Object.entries(sizes).forEach(([key, { fontSize, lineHeight, height, paddingX, paddingY }]) => {
@@ -183,11 +176,6 @@ describe('<Button />', () => {
       lineHeight: '1.5rem',
       widthHeight: '3.5rem',
     },
-    xl: {
-      fontSize: '1.125rem',
-      lineHeight: '1.75rem',
-      widthHeight: '5rem',
-    },
   }
 
   Object.entries(sizesIcon).forEach(([key, { fontSize, lineHeight, widthHeight }]) => {
@@ -229,28 +217,12 @@ describe('<Button />', () => {
       bgColor: '#2d355c',
       textColor: '#ffffff',
     },
-    success: {
+    solid: {
       bgColor: '#15803d',
       textColor: '#ffffff',
     },
-    danger: {
+    twoTone: {
       bgColor: '#b91c1c',
-      textColor: '#ffffff',
-    },
-    warning: {
-      bgColor: '#a16207',
-      textColor: '#ffffff',
-    },
-    info: {
-      bgColor: '#1d4ed8',
-      textColor: '#ffffff',
-    },
-    light: {
-      bgColor: '#e5e7eb',
-      textColor: '#1F2937',
-    },
-    dark: {
-      bgColor: '#1f2937',
       textColor: '#ffffff',
     },
     plain: {
@@ -318,23 +290,11 @@ describe('<Button />', () => {
     tertiary: {
       borderColor: '#2d355c',
     },
-    success: {
+    solid: {
       borderColor: '#15803d',
     },
-    danger: {
+    twoTone: {
       borderColor: '#b91c1c',
-    },
-    warning: {
-      borderColor: '#a16207',
-    },
-    info: {
-      borderColor: '#1d4ed8',
-    },
-    light: {
-      borderColor: '#e5e7eb',
-    },
-    dark: {
-      borderColor: '#1f2937',
     },
     plain: {
       borderColor: 'transparent',

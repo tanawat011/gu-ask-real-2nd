@@ -25,7 +25,6 @@ export const ButtonUiSize = () => {
             <Button label='Small (sm)' size='sm' />
             <Button label='Medium (md)' size='md' />
             <Button label='Large (lg)' size='lg' />
-            <Button label='Extra Large (xl)' size='xl' />
           </div>
         }
         code={`import React from "react"
@@ -36,7 +35,6 @@ export const Component = () => {
     <Button label='Small (sm)' size='sm' />
     <Button label='Medium (md)' size='md' />
     <Button label='Large (lg)' size='lg' />
-    <Button label='Extra Large (xl)' size='xl' />
   )
 }`}
       />
