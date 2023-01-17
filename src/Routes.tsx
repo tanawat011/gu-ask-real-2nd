@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { useLocalSetting } from 'hooks/useLocalSetting'
 import { useRouteList } from 'hooks/useRouteList'
-import { useSetting } from 'hooks/useSetting'
 import { renderRoutes } from 'utils/route'
 
 export const AppRoutes = () => {
   const { allRoutes } = useRouteList()
-  const [localSetting] = useSetting()
+  const [localSetting] = useLocalSetting()
 
   return (
     <div className={localSetting.theme.mode || 'light'}>

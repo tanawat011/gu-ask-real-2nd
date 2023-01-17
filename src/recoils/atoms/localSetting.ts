@@ -9,7 +9,7 @@ export type LocalSettingState = {
     direction: 'ltr' | 'rtl'
     mode: 'light' | 'dark'
     locale: Language
-    primaryColorLevel: TwColorLevel
+    colorLevel: TwColorLevel
     panelExpand: boolean // config menu
     navMode: 'transparent' | 'themed'
     layout: {
@@ -37,7 +37,7 @@ export const defaultLocalSetting: LocalSettingState = {
     direction: 'ltr',
     mode: 'dark',
     locale: 'en',
-    primaryColorLevel: '600',
+    colorLevel: '600',
     panelExpand: false,
     navMode: 'transparent',
     layout: {
