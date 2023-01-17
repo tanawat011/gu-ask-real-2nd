@@ -2,17 +2,17 @@ import { renderHook } from '@testing-library/react'
 import { mocked } from 'jest-mock'
 import { useOutletContext } from 'react-router-dom'
 
-import { useSetting } from './useSetting'
+import { useLocalSetting } from './useLocalSetting'
 
-jest.mock('./useSetting', () => jest.requireActual('./useSetting'))
+jest.mock('./useLocalSetting', () => jest.requireActual('./useLocalSetting'))
 
-describe('useSetting', () => {
+describe('useLocalSetting', () => {
   test('should return correctly result', () => {
     expect.hasAssertions()
 
     mocked(useOutletContext).mockReturnValue({ scroll: { top: 0 } })
 
-    const { result } = renderHook(() => useSetting())
+    const { result } = renderHook(() => useLocalSetting())
 
     expect('theme' in result.current[0]).toEqual(true)
   })

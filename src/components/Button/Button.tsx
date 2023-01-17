@@ -2,10 +2,13 @@ import type { Variant, Size, Shape, TwColor, TwColorLevel, MultiMerged } from 't
 
 import type { MouseEvent } from 'react'
 
+import { useRecoilValue } from 'recoil'
 import colors from 'tailwindcss/colors'
 import tw, { css, styled } from 'twin.macro'
 
 import { Loading } from 'components/Loading'
+import { useLocalSetting } from 'hooks/useLocalSetting'
+import { localSettingAtom } from 'recoils/atoms'
 import { twColor } from 'utils/jest'
 
 import { twShape, twSize, twSizeIcon, twVariant } from './styles'
@@ -31,6 +34,8 @@ type TwButtonProps = Omit<ButtonProps, 'label' | 'icon' | 'onClick' | 'disabled'
   isDisabled?: boolean
   isLoading?: boolean
   isBlocked?: boolean
+  themeColor: TwColor
+  colorLevel: TwColorLevel
 }
 
 const TwContainer = tw.div`relative select-none`
@@ -46,18 +51,23 @@ const TwButton = styled.button(
     isDisabled,
     isLoading,
     isBlocked,
+    themeColor,
+    colorLevel,
   }: TwButtonProps) => {
-    const [_color, _shade] = (color?.split('-') as [TwColor, TwColorLevel]) || []
+    const [_color, _level] = (color?.split('-') as [TwColor, TwColorLevel]) || []
+    const themeSetting = { themeColor, colorLevel }
 
     return [
-      !color && variant && (outline ? twVariant.border[variant] : twVariant.bg[variant]),
+      !color &&
+        variant &&
+        (outline ? twVariant(themeSetting).border[variant] : twVariant(themeSetting).bg[variant]),
       color &&
         (outline
           ? css`
               --tw-border-opacity: 1;
               border-width: 2px;
-              border-color: ${twColor(colors[_color][_shade], 'border')};
-              color: ${twColor(colors[_color][_shade], 'text')};
+              border-color: ${twColor(colors[_color][_level], 'border')};
+              color: ${twColor(colors[_color][_level], 'text')};
               &:hover {
                 --tw-border-opacity: 0.8;
                 --tw-text-opacity: 0.8;
@@ -65,7 +75,7 @@ const TwButton = styled.button(
             `
           : css`
               --tw-bg-opacity: 1;
-              background-color: ${twColor(colors[_color][_shade])};
+              background-color: ${twColor(colors[_color][_level])};
               color: ${colors.white};
               &:hover {
                 --tw-bg-opacity: 0.8;
@@ -97,6 +107,8 @@ export const Button: React.FC<ButtonProps> = ({
   loading,
   block,
 }) => {
+  const localSetting = useRecoilValue(localSettingAtom)
+
   const handleOnClick = (event: MouseEvent<HTMLButtonElement>) => {
     onClick && onClick(event)
   }
@@ -120,6 +132,8 @@ export const Button: React.FC<ButtonProps> = ({
         isDisabled={isDisabled}
         isLoading={loading}
         isBlocked={block}
+        themeColor={localSetting.theme.color}
+        colorLevel={localSetting.theme.colorLevel}
       >
         {isIconOnly ? (
           icon

@@ -1,8 +1,11 @@
+import type { LocalSettingState } from 'recoils/atoms'
+
 import { US } from 'country-flag-icons/react/3x2'
 import tw from 'twin.macro'
 
 import { IconBell, IconGear } from 'components/Icons'
-import { useSetting } from 'hooks/useSetting'
+import { useLocalSetting } from 'hooks/useLocalSetting'
+import { defaultLocalSetting } from 'recoils/atoms'
 
 const TwIconProfile = tw.div`h-8 w-8 rounded-full bg-cadet-grey dark:bg-red-500`
 
@@ -17,12 +20,44 @@ const TwNavbarProfileRole = tw.span`text-xs`
 const TwNavbarProfileName = tw.span`font-bold text-sm`
 
 export const NavbarRight = () => {
-  const [, setDarkMode] = useSetting('mode')
+  const [, setLocalSetting] = useLocalSetting()
+
+  const setDarkMode = () => {
+    const _defaultLocalSetting = JSON.stringify(defaultLocalSetting)
+    const oldLocalSetting = JSON.parse(
+      localStorage.getItem('setting') || _defaultLocalSetting,
+    ) as LocalSettingState
+
+    const mode = oldLocalSetting.theme.mode
+
+    oldLocalSetting.theme.mode = mode === 'light' ? 'dark' : 'light'
+
+    setLocalSetting(oldLocalSetting)
+    localStorage.setItem('setting', JSON.stringify(oldLocalSetting))
+  }
+
+  const setTheme = () => {
+    const _defaultLocalSetting = JSON.stringify(defaultLocalSetting)
+    const oldLocalSetting = JSON.parse(
+      localStorage.getItem('setting') || _defaultLocalSetting,
+    ) as LocalSettingState
+
+    const _color = oldLocalSetting.theme.color
+
+    oldLocalSetting.theme.color = _color === 'emerald' ? 'indigo' : 'emerald'
+
+    setLocalSetting(oldLocalSetting)
+    localStorage.setItem('setting', JSON.stringify(oldLocalSetting))
+  }
 
   return (
     <TwNavbarRight>
-      <TwNavbarItem className='select-none' onClick={setDarkMode}>
+      <TwNavbarItem className='select-none' onClick={setTheme}>
         Toggle Theme(Temp)
+      </TwNavbarItem>
+
+      <TwNavbarItem className='select-none' onClick={setDarkMode}>
+        Toggle Mode(Temp)
       </TwNavbarItem>
 
       <TwNavbarItem>
