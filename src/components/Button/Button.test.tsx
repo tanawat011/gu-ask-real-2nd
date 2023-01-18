@@ -1,10 +1,10 @@
 /* eslint-disable jest/no-conditional-expect */
 import type { Size, Variant } from 'types'
 
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 
 import { IconHome } from 'components/Icons'
-import { twColor } from 'utils/jest'
+import { renderWithProviders, twColor } from 'utils/jest'
 
 import { Button } from './Button'
 
@@ -19,7 +19,7 @@ describe('<Button />', () => {
     const {
       asFragment,
       container: { firstChild },
-    } = render(<Button label='button' onClick={onClick} />)
+    } = renderWithProviders(<Button label='button' onClick={onClick} />)
 
     expect(firstChild).toHaveStyle('position: relative')
     expect(firstChild).toHaveStyle('user-select: none')
@@ -32,7 +32,7 @@ describe('<Button />', () => {
 
     const onClick = jest.fn()
 
-    render(<Button label='button' onClick={onClick} />)
+    renderWithProviders(<Button label='button' onClick={onClick} />)
 
     const button = screen.getByRole('button')
     fireEvent.click(button)
@@ -43,7 +43,7 @@ describe('<Button />', () => {
   test('renders correctly and disabled', async () => {
     expect.assertions(6)
 
-    render(<Button label='button' disabled />)
+    renderWithProviders(<Button label='button' disabled />)
 
     const button = screen.getByRole('button')
 
@@ -56,7 +56,7 @@ describe('<Button />', () => {
   test('renders correctly and loading', async () => {
     expect.assertions(5)
 
-    render(<Button label='button' loading />)
+    renderWithProviders(<Button label='button' loading />)
 
     const button = screen.getByRole('button')
     const loadingIcon = screen.getByText('Loading')
@@ -71,7 +71,7 @@ describe('<Button />', () => {
   test('renders correctly and blocked', async () => {
     expect.assertions(1)
 
-    render(<Button label='button' block />)
+    renderWithProviders(<Button label='button' block />)
 
     const button = screen.getByRole('button')
 
@@ -81,7 +81,7 @@ describe('<Button />', () => {
   test('renders correctly and display icon only', async () => {
     expect.assertions(1)
 
-    render(<Button icon={<IconHome />} />)
+    renderWithProviders(<Button icon={<IconHome />} />)
 
     const button = screen.getByRole('button')
 
@@ -133,7 +133,7 @@ describe('<Button />', () => {
     test(`renders correctly and size \`${key}\``, () => {
       expect.assertions(7)
 
-      render(<Button label='button' size={key as Size} />)
+      renderWithProviders(<Button label='button' size={key as Size} />)
 
       const button = screen.getByRole('button')
 
@@ -182,7 +182,7 @@ describe('<Button />', () => {
     test(`renders correctly and display icon only with size \`${key}\``, () => {
       expect.assertions(6)
 
-      render(<Button icon={<IconHome />} size={key as Size} />)
+      renderWithProviders(<Button icon={<IconHome />} size={key as Size} />)
 
       const button = screen.getByRole('button')
 
@@ -240,7 +240,7 @@ describe('<Button />', () => {
       test(`renders correctly and variant \`${key}\``, async () => {
         expect.hasAssertions()
 
-        render(<Button label='button' variant={key as Variant} />)
+        renderWithProviders(<Button label='button' variant={key as Variant} />)
 
         const button = screen.getByRole('button')
 
@@ -311,7 +311,7 @@ describe('<Button />', () => {
       test(`renders correctly and outline variant \`${key}\``, () => {
         expect.hasAssertions()
 
-        render(<Button label='button' variant={key as Variant} outline />)
+        renderWithProviders(<Button label='button' variant={key as Variant} outline />)
 
         const button = screen.getByRole('button')
 
@@ -357,7 +357,7 @@ describe('<Button />', () => {
   test('renders correctly and shape square', () => {
     expect.hasAssertions()
 
-    render(<Button label='button' shape='square' />)
+    renderWithProviders(<Button label='button' shape='square' />)
 
     const button = screen.getByRole('button')
 
@@ -367,7 +367,7 @@ describe('<Button />', () => {
   test('renders correctly and shape rounded', () => {
     expect.hasAssertions()
 
-    render(<Button label='button' shape='rounded' />)
+    renderWithProviders(<Button label='button' shape='rounded' />)
 
     const button = screen.getByRole('button')
 
@@ -377,7 +377,7 @@ describe('<Button />', () => {
   test('renders correctly and shape circle', () => {
     expect.hasAssertions()
 
-    render(<Button label='button' shape='circle' />)
+    renderWithProviders(<Button label='button' shape='circle' />)
 
     const button = screen.getByRole('button')
 

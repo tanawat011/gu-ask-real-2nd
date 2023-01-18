@@ -7,7 +7,6 @@ import colors from 'tailwindcss/colors'
 import tw, { css, styled } from 'twin.macro'
 
 import { Loading } from 'components/Loading'
-import { useLocalSetting } from 'hooks/useLocalSetting'
 import { localSettingAtom } from 'recoils/atoms'
 import { twColor } from 'utils/jest'
 

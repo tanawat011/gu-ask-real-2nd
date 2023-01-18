@@ -40,14 +40,19 @@ exports[`<SidebarHeader /> should render without crashing and match snapshot 1`]
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
-.c3 {
+.c4 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
   margin-left: 0.5rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.dark .c3 {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
 <div
@@ -60,7 +65,7 @@ exports[`<SidebarHeader /> should render without crashing and match snapshot 1`]
         class="c2"
       />
       <div
-        class="c3"
+        class="c3 c4"
       >
         Gu Ask Real
       </div>

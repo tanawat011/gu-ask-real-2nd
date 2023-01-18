@@ -2,12 +2,13 @@
 
 exports[`<SidebarFooter /> should render without crashing and match snapshot 1`] = `
 <DocumentFragment>
-  .c0 {
+  .c1 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 64px;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
@@ -19,17 +20,21 @@ exports[`<SidebarFooter /> should render without crashing and match snapshot 1`]
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  height: 64px;
   border-top-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5rem;
 }
 
+.dark .c0 {
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
+
 <div
-    class="c0"
+    class="c0 c1"
   >
     <span>
       Powered by tDev

@@ -28,6 +28,7 @@
   "eslint.workingDirectories": ["."],
   "eslint.alwaysShowStatus": true,
   "cSpell.words": [
+    "auro",
     "backoffice",
     "browserslist",
     "camelcase",
@@ -42,6 +43,7 @@
     "fortawesome",
     "hookform",
     "Keycloak",
+    "koamaru",
     "Lato",
     "lcov",
     "lrta",
@@ -53,6 +55,7 @@
     "nocheck",
     "Pinthongpan",
     "Sarabun",
+    "saurus",
     "SILOM",
     "SONARQUBE",
     "Tanawat",

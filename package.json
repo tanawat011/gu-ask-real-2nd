@@ -169,8 +169,7 @@
   },
   "babelMacros": {
     "twin": {
-      "preset": "styled-components",
-      "autoCssProp": false
+      "preset": "styled-components"
     }
   }
 }

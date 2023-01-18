@@ -1,0 +1,71 @@
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  IMAGE: $CI_REGISTRY_IMAGE
+  IMAGE_TAG: $CI_COMMIT_TAG
+  DOCKER_PATH: ./docker/Dockerfile
+
+before_script:
+  - whoami
+  - pwd
+  - ls -lrta
+
+# TEST LINT, TEST BUILD AND UNIT TEST
+lint-build-test:
+  stage: test
+  image: node:16-alpine
+  tags:
+    - docker-exec
+  before_script:
+    - whoami
+    - yarn install --force
+  script:
+    - yarn lint
+    - yarn build
+    - yarn test -u
+
+# BUILD IMAGE DEVELOPMENT
+build-dev:
+  stage: build
+  environment:
+    name: dev
+  tags:
+    - docker-cli
+  script:
+    - /bin/sh ./scripts/build_image_gitlab.sh dev
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "dev" && $CI_PIPELINE_SOURCE == "push"
+      when: on_success
+    - when: never
+
+# DEPLOY DEVELOPMENT
+deploy-dev:
+  stage: deploy
+  environment:
+    name: dev
+  tags:
+    - kube-cli
+  script:
+    - IMAGE_TAG=dev
+    - /bin/sh ./scripts/k8s_deployment.sh
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "dev" && $CI_PIPELINE_SOURCE == "push"
+      when: on_success
+    - when: never
+
+# BUILD IMAGE PRODUCTION
+build-prod:
+  stage: build
+  environment:
+    name: prod
+  tags:
+    - docker-cli
+  script:
+    - /bin/sh ./scripts/build_image_gitlab.sh prod
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/ && $CI_PIPELINE_SOURCE == "push"
+      when: on_success
+    - when: never

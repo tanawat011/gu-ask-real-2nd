@@ -1,6 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { mocked } from 'jest-mock'
-import { useOutletContext } from 'react-router-dom'
+import { RecoilRoot } from 'recoil'
 
 import { useLocalSetting } from './useLocalSetting'
 
@@ -10,9 +9,7 @@ describe('useLocalSetting', () => {
   test('should return correctly result', () => {
     expect.hasAssertions()
 
-    mocked(useOutletContext).mockReturnValue({ scroll: { top: 0 } })
-
-    const { result } = renderHook(() => useLocalSetting())
+    const { result } = renderHook(() => useLocalSetting(), { wrapper: RecoilRoot })
 
     expect('theme' in result.current[0]).toEqual(true)
   })

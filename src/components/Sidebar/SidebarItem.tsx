@@ -1,8 +1,11 @@
 import type { SidebarState } from 'recoils/atoms'
 
+import React from 'react'
+
 import tw, { styled } from 'twin.macro'
 
 import { IconAngleDown } from 'components/Icons'
+import { DARK_THEME, LIGHT_THEME } from 'constants/twTheme'
 
 export type SidebarItemProps = {
   icon?: JSX.Element
@@ -14,14 +17,38 @@ export type SidebarItemProps = {
   fullSidebar: boolean
 }
 
-type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected'> & SidebarState
+type SidebarItemContainerProps = SidebarState
 
-const TwContainer = styled.div(({ selected, fullSidebar }: SidebarItemContainerProps) => [
-  tw`mb-2 flex h-10 cursor-pointer items-center rounded-lg hover:(text-white bg-[hsla(0,0%,100%,.1)])`,
-  selected && tw`text-white bg-[hsla(0,0%,100%,.1)]`,
-  fullSidebar ? tw`justify-between px-3` : tw`justify-center px-0`,
+const TwContainer = styled.div(({ fullSidebar }: SidebarItemContainerProps) => [
+  fullSidebar
+    ? [
+        [DARK_THEME.SIDEBAR.MENU.TEXT_COLOR],
+        [DARK_THEME.SIDEBAR.MENU.HOVER.BG_COLOR, DARK_THEME.SIDEBAR.MENU.HOVER.TEXT_COLOR],
+        [LIGHT_THEME.SIDEBAR.MENU.TEXT_COLOR],
+        [LIGHT_THEME.SIDEBAR.MENU.HOVER.BG_COLOR, LIGHT_THEME.SIDEBAR.MENU.HOVER.TEXT_COLOR],
+        tw`justify-between px-3`,
+      ]
+    : [
+        [DARK_THEME.MINI_SIDEBAR.MENU.TEXT_COLOR],
+        [
+          DARK_THEME.MINI_SIDEBAR.MENU.HOVER.BG_COLOR,
+          DARK_THEME.MINI_SIDEBAR.MENU.HOVER.TEXT_COLOR,
+        ],
+        [LIGHT_THEME.MINI_SIDEBAR.MENU.TEXT_COLOR],
+        [
+          LIGHT_THEME.MINI_SIDEBAR.MENU.HOVER.BG_COLOR,
+          LIGHT_THEME.MINI_SIDEBAR.MENU.HOVER.TEXT_COLOR,
+        ],
+        tw`justify-center px-0`,
+      ],
+  tw`mb-2 flex h-10 cursor-pointer items-center rounded-lg`,
 ])
 const TwItem = tw.div`flex items-center`
+const TwItemSelected = styled.div(() => [
+  [DARK_THEME.SIDEBAR.MENU.ACTIVE.BG_COLOR, DARK_THEME.SIDEBAR.MENU.ACTIVE.TEXT_COLOR],
+  [LIGHT_THEME.SIDEBAR.MENU.ACTIVE.BG_COLOR, LIGHT_THEME.SIDEBAR.MENU.ACTIVE.TEXT_COLOR],
+  tw`rounded-lg`,
+])
 const TwWrapIcon = styled.div(({ fullSidebar }: SidebarItemContainerProps) => [
   tw`flex h-6 w-6 items-center justify-center`,
   fullSidebar && tw`mr-2`,
@@ -40,8 +67,8 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
   expanded,
   fullSidebar,
 }) => {
-  return (
-    <TwContainer onClick={onClick} selected={selected} fullSidebar={fullSidebar}>
+  const renderItem = (
+    <TwContainer onClick={onClick} fullSidebar={fullSidebar}>
       <TwItem>
         <TwWrapIcon fullSidebar={fullSidebar}>{icon}</TwWrapIcon>
 
@@ -55,4 +82,10 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
       )}
     </TwContainer>
   )
+
+  if (selected) {
+    return <TwItemSelected>{renderItem}</TwItemSelected>
+  }
+
+  return renderItem
 }

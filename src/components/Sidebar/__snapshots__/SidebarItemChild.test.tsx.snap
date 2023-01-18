@@ -2,7 +2,13 @@
 
 exports[`<SidebarItemChild /> should render without crashing and match snapshot 1`] = `
 <DocumentFragment>
-  .c0 {
+  .c1 {
+  margin-left: 1.25rem;
+  padding-left: 0.75rem !important;
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+  height: 2.5rem;
+  padding-left: 0.75rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17,18 +23,34 @@ exports[`<SidebarItemChild /> should render without crashing and match snapshot 
   -ms-flex-pack: justify;
   justify-content: space-between;
   border-radius: 0.5rem;
-  margin-left: 1.25rem;
-  height: 2.5rem;
-  padding-left: 0.75rem;
 }
 
-.c0:hover {
-  background-color: hsla(0,0%,100%,.1);
+.dark .c0 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.dark .c0:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(41 51 65 / var(--tw-bg-opacity));
+}
+
+.dark .c0:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.c1 {
+.c1:hover {
+  --tw-bg-opacity: 0.1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.c1:hover {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -40,10 +62,10 @@ exports[`<SidebarItemChild /> should render without crashing and match snapshot 
 }
 
 <div
-    class="c0"
+    class="c0 c1"
   >
     <div
-      class="c1"
+      class="c2"
     >
       <span
         class="mt-0.5"

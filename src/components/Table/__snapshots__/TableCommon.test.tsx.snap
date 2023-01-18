@@ -2,31 +2,130 @@
 
 exports[`<TableCommon /> renders correctly 1`] = `
 <DocumentFragment>
-  <table>
-    <thead>
+  .c0 {
+  width: 100%;
+}
+
+.c2 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.dark .c1 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.c4 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: left;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+}
+
+.dark .c3 {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.c6 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  border-top-width: 1px;
+}
+
+.dark .c5 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+.dark .c5 {
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
+
+.dark .c5:hover {
+  --tw-bg-opacity: 0.5;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.c6:hover {
+  --tw-bg-opacity: 0.5;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.c8 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+.dark .c7 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+<table
+    class="c0"
+  >
+    <thead
+      class="c1 c2"
+    >
       <tr>
-        <th>
+        <th
+          class="c3 c4"
+        >
           Name
         </th>
-        <th>
+        <th
+          class="c3 c4"
+        >
           Age
         </th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>
+    <tbody
+      class=""
+    >
+      <tr
+        class="c5 c6"
+      >
+        <td
+          class="c7 c8"
+        >
           John
         </td>
-        <td>
+        <td
+          class="c7 c8"
+        >
           20
         </td>
       </tr>
-      <tr>
-        <td>
+      <tr
+        class="c5 c6"
+      >
+        <td
+          class="c7 c8"
+        >
           Jane
         </td>
-        <td>
+        <td
+          class="c7 c8"
+        >
           21
         </td>
       </tr>
