@@ -21,14 +21,20 @@ module.exports = {
       },
       colors: {
         'anti-flash-white': '#F3F4F6',
+        'auro-metal-saurus': '#6B7280',
+        'bright-gray': '#E5E7EB',
         'cadet-grey': '#9CA3AF',
         'charcoal': '#374151',
         'deep-koamaru': '#2d355c',
         'eerie-black': '#111827',
+        'ghost-white': '#F9FAFB',
         'gunmetal': '#293341',
         'independence': '#4B5563',
+        'light-silver': '#D1D5DB',
         'majorelle-blue': '#4F46E5',
         'nickel': '#6a717a',
+        'platinum': '#E2E4E7',
+        'slate-gray': '#77808c',
         'very-light-blue': '#6366F1',
         'yankees-blue': '#1F2937',
         // * Theme
@@ -53,8 +59,15 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      backgroundColor: ['selected'],
+      textColor: ['selected'],
+    }
+  },
   plugins: [
-    plugin(({ addComponents, theme, }) => {
+    plugin(({ addComponents, theme, addVariant }) => {
+      addVariant('selected', '.selected &')
       addComponents({
         '.example': {
           background: theme('colors.majorelle-blue'),

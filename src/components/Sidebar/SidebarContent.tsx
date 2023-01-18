@@ -6,6 +6,7 @@ import tw, { css, styled } from 'twin.macro'
 
 import { IconCaretLeft } from 'components/Icons'
 import { Popover } from 'components/Popover'
+import { FLEX } from 'constants/twTheme'
 import { expandItem, selectChildItem, selectItem } from 'utils/components/sidebar'
 
 import { SidebarItem } from './SidebarItem'
@@ -22,7 +23,7 @@ const TwContainer = styled(TwHeightContainer)(({ fullSidebar }: SidebarState) =>
   tw`select-none px-4 pb-4 font-semibold text-sm`,
   fullSidebar && tw`[overflow-y: overlay]`,
 ])
-const TwContentWrap = tw.div`flex flex-col`
+const TwContentWrap = styled.div(() => [FLEX.COL])
 const TwContentTitle = tw.div`mt-4 mb-2 px-3`
 
 const TwWrapChildItem = styled.div(

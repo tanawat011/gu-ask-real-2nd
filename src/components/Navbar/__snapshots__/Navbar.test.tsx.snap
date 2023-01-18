@@ -65,12 +65,17 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.c8 {
+.c9 {
   height: 2rem;
   width: 2rem;
   border-radius: 9999px;
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.dark .c8 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .c4 {
@@ -133,7 +138,7 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   padding-right: 0.75rem;
 }
 
-.c9 {
+.c10 {
   margin-left: 0.5rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -148,12 +153,12 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c10 {
+.c11 {
   font-size: 0.75rem;
   line-height: 1rem;
 }
 
-.c11 {
+.c12 {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 700;
@@ -201,6 +206,16 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
     <div
       class="c4"
     >
+      <div
+        class="c5 select-none"
+      >
+        Toggle Theme(Temp)
+      </div>
+      <div
+        class="c5 select-none"
+      >
+        Toggle Mode(Temp)
+      </div>
       <div
         class="c5"
       >
@@ -253,18 +268,18 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
         class="c7"
       >
         <div
-          class="c8"
+          class="c8 c9"
         />
         <div
-          class="c9"
+          class="c10"
         >
           <span
-            class="c10"
+            class="c11"
           >
             Admin
           </span>
           <span
-            class="c11"
+            class="c12"
           >
             Tanawat P
           </span>

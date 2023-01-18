@@ -2,11 +2,11 @@
 
 exports[`<Sidebar /> should render without crashing and match snapshot 1`] = `
 <DocumentFragment>
-  .c0 {
+  .c1 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
   min-width: 290px;
   border-right-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
@@ -16,19 +16,24 @@ exports[`<Sidebar /> should render without crashing and match snapshot 1`] = `
   min-width: 290px;
 }
 
+.dark .c0 {
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
+
 <div
-    class="c0"
+    class="c0 c1"
   />
 </DocumentFragment>
 `;
 
 exports[`<Sidebar /> should render without crashing and match snapshot with mini sidebar 1`] = `
 <DocumentFragment>
-  .c0 {
+  .c1 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
   min-width: 290px;
   border-right-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-timing-function: cubic-bezier(0.4,0,0.2,1);
@@ -38,8 +43,13 @@ exports[`<Sidebar /> should render without crashing and match snapshot with mini
   min-width: 80px;
 }
 
+.dark .c0 {
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
+
 <div
-    class="c0"
+    class="c0 c1"
   />
 </DocumentFragment>
 `;

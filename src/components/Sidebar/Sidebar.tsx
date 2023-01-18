@@ -3,6 +3,8 @@ import type { WithRequired } from 'types'
 
 import tw, { styled } from 'twin.macro'
 
+import { DARK_THEME, LIGHT_THEME } from 'constants/twTheme'
+
 import { SidebarContent } from './SidebarContent'
 import { SidebarFooter } from './SidebarFooter'
 import { SidebarHeader } from './SidebarHeader'
@@ -29,7 +31,9 @@ export type SidebarProps = {
 }
 
 const TwSidebar = styled.div(({ fullSidebar }: SidebarState) => [
-  tw`border-charcoal border-r transition-all min-w-[theme(width.sidebar)]`,
+  [DARK_THEME.BORDER.COLOR],
+  [LIGHT_THEME.BORDER.COLOR],
+  tw`border-r transition-all min-w-[theme(width.sidebar)]`,
   fullSidebar ? tw`min-w-[theme(width.sidebar)]` : tw`min-w-[theme(width.mini-sidebar)]`,
 ])
 
