@@ -7,7 +7,7 @@ const TwContainer = tw.div`mb-8`
 
 export const ButtonUiOutline = () => {
   return (
-    <TwContainer>
+    <TwContainer id='outline'>
       <Title
         title='Outline'
         description={
