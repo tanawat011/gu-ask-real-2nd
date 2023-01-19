@@ -22,7 +22,7 @@ export const twVariant: TwVariantFn = ({ themeColor, colorLevel }) => {
       solid: css`
         --tw-bg-opacity: 1;
         background-color: ${twColor(colors[themeColor][colorLevel])};
-        color: #ffffff;
+        color: ${twColor('#ffffff', 'text')};
         &:hover {
           --tw-bg-opacity: 0.8;
         }
@@ -30,7 +30,7 @@ export const twVariant: TwVariantFn = ({ themeColor, colorLevel }) => {
       twoTone: css`
         --tw-bg-opacity: 0.2;
         background-color: ${twColor(colors[themeColor][colorLevel])};
-        color: #ffffff;
+        color: ${twColor('#ffffff', 'text')};
         &:hover {
           --tw-bg-opacity: 0.3;
         }
@@ -44,9 +44,9 @@ export const twVariant: TwVariantFn = ({ themeColor, colorLevel }) => {
       tertiary: tw`border-2 border-tertiary text-tertiary hover:(border-opacity-80 text-opacity-80)`,
       solid: css`
         --tw-bg-opacity: 0.3;
-        background-color: ${twColor(colors[themeColor][colorLevel])};
         --tw-border-opacity: 1;
         --tw-text-opacity: 0.8;
+        background-color: ${twColor(colors[themeColor][colorLevel])};
         border-width: 2px;
         border-color: ${twColor(colors[themeColor][colorLevel], 'border')};
         color: ${twColor(colors[themeColor][colorLevel], 'text')};
@@ -58,9 +58,9 @@ export const twVariant: TwVariantFn = ({ themeColor, colorLevel }) => {
       `,
       twoTone: css`
         --tw-bg-opacity: 0.1;
-        background-color: ${twColor(colors[themeColor][colorLevel])};
         --tw-border-opacity: 0.2;
         --tw-text-opacity: 1;
+        background-color: ${twColor(colors[themeColor][colorLevel])};
         border-width: 2px;
         border-color: ${twColor(colors[themeColor][colorLevel], 'border')};
         color: ${twColor(colors[themeColor][colorLevel], 'text')};
