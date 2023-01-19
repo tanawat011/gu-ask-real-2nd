@@ -1,11 +1,11 @@
-import type { OutletContextProps, Scroll } from 'types'
+import type { Scroll } from 'types'
 
 import { useEffect, useState } from 'react'
 
-import { useOutletContext } from 'react-router-dom'
+import { useContentContext } from 'hooks/useContentContext'
 
 export const useIsScrolled = () => {
-  const { scroll } = useOutletContext<OutletContextProps>()
+  const { scroll } = useContentContext()
   const [isScrolled, setIsScrolled] = useState(false)
 
   const handleScroll = ({ top }: Scroll) => {

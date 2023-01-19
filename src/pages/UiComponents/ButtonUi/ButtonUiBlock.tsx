@@ -7,7 +7,7 @@ const TwContainer = tw.div`mb-8`
 
 export const ButtonUiBlock = () => {
   return (
-    <TwContainer>
+    <TwContainer id='block'>
       <Title
         title='Block'
         description={
