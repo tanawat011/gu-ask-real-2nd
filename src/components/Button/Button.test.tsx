@@ -195,34 +195,52 @@ describe('<Button />', () => {
     })
   })
 
-  type VariantOption = {
+  type ColorTestOption = {
     bgColor?: string
     bgHoverColor?: string
+    bgOpacity?: string
+    bgHoverOpacity?: string
+    borderWidth?: string
+    borderColor?: string
+    borderHoverColor?: string
+    borderOpacity?: string
+    borderHoverOpacity?: string
     textColor?: string
     textHoverColor?: string
+    textOpacity?: string
+    textHoverOpacity?: string
   }
 
-  type TestVariant = { [key in Variant]: VariantOption }
+  type TestVariant = { [key in Variant]: ColorTestOption }
+
+  type TestOutlineVariant = { [key in Variant]: ColorTestOption }
 
   const variants: TestVariant = {
     primary: {
       bgColor: '#4F46E5',
+      bgHoverOpacity: '0.8',
       textColor: '#ffffff',
     },
     secondary: {
       bgColor: '#374151',
+      bgHoverOpacity: '0.8',
       textColor: '#ffffff',
     },
     tertiary: {
       bgColor: '#2d355c',
+      bgHoverOpacity: '0.8',
       textColor: '#ffffff',
     },
     solid: {
-      bgColor: '#15803d',
+      bgColor: '#4f46e5',
+      bgOpacity: '1',
+      bgHoverOpacity: '0.8',
       textColor: '#ffffff',
     },
     twoTone: {
-      bgColor: '#b91c1c',
+      bgColor: '#4f46e5',
+      bgOpacity: '0.2',
+      bgHoverOpacity: '0.3',
       textColor: '#ffffff',
     },
     plain: {
@@ -230,75 +248,63 @@ describe('<Button />', () => {
       textColor: '#ffffff',
     },
     link: {
-      textHoverColor: '#2563EB',
       textColor: '#3B82F6',
+      textHoverColor: '#2563EB',
     },
   }
-
-  Object.entries(variants).forEach(
-    ([key, { bgColor, bgHoverColor, textColor, textHoverColor }]) => {
-      test(`renders correctly and variant \`${key}\``, async () => {
-        expect.hasAssertions()
-
-        renderWithProviders(<Button label='button' variant={key as Variant} />)
-
-        const button = screen.getByRole('button')
-
-        if (bgColor) {
-          expect(button).toHaveStyleRule('background-color', twColor(bgColor))
-        }
-
-        if (bgHoverColor) {
-          expect(button).toHaveStyleRule('background-color', twColor(bgHoverColor), {
-            modifier: ':hover',
-          })
-        }
-
-        if (textColor) {
-          expect(button).toHaveStyleRule('color', twColor(textColor, 'text'))
-        }
-
-        if (textHoverColor) {
-          expect(button).toHaveStyleRule('color', twColor(textHoverColor, 'text'), {
-            modifier: ':hover',
-          })
-        }
-
-        if (!(['plain', 'link'] as Variant[]).includes(key as Variant)) {
-          expect(button).toHaveStyleRule('--tw-bg-opacity', '0.8', { modifier: ':hover' })
-        }
-      })
-    },
-  )
-
-  type OutlineVariantOption = {
-    borderColor?: string
-    borderHoverColor?: string
-    textColor?: string
-    textHoverColor?: string
-  }
-
-  type TestOutlineVariant = { [key in Variant]: OutlineVariantOption }
 
   const outlineVariants: TestOutlineVariant = {
     primary: {
+      borderWidth: '2px',
       borderColor: '#4F46E5',
+      borderHoverOpacity: '0.8',
+      textColor: '#4f46e5',
+      textHoverOpacity: '0.8',
     },
     secondary: {
+      borderWidth: '2px',
       borderColor: '#374151',
+      borderHoverOpacity: '0.8',
+      textColor: '#374151',
+      textHoverOpacity: '0.8',
     },
     tertiary: {
+      borderWidth: '2px',
       borderColor: '#2d355c',
+      borderHoverOpacity: '0.8',
+      textColor: '#2d355c',
+      textHoverOpacity: '0.8',
     },
     solid: {
-      borderColor: '#15803d',
+      bgColor: '#4f46e5',
+      bgOpacity: '0.3',
+      bgHoverOpacity: '0.4',
+      borderWidth: '2px',
+      borderColor: '#4f46e5',
+      borderOpacity: '1',
+      borderHoverOpacity: '0.8',
+      textColor: '#4f46e5',
+      textOpacity: '0.8',
+      textHoverOpacity: '1',
     },
     twoTone: {
-      borderColor: '#b91c1c',
+      bgColor: '#4f46e5',
+      bgOpacity: '0.1',
+      bgHoverOpacity: '0.2',
+      borderWidth: '2px',
+      borderColor: '#4f46e5',
+      borderOpacity: '0.2',
+      borderHoverOpacity: '0.3',
+      textColor: '#4f46e5',
+      textOpacity: '1',
+      textHoverOpacity: '0.8',
     },
     plain: {
+      borderWidth: '2px',
       borderColor: 'transparent',
       borderHoverColor: '#4B5563',
+      textColor: 'transparent',
+      textHoverColor: '#4B5563',
     },
     link: {
       textColor: '#3B82F6',
@@ -306,53 +312,131 @@ describe('<Button />', () => {
     },
   }
 
-  Object.entries(outlineVariants).forEach(
-    ([key, { borderColor, borderHoverColor, textColor, textHoverColor }]) => {
-      test(`renders correctly and outline variant \`${key}\``, () => {
-        expect.hasAssertions()
+  const execTestCase = (
+    key: Variant,
+    {
+      bgColor,
+      bgOpacity,
+      bgHoverColor,
+      bgHoverOpacity,
+      borderWidth,
+      borderColor,
+      borderOpacity,
+      borderHoverColor,
+      borderHoverOpacity,
+      textColor,
+      textHoverColor,
+      textOpacity,
+      textHoverOpacity,
+    }: ColorTestOption,
+    outline?: boolean,
+  ) => {
+    const hover = { modifier: ':hover' }
 
-        renderWithProviders(<Button label='button' variant={key as Variant} outline />)
+    renderWithProviders(<Button label='button' variant={key as Variant} outline={outline} />)
 
-        const button = screen.getByRole('button')
+    const button = screen.getByRole('button')
 
-        if (borderColor) {
-          expect(button).toHaveStyleRule(
-            'border-color',
-            borderColor === 'transparent' ? borderColor : twColor(borderColor, 'border'),
-          )
-          expect(button).toHaveStyleRule(
-            'color',
-            borderColor === 'transparent' ? borderColor : twColor(borderColor, 'text'),
-          )
-        }
+    if (bgColor) {
+      expect(button).toHaveStyleRule('background-color', twColor(bgColor))
+    }
 
-        if (borderHoverColor) {
-          expect(button).toHaveStyleRule('border-color', twColor(borderHoverColor, 'border'), {
-            modifier: ':hover',
-          })
-          expect(button).toHaveStyleRule('color', twColor(borderHoverColor, 'text'), {
-            modifier: ':hover',
-          })
-        }
+    if (bgOpacity) {
+      expect(button).toHaveStyleRule('--tw-bg-opacity', bgOpacity)
+    }
 
-        if (key !== 'link') {
-          expect(button).toHaveStyle('border-width: 2px')
-        }
+    if (bgHoverColor) {
+      expect(button).toHaveStyleRule('background-color', twColor(bgHoverColor), hover)
+    }
 
-        if (textColor && textHoverColor) {
-          expect(button).toHaveStyleRule('color', twColor(textColor, 'text'))
-          expect(button).toHaveStyleRule('color', twColor(textHoverColor, 'text'), {
-            modifier: ':hover',
-          })
-        }
+    if (bgHoverOpacity) {
+      expect(button).toHaveStyleRule('--tw-bg-opacity', bgHoverOpacity, hover)
+    }
 
-        if (!(['plain', 'link'] as Variant[]).includes(key as Variant)) {
-          expect(button).toHaveStyleRule('--tw-border-opacity', '0.8', { modifier: ':hover' })
-          expect(button).toHaveStyleRule('--tw-text-opacity', '0.8', { modifier: ':hover' })
-        }
-      })
-    },
-  )
+    if (borderWidth) {
+      expect(button).toHaveStyleRule('border-width', borderWidth)
+    }
+
+    if (borderColor) {
+      expect(button).toHaveStyleRule('border-color', twColor(borderColor, 'border'))
+    }
+
+    if (borderOpacity) {
+      expect(button).toHaveStyleRule('--tw-border-opacity', borderOpacity)
+    }
+
+    if (borderHoverColor) {
+      expect(button).toHaveStyleRule('border-color', twColor(borderHoverColor, 'border'), hover)
+    }
+
+    if (borderHoverOpacity) {
+      expect(button).toHaveStyleRule('--tw-border-opacity', borderHoverOpacity, hover)
+    }
+
+    if (textColor) {
+      expect(button).toHaveStyleRule('color', twColor(textColor, 'text'))
+    }
+
+    if (textOpacity) {
+      expect(button).toHaveStyleRule('--tw-text-opacity', textOpacity)
+    }
+
+    if (textHoverColor) {
+      expect(button).toHaveStyleRule('color', twColor(textHoverColor, 'text'), hover)
+    }
+
+    if (textHoverOpacity) {
+      expect(button).toHaveStyleRule('--tw-text-opacity', textHoverOpacity, hover)
+    }
+  }
+
+  Object.entries(variants).forEach(([key, val]) => {
+    test(`renders correctly and variant \`${key}\``, () => {
+      expect.hasAssertions()
+
+      execTestCase(key as Variant, val)
+    })
+  })
+
+  Object.entries(outlineVariants).forEach(([key, val]) => {
+    test(`renders correctly and outline variant \`${key}\``, () => {
+      expect.hasAssertions()
+
+      execTestCase(key as Variant, val, true)
+    })
+  })
+
+  test('renders correctly and custom color', () => {
+    expect.hasAssertions()
+
+    const hover = { modifier: ':hover' }
+
+    renderWithProviders(<Button label='button' color='indigo-600' />)
+
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveStyle('--tw-bg-opacity: 1')
+    expect(button).toHaveStyleRule('background-color', twColor('#4f46e5'))
+    expect(button).toHaveStyleRule('color', twColor('#ffffff', 'text'))
+    expect(button).toHaveStyleRule('--tw-bg-opacity', '0.8', hover)
+  })
+
+  test('renders correctly and custom color with outline', () => {
+    expect.hasAssertions()
+
+    const hover = { modifier: ':hover' }
+
+    renderWithProviders(<Button label='button' color='indigo-600' outline />)
+
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveStyle('--tw-border-opacity: 1')
+    expect(button).toHaveStyle('border-width: 2px')
+    expect(button).toHaveStyleRule('border-color', twColor('#4f46e5', 'border'))
+    expect(button).toHaveStyleRule('color', twColor('#4f46e5', 'text'))
+    expect(button).toHaveStyleRule('--tw-border-opacity', '0.8', hover)
+    expect(button).toHaveStyleRule('--tw-text-opacity', '0.8', hover)
+  })
 
   test('renders correctly and shape square', () => {
     expect.hasAssertions()

@@ -75,7 +75,7 @@ const TwButton = styled.button(
           : css`
               --tw-bg-opacity: 1;
               background-color: ${twColor(colors[_color][_level])};
-              color: ${colors.white};
+              color: ${twColor(colors.white, 'text')};
               &:hover {
                 --tw-bg-opacity: 0.8;
               }

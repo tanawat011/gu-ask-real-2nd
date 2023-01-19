@@ -22,6 +22,8 @@ const TwNavbarProfileName = tw.span`font-bold text-sm`
 export const NavbarRight = () => {
   const [, setLocalSetting] = useLocalSetting()
 
+  // TODO: Remove this when not use temporary
+  /* istanbul ignore next */
   const setDarkMode = () => {
     const _defaultLocalSetting = JSON.stringify(defaultLocalSetting)
     const oldLocalSetting = JSON.parse(
@@ -36,6 +38,8 @@ export const NavbarRight = () => {
     localStorage.setItem('setting', JSON.stringify(oldLocalSetting))
   }
 
+  // TODO: Remove this when not use temporary
+  /* istanbul ignore next */
   const setTheme = () => {
     const _defaultLocalSetting = JSON.stringify(defaultLocalSetting)
     const oldLocalSetting = JSON.parse(
