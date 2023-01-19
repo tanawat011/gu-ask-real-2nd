@@ -18,8 +18,6 @@ export const useLocalSetting: UseSettingHook = () => {
       strOldLocalSetting || _defaultLocalSetting,
     ) as LocalSettingState
 
-    console.log('strOldLocalSetting', strOldLocalSetting)
-
     if (strOldLocalSetting) {
       const localSettingKeys = Object.keys(oldLocalSetting)
 
