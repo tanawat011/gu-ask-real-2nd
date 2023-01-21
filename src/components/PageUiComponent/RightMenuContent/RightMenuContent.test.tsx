@@ -12,10 +12,11 @@ describe('<RightMenuContent />', () => {
       <RightMenuContent
         title='Title'
         currentScrollPosition={0}
+        pageHeight={100}
         menuList={[
-          { id: '', title: 'Variant', scroll: { min: 0, max: 0 } },
-          { id: '', title: 'Color', scroll: { min: 0, max: 0 } },
-          { id: '', title: 'Size', scroll: { min: 0, max: 0 } },
+          { title: 'Variant', scroll: 0 },
+          { title: 'Color', scroll: 12 },
+          { title: 'Size', scroll: 32 },
         ]}
       />,
     )

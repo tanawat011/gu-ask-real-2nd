@@ -6,8 +6,13 @@ describe('utils/number', () => {
     expect(betweenRange(1, 0, 2)).toEqual(true)
   })
 
+  test('betweenRange result `true` while min to equal current', () => {
+    expect.assertions(1)
+    expect(betweenRange(0, 0, 2)).toEqual(true)
+  })
+
   test('betweenRange result `false`', () => {
     expect.assertions(1)
-    expect(betweenRange(0, 0, 2)).toEqual(false)
+    expect(betweenRange(3, 0, 2)).toEqual(false)
   })
 })

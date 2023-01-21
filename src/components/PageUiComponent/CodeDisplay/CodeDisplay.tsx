@@ -9,16 +9,18 @@ import { IconCode, IconCopy } from 'components/Icons'
 
 type CodeDisplayProps = {
   code: string
+  callback?: () => void
 }
 
 const TwContainer = tw.div`rounded-b-lg border-independence border-t bg-charcoal px-5 py-2`
 const TwWrapButton = tw.div`flex justify-end`
 const TwWrapButton2 = tw.div`grid grid-flow-col gap-1`
 
-export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code }) => {
+export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code, callback }) => {
   const [isShowCode, setIsShowCode] = useState(false)
 
   const handleShowCode = () => {
+    callback && callback()
     setIsShowCode(!isShowCode)
   }
 

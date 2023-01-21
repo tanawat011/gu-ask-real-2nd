@@ -1,13 +1,27 @@
+import type { LegacyRef } from 'react'
+import { useEffect } from 'react'
+
+import { useRecoilState } from 'recoil'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
+import { useElementDimension } from 'hooks/useElementDimension'
+import { variantSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiVariant = () => {
+  const [ref, refDimension, handleDimension] = useElementDimension()
+
+  const [, setDimension] = useRecoilState(variantSelector)
+
+  useEffect(() => {
+    setDimension(refDimension)
+  }, [refDimension])
+
   return (
-    <TwContainer id='variant'>
+    <TwContainer id='variant' ref={ref as LegacyRef<HTMLDivElement>}>
       <Title
         title='Variant'
         description={
@@ -20,6 +34,7 @@ export const ButtonUiVariant = () => {
         }
       />
       <ComponentDisplay
+        callback={handleDimension}
         components={
           <div className='flex gap-2 items-center flex-wrap'>
             <Button label='Primary' variant='primary' />

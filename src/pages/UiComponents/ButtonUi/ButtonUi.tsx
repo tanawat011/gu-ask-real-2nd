@@ -1,6 +1,16 @@
+import type { LegacyRef } from 'react'
+import { useEffect } from 'react'
+
+import { useRecoilState, useRecoilValue } from 'recoil'
 import tw from 'twin.macro'
 
 import { Title } from 'components/PageUiComponent'
+import { useElementDimension } from 'hooks/useElementDimension'
+import {
+  buttonUiAtom,
+  headSelector,
+  pageDimensionSelector,
+} from 'recoils/atoms'
 
 import { ButtonUiApi } from './ButtonUiApi'
 import { ButtonUiBlock } from './ButtonUiBlock'
@@ -20,15 +30,33 @@ const TwWrapContent = tw.div`xl:col-span-4`
 const TwWrapMenu = tw.div`col-span-1 hidden desktop:block`
 
 export const ButtonUi = () => {
+  const [refPage, refPageDimension] = useElementDimension()
+  const [refHead, refHeadDimension] = useElementDimension()
+
+  const [, setPageDimension] = useRecoilState(pageDimensionSelector)
+  const [, setHeadDimension] = useRecoilState(headSelector)
+
+  useEffect(() => {
+    setHeadDimension(refHeadDimension)
+  }, [refHeadDimension])
+
+  useEffect(() => {
+    setPageDimension(refPageDimension)
+  }, [refPageDimension])
+
+  const { pageDimension, dimension } = useRecoilValue(buttonUiAtom)
+
   return (
     <>
-      <TwContainer>
+      <TwContainer ref={refPage as LegacyRef<HTMLDivElement>}>
         <TwWrapContent>
-          <Title
-            size='xl'
-            title='Button'
-            description='Button is used to triggers an action or event click'
-          />
+          <div ref={refHead as LegacyRef<HTMLDivElement>}>
+            <Title
+              size='xl'
+              title='Button'
+              description='Button is used to triggers an action or event click'
+            />
+          </div>
 
           <ButtonUiVariant />
           <ButtonUiColor />
@@ -40,12 +68,14 @@ export const ButtonUi = () => {
           <ButtonUiWithIcon />
           <ButtonUiLoading />
           <ButtonUiBlock />
-
           <ButtonUiApi />
         </TwWrapContent>
 
         <TwWrapMenu>
-          <RightMenuButtonUi />
+          <RightMenuButtonUi
+            pageDimension={pageDimension}
+            dimension={dimension}
+          />
         </TwWrapMenu>
       </TwContainer>
     </>

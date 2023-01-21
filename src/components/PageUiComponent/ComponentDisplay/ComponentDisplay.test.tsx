@@ -8,14 +8,25 @@ describe('<ComponentDisplay />', () => {
   test('renders correctly', () => {
     expect.assertions(7)
 
+    const callback = jest.fn()
+
     const {
       asFragment,
       container: { firstChild },
-    } = renderWithProviders(<ComponentDisplay code='code' components={<div>xxx</div>} />)
+    } = renderWithProviders(
+      <ComponentDisplay
+        code='code'
+        callback={callback}
+        components={<div>xxx</div>}
+      />,
+    )
 
     expect(firstChild).toHaveStyleRule('border-width', '1px')
     expect(firstChild).toHaveStyleRule('border-radius', '0.5rem')
-    expect(firstChild).toHaveStyleRule('border-color', twColor('#4B5563', 'border'))
+    expect(firstChild).toHaveStyleRule(
+      'border-color',
+      twColor('#4B5563', 'border'),
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 })
