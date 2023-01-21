@@ -6,22 +6,30 @@ import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
+import { PreCode } from 'components/PreCode'
 import { useDimensionChange } from 'hooks/useDimensionChange'
 import { useElementDimension } from 'hooks/useElementDimension'
 import { buttonUiAtom, colorSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonUiColor = () => {
+type ButtonUiColorProps = {
+  handlePageDimension: () => Promise<void>
+}
+
+export const ButtonUiColor: React.FC<ButtonUiColorProps> = ({
+  handlePageDimension,
+}) => {
   const [ref, dimension, handleDimension] = useElementDimension()
 
   useDimensionChange(colorSelector, dimension)
 
-  const { dimension: rDimension } = useRecoilValue(buttonUiAtom)
+  const { pageDimension } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
-  }, [rDimension.variant])
+    handlePageDimension()
+  }, [pageDimension])
 
   return (
     <TwContainer id='color' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -29,9 +37,8 @@ export const ButtonUiColor = () => {
         title='Color'
         description={
           <>
-            <code>twoTone</code> and <code>solid</code> button able to apply
-            custom color, available colors option based on tailwind{' '}
-            <code>theme.colors</code>.
+            Button able to apply custom color, available colors option based on
+            tailwind <PreCode text='theme.colors' />.
           </>
         }
       />

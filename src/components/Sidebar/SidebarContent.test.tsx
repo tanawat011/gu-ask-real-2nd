@@ -6,8 +6,11 @@ import { renderWithProviders } from 'utils/jest'
 
 import { SidebarContent } from './SidebarContent'
 
+jest.mock('./SidebarContent', () => jest.requireActual('./SidebarContent'))
 jest.mock('./SidebarItem', () => ({
-  SidebarItem: ({ onClick }: { onClick: () => void }) => <div onClick={onClick}>sidebar item</div>,
+  SidebarItem: ({ onClick }: { onClick: () => void }) => (
+    <div onClick={onClick}>sidebar item</div>
+  ),
 }))
 jest.mock('./SidebarItemChild', () => ({
   SidebarItemChild: ({ onClick }: { onClick: () => void }) => (
@@ -71,7 +74,11 @@ describe('<SidebarContent />', () => {
     }
 
     const { asFragment } = renderWithProviders(
-      <SidebarContent fullSidebar menuList={menuList} setMenuList={setMenuList} />,
+      <SidebarContent
+        fullSidebar
+        menuList={menuList}
+        setMenuList={setMenuList}
+      />,
     )
 
     const item = screen.getAllByText(/sidebar item/i)
@@ -94,7 +101,11 @@ describe('<SidebarContent />', () => {
     }
 
     const { asFragment } = renderWithProviders(
-      <SidebarContent fullSidebar={false} menuList={menuList} setMenuList={setMenuList} />,
+      <SidebarContent
+        fullSidebar={false}
+        menuList={menuList}
+        setMenuList={setMenuList}
+      />,
     )
 
     const item2 = screen.getAllByText(/sidebar item/i)[1]
@@ -116,7 +127,11 @@ describe('<SidebarContent />', () => {
     }
 
     const { asFragment } = renderWithProviders(
-      <SidebarContent fullSidebar menuList={menuListNoRoute} setMenuList={setMenuList} />,
+      <SidebarContent
+        fullSidebar
+        menuList={menuListNoRoute}
+        setMenuList={setMenuList}
+      />,
     )
 
     const item = screen.getAllByText(/sidebar item/i)
@@ -139,7 +154,11 @@ describe('<SidebarContent />', () => {
     }
 
     const { asFragment } = renderWithProviders(
-      <SidebarContent fullSidebar={false} menuList={menuListNoRoute} setMenuList={setMenuList} />,
+      <SidebarContent
+        fullSidebar={false}
+        menuList={menuListNoRoute}
+        setMenuList={setMenuList}
+      />,
     )
 
     const item2 = screen.getAllByText(/sidebar item/i)[1]

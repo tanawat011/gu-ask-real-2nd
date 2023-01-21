@@ -7,7 +7,13 @@ import { renderWithProviders } from 'utils/jest'
 
 import { Navbar } from './Navbar'
 
-const RecoilComponent = ({ fullSidebar = false }: { fullSidebar?: boolean }) => {
+jest.mock('./Navbar', () => jest.requireActual('./Navbar'))
+
+const RecoilComponent = ({
+  fullSidebar = false,
+}: {
+  fullSidebar?: boolean
+}) => {
   const [, setSidebar] = useRecoilState(sidebarAtom)
 
   useEffect(() => {

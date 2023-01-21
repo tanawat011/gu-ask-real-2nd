@@ -2,6 +2,8 @@ import { renderWithProviders } from 'utils/jest'
 
 import { SidebarItemChild } from './SidebarItemChild'
 
+jest.mock('./SidebarItemChild', () => jest.requireActual('./SidebarItemChild'))
+
 describe('<SidebarItemChild />', () => {
   test('should render without crashing and match snapshot', () => {
     expect.hasAssertions()
@@ -27,7 +29,12 @@ describe('<SidebarItemChild />', () => {
     expect.hasAssertions()
 
     const { container } = renderWithProviders(
-      <SidebarItemChild label='test' onClick={jest.fn()} selected fullSidebar />,
+      <SidebarItemChild
+        label='test'
+        onClick={jest.fn()}
+        selected
+        fullSidebar
+      />,
     )
 
     expect(container).toBeInTheDocument()

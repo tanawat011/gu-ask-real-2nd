@@ -7,30 +7,30 @@ import tw from 'twin.macro'
 import { Button } from 'components/Button'
 import { IconGear, IconHome, IconUser } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
+import { PreCode } from 'components/PreCode'
 import { useDimensionChange } from 'hooks/useDimensionChange'
 import { useElementDimension } from 'hooks/useElementDimension'
 import { buttonUiAtom, withIconSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonUiWithIcon = () => {
+type ButtonUiWithIconProps = {
+  handlePageDimension: () => Promise<void>
+}
+
+export const ButtonUiWithIcon: React.FC<ButtonUiWithIconProps> = ({
+  handlePageDimension,
+}) => {
   const [ref, dimension, handleDimension] = useElementDimension()
 
   useDimensionChange(withIconSelector, dimension)
 
-  const { dimension: rDimension } = useRecoilValue(buttonUiAtom)
+  const { pageDimension } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
-  }, [
-    rDimension.variant,
-    rDimension.color,
-    rDimension.size,
-    rDimension.outline,
-    rDimension.shape,
-    rDimension.disabled,
-    rDimension.icon,
-  ])
+    handlePageDimension()
+  }, [pageDimension])
 
   return (
     <TwContainer id='with-icon' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -38,7 +38,7 @@ export const ButtonUiWithIcon = () => {
         title='With Icon'
         description={
           <>
-            Icon can add and combined with <code>label</code>.
+            Icon can add and combined with <PreCode text='label' />.
           </>
         }
       />

@@ -9,7 +9,11 @@ export type Dimension = {
   offsetTop: number
 }
 
-type UseElementDimensionFn = () => [MutableRefObject<Dimension>, Dimension, () => Promise<void>]
+type UseElementDimensionFn = () => [
+  MutableRefObject<Dimension>,
+  Dimension,
+  () => Promise<void>,
+]
 
 export const defaultDimension: Dimension = {
   offsetWidth: 0,
@@ -25,11 +29,11 @@ export const useElementDimension: UseElementDimensionFn = () => {
 
   const handleState = () => {
     setDimensions({
-      offsetWidth: refVariant.current.offsetWidth,
-      clientWidth: refVariant.current.clientWidth,
-      offsetHeight: refVariant.current.offsetHeight,
-      clientHeight: refVariant.current.clientHeight,
-      offsetTop: refVariant.current.offsetTop,
+      offsetWidth: refVariant.current?.offsetWidth || 0,
+      clientWidth: refVariant.current?.clientWidth || 0,
+      offsetHeight: refVariant.current?.offsetHeight || 0,
+      clientHeight: refVariant.current?.clientHeight || 0,
+      offsetTop: refVariant.current?.offsetTop || 0,
     })
   }
 

@@ -47,8 +47,14 @@ describe('<Button />', () => {
 
     const button = screen.getByRole('button')
 
-    expect(button).toHaveStyleRule('background-color', `${twColor('#293341')} !important`)
-    expect(button).toHaveStyleRule('color', `${twColor('#6a717a', 'text')} !important`)
+    expect(button).toHaveStyleRule(
+      'background-color',
+      `${twColor('#293341')} !important`,
+    )
+    expect(button).toHaveStyleRule(
+      'color',
+      `${twColor('#6a717a', 'text')} !important`,
+    )
     expect(button).toHaveStyle('cursor: not-allowed')
     expect(button).toHaveAttribute('disabled')
   })
@@ -129,23 +135,25 @@ describe('<Button />', () => {
     },
   }
 
-  Object.entries(sizes).forEach(([key, { fontSize, lineHeight, height, paddingX, paddingY }]) => {
-    test(`renders correctly and size \`${key}\``, () => {
-      expect.assertions(7)
+  Object.entries(sizes).forEach(
+    ([key, { fontSize, lineHeight, height, paddingX, paddingY }]) => {
+      test(`renders correctly and size \`${key}\``, () => {
+        expect.assertions(7)
 
-      renderWithProviders(<Button label='button' size={key as Size} />)
+        renderWithProviders(<Button label='button' size={key as Size} />)
 
-      const button = screen.getByRole('button')
+        const button = screen.getByRole('button')
 
-      expect(button).toHaveStyle(`height: ${height}`)
-      expect(button).toHaveStyle(`padding-top: ${paddingY}`)
-      expect(button).toHaveStyle(`padding-bottom: ${paddingY}`)
-      expect(button).toHaveStyle(`padding-left: ${paddingX}`)
-      expect(button).toHaveStyle(`padding-right: ${paddingX}`)
-      expect(button).toHaveStyle(`font-size: ${fontSize}`)
-      expect(button).toHaveStyle(`line-height: ${lineHeight}`)
-    })
-  })
+        expect(button).toHaveStyle(`height: ${height}`)
+        expect(button).toHaveStyle(`padding-top: ${paddingY}`)
+        expect(button).toHaveStyle(`padding-bottom: ${paddingY}`)
+        expect(button).toHaveStyle(`padding-left: ${paddingX}`)
+        expect(button).toHaveStyle(`padding-right: ${paddingX}`)
+        expect(button).toHaveStyle(`font-size: ${fontSize}`)
+        expect(button).toHaveStyle(`line-height: ${lineHeight}`)
+      })
+    },
+  )
 
   type SizeIconOption = {
     widthHeight: string
@@ -178,22 +186,24 @@ describe('<Button />', () => {
     },
   }
 
-  Object.entries(sizesIcon).forEach(([key, { fontSize, lineHeight, widthHeight }]) => {
-    test(`renders correctly and display icon only with size \`${key}\``, () => {
-      expect.assertions(6)
+  Object.entries(sizesIcon).forEach(
+    ([key, { fontSize, lineHeight, widthHeight }]) => {
+      test(`renders correctly and display icon only with size \`${key}\``, () => {
+        expect.assertions(6)
 
-      renderWithProviders(<Button icon={<IconHome />} size={key as Size} />)
+        renderWithProviders(<Button icon={<IconHome />} size={key as Size} />)
 
-      const button = screen.getByRole('button')
+        const button = screen.getByRole('button')
 
-      expect(button).toHaveStyle('border-radius: 9999px')
-      expect(button).toHaveStyle(`height: ${widthHeight}`)
-      expect(button).toHaveStyle(`width: ${widthHeight}`)
-      expect(button).toHaveStyle('padding: 0')
-      expect(button).toHaveStyle(`font-size: ${fontSize}`)
-      expect(button).toHaveStyle(`line-height: ${lineHeight}`)
-    })
-  })
+        expect(button).toHaveStyle('border-radius: 9999px')
+        expect(button).toHaveStyle(`height: ${widthHeight}`)
+        expect(button).toHaveStyle(`width: ${widthHeight}`)
+        expect(button).toHaveStyle('padding: 0')
+        expect(button).toHaveStyle(`font-size: ${fontSize}`)
+        expect(button).toHaveStyle(`line-height: ${lineHeight}`)
+      })
+    },
+  )
 
   type ColorTestOption = {
     bgColor?: string
@@ -217,7 +227,8 @@ describe('<Button />', () => {
 
   const variants: TestVariant = {
     primary: {
-      bgColor: '#4F46E5',
+      bgColor: '#4f46e5',
+      bgOpacity: '1',
       bgHoverOpacity: '0.8',
       textColor: '#ffffff',
     },
@@ -227,17 +238,6 @@ describe('<Button />', () => {
       textColor: '#ffffff',
     },
     tertiary: {
-      bgColor: '#2d355c',
-      bgHoverOpacity: '0.8',
-      textColor: '#ffffff',
-    },
-    solid: {
-      bgColor: '#4f46e5',
-      bgOpacity: '1',
-      bgHoverOpacity: '0.8',
-      textColor: '#ffffff',
-    },
-    twoTone: {
       bgColor: '#4f46e5',
       bgOpacity: '0.2',
       bgHoverOpacity: '0.3',
@@ -255,27 +255,6 @@ describe('<Button />', () => {
 
   const outlineVariants: TestOutlineVariant = {
     primary: {
-      borderWidth: '2px',
-      borderColor: '#4F46E5',
-      borderHoverOpacity: '0.8',
-      textColor: '#4f46e5',
-      textHoverOpacity: '0.8',
-    },
-    secondary: {
-      borderWidth: '2px',
-      borderColor: '#374151',
-      borderHoverOpacity: '0.8',
-      textColor: '#374151',
-      textHoverOpacity: '0.8',
-    },
-    tertiary: {
-      borderWidth: '2px',
-      borderColor: '#2d355c',
-      borderHoverOpacity: '0.8',
-      textColor: '#2d355c',
-      textHoverOpacity: '0.8',
-    },
-    solid: {
       bgColor: '#4f46e5',
       bgOpacity: '0.3',
       bgHoverOpacity: '0.4',
@@ -287,7 +266,14 @@ describe('<Button />', () => {
       textOpacity: '0.8',
       textHoverOpacity: '1',
     },
-    twoTone: {
+    secondary: {
+      borderWidth: '2px',
+      borderColor: '#374151',
+      borderHoverOpacity: '0.8',
+      textColor: '#374151',
+      textHoverOpacity: '0.8',
+    },
+    tertiary: {
       bgColor: '#4f46e5',
       bgOpacity: '0.1',
       bgHoverOpacity: '0.2',
@@ -333,7 +319,9 @@ describe('<Button />', () => {
   ) => {
     const hover = { modifier: ':hover' }
 
-    renderWithProviders(<Button label='button' variant={key as Variant} outline={outline} />)
+    renderWithProviders(
+      <Button label='button' variant={key as Variant} outline={outline} />,
+    )
 
     const button = screen.getByRole('button')
 
@@ -346,7 +334,11 @@ describe('<Button />', () => {
     }
 
     if (bgHoverColor) {
-      expect(button).toHaveStyleRule('background-color', twColor(bgHoverColor), hover)
+      expect(button).toHaveStyleRule(
+        'background-color',
+        twColor(bgHoverColor),
+        hover,
+      )
     }
 
     if (bgHoverOpacity) {
@@ -358,7 +350,10 @@ describe('<Button />', () => {
     }
 
     if (borderColor) {
-      expect(button).toHaveStyleRule('border-color', twColor(borderColor, 'border'))
+      expect(button).toHaveStyleRule(
+        'border-color',
+        twColor(borderColor, 'border'),
+      )
     }
 
     if (borderOpacity) {
@@ -366,11 +361,19 @@ describe('<Button />', () => {
     }
 
     if (borderHoverColor) {
-      expect(button).toHaveStyleRule('border-color', twColor(borderHoverColor, 'border'), hover)
+      expect(button).toHaveStyleRule(
+        'border-color',
+        twColor(borderHoverColor, 'border'),
+        hover,
+      )
     }
 
     if (borderHoverOpacity) {
-      expect(button).toHaveStyleRule('--tw-border-opacity', borderHoverOpacity, hover)
+      expect(button).toHaveStyleRule(
+        '--tw-border-opacity',
+        borderHoverOpacity,
+        hover,
+      )
     }
 
     if (textColor) {
@@ -382,11 +385,19 @@ describe('<Button />', () => {
     }
 
     if (textHoverColor) {
-      expect(button).toHaveStyleRule('color', twColor(textHoverColor, 'text'), hover)
+      expect(button).toHaveStyleRule(
+        'color',
+        twColor(textHoverColor, 'text'),
+        hover,
+      )
     }
 
     if (textHoverOpacity) {
-      expect(button).toHaveStyleRule('--tw-text-opacity', textHoverOpacity, hover)
+      expect(button).toHaveStyleRule(
+        '--tw-text-opacity',
+        textHoverOpacity,
+        hover,
+      )
     }
   }
 

@@ -1,19 +1,26 @@
 import type { Language } from 'locales'
-import type { TwColor, TwColorLevel } from 'types'
+import type {
+  ThemeDirection,
+  ThemeLayout,
+  ThemeMode,
+  ThemeNavMode,
+  TwColor,
+  TwColorLevel,
+} from 'types'
 
 import { atom } from 'recoil'
 
 export type LocalSettingState = {
   theme: {
     color: TwColor
-    direction: 'ltr' | 'rtl'
-    mode: 'light' | 'dark'
+    direction: ThemeDirection
+    mode: ThemeMode
     locale: Language
     colorLevel: TwColorLevel
     panelExpand: boolean // config menu
-    navMode: 'transparent' | 'themed'
+    navMode: ThemeNavMode
     layout: {
-      type: 'classic' | 'modern' | 'stack-side' | 'simple' | 'decked' | 'blank'
+      type: ThemeLayout
       sideNavCollapse: boolean
     }
   }

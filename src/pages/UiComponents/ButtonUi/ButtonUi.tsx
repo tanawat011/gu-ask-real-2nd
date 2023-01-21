@@ -18,7 +18,7 @@ import { ButtonUiColor } from './ButtonUiColor'
 import { ButtonUiDisabled } from './ButtonUiDisabled'
 import { ButtonUiIcon } from './ButtonUiIcon'
 import { ButtonUiLoading } from './ButtonUiLoading'
-import { ButtonUiOutline } from './ButtonUiOutline'
+// import { ButtonUiOutline } from './ButtonUiOutline'
 import { ButtonUiShape } from './ButtonUiShape'
 import { ButtonUiSize } from './ButtonUiSize'
 import { ButtonUiVariant } from './ButtonUiVariant'
@@ -30,7 +30,7 @@ const TwWrapContent = tw.div`xl:col-span-4`
 const TwWrapMenu = tw.div`col-span-1 hidden desktop:block`
 
 export const ButtonUi = () => {
-  const [refPage, refPageDimension] = useElementDimension()
+  const [refPage, refPageDimension, handlePageDimension] = useElementDimension()
   const [refHead, refHeadDimension] = useElementDimension()
 
   const [, setPageDimension] = useRecoilState(pageDimensionSelector)
@@ -58,16 +58,15 @@ export const ButtonUi = () => {
             />
           </div>
 
-          <ButtonUiVariant />
-          <ButtonUiColor />
-          <ButtonUiSize />
-          <ButtonUiOutline />
-          <ButtonUiShape />
-          <ButtonUiDisabled />
-          <ButtonUiIcon />
-          <ButtonUiWithIcon />
-          <ButtonUiLoading />
-          <ButtonUiBlock />
+          <ButtonUiVariant handlePageDimension={handlePageDimension} />
+          <ButtonUiColor handlePageDimension={handlePageDimension} />
+          <ButtonUiSize handlePageDimension={handlePageDimension} />
+          <ButtonUiShape handlePageDimension={handlePageDimension} />
+          <ButtonUiDisabled handlePageDimension={handlePageDimension} />
+          <ButtonUiIcon handlePageDimension={handlePageDimension} />
+          <ButtonUiWithIcon handlePageDimension={handlePageDimension} />
+          <ButtonUiLoading handlePageDimension={handlePageDimension} />
+          <ButtonUiBlock handlePageDimension={handlePageDimension} />
           <ButtonUiApi />
         </TwWrapContent>
 

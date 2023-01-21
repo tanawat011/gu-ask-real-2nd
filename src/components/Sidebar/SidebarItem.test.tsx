@@ -2,6 +2,8 @@ import { renderWithProviders } from 'utils/jest'
 
 import { SidebarItem } from './SidebarItem'
 
+jest.mock('./SidebarItem', () => jest.requireActual('./SidebarItem'))
+
 describe('<SidebarItem />', () => {
   test('should render without crashing and match snapshot', () => {
     expect.hasAssertions()

@@ -1,4 +1,12 @@
-import type { TwColor, TwColorLevel, TwShapeObject, TwSizeObject, TwVariantObject } from 'types'
+import type { FlattenSimpleInterpolation } from 'styled-components'
+import type {
+  ThemeMode,
+  TwColor,
+  TwColorLevel,
+  TwShapeObject,
+  TwSizeObject,
+  TwVariantObject,
+} from 'types'
 
 import colors from 'tailwindcss/colors'
 import tw, { css } from 'twin.macro'
@@ -8,71 +16,120 @@ import { twColor } from 'utils/jest'
 type TwVariantFn = ({
   themeColor,
   colorLevel,
+  themeMode,
 }: {
   themeColor: TwColor
   colorLevel: TwColorLevel
+  themeMode: ThemeMode
 }) => { bg: TwVariantObject; border: TwVariantObject }
 
-export const twVariant: TwVariantFn = ({ themeColor, colorLevel }) => {
+export const twVariantFn: TwVariantFn = ({
+  themeColor,
+  colorLevel,
+  themeMode,
+}) => {
+  const isDarkMode = themeMode === 'dark'
+  const color = colors[themeColor][colorLevel]
+  const bgColor = twColor(color)
+  const borderColor = twColor(color, 'border')
+  const textWhiteColor = twColor(colors.white, 'text')
+  const textColor = twColor(color, 'text')
+
+  const tertiaryBgColor = isDarkMode ? `${textWhiteColor}` : `${textColor}`
+
   return {
     bg: {
-      primary: tw`bg-primary text-white hover:bg-opacity-80`,
-      secondary: tw`bg-secondary text-white hover:bg-opacity-80`,
-      tertiary: tw`bg-tertiary text-white hover:bg-opacity-80`,
-      solid: css`
+      primary: css`
         --tw-bg-opacity: 1;
-        background-color: ${twColor(colors[themeColor][colorLevel])};
-        color: ${twColor('#ffffff', 'text')};
+        background-color: ${bgColor};
+        color: ${textWhiteColor};
         &:hover {
           --tw-bg-opacity: 0.8;
         }
       `,
-      twoTone: css`
+      secondary: tw``,
+      tertiary: css`
         --tw-bg-opacity: 0.2;
-        background-color: ${twColor(colors[themeColor][colorLevel])};
-        color: ${twColor('#ffffff', 'text')};
+        background-color: ${bgColor};
+        color: ${tertiaryBgColor};
         &:hover {
           --tw-bg-opacity: 0.3;
         }
       `,
-      plain: tw`text-white hover:bg-independence`,
+      plain: tw``,
       link: tw`text-blue-500 hover:text-blue-600`,
     },
+
     border: {
-      primary: tw`border-2 border-primary text-primary hover:(border-opacity-80 text-opacity-80)`,
-      secondary: tw`border-2 border-secondary text-secondary hover:(border-opacity-80 text-opacity-80)`,
-      tertiary: tw`border-2 border-tertiary text-tertiary hover:(border-opacity-80 text-opacity-80)`,
-      solid: css`
+      primary: css`
         --tw-bg-opacity: 0.3;
         --tw-border-opacity: 1;
         --tw-text-opacity: 0.8;
-        background-color: ${twColor(colors[themeColor][colorLevel])};
+        background-color: ${bgColor};
         border-width: 2px;
-        border-color: ${twColor(colors[themeColor][colorLevel], 'border')};
-        color: ${twColor(colors[themeColor][colorLevel], 'text')};
+        border-color: ${borderColor};
+        color: ${textColor};
         &:hover {
           --tw-bg-opacity: 0.4;
           --tw-border-opacity: 0.8;
           --tw-text-opacity: 1;
         }
       `,
-      twoTone: css`
+      secondary: tw``,
+      tertiary: css`
         --tw-bg-opacity: 0.1;
         --tw-border-opacity: 0.2;
         --tw-text-opacity: 1;
-        background-color: ${twColor(colors[themeColor][colorLevel])};
+        background-color: ${bgColor};
         border-width: 2px;
-        border-color: ${twColor(colors[themeColor][colorLevel], 'border')};
-        color: ${twColor(colors[themeColor][colorLevel], 'text')};
+        border-color: ${borderColor};
+        color: ${textColor};
         &:hover {
           --tw-bg-opacity: 0.2;
           --tw-border-opacity: 0.3;
           --tw-text-opacity: 0.8;
         }
       `,
-      plain: tw`border-2 border-transparent text-transparent hover:(border-independence text-independence)`,
+      plain: tw``,
       link: tw`text-blue-500 hover:text-blue-600`,
     },
+  }
+}
+
+type TwColorFn = ({
+  themeColor,
+  colorLevel,
+}: {
+  themeColor: TwColor
+  colorLevel: TwColorLevel
+}) => { bg: FlattenSimpleInterpolation; outline: FlattenSimpleInterpolation }
+
+export const twColorFn: TwColorFn = ({ themeColor, colorLevel }) => {
+  const color = colors[themeColor][colorLevel]
+  const bgColor = twColor(color)
+  const borderColor = twColor(color, 'border')
+  const textWhiteColor = twColor(colors.white, 'text')
+  const textColor = twColor(color, 'text')
+
+  return {
+    bg: css`
+      --tw-bg-opacity: 1;
+      background-color: ${bgColor};
+      color: ${textWhiteColor};
+      &:hover {
+        --tw-bg-opacity: 0.8;
+      }
+    `,
+    outline: css`
+      --tw-border-opacity: 1;
+      border-width: 2px;
+      border-color: ${borderColor};
+      color: ${textColor};
+      &:hover {
+        --tw-border-opacity: 0.8;
+        --tw-text-opacity: 0.8;
+      }
+    `,
   }
 }
 

@@ -1,6 +1,6 @@
 import tw, { styled } from 'twin.macro'
 
-import { DARK_THEME, LIGHT_THEME } from 'constants/twTheme'
+import { BG_THEME, BORDER_THEME, TEXT_THEME } from 'constants/twTheme'
 
 type Columns<T> = {
   key: keyof T
@@ -14,33 +14,19 @@ type TwTableCommonProps<T> = {
 
 const TwTable = tw.table`w-full`
 
-const TwThead = styled.thead(() => [
-  [DARK_THEME.TABLE.HEADER.BG_COLOR],
-  [LIGHT_THEME.TABLE.HEADER.BG_COLOR],
-])
+const TwThead = styled.thead(() => [BG_THEME.TABLE_HEAD])
 const TwTheadTh = styled.th(() => [
-  [DARK_THEME.TABLE.HEADER.HEAD.TEXT_COLOR],
-  [LIGHT_THEME.TABLE.HEADER.HEAD.TEXT_COLOR],
+  TEXT_THEME.TABLE_HEAD,
   tw`px-6 py-3 text-left font-semibold text-xs`,
 ])
 
 const TwTbody = tw.tbody``
 const TwTr = styled.tr(() => [
-  [
-    DARK_THEME.TABLE.BODY.ROW.BG_COLOR,
-    DARK_THEME.TABLE.BODY.ROW.BORDER_COLOR,
-    DARK_THEME.TABLE.BODY.ROW.HOVER.BG_COLOR,
-  ],
-  [
-    LIGHT_THEME.TABLE.BODY.ROW.BG_COLOR,
-    LIGHT_THEME.TABLE.BODY.ROW.BORDER_COLOR,
-    LIGHT_THEME.TABLE.BODY.ROW.HOVER.BG_COLOR,
-  ],
+  [BG_THEME.TABLE_BODY, BG_THEME.TABLE_ROW, BORDER_THEME.BASE],
   tw`border-t`,
 ])
 const TwTd = styled.td(() => [
-  [DARK_THEME.TABLE.BODY.DATA.TEXT_COLOR],
-  [LIGHT_THEME.TABLE.BODY.DATA.TEXT_COLOR],
+  TEXT_THEME.TABLE_BODY,
   tw`px-6 py-4 font-semibold text-sm leading-6`,
 ])
 

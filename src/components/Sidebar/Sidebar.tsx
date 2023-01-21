@@ -3,7 +3,7 @@ import type { WithRequired } from 'types'
 
 import tw, { styled } from 'twin.macro'
 
-import { DARK_THEME, LIGHT_THEME } from 'constants/twTheme'
+import { BORDER_THEME } from 'constants/twTheme'
 
 import { SidebarContent } from './SidebarContent'
 import { SidebarFooter } from './SidebarFooter'
@@ -13,7 +13,10 @@ export type MenuItemChildren = {
   to?: string
   label: string
   icon?: JSX.Element
-  children?: WithRequired<Pick<MenuItemChildren, 'to' | 'label' | 'selected'>, 'to'>[]
+  children?: WithRequired<
+    Pick<MenuItemChildren, 'to' | 'label' | 'selected'>,
+    'to'
+  >[]
   expanded?: boolean
   selected?: boolean
   hover?: boolean
@@ -31,18 +34,27 @@ export type SidebarProps = {
 }
 
 const TwSidebar = styled.div(({ fullSidebar }: SidebarState) => [
-  [DARK_THEME.BORDER.COLOR],
-  [LIGHT_THEME.BORDER.COLOR],
+  [BORDER_THEME.BASE],
   tw`border-r transition-all min-w-[theme(width.sidebar)]`,
-  fullSidebar ? tw`min-w-[theme(width.sidebar)]` : tw`min-w-[theme(width.mini-sidebar)]`,
+  fullSidebar
+    ? tw`min-w-[theme(width.sidebar)]`
+    : tw`min-w-[theme(width.mini-sidebar)]`,
 ])
 
-export const Sidebar: React.FC<SidebarProps> = ({ menuList, setMenuList, fullSidebar }) => {
+export const Sidebar: React.FC<SidebarProps> = ({
+  menuList,
+  setMenuList,
+  fullSidebar,
+}) => {
   return (
     <TwSidebar fullSidebar={fullSidebar}>
       <SidebarHeader fullSidebar={fullSidebar} />
 
-      <SidebarContent menuList={menuList} setMenuList={setMenuList} fullSidebar={fullSidebar} />
+      <SidebarContent
+        menuList={menuList}
+        setMenuList={setMenuList}
+        fullSidebar={fullSidebar}
+      />
 
       {fullSidebar && <SidebarFooter />}
     </TwSidebar>

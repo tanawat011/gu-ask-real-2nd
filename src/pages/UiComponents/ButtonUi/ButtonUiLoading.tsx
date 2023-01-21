@@ -7,31 +7,30 @@ import tw from 'twin.macro'
 import { Button } from 'components/Button'
 import { IconHome } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
+import { PreCode } from 'components/PreCode'
 import { useDimensionChange } from 'hooks/useDimensionChange'
 import { useElementDimension } from 'hooks/useElementDimension'
 import { buttonUiAtom, loadingSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonUiLoading = () => {
+type ButtonUiLoadingProps = {
+  handlePageDimension: () => Promise<void>
+}
+
+export const ButtonUiLoading: React.FC<ButtonUiLoadingProps> = ({
+  handlePageDimension,
+}) => {
   const [ref, dimension, handleDimension] = useElementDimension()
 
   useDimensionChange(loadingSelector, dimension)
 
-  const { dimension: rDimension } = useRecoilValue(buttonUiAtom)
+  const { pageDimension } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
-  }, [
-    rDimension.variant,
-    rDimension.color,
-    rDimension.size,
-    rDimension.outline,
-    rDimension.shape,
-    rDimension.disabled,
-    rDimension.icon,
-    rDimension.withIcon,
-  ])
+    handlePageDimension()
+  }, [pageDimension])
 
   return (
     <TwContainer id='loading' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -39,8 +38,9 @@ export const ButtonUiLoading = () => {
         title='Loading'
         description={
           <>
-            Button can set <code>loading</code> prop to <code>true</code> to
-            show loading indicator, it will disabled button.
+            Button can set <PreCode text='loading' /> prop to{' '}
+            <PreCode text='true' /> to show loading indicator, it will disabled
+            button.
           </>
         }
       />

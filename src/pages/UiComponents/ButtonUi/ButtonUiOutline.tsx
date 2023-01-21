@@ -6,22 +6,30 @@ import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
+import { PreCode } from 'components/PreCode'
 import { useDimensionChange } from 'hooks/useDimensionChange'
 import { useElementDimension } from 'hooks/useElementDimension'
 import { buttonUiAtom, outlineSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonUiOutline = () => {
+type ButtonUiOutlineProps = {
+  handlePageDimension: () => Promise<void>
+}
+
+export const ButtonUiOutline: React.FC<ButtonUiOutlineProps> = ({
+  handlePageDimension,
+}) => {
   const [ref, dimension, handleDimension] = useElementDimension()
 
   useDimensionChange(outlineSelector, dimension)
 
-  const { dimension: rDimension } = useRecoilValue(buttonUiAtom)
+  const { pageDimension } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
-  }, [rDimension.variant, rDimension.color, rDimension.size])
+    handlePageDimension()
+  }, [pageDimension])
 
   return (
     <TwContainer id='outline' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -29,9 +37,9 @@ export const ButtonUiOutline = () => {
         title='Outline'
         description={
           <>
-            Outline style of the button, can set the <code>outline</code> prop
-            value to <code>true</code> or <code>false</code>, The default
-            outline is <code>false</code>.
+            Outline style of the button, can set the <PreCode text='outline' />{' '}
+            prop value to <PreCode text='true' /> or <PreCode text='false' />,
+            The default outline is <PreCode text='false' />.
           </>
         }
       />
@@ -42,8 +50,6 @@ export const ButtonUiOutline = () => {
             <Button label='Primary' variant='primary' outline />
             <Button label='Secondary' variant='secondary' outline />
             <Button label='Tertiary' variant='tertiary' outline />
-            <Button label='Solid' variant='solid' outline />
-            <Button label='Two Tone' variant='twoTone' outline />
             <Button label='Plain' variant='plain' outline />
             <Button label='Link' variant='link' outline />
           </div>
@@ -55,8 +61,6 @@ export const Component = () => {
     <Button label='Primary' variant='primary' outline />
     <Button label='Secondary' variant='secondary' outline />
     <Button label='Tertiary' variant='tertiary' outline />
-    <Button label='Solid' variant='solid' outline />
-    <Button label='Two Tone' variant='twoTone' outline />
     <Button label='Plain' variant='plain' outline />
     <Button label='Link' variant='link' outline />
   )

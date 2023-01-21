@@ -2,6 +2,8 @@ import { render } from '@testing-library/react'
 
 import { Popover } from './Popover'
 
+jest.mock('./Popover', () => jest.requireActual('./Popover'))
+
 describe('<Popover />', () => {
   test('should render without crashing and match snapshot', () => {
     expect.hasAssertions()

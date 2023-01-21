@@ -2,7 +2,7 @@ import type { SidebarState } from 'recoils/atoms'
 
 import tw, { styled } from 'twin.macro'
 
-import { DARK_THEME, LIGHT_THEME } from 'constants/twTheme'
+import { BG_THEME, TEXT_THEME } from 'constants/twTheme'
 
 export type SidebarItemProps = {
   label: string
@@ -11,37 +11,20 @@ export type SidebarItemProps = {
   fullSidebar?: boolean
 }
 
-type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected'> & SidebarState
+type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected'> &
+  SidebarState
 
-const TwContainer = styled.div(({ fullSidebar, selected }: SidebarItemContainerProps) => [
-  !selected && tw`ml-5 pl-3!`,
-  fullSidebar
-    ? [
-        [DARK_THEME.SIDEBAR.MENU.TEXT_COLOR],
-        [DARK_THEME.SIDEBAR.MENU.HOVER.BG_COLOR, DARK_THEME.SIDEBAR.MENU.HOVER.TEXT_COLOR],
-        [LIGHT_THEME.SIDEBAR.MENU.TEXT_COLOR],
-        [LIGHT_THEME.SIDEBAR.MENU.HOVER.BG_COLOR, LIGHT_THEME.SIDEBAR.MENU.HOVER.TEXT_COLOR],
-        tw`h-10 pl-3`,
-      ]
-    : [
-        [DARK_THEME.MINI_SIDEBAR.MENU.TEXT_COLOR],
-        [
-          DARK_THEME.MINI_SIDEBAR.MENU.HOVER.BG_COLOR,
-          DARK_THEME.MINI_SIDEBAR.MENU.HOVER.TEXT_COLOR,
-        ],
-        [LIGHT_THEME.MINI_SIDEBAR.MENU.TEXT_COLOR],
-        [
-          LIGHT_THEME.MINI_SIDEBAR.MENU.HOVER.BG_COLOR,
-          LIGHT_THEME.MINI_SIDEBAR.MENU.HOVER.TEXT_COLOR,
-        ],
-        tw`ml-0 h-9 px-4 py-1`,
-      ],
-  tw`flex cursor-pointer items-center justify-between rounded-lg`,
-])
+const TwContainer = styled.div(
+  ({ fullSidebar, selected }: SidebarItemContainerProps) => [
+    [TEXT_THEME.MENU, BG_THEME.MENU],
+    !selected && tw`ml-5 pl-3!`,
+    fullSidebar ? tw`h-10 pl-3` : tw`ml-0 h-9 px-4 py-1`,
+    tw`flex cursor-pointer items-center justify-between rounded-lg`,
+  ],
+)
 const TwItem = tw.div`flex items-center`
 const TwItemSelected = styled.div(() => [
-  [DARK_THEME.SIDEBAR.MENU.ACTIVE.BG_COLOR, DARK_THEME.SIDEBAR.MENU.ACTIVE.TEXT_COLOR],
-  [LIGHT_THEME.SIDEBAR.MENU.ACTIVE.BG_COLOR, LIGHT_THEME.SIDEBAR.MENU.ACTIVE.TEXT_COLOR],
+  [TEXT_THEME.MENU_SELECT, BG_THEME.MENU_SELECT],
   tw`ml-5 rounded-lg pl-0`,
 ])
 
@@ -52,7 +35,11 @@ export const SidebarItemChild: React.FC<SidebarItemProps> = ({
   fullSidebar,
 }) => {
   const renderItem = (
-    <TwContainer onClick={onClick} selected={selected} fullSidebar={fullSidebar || false}>
+    <TwContainer
+      onClick={onClick}
+      selected={selected}
+      fullSidebar={fullSidebar || false}
+    >
       <TwItem>
         <span className='mt-0.5'>{label}</span>
       </TwItem>

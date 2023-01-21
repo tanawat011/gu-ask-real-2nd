@@ -6,22 +6,30 @@ import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
+import { PreCode } from 'components/PreCode'
 import { useDimensionChange } from 'hooks/useDimensionChange'
 import { useElementDimension } from 'hooks/useElementDimension'
 import { buttonUiAtom, sizeSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonUiSize = () => {
+type ButtonUiSizeProps = {
+  handlePageDimension: () => Promise<void>
+}
+
+export const ButtonUiSize: React.FC<ButtonUiSizeProps> = ({
+  handlePageDimension,
+}) => {
   const [ref, dimension, handleDimension] = useElementDimension()
 
   useDimensionChange(sizeSelector, dimension)
 
-  const { dimension: rDimension } = useRecoilValue(buttonUiAtom)
+  const { pageDimension } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
-  }, [rDimension.variant, rDimension.color])
+    handlePageDimension()
+  }, [pageDimension])
 
   return (
     <TwContainer id='size' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -29,9 +37,10 @@ export const ButtonUiSize = () => {
         title='Size'
         description={
           <>
-            Size of the button, can set the <code>size</code> prop value to{' '}
-            <code>xs</code>, <code>sm</code>,<code>md</code>, <code>lg</code>{' '}
-            and <code>xl</code>, The default size is <code>md</code>.
+            Size of the button, can set the <PreCode text='size' /> prop value
+            to <PreCode text='xs' />, <PreCode text='sm' />,{' '}
+            <PreCode text='md' /> and <PreCode text='xl' />, The default size is{' '}
+            <PreCode text='md' />.
           </>
         }
       />

@@ -7,29 +7,30 @@ import tw from 'twin.macro'
 import { Button } from 'components/Button'
 import { IconHome } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
+import { PreCode } from 'components/PreCode'
 import { useDimensionChange } from 'hooks/useDimensionChange'
 import { useElementDimension } from 'hooks/useElementDimension'
 import { buttonUiAtom, iconSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonUiIcon = () => {
+type ButtonUiIconProps = {
+  handlePageDimension: () => Promise<void>
+}
+
+export const ButtonUiIcon: React.FC<ButtonUiIconProps> = ({
+  handlePageDimension,
+}) => {
   const [ref, dimension, handleDimension] = useElementDimension()
 
   useDimensionChange(iconSelector, dimension)
 
-  const { dimension: rDimension } = useRecoilValue(buttonUiAtom)
+  const { pageDimension } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
-  }, [
-    rDimension.variant,
-    rDimension.color,
-    rDimension.size,
-    rDimension.outline,
-    rDimension.shape,
-    rDimension.disabled,
-  ])
+    handlePageDimension()
+  }, [pageDimension])
 
   return (
     <TwContainer id='icon' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -37,7 +38,8 @@ export const ButtonUiIcon = () => {
         title='Icon'
         description={
           <>
-            Button can add an icon by insert icon to <code>icon</code> prop.
+            Button can add an icon by insert icon to <PreCode text='icon' />{' '}
+            prop.
           </>
         }
       />

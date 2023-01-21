@@ -31,7 +31,7 @@ exports[`<TableCommon /> renders correctly 1`] = `
 
 .dark .c3 {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
 .c6 {
@@ -47,24 +47,24 @@ exports[`<TableCommon /> renders correctly 1`] = `
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
-.dark .c5 {
-  --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
-}
-
-.dark .c5:hover {
-  --tw-bg-opacity: 0.5;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}
-
 .c6:hover {
   --tw-bg-opacity: 0.5;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.dark .c5:hover {
+  --tw-bg-opacity: 0.4;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.dark .c5 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
 .c8 {
   --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
+  color: rgb(75 85 99 / var(--tw-text-opacity));
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 1rem;
