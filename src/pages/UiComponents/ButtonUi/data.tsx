@@ -1,3 +1,5 @@
+import { PreCode } from 'components/PreCode'
+
 type ButtonApiDataType = {
   prop: string
   desc: string
@@ -21,7 +23,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
   {
     prop: 'label',
     desc: 'Text label of the button',
-    val: <code>string</code>,
+    val: <PreCode text='string' />,
     default: '-',
   },
   {
@@ -29,7 +31,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
     desc: 'Render icon',
     val: (
       <>
-        <code>string</code>, <code>ReactNode</code>
+        <PreCode text='string' />, <PreCode text='ReactNode' />
       </>
     ),
     default: '-',
@@ -39,7 +41,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
     desc: 'Render icon on the right of the button',
     val: (
       <>
-        <code>string</code>, <code>ReactNode</code>
+        <PreCode text='string' />, <PreCode text='ReactNode' />
       </>
     ),
     default: '-',
@@ -49,7 +51,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
     desc: 'Handler event when button clicked',
     val: (
       <>
-        <code>{'(event) => void'}</code>
+        <PreCode text='(event) => void' />
       </>
     ),
     default: '-',
@@ -59,19 +61,20 @@ export const ButtonApiData: ButtonApiDataType[] = [
     desc: 'The variant of the button',
     val: (
       <>
-        <code>primary</code>, <code>secondary</code>, <code>tertiary</code>, <code>success</code>,{' '}
-        <code>danger</code>, <code>warning</code>, <code>info</code>, <code>light</code>,{' '}
-        <code>dark</code>, <code>link</code>
+        <PreCode text='primary' />, <PreCode text='secondary' />,{' '}
+        <PreCode text='tertiary' />, <PreCode text='plain' />,{' '}
+        <PreCode text='link' />
       </>
     ),
-    default: <code>primary</code>,
+    default: <PreCode text='primary' />,
   },
   {
     prop: 'color',
     desc: 'Custom color of the button',
     val: (
       <>
-        available colors option based on tailwind <code>theme.colors</code>
+        available colors option based on tailwind{' '}
+        <PreCode text='theme.colors' />
       </>
     ),
     default: '-',
@@ -81,43 +84,39 @@ export const ButtonApiData: ButtonApiDataType[] = [
     desc: 'The size of the button',
     val: (
       <>
-        <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>
+        <PreCode text='xs' />, <PreCode text='sm' />, <PreCode text='md' />,{' '}
+        <PreCode text='lg' />
       </>
     ),
-    default: <code>md</code>,
-  },
-  {
-    prop: 'outline',
-    desc: 'The outline style of the button',
-    val: <code>boolean</code>,
-    default: <code>false</code>,
+    default: <PreCode text='md' />,
   },
   {
     prop: 'shape',
     desc: 'The border radius of the button',
     val: (
       <>
-        <code>square</code>, <code>rounded</code>, <code>circle</code>
+        <PreCode text='square' />, <PreCode text='rounded' />,{' '}
+        <PreCode text='circle' />
       </>
     ),
-    default: <code>rounded</code>,
+    default: <PreCode text='rounded' />,
   },
   {
     prop: 'disabled',
     desc: 'Prevents user interact with the button',
-    val: <code>boolean</code>,
-    default: <code>false</code>,
+    val: <PreCode text='boolean' />,
+    default: <PreCode text='false' />,
   },
   {
     prop: 'loading',
     desc: 'Prevents user interact with the button and show loading indicator',
-    val: <code>boolean</code>,
-    default: <code>false</code>,
+    val: <PreCode text='boolean' />,
+    default: <PreCode text='false' />,
   },
   {
     prop: 'block',
     desc: 'Make the button full width',
-    val: <code>boolean</code>,
-    default: <code>false</code>,
+    val: <PreCode text='boolean' />,
+    default: <PreCode text='false' />,
   },
 ]

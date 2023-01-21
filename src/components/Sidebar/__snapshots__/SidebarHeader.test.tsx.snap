@@ -42,7 +42,7 @@ exports[`<SidebarHeader /> should render without crashing and match snapshot 1`]
 
 .c4 {
   --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
+  color: rgb(107 114 128 / var(--tw-text-opacity));
   margin-left: 0.5rem;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -52,7 +52,7 @@ exports[`<SidebarHeader /> should render without crashing and match snapshot 1`]
 
 .dark .c3 {
   --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity));
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 <div

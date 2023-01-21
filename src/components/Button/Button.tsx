@@ -1,16 +1,23 @@
-import type { Variant, Size, Shape, TwColor, TwColorLevel, MultiMerged } from 'types'
+import type {
+  Variant,
+  Size,
+  Shape,
+  TwColor,
+  TwColorLevel,
+  MultiMerged,
+  ThemeMode,
+} from 'types'
 
 import type { MouseEvent } from 'react'
 
 import { useRecoilValue } from 'recoil'
-import colors from 'tailwindcss/colors'
-import tw, { css, styled } from 'twin.macro'
+import tw, { styled } from 'twin.macro'
 
 import { Loading } from 'components/Loading'
+import { BG_THEME, BORDER_THEME, TEXT_THEME } from 'constants/twTheme'
 import { localSettingAtom } from 'recoils/atoms'
-import { twColor } from 'utils/jest'
 
-import { twShape, twSize, twSizeIcon, twVariant } from './styles'
+import { twShape, twSize, twSizeIcon, twVariantFn, twColorFn } from './styles'
 
 type ButtonProps = {
   label?: string
@@ -27,14 +34,17 @@ type ButtonProps = {
   block?: boolean
 }
 
-type TwButtonProps = Omit<ButtonProps, 'label' | 'icon' | 'onClick' | 'disabled'> & {
+type TwButtonProps = Omit<
+  ButtonProps,
+  'label' | 'icon' | 'onClick' | 'disabled'
+> & {
   iconOnly?: boolean
-  disabledOnly?: boolean
   isDisabled?: boolean
   isLoading?: boolean
   isBlocked?: boolean
   themeColor: TwColor
   colorLevel: TwColorLevel
+  themeMode: ThemeMode
 }
 
 const TwContainer = tw.div`relative select-none`
@@ -46,47 +56,33 @@ const TwButton = styled.button(
     outline,
     shape,
     iconOnly,
-    disabledOnly,
     isDisabled,
     isLoading,
     isBlocked,
     themeColor,
     colorLevel,
+    themeMode,
   }: TwButtonProps) => {
-    const [_color, _level] = (color?.split('-') as [TwColor, TwColorLevel]) || []
-    const themeSetting = { themeColor, colorLevel }
+    const [_color, _level] =
+      (color?.split('-') as [TwColor, TwColorLevel]) || []
+    const variantOptional = { themeColor, colorLevel, themeMode }
+    const colorOption = { themeColor: _color, colorLevel: _level }
 
     return [
       !color &&
         variant &&
-        (outline ? twVariant(themeSetting).border[variant] : twVariant(themeSetting).bg[variant]),
-      color &&
         (outline
-          ? css`
-              --tw-border-opacity: 1;
-              border-width: 2px;
-              border-color: ${twColor(colors[_color][_level], 'border')};
-              color: ${twColor(colors[_color][_level], 'text')};
-              &:hover {
-                --tw-border-opacity: 0.8;
-                --tw-text-opacity: 0.8;
-              }
-            `
-          : css`
-              --tw-bg-opacity: 1;
-              background-color: ${twColor(colors[_color][_level])};
-              color: ${twColor(colors.white, 'text')};
-              &:hover {
-                --tw-bg-opacity: 0.8;
-              }
-            `),
+          ? twVariantFn(variantOptional).border[variant]
+          : twVariantFn(variantOptional).bg[variant]),
+      color &&
+        (outline ? twColorFn(colorOption).outline : twColorFn(colorOption).bg),
       size && (iconOnly ? twSizeIcon[size] : twSize[size]),
       shape && twShape[shape],
       iconOnly && tw`rounded-full`,
       isDisabled && tw`cursor-not-allowed`,
-      disabledOnly && tw`(bg-disabled text-nickel)!`,
       isLoading && tw`text-opacity-30 opacity-50`,
       isBlocked && tw`w-full`,
+      [BG_THEME.BTN_DISABLE, TEXT_THEME.BTN_DISABLE, BORDER_THEME.BTN_DISABLE],
     ]
   },
 )
@@ -106,19 +102,29 @@ export const Button: React.FC<ButtonProps> = ({
   loading,
   block,
 }) => {
-  const localSetting = useRecoilValue(localSettingAtom)
+  const { theme } = useRecoilValue(localSettingAtom)
 
   const handleOnClick = (event: MouseEvent<HTMLButtonElement>) => {
     onClick && onClick(event)
   }
 
   const isIconOnly = !!icon && !label
-  const disabledOnly = disabled && !loading
   const isDisabled = disabled || loading
+
+  const handleVariant = () => {
+    if (variant === 'secondary') {
+      return `border dark:border-0 ${BG_THEME.BTN} ${TEXT_THEME.BTN} ${BORDER_THEME.BTN}`
+    }
+
+    if (variant === 'plain') {
+      return `${BG_THEME.BTN_PLAIN} ${TEXT_THEME.BTN_PLAIN}`
+    }
+  }
 
   return (
     <TwContainer>
       <TwButton
+        className={handleVariant()}
         onClick={handleOnClick}
         variant={variant}
         color={color}
@@ -127,12 +133,12 @@ export const Button: React.FC<ButtonProps> = ({
         iconOnly={isIconOnly}
         shape={shape}
         disabled={isDisabled}
-        disabledOnly={disabledOnly}
         isDisabled={isDisabled}
         isLoading={loading}
         isBlocked={block}
-        themeColor={localSetting.theme.color}
-        colorLevel={localSetting.theme.colorLevel}
+        themeColor={theme.color}
+        colorLevel={theme.colorLevel}
+        themeMode={theme.mode}
       >
         {isIconOnly ? (
           icon

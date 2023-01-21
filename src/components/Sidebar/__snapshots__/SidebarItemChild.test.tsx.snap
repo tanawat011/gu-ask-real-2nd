@@ -3,10 +3,11 @@
 exports[`<SidebarItemChild /> should render without crashing and match snapshot 1`] = `
 <DocumentFragment>
   .c1 {
-  margin-left: 1.25rem;
-  padding-left: 0.75rem !important;
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
+  background-color: transparent;
+  margin-left: 1.25rem;
+  padding-left: 0.75rem !important;
   height: 2.5rem;
   padding-left: 0.75rem;
   display: -webkit-box;
@@ -25,19 +26,19 @@ exports[`<SidebarItemChild /> should render without crashing and match snapshot 
   border-radius: 0.5rem;
 }
 
+.c1:hover {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
 .dark .c0 {
   --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-
-.dark .c0:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(41 51 65 / var(--tw-bg-opacity));
+  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
 .dark .c0:hover {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
 .c1:hover {
@@ -45,9 +46,13 @@ exports[`<SidebarItemChild /> should render without crashing and match snapshot 
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
-.c1:hover {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
+.dark .c0 {
+  background-color: transparent;
+}
+
+.dark .c0:hover {
+  --tw-bg-opacity: 0.1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .c2 {

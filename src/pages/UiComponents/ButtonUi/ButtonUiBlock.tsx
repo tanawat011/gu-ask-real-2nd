@@ -6,32 +6,30 @@ import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
+import { PreCode } from 'components/PreCode'
 import { useDimensionChange } from 'hooks/useDimensionChange'
 import { useElementDimension } from 'hooks/useElementDimension'
 import { blockSelector, buttonUiAtom } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonUiBlock = () => {
+type ButtonUiBlockProps = {
+  handlePageDimension: () => Promise<void>
+}
+
+export const ButtonUiBlock: React.FC<ButtonUiBlockProps> = ({
+  handlePageDimension,
+}) => {
   const [ref, dimension, handleDimension] = useElementDimension()
 
   useDimensionChange(blockSelector, dimension)
 
-  const { dimension: rDimension } = useRecoilValue(buttonUiAtom)
+  const { pageDimension } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
-  }, [
-    rDimension.variant,
-    rDimension.color,
-    rDimension.size,
-    rDimension.outline,
-    rDimension.shape,
-    rDimension.disabled,
-    rDimension.icon,
-    rDimension.withIcon,
-    rDimension.loading,
-  ])
+    handlePageDimension()
+  }, [pageDimension])
 
   return (
     <TwContainer id='block' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -39,7 +37,8 @@ export const ButtonUiBlock = () => {
         title='Block'
         description={
           <>
-            Button can stretch to fill the width by add <code>block</code> prop.
+            Button can stretch to fill the width by add <PreCode text='block' />{' '}
+            prop.
           </>
         }
       />

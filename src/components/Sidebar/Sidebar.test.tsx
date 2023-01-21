@@ -2,6 +2,7 @@ import { renderWithProviders } from 'utils/jest'
 
 import { Sidebar } from './Sidebar'
 
+jest.mock('./Sidebar', () => jest.requireActual('./Sidebar'))
 jest.mock('./SidebarHeader')
 jest.mock('./SidebarContent')
 jest.mock('./SidebarFooter')
@@ -57,7 +58,11 @@ describe('<Sidebar />', () => {
     ]
 
     const { asFragment } = renderWithProviders(
-      <Sidebar menuList={menuList} setMenuList={jest.fn()} fullSidebar={false} />,
+      <Sidebar
+        menuList={menuList}
+        setMenuList={jest.fn()}
+        fullSidebar={false}
+      />,
     )
 
     expect(asFragment()).toMatchSnapshot()

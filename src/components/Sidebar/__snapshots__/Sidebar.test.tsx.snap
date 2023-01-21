@@ -18,7 +18,7 @@ exports[`<Sidebar /> should render without crashing and match snapshot 1`] = `
 
 .dark .c0 {
   --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
 
 <div
@@ -45,7 +45,7 @@ exports[`<Sidebar /> should render without crashing and match snapshot with mini
 
 .dark .c0 {
   --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
 
 <div

@@ -23,8 +23,18 @@ export const RightMenuButtonUi: React.FC<RightMenuButtonUiProps> = ({
   const { scroll } = useContentContext()
   const isScrolled = useIsScrolled()
 
-  const { head, variant, color, size, outline, shape, disabled, icon, withIcon, loading, block } =
-    dimension
+  const {
+    head,
+    variant,
+    color,
+    size,
+    shape,
+    disabled,
+    icon,
+    withIcon,
+    loading,
+    block,
+  } = dimension
 
   const handlePositionY = (_dimension: Dimension) => {
     const more = 1
@@ -43,8 +53,7 @@ export const RightMenuButtonUi: React.FC<RightMenuButtonUiProps> = ({
           { title: 'Variant', scroll: handlePositionY(head) },
           { title: 'Color', scroll: handlePositionY(variant) },
           { title: 'Size', scroll: handlePositionY(color) },
-          { title: 'Outline', scroll: handlePositionY(size) },
-          { title: 'Shape', scroll: handlePositionY(outline) },
+          { title: 'Shape', scroll: handlePositionY(size) },
           { title: 'Disabled', scroll: handlePositionY(shape) },
           { title: 'Icon', scroll: handlePositionY(disabled) },
           { title: 'With Icon', scroll: handlePositionY(icon) },

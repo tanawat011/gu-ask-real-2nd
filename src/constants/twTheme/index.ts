@@ -1,3 +1,4 @@
+export * from './background'
+export * from './border'
 export * from './common'
-export * from './darkTheme'
-export * from './lightTheme'
+export * from './text'

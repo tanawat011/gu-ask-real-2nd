@@ -5,7 +5,7 @@ import React from 'react'
 import tw, { styled } from 'twin.macro'
 
 import { IconAngleDown } from 'components/Icons'
-import { DARK_THEME, LIGHT_THEME } from 'constants/twTheme'
+import { BG_THEME, TEXT_THEME } from 'constants/twTheme'
 
 export type SidebarItemProps = {
   icon?: JSX.Element
@@ -20,43 +20,25 @@ export type SidebarItemProps = {
 type SidebarItemContainerProps = SidebarState
 
 const TwContainer = styled.div(({ fullSidebar }: SidebarItemContainerProps) => [
-  fullSidebar
-    ? [
-        [DARK_THEME.SIDEBAR.MENU.TEXT_COLOR],
-        [DARK_THEME.SIDEBAR.MENU.HOVER.BG_COLOR, DARK_THEME.SIDEBAR.MENU.HOVER.TEXT_COLOR],
-        [LIGHT_THEME.SIDEBAR.MENU.TEXT_COLOR],
-        [LIGHT_THEME.SIDEBAR.MENU.HOVER.BG_COLOR, LIGHT_THEME.SIDEBAR.MENU.HOVER.TEXT_COLOR],
-        tw`justify-between px-3`,
-      ]
-    : [
-        [DARK_THEME.MINI_SIDEBAR.MENU.TEXT_COLOR],
-        [
-          DARK_THEME.MINI_SIDEBAR.MENU.HOVER.BG_COLOR,
-          DARK_THEME.MINI_SIDEBAR.MENU.HOVER.TEXT_COLOR,
-        ],
-        [LIGHT_THEME.MINI_SIDEBAR.MENU.TEXT_COLOR],
-        [
-          LIGHT_THEME.MINI_SIDEBAR.MENU.HOVER.BG_COLOR,
-          LIGHT_THEME.MINI_SIDEBAR.MENU.HOVER.TEXT_COLOR,
-        ],
-        tw`justify-center px-0`,
-      ],
+  [TEXT_THEME.MENU, BG_THEME.MENU],
+  fullSidebar ? tw`justify-between px-3` : tw`justify-center px-0`,
   tw`mb-2 flex h-10 cursor-pointer items-center rounded-lg`,
 ])
 const TwItem = tw.div`flex items-center`
 const TwItemSelected = styled.div(() => [
-  [DARK_THEME.SIDEBAR.MENU.ACTIVE.BG_COLOR, DARK_THEME.SIDEBAR.MENU.ACTIVE.TEXT_COLOR],
-  [LIGHT_THEME.SIDEBAR.MENU.ACTIVE.BG_COLOR, LIGHT_THEME.SIDEBAR.MENU.ACTIVE.TEXT_COLOR],
+  [TEXT_THEME.MENU_SELECT, BG_THEME.MENU_SELECT],
   tw`rounded-lg`,
 ])
 const TwWrapIcon = styled.div(({ fullSidebar }: SidebarItemContainerProps) => [
   tw`flex h-6 w-6 items-center justify-center`,
   fullSidebar && tw`mr-2`,
 ])
-const TwWrapAngleIcon = styled.div(({ expanded }: Pick<SidebarItemProps, 'expanded'>) => [
-  tw`transition-all`,
-  expanded && tw`rotate-180`,
-])
+const TwWrapAngleIcon = styled.div(
+  ({ expanded }: Pick<SidebarItemProps, 'expanded'>) => [
+    tw`transition-all`,
+    expanded && tw`rotate-180`,
+  ],
+)
 
 export const SidebarItem: React.FC<SidebarItemProps> = ({
   icon,
