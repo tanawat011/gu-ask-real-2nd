@@ -21,7 +21,7 @@ type TwVariantFn = ({
   themeColor: TwColor
   colorLevel: TwColorLevel
   themeMode: ThemeMode
-}) => { bg: TwVariantObject; border: TwVariantObject }
+}) => TwVariantObject
 
 export const twVariantFn: TwVariantFn = ({
   themeColor,
@@ -32,7 +32,6 @@ export const twVariantFn: TwVariantFn = ({
   const color = colors[themeColor][colorLevel]
   const bgColor = twColor(color)
   const bgWhiteColor = twColor(colors.white)
-  const borderColor = twColor(color, 'border')
   const textColor = twColor(color, 'text')
   const textWhiteColor = twColor(colors.white, 'text')
 
@@ -93,61 +92,25 @@ export const twVariantFn: TwVariantFn = ({
   }
 
   return {
-    bg: {
-      primary: css`
-        --tw-bg-opacity: 1;
-        background-color: ${bgColor};
-        color: ${textWhiteColor};
-        &:hover {
-          --tw-bg-opacity: 0.8;
-        }
-      `,
-      secondary: secondary[themeMode],
-      tertiary: css`
-        --tw-bg-opacity: 0.2;
-        background-color: ${bgColor};
-        color: ${tertiaryBgColor};
-        &:hover {
-          --tw-bg-opacity: 0.3;
-        }
-      `,
-      plain: plain[themeMode],
-      link: tw`text-blue-500 hover:text-blue-600`,
-    },
-
-    border: {
-      primary: css`
+    primary: css`
+      --tw-bg-opacity: 1;
+      background-color: ${bgColor};
+      color: ${textWhiteColor};
+      &:hover {
+        --tw-bg-opacity: 0.8;
+      }
+    `,
+    secondary: secondary[themeMode],
+    tertiary: css`
+      --tw-bg-opacity: 0.2;
+      background-color: ${bgColor};
+      color: ${tertiaryBgColor};
+      &:hover {
         --tw-bg-opacity: 0.3;
-        --tw-border-opacity: 1;
-        --tw-text-opacity: 0.8;
-        background-color: ${bgColor};
-        border-width: 2px;
-        border-color: ${borderColor};
-        color: ${textColor};
-        &:hover {
-          --tw-bg-opacity: 0.4;
-          --tw-border-opacity: 0.8;
-          --tw-text-opacity: 1;
-        }
-      `,
-      secondary: tw``,
-      tertiary: css`
-        --tw-bg-opacity: 0.1;
-        --tw-border-opacity: 0.2;
-        --tw-text-opacity: 1;
-        background-color: ${bgColor};
-        border-width: 2px;
-        border-color: ${borderColor};
-        color: ${textColor};
-        &:hover {
-          --tw-bg-opacity: 0.2;
-          --tw-border-opacity: 0.3;
-          --tw-text-opacity: 0.8;
-        }
-      `,
-      plain: tw``,
-      link: tw`text-blue-500 hover:text-blue-600`,
-    },
+      }
+    `,
+    plain: plain[themeMode],
+    link: tw`text-blue-500 hover:text-blue-600`,
   }
 }
 
@@ -157,35 +120,21 @@ type TwColorFn = ({
 }: {
   themeColor: TwColor
   colorLevel: TwColorLevel
-}) => { bg: FlattenSimpleInterpolation; outline: FlattenSimpleInterpolation }
+}) => FlattenSimpleInterpolation
 
 export const twColorFn: TwColorFn = ({ themeColor, colorLevel }) => {
   const color = colors[themeColor][colorLevel]
   const bgColor = twColor(color)
-  const borderColor = twColor(color, 'border')
   const textWhiteColor = twColor(colors.white, 'text')
-  const textColor = twColor(color, 'text')
 
-  return {
-    bg: css`
-      --tw-bg-opacity: 1;
-      background-color: ${bgColor};
-      color: ${textWhiteColor};
-      &:hover {
-        --tw-bg-opacity: 0.8;
-      }
-    `,
-    outline: css`
-      --tw-border-opacity: 1;
-      border-width: 2px;
-      border-color: ${borderColor};
-      color: ${textColor};
-      &:hover {
-        --tw-border-opacity: 0.8;
-        --tw-text-opacity: 0.8;
-      }
-    `,
-  }
+  return css`
+    --tw-bg-opacity: 1;
+    background-color: ${bgColor};
+    color: ${textWhiteColor};
+    &:hover {
+      --tw-bg-opacity: 0.8;
+    }
+  `
 }
 
 export const twDisabledOnly = tw`bg-gray-700 text-gray-100 opacity-50 hover:bg-gray-700`

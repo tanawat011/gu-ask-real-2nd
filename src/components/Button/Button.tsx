@@ -33,7 +33,6 @@ type ButtonProps = {
   variant?: Variant
   color?: MultiMerged<TwColor, TwColorLevel, '-'>
   size?: Size
-  outline?: boolean
   shape?: Shape
   disabled?: boolean
   loading?: boolean
@@ -60,7 +59,6 @@ const TwButton = styled.button(
     variant,
     color,
     size,
-    outline,
     shape,
     iconOnly,
     isDisabled,
@@ -77,13 +75,8 @@ const TwButton = styled.button(
     const colorOption = { themeColor: _color, colorLevel: _level }
 
     return [
-      !color &&
-        variant &&
-        (outline
-          ? twVariantFn(variantOptional).border[variant]
-          : twVariantFn(variantOptional).bg[variant]),
-      color &&
-        (outline ? twColorFn(colorOption).outline : twColorFn(colorOption).bg),
+      !color && variant && twVariantFn(variantOptional)[variant],
+      color && twColorFn(colorOption),
       size && (iconOnly ? twSizeIcon[size] : twSize[size]),
       shape && twShape[shape],
       iconOnly && tw`rounded-full`,
@@ -104,7 +97,6 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   color,
   size = 'md',
-  outline,
   shape = 'rounded',
   disabled,
   loading,
@@ -127,7 +119,6 @@ export const Button: React.FC<ButtonProps> = ({
         variant={variant}
         color={color}
         size={size}
-        outline={outline}
         iconOnly={isIconOnly}
         shape={shape}
         disabled={isDisabled}
