@@ -14,10 +14,16 @@ import { useRecoilValue } from 'recoil'
 import tw, { styled } from 'twin.macro'
 
 import { Loading } from 'components/Loading'
-import { BG_THEME, BORDER_THEME, TEXT_THEME } from 'constants/twTheme'
 import { localSettingAtom } from 'recoils/atoms'
 
-import { twShape, twSize, twSizeIcon, twVariantFn, twColorFn } from './styles'
+import {
+  twShape,
+  twSize,
+  twSizeIcon,
+  twVariantFn,
+  twColorFn,
+  twDisabledOnly,
+} from './styles'
 
 type ButtonProps = {
   label?: string
@@ -40,6 +46,7 @@ type TwButtonProps = Omit<
 > & {
   iconOnly?: boolean
   isDisabled?: boolean
+  disabledOnly?: boolean
   isLoading?: boolean
   isBlocked?: boolean
   themeColor: TwColor
@@ -57,6 +64,7 @@ const TwButton = styled.button(
     shape,
     iconOnly,
     isDisabled,
+    disabledOnly,
     isLoading,
     isBlocked,
     themeColor,
@@ -80,9 +88,9 @@ const TwButton = styled.button(
       shape && twShape[shape],
       iconOnly && tw`rounded-full`,
       isDisabled && tw`cursor-not-allowed`,
+      disabledOnly && twDisabledOnly,
       isLoading && tw`text-opacity-30 opacity-50`,
       isBlocked && tw`w-full`,
-      [BG_THEME.BTN_DISABLE, TEXT_THEME.BTN_DISABLE, BORDER_THEME.BTN_DISABLE],
     ]
   },
 )
@@ -110,21 +118,11 @@ export const Button: React.FC<ButtonProps> = ({
 
   const isIconOnly = !!icon && !label
   const isDisabled = disabled || loading
-
-  const handleVariant = () => {
-    if (variant === 'secondary') {
-      return `border dark:border-0 ${BG_THEME.BTN} ${TEXT_THEME.BTN} ${BORDER_THEME.BTN}`
-    }
-
-    if (variant === 'plain') {
-      return `${BG_THEME.BTN_PLAIN} ${TEXT_THEME.BTN_PLAIN}`
-    }
-  }
+  const disabledOnly = disabled && !loading
 
   return (
     <TwContainer>
       <TwButton
-        className={handleVariant()}
         onClick={handleOnClick}
         variant={variant}
         color={color}
@@ -133,6 +131,7 @@ export const Button: React.FC<ButtonProps> = ({
         iconOnly={isIconOnly}
         shape={shape}
         disabled={isDisabled}
+        disabledOnly={disabledOnly}
         isDisabled={isDisabled}
         isLoading={loading}
         isBlocked={block}

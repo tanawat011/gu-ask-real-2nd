@@ -31,11 +31,66 @@ export const twVariantFn: TwVariantFn = ({
   const isDarkMode = themeMode === 'dark'
   const color = colors[themeColor][colorLevel]
   const bgColor = twColor(color)
+  const bgWhiteColor = twColor(colors.white)
   const borderColor = twColor(color, 'border')
-  const textWhiteColor = twColor(colors.white, 'text')
   const textColor = twColor(color, 'text')
+  const textWhiteColor = twColor(colors.white, 'text')
 
   const tertiaryBgColor = isDarkMode ? `${textWhiteColor}` : `${textColor}`
+
+  const secondary = {
+    light: css`
+      background-color: ${bgWhiteColor};
+      border-width: 1px;
+      border-color: ${twColor(colors.gray[300], 'border')};
+      color: ${twColor(colors.gray[500], 'text')};
+      &:hover {
+        background-color: ${twColor(colors.gray[50])};
+        color: ${twColor(colors.gray[500], 'text')};
+      }
+      &:active {
+        background-color: ${twColor(colors.gray[100])};
+      }
+    `,
+    dark: css`
+      background-color: ${twColor(colors.gray[700])};
+      border-width: 0;
+      border-color: ${twColor(colors.gray[700], 'border')};
+      color: ${twColor(colors.gray[100], 'text')};
+      &:hover {
+        background-color: ${twColor(colors.gray[600])};
+        color: ${twColor(colors.gray[100], 'text')};
+      }
+      &:active {
+        background-color: ${twColor(colors.gray[500])};
+      }
+    `,
+  }
+
+  const plain = {
+    light: css`
+      background-color: transparent;
+      color: ${twColor(colors.gray[500], 'text')};
+      &:hover {
+        background-color: ${twColor(colors.gray[50])};
+        color: ${twColor(colors.gray[500], 'text')};
+      }
+      &:active {
+        background-color: ${twColor(colors.gray[100])};
+      }
+    `,
+    dark: css`
+      background-color: transparent;
+      color: ${twColor(colors.gray[100], 'text')};
+      &:hover {
+        background-color: ${twColor(colors.gray[600])};
+        color: ${twColor(colors.gray[100], 'text')};
+      }
+      &:active {
+        background-color: ${twColor(colors.gray[500])};
+      }
+    `,
+  }
 
   return {
     bg: {
@@ -47,7 +102,7 @@ export const twVariantFn: TwVariantFn = ({
           --tw-bg-opacity: 0.8;
         }
       `,
-      secondary: tw``,
+      secondary: secondary[themeMode],
       tertiary: css`
         --tw-bg-opacity: 0.2;
         background-color: ${bgColor};
@@ -56,7 +111,7 @@ export const twVariantFn: TwVariantFn = ({
           --tw-bg-opacity: 0.3;
         }
       `,
-      plain: tw``,
+      plain: plain[themeMode],
       link: tw`text-blue-500 hover:text-blue-600`,
     },
 
@@ -132,6 +187,8 @@ export const twColorFn: TwColorFn = ({ themeColor, colorLevel }) => {
     `,
   }
 }
+
+export const twDisabledOnly = tw`bg-gray-700 text-gray-100 opacity-50 hover:bg-gray-700`
 
 export const twSize: TwSizeObject = {
   xs: tw`h-7 px-3 py-1 text-xs`,
