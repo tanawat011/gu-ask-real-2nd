@@ -4,11 +4,6 @@ export const BG_THEME = {
   BASE: tw`bg-gray-100 dark:bg-gray-900`,
   CONTENT: tw`bg-white dark:bg-gray-800`,
 
-  BTN: 'bg-white hover:bg-gray-50 active:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-gray-500',
-  BTN_PLAIN:
-    'bg-transparent hover:bg-gray-50 active:bg-gray-100 dark:bg-transparent dark:hover:bg-gray-600 dark:active:bg-gray-500',
-  BTN_DISABLE: tw`disabled:(bg-white opacity-50) dark:disabled:bg-gray-700`,
-
   MENU: tw`bg-transparent hover:(bg-gray-900 bg-opacity-10) dark:(bg-transparent hover:(bg-white bg-opacity-10))`,
   MENU_SELECT: tw`bg-gray-900 bg-opacity-[0.075] dark:(bg-white bg-opacity-10)`,
 
