@@ -1,9 +1,13 @@
 /* eslint-disable jest/no-conditional-expect */
-import type { Size, Variant } from 'types'
+import type { Size, ThemeMode, Variant } from 'types'
+
+import { useEffect } from 'react'
 
 import { fireEvent, screen } from '@testing-library/react'
+import { useRecoilState } from 'recoil'
 
 import { IconHome } from 'components/Icons'
+import { localSettingAtom } from 'recoils/atoms'
 import { renderWithProviders, twColor } from 'utils/jest'
 
 import { Button } from './Button'
@@ -47,14 +51,8 @@ describe('<Button />', () => {
 
     const button = screen.getByRole('button')
 
-    expect(button).toHaveStyleRule(
-      'background-color',
-      `${twColor('#293341')} !important`,
-    )
-    expect(button).toHaveStyleRule(
-      'color',
-      `${twColor('#6a717a', 'text')} !important`,
-    )
+    expect(button).toHaveStyleRule('background-color', `${twColor('#374151')}`)
+    expect(button).toHaveStyleRule('color', `${twColor('#f3f4f6', 'text')}`)
     expect(button).toHaveStyle('cursor: not-allowed')
     expect(button).toHaveAttribute('disabled')
   })
@@ -208,6 +206,7 @@ describe('<Button />', () => {
   type ColorTestOption = {
     bgColor?: string
     bgHoverColor?: string
+    bgActiveColor?: string
     bgOpacity?: string
     bgHoverOpacity?: string
     borderWidth?: string
@@ -223,9 +222,7 @@ describe('<Button />', () => {
 
   type TestVariant = { [key in Variant]: ColorTestOption }
 
-  type TestOutlineVariant = { [key in Variant]: ColorTestOption }
-
-  const variants: TestVariant = {
+  const variantsDark: TestVariant = {
     primary: {
       bgColor: '#4f46e5',
       bgOpacity: '1',
@@ -234,8 +231,12 @@ describe('<Button />', () => {
     },
     secondary: {
       bgColor: '#374151',
-      bgHoverOpacity: '0.8',
-      textColor: '#ffffff',
+      bgHoverColor: '#4B5563',
+      bgActiveColor: '#6b7280',
+      borderWidth: '0',
+      borderColor: '#374151',
+      textColor: '#f3f4f6',
+      textHoverColor: '#f3f4f6',
     },
     tertiary: {
       bgColor: '#4f46e5',
@@ -244,53 +245,11 @@ describe('<Button />', () => {
       textColor: '#ffffff',
     },
     plain: {
+      bgColor: 'transparent',
       bgHoverColor: '#4B5563',
-      textColor: '#ffffff',
-    },
-    link: {
-      textColor: '#3B82F6',
-      textHoverColor: '#2563EB',
-    },
-  }
-
-  const outlineVariants: TestOutlineVariant = {
-    primary: {
-      bgColor: '#4f46e5',
-      bgOpacity: '0.3',
-      bgHoverOpacity: '0.4',
-      borderWidth: '2px',
-      borderColor: '#4f46e5',
-      borderOpacity: '1',
-      borderHoverOpacity: '0.8',
-      textColor: '#4f46e5',
-      textOpacity: '0.8',
-      textHoverOpacity: '1',
-    },
-    secondary: {
-      borderWidth: '2px',
-      borderColor: '#374151',
-      borderHoverOpacity: '0.8',
-      textColor: '#374151',
-      textHoverOpacity: '0.8',
-    },
-    tertiary: {
-      bgColor: '#4f46e5',
-      bgOpacity: '0.1',
-      bgHoverOpacity: '0.2',
-      borderWidth: '2px',
-      borderColor: '#4f46e5',
-      borderOpacity: '0.2',
-      borderHoverOpacity: '0.3',
-      textColor: '#4f46e5',
-      textOpacity: '1',
-      textHoverOpacity: '0.8',
-    },
-    plain: {
-      borderWidth: '2px',
-      borderColor: 'transparent',
-      borderHoverColor: '#4B5563',
-      textColor: 'transparent',
-      textHoverColor: '#4B5563',
+      bgActiveColor: '#6b7280',
+      textColor: '#f3f4f6',
+      textHoverColor: '#f3f4f6',
     },
     link: {
       textColor: '#3B82F6',
@@ -315,13 +274,21 @@ describe('<Button />', () => {
       textOpacity,
       textHoverOpacity,
     }: ColorTestOption,
-    outline?: boolean,
+    mode: ThemeMode = 'dark',
   ) => {
     const hover = { modifier: ':hover' }
 
-    renderWithProviders(
-      <Button label='button' variant={key as Variant} outline={outline} />,
-    )
+    const Component = () => {
+      const [{ auth, theme }, setTheme] = useRecoilState(localSettingAtom)
+
+      useEffect(() => {
+        setTheme({ auth, theme: { ...theme, mode } })
+      }, [])
+
+      return <Button label='button' variant={key as Variant} />
+    }
+
+    renderWithProviders(<Component />)
 
     const button = screen.getByRole('button')
 
@@ -401,7 +368,7 @@ describe('<Button />', () => {
     }
   }
 
-  Object.entries(variants).forEach(([key, val]) => {
+  Object.entries(variantsDark).forEach(([key, val]) => {
     test(`renders correctly and variant \`${key}\``, () => {
       expect.hasAssertions()
 
@@ -409,11 +376,46 @@ describe('<Button />', () => {
     })
   })
 
-  Object.entries(outlineVariants).forEach(([key, val]) => {
-    test(`renders correctly and outline variant \`${key}\``, () => {
+  const variantsLight: TestVariant = {
+    primary: {
+      bgColor: '#4f46e5',
+      bgOpacity: '1',
+      bgHoverOpacity: '0.8',
+      textColor: '#ffffff',
+    },
+    secondary: {
+      bgColor: '#ffffff',
+      bgHoverColor: '#f9fafb',
+      bgActiveColor: '#f3f4f6',
+      borderWidth: '1px',
+      borderColor: '#d1d5db',
+      textColor: '#6b7280',
+      textHoverColor: '#6b7280',
+    },
+    tertiary: {
+      bgOpacity: '0.2',
+      bgHoverOpacity: '0.3',
+      bgColor: '#4f46e5',
+      textColor: '#4f46e5',
+    },
+    plain: {
+      bgColor: 'transparent',
+      bgHoverColor: '#f9fafb',
+      bgActiveColor: '#f3f4f6',
+      textColor: '#6b7280',
+      textHoverColor: '#6b7280',
+    },
+    link: {
+      textColor: '#3B82F6',
+      textHoverColor: '#2563EB',
+    },
+  }
+
+  Object.entries(variantsLight).forEach(([key, val]) => {
+    test(`renders correctly and variant \`${key}\` with light theme`, () => {
       expect.hasAssertions()
 
-      execTestCase(key as Variant, val, true)
+      execTestCase(key as Variant, val, 'light')
     })
   })
 
@@ -430,23 +432,6 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('background-color', twColor('#4f46e5'))
     expect(button).toHaveStyleRule('color', twColor('#ffffff', 'text'))
     expect(button).toHaveStyleRule('--tw-bg-opacity', '0.8', hover)
-  })
-
-  test('renders correctly and custom color with outline', () => {
-    expect.hasAssertions()
-
-    const hover = { modifier: ':hover' }
-
-    renderWithProviders(<Button label='button' color='indigo-600' outline />)
-
-    const button = screen.getByRole('button')
-
-    expect(button).toHaveStyle('--tw-border-opacity: 1')
-    expect(button).toHaveStyle('border-width: 2px')
-    expect(button).toHaveStyleRule('border-color', twColor('#4f46e5', 'border'))
-    expect(button).toHaveStyleRule('color', twColor('#4f46e5', 'text'))
-    expect(button).toHaveStyleRule('--tw-border-opacity', '0.8', hover)
-    expect(button).toHaveStyleRule('--tw-text-opacity', '0.8', hover)
   })
 
   test('renders correctly and shape square', () => {
