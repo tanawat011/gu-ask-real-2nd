@@ -1,3 +1,6 @@
+import type { Dimension } from 'hooks/useElementDimension'
+import type { AllDimension } from 'recoils/atoms'
+
 import tw, { styled } from 'twin.macro'
 
 import { RightMenuContent } from 'components/PageUiComponent'
@@ -8,27 +11,46 @@ const TwContainer = styled.div(({ scrolled }: { scrolled: boolean }) => {
   return [tw`z-10`, scrolled && tw`fixed`]
 })
 
-export const RightMenuButtonUi = () => {
+type RightMenuButtonUiProps = {
+  pageDimension: Dimension
+  dimension: AllDimension
+}
+
+export const RightMenuButtonUi: React.FC<RightMenuButtonUiProps> = ({
+  pageDimension,
+  dimension,
+}) => {
   const { scroll } = useContentContext()
   const isScrolled = useIsScrolled()
+
+  const { head, variant, color, size, outline, shape, disabled, icon, withIcon, loading, block } =
+    dimension
+
+  const handlePositionY = (_dimension: Dimension) => {
+    const more = 1
+    const marginBottom = 32
+
+    return _dimension.clientHeight + _dimension.offsetTop + marginBottom - more
+  }
 
   return (
     <TwContainer scrolled={isScrolled}>
       <RightMenuContent
         title='TABLE OF CONTENT'
         currentScrollPosition={scroll.top}
+        pageHeight={pageDimension.clientHeight}
         menuList={[
-          { id: 'variant', title: 'Variant', scroll: { min: 132, max: 448 } },
-          { id: 'color', title: 'Color', scroll: { min: 449, max: 713 } },
-          { id: 'size', title: 'Size', scroll: { min: 714, max: 965 } },
-          { id: 'outline', title: 'Outline', scroll: { min: 966, max: 1282 } },
-          { id: 'shape', title: 'Shape', scroll: { min: 1283, max: 1547 } },
-          { id: 'disabled', title: 'Disabled', scroll: { min: 1548, max: 1812 } },
-          { id: 'icon', title: 'Icon', scroll: { min: 1813, max: 2064 } },
-          { id: 'with-icon', title: 'With Icon', scroll: { min: 2065, max: 2356 } },
-          { id: 'loading', title: 'Loading', scroll: { min: 2357, max: 2596 } },
-          { id: 'block', title: 'Block', scroll: { min: 2597, max: 2940 } },
-          { id: 'api', title: 'API', scroll: { min: 2941 } },
+          { title: 'Variant', scroll: handlePositionY(head) },
+          { title: 'Color', scroll: handlePositionY(variant) },
+          { title: 'Size', scroll: handlePositionY(color) },
+          { title: 'Outline', scroll: handlePositionY(size) },
+          { title: 'Shape', scroll: handlePositionY(outline) },
+          { title: 'Disabled', scroll: handlePositionY(shape) },
+          { title: 'Icon', scroll: handlePositionY(disabled) },
+          { title: 'With Icon', scroll: handlePositionY(icon) },
+          { title: 'Loading', scroll: handlePositionY(withIcon) },
+          { title: 'Block', scroll: handlePositionY(loading) },
+          { title: 'API', scroll: handlePositionY(block) },
         ]}
       />
     </TwContainer>

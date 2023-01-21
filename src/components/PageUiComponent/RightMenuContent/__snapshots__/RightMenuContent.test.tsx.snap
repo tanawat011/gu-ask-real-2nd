@@ -10,25 +10,31 @@ exports[`<RightMenuContent /> renders correctly 1`] = `
   <ul
     class="grid gap-2"
   >
-    <li>
+    <li
+      class="text-ghost-white"
+    >
       <a
-        href="#"
+        href="#variant"
       >
-        1
+        Variant
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a
-        href="#"
+        href="#color"
       >
-        2
+        Color
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a
-        href="#"
+        href="#size"
       >
-        3
+        Size
       </a>
     </li>
   </ul>
