@@ -24,12 +24,12 @@ export const ButtonUiShape: React.FC<ButtonUiShapeProps> = ({
 
   useDimensionChange(shapeSelector, dimension)
 
-  const { pageDimension } = useRecoilValue(buttonUiAtom)
+  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
     handlePageDimension()
-  }, [pageDimension])
+  }, [btnDms.variant, btnDms.color, btnDms.size])
 
   return (
     <TwContainer id='shape' ref={ref as LegacyRef<HTMLDivElement>}>

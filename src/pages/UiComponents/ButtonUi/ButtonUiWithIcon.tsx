@@ -5,7 +5,7 @@ import { useRecoilValue } from 'recoil'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
-import { IconGear, IconHome, IconUser } from 'components/Icons'
+import { IconHome } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 import { useDimensionChange } from 'hooks/useDimensionChange'
@@ -25,12 +25,19 @@ export const ButtonUiWithIcon: React.FC<ButtonUiWithIconProps> = ({
 
   useDimensionChange(withIconSelector, dimension)
 
-  const { pageDimension } = useRecoilValue(buttonUiAtom)
+  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
     handlePageDimension()
-  }, [pageDimension])
+  }, [
+    btnDms.variant,
+    btnDms.color,
+    btnDms.size,
+    btnDms.shape,
+    btnDms.disabled,
+    btnDms.icon,
+  ])
 
   return (
     <TwContainer id='with-icon' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -38,7 +45,8 @@ export const ButtonUiWithIcon: React.FC<ButtonUiWithIconProps> = ({
         title='With Icon'
         description={
           <>
-            Icon can add and combined with <PreCode text='label' />.
+            Icon can set position with prop <PreCode text='iconPosition' /> to{' '}
+            <PreCode text='left' /> or <PreCode text='right' />.
           </>
         }
       />
@@ -46,14 +54,11 @@ export const ButtonUiWithIcon: React.FC<ButtonUiWithIconProps> = ({
         callback={handleDimension}
         components={
           <div className='flex gap-2 items-center flex-wrap'>
-            <Button icon={<IconHome />} label='Home' />
-            <Button icon={<IconUser />} label='Profile' />
-            <Button icon={<IconGear />} label='Setting' />
-            <Button iconR={<IconHome />} label='Right Icon' />
+            <Button icon={<IconHome />} label='Icon' />
             <Button
               icon={<IconHome />}
-              iconR={<IconHome />}
-              label='Between Icons'
+              iconPosition='right'
+              label='Right Icon'
             />
           </div>
         }
@@ -61,15 +66,8 @@ export const ButtonUiWithIcon: React.FC<ButtonUiWithIconProps> = ({
 
 export const Component = () => {
   return (
-    <Button icon={<IconHome />} label='Home' />
-    <Button icon={<IconUser />} label='Profile' />
-    <Button icon={<IconGear />} label='Setting' />
-    <Button iconR={<IconHome />} label='Right Icon' />
-    <Button
-      icon={<IconHome />}
-      iconR={<IconHome />}
-      label='Between Icons'
-    />
+    <Button icon={<IconHome />} label='Icon' />
+    <Button icon={<IconHome />} iconPosition='right' label='Right Icon' />
   )
 }`}
       />

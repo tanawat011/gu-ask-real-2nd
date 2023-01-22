@@ -24,12 +24,21 @@ export const ButtonUiBlock: React.FC<ButtonUiBlockProps> = ({
 
   useDimensionChange(blockSelector, dimension)
 
-  const { pageDimension } = useRecoilValue(buttonUiAtom)
+  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
     handlePageDimension()
-  }, [pageDimension])
+  }, [
+    btnDms.variant,
+    btnDms.color,
+    btnDms.size,
+    btnDms.shape,
+    btnDms.disabled,
+    btnDms.icon,
+    btnDms.withIcon,
+    btnDms.loading,
+  ])
 
   return (
     <TwContainer id='block' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -48,7 +57,8 @@ export const ButtonUiBlock: React.FC<ButtonUiBlockProps> = ({
           <>
             <Button label='Non Block Button' />
             <Button label='Blocked Button' block />
-            <Button label='Blocked Button' block loading />
+            <Button label='Blocked Button' block disabled />
+            <Button label='Blocked Button' block loading='Loading...' />
           </>
         }
         code={`import React from "react"
@@ -56,9 +66,10 @@ export const ButtonUiBlock: React.FC<ButtonUiBlockProps> = ({
 export const Component = () => {
   return (
     <>
-      <Button label='Non Block Button' />
-      <Button label='Blocked Button' block />
-      <Button label='Blocked Button' block loading />
+    <Button label='Non Block Button' />
+    <Button label='Blocked Button' block />
+    <Button label='Blocked Button' block disabled />
+    <Button label='Blocked Button' block loading='Loading...' />
     </>
   )
 }`}

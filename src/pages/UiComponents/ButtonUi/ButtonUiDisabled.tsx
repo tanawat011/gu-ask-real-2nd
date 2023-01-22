@@ -24,12 +24,12 @@ export const ButtonUiDisabled: React.FC<ButtonUiDisabledProps> = ({
 
   useDimensionChange(disabledSelector, dimension)
 
-  const { pageDimension } = useRecoilValue(buttonUiAtom)
+  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
     handlePageDimension()
-  }, [pageDimension])
+  }, [btnDms.variant, btnDms.color, btnDms.size, btnDms.shape])
 
   return (
     <TwContainer id='disabled' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -47,14 +47,20 @@ export const ButtonUiDisabled: React.FC<ButtonUiDisabledProps> = ({
         callback={handleDimension}
         components={
           <div className='flex gap-2 items-center flex-wrap'>
-            <Button label='Disabled' disabled />
+            <Button label='Primary' disabled />
+            <Button label='Secondary' disabled variant='secondary' />
+            <Button label='Tertiary' disabled variant='tertiary' />
+            <Button label='Text' disabled variant='text' />
           </div>
         }
         code={`import React from "react"
 
 export const Component = () => {
   return (
-    <Button label='Disabled' disabled />
+    <Button label='Primary' disabled />
+    <Button label='Secondary' disabled variant='secondary' />
+    <Button label='Tertiary' disabled variant='tertiary' />
+    <Button label='Text' disabled variant='text' />
   )
 }`}
       />

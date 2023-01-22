@@ -25,12 +25,12 @@ export const ButtonUiIcon: React.FC<ButtonUiIconProps> = ({
 
   useDimensionChange(iconSelector, dimension)
 
-  const { pageDimension } = useRecoilValue(buttonUiAtom)
+  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
     handlePageDimension()
-  }, [pageDimension])
+  }, [btnDms.variant, btnDms.color, btnDms.size, btnDms.shape, btnDms.disabled])
 
   return (
     <TwContainer id='icon' ref={ref as LegacyRef<HTMLDivElement>}>
