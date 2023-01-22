@@ -281,16 +281,21 @@ describe('<Button />', () => {
     bgHoverColor?: string
     bgActiveColor?: string
     bgOpacity?: string
+    bgActiveOpacity?: string
     bgHoverOpacity?: string
     borderWidth?: string
     borderColor?: string
     borderHoverColor?: string
     borderOpacity?: string
+    borderActiveOpacity?: string
     borderHoverOpacity?: string
     textColor?: string
     textHoverColor?: string
     textOpacity?: string
     textHoverOpacity?: string
+    shadowColor?: string
+    shadowActiveColor?: string
+    shadowHoverColor?: string
   }
 
   type TestVariant = { [key in Variant]: ColorTestOption }
@@ -299,6 +304,7 @@ describe('<Button />', () => {
     primary: {
       bgColor: '#4f46e5',
       bgOpacity: '1',
+      bgActiveOpacity: '0.7',
       bgHoverOpacity: '0.8',
       textColor: '#ffffff',
     },
@@ -314,8 +320,29 @@ describe('<Button />', () => {
     tertiary: {
       bgColor: '#4f46e5',
       bgOpacity: '0.2',
+      bgActiveOpacity: '0.4',
       bgHoverOpacity: '0.3',
       textColor: '#ffffff',
+    },
+    outline: {
+      bgHoverColor: '#4f46e5',
+      bgHoverOpacity: '0.1',
+      borderWidth: '2px',
+      borderColor: '#4f46e5',
+      borderOpacity: '0.5',
+      borderHoverOpacity: '1',
+      borderActiveOpacity: '0.7',
+      textColor: '#4f46e5',
+    },
+    shadow: {
+      bgColor: '#4f46e5',
+      bgOpacity: '1',
+      bgActiveOpacity: '0.7',
+      bgHoverOpacity: '0.8',
+      textColor: '#ffffff',
+      shadowColor: '#4f46e5',
+      shadowActiveColor: '#4f46e5b3',
+      shadowHoverColor: '#4f46e5cc',
     },
     text: {
       bgColor: 'transparent',
@@ -334,22 +361,29 @@ describe('<Button />', () => {
     key: Variant,
     {
       bgColor,
-      bgOpacity,
       bgHoverColor,
+      bgActiveColor,
+      bgOpacity,
+      bgActiveOpacity,
       bgHoverOpacity,
       borderWidth,
       borderColor,
-      borderOpacity,
       borderHoverColor,
+      borderOpacity,
+      borderActiveOpacity,
       borderHoverOpacity,
       textColor,
       textHoverColor,
       textOpacity,
       textHoverOpacity,
+      shadowColor,
+      shadowActiveColor,
+      shadowHoverColor,
     }: ColorTestOption,
     mode: ThemeMode = 'dark',
   ) => {
     const hover = { modifier: ':hover' }
+    const active = { modifier: ':active' }
 
     const Component = () => {
       const [{ auth, theme }, setTheme] = useRecoilState(localSettingAtom)
@@ -369,10 +403,6 @@ describe('<Button />', () => {
       expect(button).toHaveStyleRule('background-color', twColor(bgColor))
     }
 
-    if (bgOpacity) {
-      expect(button).toHaveStyleRule('--tw-bg-opacity', bgOpacity)
-    }
-
     if (bgHoverColor) {
       expect(button).toHaveStyleRule(
         'background-color',
@@ -381,8 +411,24 @@ describe('<Button />', () => {
       )
     }
 
+    if (bgActiveColor) {
+      expect(button).toHaveStyleRule(
+        'background-color',
+        twColor(bgActiveColor),
+        active,
+      )
+    }
+
+    if (bgOpacity) {
+      expect(button).toHaveStyleRule('--tw-bg-opacity', bgOpacity)
+    }
+
     if (bgHoverOpacity) {
       expect(button).toHaveStyleRule('--tw-bg-opacity', bgHoverOpacity, hover)
+    }
+
+    if (bgActiveOpacity) {
+      expect(button).toHaveStyleRule('--tw-bg-opacity', bgActiveOpacity, active)
     }
 
     if (borderWidth) {
@@ -405,6 +451,14 @@ describe('<Button />', () => {
         'border-color',
         twColor(borderHoverColor, 'border'),
         hover,
+      )
+    }
+
+    if (borderActiveOpacity) {
+      expect(button).toHaveStyleRule(
+        '--tw-border-opacity',
+        borderActiveOpacity,
+        active,
       )
     }
 
@@ -439,6 +493,26 @@ describe('<Button />', () => {
         hover,
       )
     }
+
+    if (shadowColor) {
+      expect(button).toHaveStyleRule('--tw-shadow-color', shadowColor)
+    }
+
+    if (shadowHoverColor) {
+      expect(button).toHaveStyleRule(
+        '--tw-shadow-color',
+        shadowHoverColor,
+        hover,
+      )
+    }
+
+    if (shadowActiveColor) {
+      expect(button).toHaveStyleRule(
+        '--tw-shadow-color',
+        shadowActiveColor,
+        active,
+      )
+    }
   }
 
   Object.entries(variantsDark).forEach(([key, val]) => {
@@ -453,6 +527,7 @@ describe('<Button />', () => {
     primary: {
       bgColor: '#4f46e5',
       bgOpacity: '1',
+      bgActiveOpacity: '0.7',
       bgHoverOpacity: '0.8',
       textColor: '#ffffff',
     },
@@ -467,14 +542,35 @@ describe('<Button />', () => {
     },
     tertiary: {
       bgOpacity: '0.2',
+      bgActiveOpacity: '0.4',
       bgHoverOpacity: '0.3',
       bgColor: '#4f46e5',
       textColor: '#4f46e5',
     },
+    outline: {
+      bgHoverColor: '#4f46e5',
+      bgHoverOpacity: '0.1',
+      borderWidth: '2px',
+      borderColor: '#4f46e5',
+      borderOpacity: '0.5',
+      borderHoverOpacity: '1',
+      borderActiveOpacity: '0.7',
+      textColor: '#4f46e5',
+    },
+    shadow: {
+      bgColor: '#4f46e5',
+      bgOpacity: '1',
+      bgActiveOpacity: '0.7',
+      bgHoverOpacity: '0.8',
+      textColor: '#ffffff',
+      shadowColor: '#4f46e5',
+      shadowActiveColor: '#4f46e5b3',
+      shadowHoverColor: '#4f46e5cc',
+    },
     text: {
       bgColor: 'transparent',
-      bgHoverColor: '#f9fafb',
       bgActiveColor: '#f3f4f6',
+      bgHoverColor: '#f9fafb',
       textColor: '#6b7280',
       textHoverColor: '#6b7280',
     },

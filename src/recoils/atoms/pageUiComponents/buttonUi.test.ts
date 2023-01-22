@@ -13,7 +13,6 @@ import {
   headSelector,
   iconSelector,
   loadingSelector,
-  outlineSelector,
   pageDimensionSelector,
   shapeSelector,
   sizeSelector,
@@ -76,16 +75,6 @@ describe('recoils/atoms/pageUiComponents/buttonUi', () => {
     expect.assertions(1)
 
     const { result } = renderHook(() => hookSelector(sizeSelector), {
-      wrapper: RecoilRoot,
-    })
-
-    expect(result.current.offsetTop).toEqual(10)
-  })
-
-  test('outlineSelector', () => {
-    expect.assertions(1)
-
-    const { result } = renderHook(() => hookSelector(outlineSelector), {
       wrapper: RecoilRoot,
     })
 

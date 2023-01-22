@@ -8,7 +8,16 @@ describe('utils/jest/twColor', () => {
 
   test('should match rgb color tailwind with type', () => {
     expect.assertions(1)
-    expect(twColor('#ffffff', 'border')).toBe('rgb(255 255 255 / var(--tw-border-opacity))')
+    expect(twColor('#ffffff', 'border')).toBe(
+      'rgb(255 255 255 / var(--tw-border-opacity))',
+    )
+  })
+
+  test('should match rgb color tailwind with type text', () => {
+    expect.assertions(1)
+    expect(twColor('#ffffff', 'text')).toBe(
+      'rgb(255 255 255 / var(--tw-text-opacity))',
+    )
   })
 
   test('should match rgb color tailwind with transparent', () => {

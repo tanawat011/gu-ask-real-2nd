@@ -36,7 +36,8 @@ export const ButtonUiVariant: React.FC<ButtonUiVariantProps> = ({
           <>
             Variant of the button, can set the <PreCode text='variant' /> prop
             value to <PreCode text='primary' />, <PreCode text='secondary' />,{' '}
-            <PreCode text='tertiary' />, <PreCode text='text' /> and{' '}
+            <PreCode text='tertiary' />, <PreCode text='outline' />,{' '}
+            <PreCode text='shadow' />, <PreCode text='text' /> and{' '}
             <PreCode text='link' />, The default variant is{' '}
             <PreCode text='primary' />.
           </>
@@ -49,6 +50,8 @@ export const ButtonUiVariant: React.FC<ButtonUiVariantProps> = ({
             <Button label='Primary' variant='primary' />
             <Button label='Secondary' variant='secondary' />
             <Button label='Tertiary' variant='tertiary' />
+            <Button label='Outline' variant='outline' />
+            <Button label='Shadow' variant='shadow' />
             <Button label='Text' variant='text' />
             <Button label='Link' variant='link' />
           </div>
@@ -60,7 +63,9 @@ export const Component = () => {
     <Button label='Primary' variant='primary' />
     <Button label='Secondary' variant='secondary' />
     <Button label='Tertiary' variant='tertiary' />
-    <Button label='Plain' variant='plain' />
+    <Button label='Outline' variant='outline' />
+    <Button label='Shadow' variant='shadow' />
+    <Button label='Text' variant='text' />
     <Button label='Link' variant='link' />
   )
 }`}

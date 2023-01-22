@@ -9,7 +9,6 @@ export type ButtonUiDimensions = {
   variant: Dimension
   color: Dimension
   size: Dimension
-  outline: Dimension
   shape: Dimension
   disabled: Dimension
   icon: Dimension
@@ -30,7 +29,6 @@ export const defaultButtonUi: ButtonUiState = {
     variant: { ...defaultDimension },
     color: { ...defaultDimension },
     size: { ...defaultDimension },
-    outline: { ...defaultDimension },
     shape: { ...defaultDimension },
     disabled: { ...defaultDimension },
     icon: { ...defaultDimension },
@@ -126,23 +124,6 @@ export const sizeSelector = selector({
     set(buttonUiAtom, {
       pageDimension,
       dimension: { ...dimension, size: newValue as Dimension },
-    })
-  },
-})
-
-export const outlineSelector = selector({
-  key: 'pageUiComponentButtonUiOutlineSelector',
-  get: ({ get }) => {
-    const { dimension } = get(buttonUiAtom)
-
-    return dimension.outline
-  },
-  set: ({ get, set }, newValue) => {
-    const { dimension, pageDimension } = get(buttonUiAtom)
-
-    set(buttonUiAtom, {
-      pageDimension,
-      dimension: { ...dimension, outline: newValue as Dimension },
     })
   },
 })
