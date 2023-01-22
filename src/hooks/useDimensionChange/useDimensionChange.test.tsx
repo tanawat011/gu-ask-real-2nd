@@ -1,6 +1,6 @@
 import type { LegacyRef } from 'react'
 
-import { fireEvent, renderHook, screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 
 import { useElementDimension } from 'hooks/useElementDimension'
 import { headSelector } from 'recoils/atoms'
