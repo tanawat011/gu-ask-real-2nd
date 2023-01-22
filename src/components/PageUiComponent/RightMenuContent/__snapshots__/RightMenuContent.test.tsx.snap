@@ -7,11 +7,23 @@ exports[`<RightMenuContent /> renders correctly 1`] = `
   >
     Title
   </div>
-  <ul
-    class="grid gap-2"
+  .c1 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  display: grid;
+  gap: 0.5rem;
+}
+
+.dark .c0 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+<ul
+    class="c0 c1"
   >
     <li
-      class="text-ghost-white"
+      class="text-gray-900 font-semibold dark:text-gray-50"
     >
       <a
         href="#variant"
