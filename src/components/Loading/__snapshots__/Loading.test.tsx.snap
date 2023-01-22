@@ -2,7 +2,7 @@
 
 exports[`<Loading /> renders correctly 1`] = `
 <DocumentFragment>
-  .c1 {
+  .c0 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -27,20 +27,45 @@ exports[`<Loading /> renders correctly 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   border-radius: 0.375rem;
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
-.dark .c0 {
-  --tw-text-opacity: 1;
-  color: rgb(249 250 251 / var(--tw-text-opacity));
 }
 
 <div
-    class="c0 c1"
+    class="c0"
   >
-    <svg>
-      spinner
+    <svg
+      class="stroke-gray-400"
+      height="20"
+      viewBox="0 0 40 40"
+      width="20"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <g
+          stroke-width="6"
+          transform="translate(3 3)"
+        >
+          <circle
+            cx="17"
+            cy="17"
+            r="17"
+            stroke-opacity=".5"
+          />
+          <path
+            d="M34 17c0-9.94-8.06-17-17-17"
+          >
+            <animatetransform
+              attributeName="transform"
+              dur="1s"
+              from="0 17 17"
+              repeatCount="indefinite"
+              to="360 17 17"
+              type="rotate"
+            />
+          </path>
+        </g>
+      </g>
     </svg>
   </div>
 </DocumentFragment>

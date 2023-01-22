@@ -6,11 +6,23 @@ exports[`<Title /> renders correctly with default size 1`] = `
   margin-bottom: 1.5rem;
 }
 
+.c2 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
+.dark .c1 {
+  --tw-text-opacity: 1;
+  color: rgb(243 244 246 / var(--tw-text-opacity));
+}
+
 <div
     class="c0"
     data-testid="container"
   >
-    <h4>
+    <h4
+      class="c1 c2"
+    >
       Title
     </h4>
     <span>
