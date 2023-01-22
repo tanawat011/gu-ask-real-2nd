@@ -25,7 +25,7 @@ describe('<ComponentDisplay />', () => {
     expect(firstChild).toHaveStyleRule('border-radius', '0.5rem')
     expect(firstChild).toHaveStyleRule(
       'border-color',
-      twColor('#4B5563', 'border'),
+      twColor('#e5e7eb', 'border'),
     )
     expect(asFragment()).toMatchSnapshot()
   })

@@ -2,7 +2,7 @@
 
 exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
 <DocumentFragment>
-  .c1 {
+  .c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10,14 +10,14 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   width: 100%;
 }
 
-.c3 {
+.c5 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   width: 100%;
   border-radius: 0.5rem;
   border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   padding-left: 0.75rem;
@@ -32,14 +32,19 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   outline-offset: 2px;
 }
 
-.c3:focus-within {
+.dark .c4 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
+.c5:focus-within {
   --tw-border-opacity: 1;
   border-color: rgb(79 70 229 / var(--tw-border-opacity));
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity));
 }
 
-.c3:focus {
+.c5:focus {
   --tw-border-opacity: 1;
   border-color: rgb(79 70 229 / var(--tw-border-opacity));
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -49,7 +54,7 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity));
 }
 
-.c2 {
+.c3 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   cursor: pointer;
@@ -59,13 +64,13 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   padding-right: 0.75rem;
 }
 
-.c2:hover {
+.c3:hover {
   border-radius: 9999px;
   --tw-bg-opacity: 0.4;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.c9 {
+.c11 {
   height: 2rem;
   width: 2rem;
   border-radius: 9999px;
@@ -73,12 +78,12 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
-.dark .c8 {
+.dark .c10 {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
-.c4 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -94,20 +99,20 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   justify-content: flex-end;
 }
 
-.c5 {
+.c7 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   cursor: pointer;
   padding: 0.5rem;
 }
 
-.c5:hover {
+.c7:hover {
   border-radius: 9999px;
   --tw-bg-opacity: 0.4;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.c6 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -124,7 +129,7 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   justify-content: center;
 }
 
-.c7 {
+.c9 {
   margin-left: 0.75rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -138,7 +143,7 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   padding-right: 0.75rem;
 }
 
-.c10 {
+.c12 {
   margin-left: 0.5rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -153,18 +158,20 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c11 {
+.c13 {
   font-size: 0.75rem;
   line-height: 1rem;
 }
 
-.c12 {
+.c14 {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 700;
 }
 
-.c0 {
+.c1 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -179,45 +186,48 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   border-bottom-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity));
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
+.dark .c0 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
 <div
-    class="c0"
+    class="c0 c1"
   >
     <div
-      class="c1"
+      class="c2"
     >
       <div
-        class="c2"
+        class="c3"
       >
         <svg>
           bars
         </svg>
       </div>
       <input
-        class="c3"
+        class="c4 c5"
         placeholder="Search..."
       />
     </div>
     <div
-      class="c4"
+      class="c6"
     >
       <div
-        class="c5 select-none"
+        class="c7 select-none"
       >
         Toggle Theme(Temp)
       </div>
       <div
-        class="c5 select-none"
+        class="c7 select-none"
       >
         Toggle Mode(Temp)
       </div>
       <div
-        class="c5"
+        class="c7"
       >
         <svg
           class="h-6 w-6"
@@ -243,10 +253,10 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
         </svg>
       </div>
       <div
-        class="c5"
+        class="c7"
       >
         <div
-          class="c6"
+          class="c8"
         >
           <svg>
             bell
@@ -254,10 +264,10 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="c5"
+        class="c7"
       >
         <div
-          class="c6"
+          class="c8"
         >
           <svg>
             gear
@@ -265,21 +275,21 @@ exports[`<Navbar /> should render without crashing and match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="c7"
+        class="c9"
       >
         <div
-          class="c8 c9"
+          class="c10 c11"
         />
         <div
-          class="c10"
+          class="c12"
         >
           <span
-            class="c11"
+            class="c13"
           >
             Admin
           </span>
           <span
-            class="c12"
+            class="c14"
           >
             Tanawat P
           </span>

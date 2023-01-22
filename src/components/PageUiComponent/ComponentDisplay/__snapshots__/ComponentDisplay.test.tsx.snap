@@ -2,24 +2,29 @@
 
 exports[`<ComponentDisplay /> renders correctly 1`] = `
 <DocumentFragment>
-  .c0 {
+  .c1 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
   border-radius: 0.5rem;
   border-width: 1px;
+}
+
+.dark .c0 {
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
 
-.c1 {
+.c2 {
   display: grid;
   gap: 0.5rem;
   padding: 1.25rem;
 }
 
 <div
-    class="c0"
+    class="c0 c1"
   >
     <div
-      class="c1"
+      class="c2"
     >
       <div>
         xxx
