@@ -45,12 +45,21 @@ export const ButtonUiColor: React.FC<ButtonUiColorProps> = ({
       <ComponentDisplay
         callback={handleDimension}
         components={
-          <div className='flex gap-2 items-center flex-wrap'>
-            <Button label='Danger' color='rose-500' />
-            <Button label='Warning' color='amber-500' />
-            <Button label='Info' color='sky-500' />
-            <Button label='Success' color='emerald-500' />
-          </div>
+          <>
+            <div className='flex gap-2 items-center flex-wrap'>
+              <Button label='Danger' color='rose-500' />
+              <Button label='Warning' color='amber-500' />
+              <Button label='Info' color='sky-500' />
+              <Button label='Success' color='emerald-500' />
+            </div>
+
+            <div className='flex gap-2 items-center flex-wrap'>
+              <Button label='Danger' color='rose-500' variant='tertiary' />
+              <Button label='Warning' color='amber-500' variant='tertiary' />
+              <Button label='Info' color='sky-500' variant='tertiary' />
+              <Button label='Success' color='emerald-500' variant='tertiary' />
+            </div>
+          </>
         }
         code={`import React from "react"
 
