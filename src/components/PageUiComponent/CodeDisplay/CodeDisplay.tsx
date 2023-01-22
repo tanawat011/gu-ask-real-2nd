@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark as theme } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import tw, { styled } from 'twin.macro'
 
@@ -12,6 +12,8 @@ type CodeDisplayProps = {
   code: string
   callback?: () => void
 }
+
+SyntaxHighlighter.supportedLanguages = ['tsx']
 
 const TwContainer = styled.div(() => [
   [BG_THEME.CARD_LV2, BORDER_THEME.BASE],
