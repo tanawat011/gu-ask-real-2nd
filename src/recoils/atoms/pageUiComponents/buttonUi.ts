@@ -4,7 +4,7 @@ import { atom, selector } from 'recoil'
 
 import { defaultDimension } from 'hooks/useElementDimension'
 
-export type AllDimension = {
+export type ButtonUiDimensions = {
   head: Dimension
   variant: Dimension
   color: Dimension
@@ -20,10 +20,10 @@ export type AllDimension = {
 
 export type ButtonUiState = {
   pageDimension: Dimension
-  dimension: AllDimension
+  dimension: ButtonUiDimensions
 }
 
-export const defaultButtonUi = {
+export const defaultButtonUi: ButtonUiState = {
   pageDimension: { ...defaultDimension },
   dimension: {
     head: { ...defaultDimension },
@@ -55,7 +55,10 @@ export const pageDimensionSelector = selector({
   set: ({ get, set }, newValue) => {
     const { dimension } = get(buttonUiAtom)
 
-    set(buttonUiAtom, { pageDimension: newValue as Dimension, dimension: { ...dimension } })
+    set(buttonUiAtom, {
+      pageDimension: newValue as Dimension,
+      dimension: { ...dimension },
+    })
   },
 })
 
@@ -69,7 +72,10 @@ export const headSelector = selector({
   set: ({ get, set }, newValue) => {
     const { dimension, pageDimension } = get(buttonUiAtom)
 
-    set(buttonUiAtom, { pageDimension, dimension: { ...dimension, head: newValue as Dimension } })
+    set(buttonUiAtom, {
+      pageDimension,
+      dimension: { ...dimension, head: newValue as Dimension },
+    })
   },
 })
 
@@ -100,7 +106,10 @@ export const colorSelector = selector({
   set: ({ get, set }, newValue) => {
     const { dimension, pageDimension } = get(buttonUiAtom)
 
-    set(buttonUiAtom, { pageDimension, dimension: { ...dimension, color: newValue as Dimension } })
+    set(buttonUiAtom, {
+      pageDimension,
+      dimension: { ...dimension, color: newValue as Dimension },
+    })
   },
 })
 
@@ -114,7 +123,10 @@ export const sizeSelector = selector({
   set: ({ get, set }, newValue) => {
     const { dimension, pageDimension } = get(buttonUiAtom)
 
-    set(buttonUiAtom, { pageDimension, dimension: { ...dimension, size: newValue as Dimension } })
+    set(buttonUiAtom, {
+      pageDimension,
+      dimension: { ...dimension, size: newValue as Dimension },
+    })
   },
 })
 
@@ -145,7 +157,10 @@ export const shapeSelector = selector({
   set: ({ get, set }, newValue) => {
     const { dimension, pageDimension } = get(buttonUiAtom)
 
-    set(buttonUiAtom, { pageDimension, dimension: { ...dimension, shape: newValue as Dimension } })
+    set(buttonUiAtom, {
+      pageDimension,
+      dimension: { ...dimension, shape: newValue as Dimension },
+    })
   },
 })
 
@@ -176,7 +191,10 @@ export const iconSelector = selector({
   set: ({ get, set }, newValue) => {
     const { dimension, pageDimension } = get(buttonUiAtom)
 
-    set(buttonUiAtom, { pageDimension, dimension: { ...dimension, icon: newValue as Dimension } })
+    set(buttonUiAtom, {
+      pageDimension,
+      dimension: { ...dimension, icon: newValue as Dimension },
+    })
   },
 })
 
@@ -224,6 +242,9 @@ export const blockSelector = selector({
   set: ({ get, set }, newValue) => {
     const { dimension, pageDimension } = get(buttonUiAtom)
 
-    set(buttonUiAtom, { pageDimension, dimension: { ...dimension, block: newValue as Dimension } })
+    set(buttonUiAtom, {
+      pageDimension,
+      dimension: { ...dimension, block: newValue as Dimension },
+    })
   },
 })

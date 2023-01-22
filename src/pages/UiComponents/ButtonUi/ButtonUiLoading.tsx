@@ -25,12 +25,20 @@ export const ButtonUiLoading: React.FC<ButtonUiLoadingProps> = ({
 
   useDimensionChange(loadingSelector, dimension)
 
-  const { pageDimension } = useRecoilValue(buttonUiAtom)
+  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
     handlePageDimension()
-  }, [pageDimension])
+  }, [
+    btnDms.variant,
+    btnDms.color,
+    btnDms.size,
+    btnDms.shape,
+    btnDms.disabled,
+    btnDms.icon,
+    btnDms.withIcon,
+  ])
 
   return (
     <TwContainer id='loading' ref={ref as LegacyRef<HTMLDivElement>}>
@@ -39,8 +47,8 @@ export const ButtonUiLoading: React.FC<ButtonUiLoadingProps> = ({
         description={
           <>
             Button can set <PreCode text='loading' /> prop to{' '}
-            <PreCode text='true' /> to show loading indicator, it will disabled
-            button.
+            <PreCode text='true' /> or <PreCode text='string' /> to show loading
+            indicator, it will disabled button.
           </>
         }
       />
@@ -48,22 +56,30 @@ export const ButtonUiLoading: React.FC<ButtonUiLoadingProps> = ({
         callback={handleDimension}
         components={
           <div className='flex gap-2 items-center flex-wrap'>
-            <Button label='Home' loading size='xs' />
-            <Button label='Home' loading />
-            <Button icon={<IconHome />} label='Home' loading />
-            <Button icon={<IconHome />} loading size='xs' />
-            <Button icon={<IconHome />} loading />
+            <Button label='Default' loading />
+            <Button label='Text Indicator' loading='Loading...' />
+            <Button label='Icon' loading icon={<IconHome />} />
+            <Button
+              label='Icon Right'
+              loading
+              icon={<IconHome />}
+              iconPosition='right'
+            />
           </div>
         }
         code={`import React from "react"
 
 export const Component = () => {
   return (
-    <Button label='Home' loading size='xs' />
-    <Button label='Home' loading />
-    <Button icon={<IconHome />} label='Home' loading />
-    <Button icon={<IconHome />} loading size='xs' />
-    <Button icon={<IconHome />} loading />
+    <Button label='Default' loading />
+    <Button label='Text Indicator' loading='Loading...' />
+    <Button label='Icon' loading icon={<IconHome />} />
+    <Button
+      label='Icon Right'
+      loading
+      icon={<IconHome />}
+      iconPosition='right'
+    />
   )
 }`}
       />

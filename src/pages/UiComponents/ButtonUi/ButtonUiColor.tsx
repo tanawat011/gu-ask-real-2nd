@@ -24,12 +24,12 @@ export const ButtonUiColor: React.FC<ButtonUiColorProps> = ({
 
   useDimensionChange(colorSelector, dimension)
 
-  const { pageDimension } = useRecoilValue(buttonUiAtom)
+  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
     handlePageDimension()
-  }, [pageDimension])
+  }, [btnDms.variant])
 
   return (
     <TwContainer id='color' ref={ref as LegacyRef<HTMLDivElement>}>

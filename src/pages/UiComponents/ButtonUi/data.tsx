@@ -1,7 +1,9 @@
+import type { ButtonProps } from 'components/Button'
+
 import { PreCode } from 'components/PreCode'
 
 type ButtonApiDataType = {
-  prop: string
+  prop: Required<keyof ButtonProps>
   desc: string
   val: string | JSX.Element
   default: string | JSX.Element
@@ -37,14 +39,14 @@ export const ButtonApiData: ButtonApiDataType[] = [
     default: '-',
   },
   {
-    prop: 'iconR',
-    desc: 'Render icon on the right of the button',
+    prop: 'iconPosition',
+    desc: 'Icon prop can set position',
     val: (
       <>
-        <PreCode text='string' />, <PreCode text='ReactNode' />
+        <PreCode text='left' /> or <PreCode text='right' />
       </>
     ),
-    default: '-',
+    default: <PreCode text='left' />,
   },
   {
     prop: 'onClick',
@@ -110,7 +112,11 @@ export const ButtonApiData: ButtonApiDataType[] = [
   {
     prop: 'loading',
     desc: 'Prevents user interact with the button and show loading indicator',
-    val: <PreCode text='boolean' />,
+    val: (
+      <>
+        <PreCode text='boolean' /> or <PreCode text='string' />
+      </>
+    ),
     default: <PreCode text='false' />,
   },
   {

@@ -1,5 +1,5 @@
 import type { Dimension } from 'hooks/useElementDimension'
-import type { AllDimension } from 'recoils/atoms'
+import type { ButtonUiDimensions } from 'recoils/atoms'
 
 import tw, { styled } from 'twin.macro'
 
@@ -13,7 +13,7 @@ const TwContainer = styled.div(({ scrolled }: { scrolled: boolean }) => {
 
 type RightMenuButtonUiProps = {
   pageDimension: Dimension
-  dimension: AllDimension
+  dimension: ButtonUiDimensions
 }
 
 export const RightMenuButtonUi: React.FC<RightMenuButtonUiProps> = ({

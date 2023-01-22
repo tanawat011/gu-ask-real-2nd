@@ -24,12 +24,12 @@ export const ButtonUiSize: React.FC<ButtonUiSizeProps> = ({
 
   useDimensionChange(sizeSelector, dimension)
 
-  const { pageDimension } = useRecoilValue(buttonUiAtom)
+  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
 
   useEffect(() => {
     handleDimension()
     handlePageDimension()
-  }, [pageDimension])
+  }, [btnDms.variant, btnDms.color])
 
   return (
     <TwContainer id='size' ref={ref as LegacyRef<HTMLDivElement>}>

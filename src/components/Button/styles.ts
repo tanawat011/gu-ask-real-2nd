@@ -14,22 +14,22 @@ import tw, { css } from 'twin.macro'
 
 import { twColor } from 'utils/jest'
 
+type TwThemeOption = {
+  themeColor: TwColor
+  colorLevel: TwColorLevel
+  themeMode: ThemeMode
+  isDisabled?: boolean
+  isLoading?: boolean
+}
+
 type TwVariantFn = (
   variant: Variant,
-  {
-    themeColor,
-    colorLevel,
-    themeMode,
-  }: {
-    themeColor: TwColor
-    colorLevel: TwColorLevel
-    themeMode: ThemeMode
-  },
+  { themeColor, colorLevel, themeMode, isDisabled, isLoading }: TwThemeOption,
 ) => TwStyle | TwStyle[] | FlattenSimpleInterpolation
 
 export const twVariantFn: TwVariantFn = (
   variant,
-  { themeColor, colorLevel, themeMode },
+  { themeColor, colorLevel, themeMode, isDisabled, isLoading },
 ) => {
   const isDarkMode = themeMode === 'dark'
   const color = colors[themeColor][colorLevel]
@@ -40,6 +40,10 @@ export const twVariantFn: TwVariantFn = (
 
   const tertiaryBgColor = isDarkMode ? `${textWhiteColor}` : `${textColor}`
 
+  if (isDisabled && !isLoading) {
+    return tw`bg-gray-700 text-gray-100 opacity-50 hover:bg-gray-700`
+  }
+
   switch (variant) {
     case 'secondary':
       return isDarkMode
@@ -48,26 +52,32 @@ export const twVariantFn: TwVariantFn = (
             border-width: 0;
             border-color: ${twColor(colors.gray[700], 'border')};
             color: ${twColor(colors.gray[100], 'text')};
-            &:hover {
-              background-color: ${twColor(colors.gray[600])};
-              color: ${twColor(colors.gray[100], 'text')};
-            }
-            &:active {
-              background-color: ${twColor(colors.gray[500])};
-            }
+            ${!isLoading &&
+            `
+              &:hover {
+                background-color: ${twColor(colors.gray[600])};
+                color: ${twColor(colors.gray[100], 'text')};
+              }
+              &:active {
+                background-color: ${twColor(colors.gray[500])};
+              }
+            `}
           `
         : css`
             background-color: ${bgWhiteColor};
             border-width: 1px;
             border-color: ${twColor(colors.gray[300], 'border')};
             color: ${twColor(colors.gray[500], 'text')};
-            &:hover {
-              background-color: ${twColor(colors.gray[50])};
-              color: ${twColor(colors.gray[500], 'text')};
-            }
-            &:active {
-              background-color: ${twColor(colors.gray[100])};
-            }
+            ${!isLoading &&
+            `
+              &:hover {
+                background-color: ${twColor(colors.gray[50])};
+                color: ${twColor(colors.gray[500], 'text')};
+              }
+              &:active {
+                background-color: ${twColor(colors.gray[100])};
+              }
+            `}
           `
 
     case 'tertiary':
@@ -75,12 +85,15 @@ export const twVariantFn: TwVariantFn = (
         --tw-bg-opacity: 0.2;
         background-color: ${bgColor};
         color: ${tertiaryBgColor};
-        &:hover {
-          --tw-bg-opacity: 0.3;
-        }
-        &:active {
-          --tw-bg-opacity: 0.4;
-        }
+        ${!isLoading &&
+        `
+          &:hover {
+            --tw-bg-opacity: 0.3;
+          }
+          &:active {
+            --tw-bg-opacity: 0.4;
+          }
+        `}
       `
 
     case 'text':
@@ -88,45 +101,53 @@ export const twVariantFn: TwVariantFn = (
         ? css`
             background-color: transparent;
             color: ${twColor(colors.gray[100], 'text')};
-            &:hover {
-              background-color: ${twColor(colors.gray[600])};
-              color: ${twColor(colors.gray[100], 'text')};
-            }
-            &:active {
-              background-color: ${twColor(colors.gray[500])};
-            }
+            ${!isLoading &&
+            `
+              &:hover {
+                background-color: ${twColor(colors.gray[600])};
+                color: ${twColor(colors.gray[100], 'text')};
+              }
+              &:active {
+                background-color: ${twColor(colors.gray[500])};
+              }
+            `}
           `
         : css`
             background-color: transparent;
             color: ${twColor(colors.gray[500], 'text')};
-            &:hover {
-              background-color: ${twColor(colors.gray[50])};
-              color: ${twColor(colors.gray[500], 'text')};
-            }
-            &:active {
-              background-color: ${twColor(colors.gray[100])};
-            }
+            ${!isLoading &&
+            `
+              &:hover {
+                background-color: ${twColor(colors.gray[50])};
+                color: ${twColor(colors.gray[500], 'text')};
+              }
+              &:active {
+                background-color: ${twColor(colors.gray[100])};
+              }
+            `}
           `
 
     case 'link':
       return tw`text-blue-500 hover:text-blue-600`
 
+    case 'primary':
     default:
       return css`
         --tw-bg-opacity: 1;
         background-color: ${bgColor};
         color: ${textWhiteColor};
-        &:hover {
-          --tw-bg-opacity: 0.8;
-        }
-        &:active {
-          --tw-bg-opacity: 0.7;
-        }
+        ${!isLoading &&
+        `
+          &:hover {
+            --tw-bg-opacity: 0.8;
+          }
+          &:active {
+            --tw-bg-opacity: 0.7;
+          }
+        `}
       `
   }
 }
-
-export const twDisabledOnly = tw`bg-gray-700 text-gray-100 opacity-50 hover:bg-gray-700`
 
 export const twSize: TwSizeObject = {
   xs: tw`h-7 px-3 py-1 text-xs`,
