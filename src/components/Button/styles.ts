@@ -78,9 +78,12 @@ export const twVariantFn: TwVariantFn = (
         &:hover {
           --tw-bg-opacity: 0.3;
         }
+        &:active {
+          --tw-bg-opacity: 0.4;
+        }
       `
 
-    case 'plain':
+    case 'text':
       return isDarkMode
         ? css`
             background-color: transparent;
@@ -115,6 +118,9 @@ export const twVariantFn: TwVariantFn = (
         color: ${textWhiteColor};
         &:hover {
           --tw-bg-opacity: 0.8;
+        }
+        &:active {
+          --tw-bg-opacity: 0.7;
         }
       `
   }

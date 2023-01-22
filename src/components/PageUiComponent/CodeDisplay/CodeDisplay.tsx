@@ -32,10 +32,10 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code, callback }) => {
     <TwContainer>
       <TwWrapButton>
         <TwWrapButton2>
-          <Button variant='plain' size='xs' icon={<IconCopy />} />
+          <Button variant='text' size='xs' icon={<IconCopy />} />
 
           <Button
-            variant='plain'
+            variant='text'
             size='xs'
             icon={<IconCode />}
             onClick={handleShowCode}

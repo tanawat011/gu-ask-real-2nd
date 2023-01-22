@@ -244,7 +244,7 @@ describe('<Button />', () => {
       bgHoverOpacity: '0.3',
       textColor: '#ffffff',
     },
-    plain: {
+    text: {
       bgColor: 'transparent',
       bgHoverColor: '#4B5563',
       bgActiveColor: '#6b7280',
@@ -398,7 +398,7 @@ describe('<Button />', () => {
       bgColor: '#4f46e5',
       textColor: '#4f46e5',
     },
-    plain: {
+    text: {
       bgColor: 'transparent',
       bgHoverColor: '#f9fafb',
       bgActiveColor: '#f3f4f6',

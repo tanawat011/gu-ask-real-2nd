@@ -62,7 +62,7 @@ export const ButtonApiData: ButtonApiDataType[] = [
     val: (
       <>
         <PreCode text='primary' />, <PreCode text='secondary' />,{' '}
-        <PreCode text='tertiary' />, <PreCode text='plain' />,{' '}
+        <PreCode text='tertiary' />, <PreCode text='text' />,{' '}
         <PreCode text='link' />
       </>
     ),
