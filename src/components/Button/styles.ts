@@ -35,8 +35,10 @@ export const twVariantFn: TwVariantFn = (
   const color = colors[themeColor][colorLevel]
   const bgColor = twColor(color)
   const bgWhiteColor = twColor(colors.white)
+  const borderColor = twColor(color, 'border')
   const textColor = twColor(color, 'text')
   const textWhiteColor = twColor(colors.white, 'text')
+  const shadowColor = color
 
   const tertiaryBgColor = isDarkMode ? `${textWhiteColor}` : `${textColor}`
 
@@ -95,6 +97,48 @@ export const twVariantFn: TwVariantFn = (
           }
         `}
       `
+
+    case 'outline':
+      return css`
+        --tw-border-opacity: 0.5;
+        border-width: 2px;
+        border-color: ${borderColor};
+        color: ${textColor};
+        ${!isLoading &&
+        `
+          &:hover {
+            --tw-bg-opacity: 0.1;
+            --tw-border-opacity: 1;
+            background-color: ${bgColor};
+          }
+          &:active {
+            --tw-border-opacity: 0.7;
+          }
+        `}
+      `
+
+    case 'shadow':
+      return [
+        tw`shadow-md`,
+        css`
+          --tw-bg-opacity: 1;
+          --tw-shadow-color: ${shadowColor};
+          --tw-shadow: var(--tw-shadow-colored);
+          background-color: ${bgColor};
+          color: ${textWhiteColor};
+          ${!isLoading &&
+          `
+            &:hover {
+              --tw-bg-opacity: 0.8;
+              --tw-shadow-color: ${shadowColor}cc;
+            }
+            &:active {
+              --tw-bg-opacity: 0.7;
+              --tw-shadow-color: ${shadowColor}b3;
+            }
+          `}
+        `,
+      ]
 
     case 'text':
       return isDarkMode

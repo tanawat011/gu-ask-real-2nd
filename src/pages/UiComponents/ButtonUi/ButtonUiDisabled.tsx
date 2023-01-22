@@ -47,20 +47,14 @@ export const ButtonUiDisabled: React.FC<ButtonUiDisabledProps> = ({
         callback={handleDimension}
         components={
           <div className='flex gap-2 items-center flex-wrap'>
-            <Button label='Primary' disabled />
-            <Button label='Secondary' disabled variant='secondary' />
-            <Button label='Tertiary' disabled variant='tertiary' />
-            <Button label='Text' disabled variant='text' />
+            <Button label='Disabled' disabled />
           </div>
         }
         code={`import React from "react"
 
 export const Component = () => {
   return (
-    <Button label='Primary' disabled />
-    <Button label='Secondary' disabled variant='secondary' />
-    <Button label='Tertiary' disabled variant='tertiary' />
-    <Button label='Text' disabled variant='text' />
+    <Button label='Disabled' disabled />
   )
 }`}
       />
