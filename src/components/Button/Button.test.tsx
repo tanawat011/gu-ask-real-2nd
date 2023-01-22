@@ -31,6 +31,27 @@ describe('<Button />', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
+  test('renders correctly and label with icon', async () => {
+    expect.assertions(1)
+
+    renderWithProviders(<Button label='button' icon='icon' />)
+
+    const icon = screen.getByText(/icon/i)
+
+    expect(icon).toBeInTheDocument()
+  })
+
+  test('renders correctly and label with icon right', async () => {
+    expect.assertions(1)
+
+    renderWithProviders(
+      <Button label='button' icon='icon' iconPosition='right' />,
+    )
+    const icon = screen.getByText(/icon/i)
+
+    expect(icon).toBeInTheDocument()
+  })
+
   test('renders correctly and handle event `onClick`', async () => {
     expect.assertions(1)
 
@@ -58,18 +79,70 @@ describe('<Button />', () => {
   })
 
   test('renders correctly and loading', async () => {
-    expect.assertions(5)
+    expect.assertions(4)
 
     renderWithProviders(<Button label='button' loading />)
 
     const button = screen.getByRole('button')
-    const loadingIcon = screen.getByText('Loading')
 
-    expect(button).toHaveStyle('--tw-text-opacity: 0.3')
-    expect(button).toHaveStyle('opacity: 0.5')
+    expect(button).toHaveStyle('--tw-bg-opacity: 0.5')
+    expect(button).toHaveStyle('--tw-text-opacity: 0.5')
     expect(button).toHaveStyle('cursor: not-allowed')
     expect(button).toHaveAttribute('disabled')
-    expect(loadingIcon).toBeInTheDocument()
+  })
+
+  test('renders correctly and loading with icon only', async () => {
+    expect.assertions(4)
+
+    renderWithProviders(<Button icon='button' loading />)
+
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveStyle('--tw-bg-opacity: 0.5')
+    expect(button).toHaveStyle('--tw-text-opacity: 0.5')
+    expect(button).toHaveStyle('cursor: not-allowed')
+    expect(button).toHaveAttribute('disabled')
+  })
+
+  test('renders correctly and loading with text', async () => {
+    expect.assertions(4)
+
+    renderWithProviders(<Button label='button' loading='Loading...' />)
+
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveStyle('--tw-bg-opacity: 0.5')
+    expect(button).toHaveStyle('--tw-text-opacity: 0.5')
+    expect(button).toHaveStyle('cursor: not-allowed')
+    expect(button).toHaveAttribute('disabled')
+  })
+
+  test('renders correctly and loading with label and icon', async () => {
+    expect.assertions(4)
+
+    renderWithProviders(<Button label='button' icon='icon' loading />)
+
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveStyle('--tw-bg-opacity: 0.5')
+    expect(button).toHaveStyle('--tw-text-opacity: 0.5')
+    expect(button).toHaveStyle('cursor: not-allowed')
+    expect(button).toHaveAttribute('disabled')
+  })
+
+  test('renders correctly and loading with label and icon right', async () => {
+    expect.assertions(4)
+
+    renderWithProviders(
+      <Button label='button' icon='icon' loading iconPosition='right' />,
+    )
+
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveStyle('--tw-bg-opacity: 0.5')
+    expect(button).toHaveStyle('--tw-text-opacity: 0.5')
+    expect(button).toHaveStyle('cursor: not-allowed')
+    expect(button).toHaveAttribute('disabled')
   })
 
   test('renders correctly and blocked', async () => {
