@@ -8,6 +8,7 @@
     "node": ">=16.14.0"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js' --html analyze.html",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:css": "postcss src/styles/styles.scss -o postcss.css",
@@ -98,6 +99,7 @@
     "prettier-plugin-twin.macro": "^1.0.11",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
+    "source-map-explorer": "^2.5.3",
     "style-loader": "^3.3.1",
     "styled-components": "^5.3.6",
     "tailwind-config-viewer": "^1.7.2",
