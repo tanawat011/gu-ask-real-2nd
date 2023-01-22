@@ -6,6 +6,7 @@ import type {
   TwColorLevel,
   MultiMerged,
   ThemeMode,
+  WithRequired,
 } from 'types'
 
 import type { MouseEvent } from 'react'
@@ -21,7 +22,6 @@ import {
   twSize,
   twSizeIcon,
   twVariantFn,
-  twColorFn,
   twDisabledOnly,
 } from './styles'
 
@@ -68,17 +68,19 @@ const TwButton = styled.button(
     themeColor,
     colorLevel,
     themeMode,
-  }: TwButtonProps) => {
+  }: WithRequired<TwButtonProps, 'variant' | 'size' | 'shape'>) => {
     const [_color, _level] =
       (color?.split('-') as [TwColor, TwColorLevel]) || []
-    const variantOptional = { themeColor, colorLevel, themeMode }
-    const colorOption = { themeColor: _color, colorLevel: _level }
+    const variantOptional = {
+      themeColor: _color || themeColor,
+      colorLevel: _level || colorLevel,
+      themeMode,
+    }
 
     return [
-      !color && variant && twVariantFn(variantOptional)[variant],
-      color && twColorFn(colorOption),
-      size && (iconOnly ? twSizeIcon[size] : twSize[size]),
-      shape && twShape[shape],
+      twVariantFn(variant, variantOptional),
+      twShape[shape],
+      iconOnly ? twSizeIcon[size] : twSize[size],
       iconOnly && tw`rounded-full`,
       isDisabled && tw`cursor-not-allowed`,
       disabledOnly && twDisabledOnly,
