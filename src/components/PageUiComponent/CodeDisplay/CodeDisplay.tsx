@@ -11,7 +11,6 @@ import { BG_THEME, BORDER_THEME } from 'constants/twTheme'
 
 type CodeDisplayProps = {
   code: string
-  callback?: () => void
 }
 
 SyntaxHighlighter.registerLanguage('tsx', tsx)
@@ -23,11 +22,10 @@ const TwContainer = styled.div(() => [
 const TwWrapButton = tw.div`flex justify-end`
 const TwWrapButton2 = tw.div`grid grid-flow-col gap-1`
 
-export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code, callback }) => {
+export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code }) => {
   const [isShowCode, setIsShowCode] = useState(false)
 
   const handleShowCode = () => {
-    callback && callback()
     setIsShowCode(!isShowCode)
   }
 

@@ -92,6 +92,7 @@ exports[`<MainLayout /> should render to match snapshot 1`] = `
       <div
         class="c4"
         data-testid="scrollable-content"
+        id="main-layout"
       >
         <div>
           Container Footer Template
@@ -184,6 +185,7 @@ exports[`<MainLayout /> should render to wrong location path 1`] = `
       <div
         class="c4"
         data-testid="scrollable-content"
+        id="main-layout"
       >
         <div>
           Container Footer Template

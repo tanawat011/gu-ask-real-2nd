@@ -1,39 +1,15 @@
-import type { LegacyRef } from 'react'
-import { useEffect } from 'react'
-
-import { useRecoilValue } from 'recoil'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { IconHome } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
-import { useDimensionChange } from 'hooks/useDimensionChange'
-import { useElementDimension } from 'hooks/useElementDimension'
-import { buttonUiAtom, iconSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-type ButtonUiIconProps = {
-  handlePageDimension: () => Promise<void>
-}
-
-export const ButtonUiIcon: React.FC<ButtonUiIconProps> = ({
-  handlePageDimension,
-}) => {
-  const [ref, dimension, handleDimension] = useElementDimension()
-
-  useDimensionChange(iconSelector, dimension)
-
-  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
-
-  useEffect(() => {
-    handleDimension()
-    handlePageDimension()
-  }, [btnDms.variant, btnDms.color, btnDms.size, btnDms.shape, btnDms.disabled])
-
+export const ButtonUiIcon = () => {
   return (
-    <TwContainer id='icon' ref={ref as LegacyRef<HTMLDivElement>}>
+    <TwContainer id='icon'>
       <Title
         title='Icon'
         description={
@@ -44,7 +20,6 @@ export const ButtonUiIcon: React.FC<ButtonUiIconProps> = ({
         }
       />
       <ComponentDisplay
-        callback={handleDimension}
         components={
           <div className='flex gap-2 items-center flex-wrap'>
             <Button size='xs' icon={<IconHome />} />

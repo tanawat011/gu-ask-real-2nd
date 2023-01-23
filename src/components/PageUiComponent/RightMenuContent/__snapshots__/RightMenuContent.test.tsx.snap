@@ -22,32 +22,20 @@ exports[`<RightMenuContent /> renders correctly 1`] = `
 <ul
     class="c0 c1"
   >
-    <li
-      class="text-gray-900 font-semibold dark:text-gray-50"
-    >
-      <a
-        href="#variant"
-      >
-        Variant
-      </a>
+    <li>
+      <div>
+        Link
+      </div>
     </li>
-    <li
-      class=""
-    >
-      <a
-        href="#color"
-      >
-        Color
-      </a>
+    <li>
+      <div>
+        Link
+      </div>
     </li>
-    <li
-      class=""
-    >
-      <a
-        href="#size"
-      >
-        Size
-      </a>
+    <li>
+      <div>
+        Link
+      </div>
     </li>
   </ul>
 </DocumentFragment>

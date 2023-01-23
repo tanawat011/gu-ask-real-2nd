@@ -1,47 +1,14 @@
-import type { LegacyRef } from 'react'
-import { useEffect } from 'react'
-
-import { useRecoilValue } from 'recoil'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
-import { useDimensionChange } from 'hooks/useDimensionChange'
-import { useElementDimension } from 'hooks/useElementDimension'
-import { blockSelector, buttonUiAtom } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-type ButtonUiBlockProps = {
-  handlePageDimension: () => Promise<void>
-}
-
-export const ButtonUiBlock: React.FC<ButtonUiBlockProps> = ({
-  handlePageDimension,
-}) => {
-  const [ref, dimension, handleDimension] = useElementDimension()
-
-  useDimensionChange(blockSelector, dimension)
-
-  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
-
-  useEffect(() => {
-    handleDimension()
-    handlePageDimension()
-  }, [
-    btnDms.variant,
-    btnDms.color,
-    btnDms.size,
-    btnDms.shape,
-    btnDms.disabled,
-    btnDms.icon,
-    btnDms.withIcon,
-    btnDms.loading,
-  ])
-
+export const ButtonUiBlock = () => {
   return (
-    <TwContainer id='block' ref={ref as LegacyRef<HTMLDivElement>}>
+    <TwContainer id='block'>
       <Title
         title='Block'
         description={
@@ -52,7 +19,6 @@ export const ButtonUiBlock: React.FC<ButtonUiBlockProps> = ({
         }
       />
       <ComponentDisplay
-        callback={handleDimension}
         components={
           <>
             <Button label='Non Block Button' />

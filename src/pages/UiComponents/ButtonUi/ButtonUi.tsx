@@ -1,16 +1,6 @@
-import type { LegacyRef } from 'react'
-import { useEffect } from 'react'
-
-import { useRecoilState, useRecoilValue } from 'recoil'
 import tw from 'twin.macro'
 
 import { Title } from 'components/PageUiComponent'
-import { useElementDimension } from 'hooks/useElementDimension'
-import {
-  buttonUiAtom,
-  headSelector,
-  pageDimensionSelector,
-} from 'recoils/atoms'
 
 import { ButtonUiApi } from './ButtonUiApi'
 import { ButtonUiBlock } from './ButtonUiBlock'
@@ -29,27 +19,11 @@ const TwWrapContent = tw.div`xl:col-span-4`
 const TwWrapMenu = tw.div`col-span-1 hidden desktop:block`
 
 export const ButtonUi = () => {
-  const [refPage, refPageDimension, handlePageDimension] = useElementDimension()
-  const [refHead, refHeadDimension] = useElementDimension()
-
-  const [, setPageDimension] = useRecoilState(pageDimensionSelector)
-  const [, setHeadDimension] = useRecoilState(headSelector)
-
-  useEffect(() => {
-    setHeadDimension(refHeadDimension)
-  }, [refHeadDimension])
-
-  useEffect(() => {
-    setPageDimension(refPageDimension)
-  }, [refPageDimension])
-
-  const { pageDimension, dimension } = useRecoilValue(buttonUiAtom)
-
   return (
     <>
-      <TwContainer ref={refPage as LegacyRef<HTMLDivElement>}>
+      <TwContainer>
         <TwWrapContent>
-          <div ref={refHead as LegacyRef<HTMLDivElement>}>
+          <div>
             <Title
               size='xl'
               title='Button'
@@ -57,23 +31,20 @@ export const ButtonUi = () => {
             />
           </div>
 
-          <ButtonUiVariant handlePageDimension={handlePageDimension} />
-          <ButtonUiColor handlePageDimension={handlePageDimension} />
-          <ButtonUiSize handlePageDimension={handlePageDimension} />
-          <ButtonUiShape handlePageDimension={handlePageDimension} />
-          <ButtonUiDisabled handlePageDimension={handlePageDimension} />
-          <ButtonUiIcon handlePageDimension={handlePageDimension} />
-          <ButtonUiWithIcon handlePageDimension={handlePageDimension} />
-          <ButtonUiLoading handlePageDimension={handlePageDimension} />
-          <ButtonUiBlock handlePageDimension={handlePageDimension} />
+          <ButtonUiVariant />
+          <ButtonUiColor />
+          <ButtonUiSize />
+          <ButtonUiShape />
+          <ButtonUiDisabled />
+          <ButtonUiIcon />
+          <ButtonUiWithIcon />
+          <ButtonUiLoading />
+          <ButtonUiBlock />
           <ButtonUiApi />
         </TwWrapContent>
 
         <TwWrapMenu>
-          <RightMenuButtonUi
-            pageDimension={pageDimension}
-            dimension={dimension}
-          />
+          <RightMenuButtonUi />
         </TwWrapMenu>
       </TwContainer>
     </>

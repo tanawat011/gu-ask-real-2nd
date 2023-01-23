@@ -1,38 +1,14 @@
-import type { LegacyRef } from 'react'
-import { useEffect } from 'react'
-
-import { useRecoilValue } from 'recoil'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
-import { useDimensionChange } from 'hooks/useDimensionChange'
-import { useElementDimension } from 'hooks/useElementDimension'
-import { buttonUiAtom, shapeSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-type ButtonUiShapeProps = {
-  handlePageDimension: () => Promise<void>
-}
-
-export const ButtonUiShape: React.FC<ButtonUiShapeProps> = ({
-  handlePageDimension,
-}) => {
-  const [ref, dimension, handleDimension] = useElementDimension()
-
-  useDimensionChange(shapeSelector, dimension)
-
-  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
-
-  useEffect(() => {
-    handleDimension()
-    handlePageDimension()
-  }, [btnDms.variant, btnDms.color, btnDms.size])
-
+export const ButtonUiShape = () => {
   return (
-    <TwContainer id='shape' ref={ref as LegacyRef<HTMLDivElement>}>
+    <TwContainer id='shape'>
       <Title
         title='Shape'
         description={
@@ -45,7 +21,6 @@ export const ButtonUiShape: React.FC<ButtonUiShapeProps> = ({
         }
       />
       <ComponentDisplay
-        callback={handleDimension}
         components={
           <div className='flex gap-2 items-center flex-wrap'>
             <Button label='Square' shape='square' />

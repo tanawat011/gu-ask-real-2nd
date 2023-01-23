@@ -1,38 +1,14 @@
-import type { LegacyRef } from 'react'
-import { useEffect } from 'react'
-
-import { useRecoilValue } from 'recoil'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
-import { useDimensionChange } from 'hooks/useDimensionChange'
-import { useElementDimension } from 'hooks/useElementDimension'
-import { buttonUiAtom, sizeSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-type ButtonUiSizeProps = {
-  handlePageDimension: () => Promise<void>
-}
-
-export const ButtonUiSize: React.FC<ButtonUiSizeProps> = ({
-  handlePageDimension,
-}) => {
-  const [ref, dimension, handleDimension] = useElementDimension()
-
-  useDimensionChange(sizeSelector, dimension)
-
-  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
-
-  useEffect(() => {
-    handleDimension()
-    handlePageDimension()
-  }, [btnDms.variant, btnDms.color])
-
+export const ButtonUiSize = () => {
   return (
-    <TwContainer id='size' ref={ref as LegacyRef<HTMLDivElement>}>
+    <TwContainer id='size'>
       <Title
         title='Size'
         description={
@@ -45,7 +21,6 @@ export const ButtonUiSize: React.FC<ButtonUiSizeProps> = ({
         }
       />
       <ComponentDisplay
-        callback={handleDimension}
         components={
           <div className='flex gap-2 items-center flex-wrap'>
             <Button label='Extra Small (xs)' size='xs' />
