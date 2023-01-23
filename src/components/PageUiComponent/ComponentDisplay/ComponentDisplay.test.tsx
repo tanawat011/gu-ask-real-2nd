@@ -8,17 +8,11 @@ describe('<ComponentDisplay />', () => {
   test('renders correctly', () => {
     expect.assertions(7)
 
-    const callback = jest.fn()
-
     const {
       asFragment,
       container: { firstChild },
     } = renderWithProviders(
-      <ComponentDisplay
-        code='code'
-        callback={callback}
-        components={<div>xxx</div>}
-      />,
+      <ComponentDisplay code='code' components={<div>xxx</div>} />,
     )
 
     expect(firstChild).toHaveStyleRule('border-width', '1px')

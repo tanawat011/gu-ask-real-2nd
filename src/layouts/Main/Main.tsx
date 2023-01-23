@@ -49,7 +49,8 @@ export const MainLayout: React.FC = () => {
   }
 
   const handleScroll = (event: UIEvent<HTMLElement>) => {
-    const { scrollTop, scrollLeft, scrollHeight, scrollWidth } = event.currentTarget
+    const { scrollTop, scrollLeft, scrollHeight, scrollWidth } =
+      event.currentTarget
 
     setScroll({
       top: scrollTop,
@@ -61,12 +62,20 @@ export const MainLayout: React.FC = () => {
 
   return (
     <MainContainer fullSidebar={fullSidebar}>
-      <Sidebar menuList={menuList} setMenuList={setMenuList} fullSidebar={fullSidebar} />
+      <Sidebar
+        menuList={menuList}
+        setMenuList={setMenuList}
+        fullSidebar={fullSidebar}
+      />
 
       <MainContent>
         <Navbar handleToggleSidebar={handleToggleSidebar} />
 
-        <MainContentContainer data-testid='scrollable-content' onScroll={handleScroll}>
+        <MainContentContainer
+          data-testid='scrollable-content'
+          id='main-layout'
+          onScroll={handleScroll}
+        >
           <Outlet context={{ scroll } as OutletContextProps} />
           <div>Container Footer Template</div>
         </MainContentContainer>

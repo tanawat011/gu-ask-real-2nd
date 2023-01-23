@@ -8,18 +8,13 @@ jest.mock('./CodeDisplay', () => jest.requireActual('./CodeDisplay'))
 
 describe('<CodeDisplay />', () => {
   test('renders correctly', () => {
-    expect.assertions(2)
+    expect.assertions(1)
 
-    const callback = jest.fn()
-
-    const { asFragment } = renderWithProviders(
-      <CodeDisplay code='xxx' callback={callback} />,
-    )
+    const { asFragment } = renderWithProviders(<CodeDisplay code='xxx' />)
 
     const buttonShowCode = screen.getAllByRole('button')[1]
     fireEvent.click(buttonShowCode)
 
-    expect(callback).toHaveBeenCalledTimes(1)
     expect(asFragment()).toMatchSnapshot()
   })
 })

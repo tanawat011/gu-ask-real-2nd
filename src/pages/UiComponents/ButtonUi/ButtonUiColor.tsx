@@ -1,38 +1,14 @@
-import type { LegacyRef } from 'react'
-import { useEffect } from 'react'
-
-import { useRecoilValue } from 'recoil'
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
-import { useDimensionChange } from 'hooks/useDimensionChange'
-import { useElementDimension } from 'hooks/useElementDimension'
-import { buttonUiAtom, colorSelector } from 'recoils/atoms'
 
 const TwContainer = tw.div`mb-8`
 
-type ButtonUiColorProps = {
-  handlePageDimension: () => Promise<void>
-}
-
-export const ButtonUiColor: React.FC<ButtonUiColorProps> = ({
-  handlePageDimension,
-}) => {
-  const [ref, dimension, handleDimension] = useElementDimension()
-
-  useDimensionChange(colorSelector, dimension)
-
-  const { dimension: btnDms } = useRecoilValue(buttonUiAtom)
-
-  useEffect(() => {
-    handleDimension()
-    handlePageDimension()
-  }, [btnDms.variant])
-
+export const ButtonUiColor = () => {
   return (
-    <TwContainer id='color' ref={ref as LegacyRef<HTMLDivElement>}>
+    <TwContainer id='color'>
       <Title
         title='Color'
         description={
@@ -43,7 +19,6 @@ export const ButtonUiColor: React.FC<ButtonUiColorProps> = ({
         }
       />
       <ComponentDisplay
-        callback={handleDimension}
         components={
           <>
             <div className='flex gap-2 items-center flex-wrap'>
