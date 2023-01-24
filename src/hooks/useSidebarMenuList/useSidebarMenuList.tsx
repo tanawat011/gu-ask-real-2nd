@@ -5,12 +5,15 @@ import { useState } from 'react'
 
 import { IconHouse, IconUser } from 'components/Icons'
 import { useRouteList } from 'hooks/useRouteList'
+import { menuGenerator } from 'utils/route'
 
-export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuItem[]>>] => {
+export const useSidebarMenuList = (): [
+  MenuItem[],
+  Dispatch<SetStateAction<MenuItem[]>>,
+] => {
   const { mainRoutes } = useRouteList()
 
-  const { home, todo, article, component } = mainRoutes.children
-  const { button, card, input } = component.children
+  const { home, todo, article, uiComponent } = mainRoutes.children
 
   const [menuList, setMenuList] = useState<MenuItem[]>([
     {
@@ -42,24 +45,9 @@ export const useSidebarMenuList = (): [MenuItem[], Dispatch<SetStateAction<MenuI
       title: 'UI COMPONENTS',
       children: [
         {
-          label: 'Common',
-          icon: <IconHouse size='lg' />,
-          children: [
-            {
-              to: card.fullPath,
-              label: 'Card',
-            },
-          ],
-        },
-        {
-          to: button.fullPath,
-          label: 'Button',
-          icon: <IconHouse size='lg' />,
-        },
-        {
-          to: input.fullPath,
           label: 'Input',
-          icon: <IconUser size='lg' />,
+          icon: <IconHouse size='lg' />,
+          children: menuGenerator(uiComponent.children),
         },
       ],
     },
