@@ -7,9 +7,11 @@ exports[`<SidebarItemChild /> should render without crashing and match snapshot 
   color: rgb(75 85 99 / var(--tw-text-opacity));
   background-color: transparent;
   margin-left: 1.25rem;
+  margin-bottom: 0px;
   padding-left: 0.75rem !important;
   height: 2.5rem;
   padding-left: 0.75rem;
+  margin-bottom: 0.25rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
