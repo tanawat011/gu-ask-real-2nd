@@ -5,11 +5,13 @@ import { isValidElement } from 'react'
 
 import { camelToKebab } from 'utils/string'
 
+type List<T, K> = {
+  [key in KeyOf<T>]: JSX.Element | K
+}
+
 export const routeGenerator = <T, K = JSX.Element>(
   basePath: string,
-  list: {
-    [key in KeyOf<T>]: JSX.Element | K
-  },
+  list: List<T, K>,
 ): T => {
   const routeList: Partial<T> = {}
 

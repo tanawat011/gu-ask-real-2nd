@@ -9,7 +9,6 @@ export type TodoRoutesChildren = WithChildrenRoute<TodoRoutes>
 
 // * APP ROUTES
 export type AppRoutes = {
-  home: RenderRoute
   todo: TodoRoutesChildren
   article: RenderRoute
 }

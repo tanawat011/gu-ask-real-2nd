@@ -28,9 +28,9 @@ export const MainLayout: React.FC = () => {
   const [{ fullSidebar }, setFullSidebar] = useRecoilState(sidebarAtom)
 
   const [menuList, setMenuList] = useSidebarMenuList()
-  const { mainRoutes } = useRouteList()
+  const { mainRootRoute } = useRouteList()
 
-  const { home } = mainRoutes.children
+  const { home } = mainRootRoute.children
 
   useEffect(() => {
     handleRedirectToHome()
