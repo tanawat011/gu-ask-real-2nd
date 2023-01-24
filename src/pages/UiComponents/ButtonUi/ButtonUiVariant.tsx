@@ -4,13 +4,15 @@ import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiVariant = () => {
   return (
-    <TwContainer id='variant'>
+    <TwContainer id={menuList.variant.id}>
       <Title
-        title='Variant'
+        title={menuList.variant.name}
         description={
           <>
             Variant of the button, can set the <PreCode text='variant' /> prop

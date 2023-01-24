@@ -4,13 +4,15 @@ import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiDisabled = () => {
   return (
-    <TwContainer id='disabled'>
+    <TwContainer id={menuList.disabled.id}>
       <Title
-        title='Disabled'
+        title={menuList.disabled.name}
         description={
           <>
             Disable style of the button, can set the <PreCode text='disabled' />{' '}

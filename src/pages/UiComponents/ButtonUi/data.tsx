@@ -1,27 +1,22 @@
 import type { ButtonProps } from 'components/Button'
+import type { ComponentApiGuideData } from 'types'
 
 import { PreCode } from 'components/PreCode'
 
-type ButtonApiDataType = {
-  prop: Required<keyof ButtonProps>
-  desc: string
-  val: string | JSX.Element
-  default: string | JSX.Element
+export const menuList = {
+  variant: { id: 'variant', name: 'Variant' },
+  color: { id: 'color', name: 'Color' },
+  size: { id: 'size', name: 'Size' },
+  shape: { id: 'shape', name: 'Shape' },
+  disabled: { id: 'disabled', name: 'Disabled' },
+  icon: { id: 'icon', name: 'Icon' },
+  withIcon: { id: 'withIcon', name: 'With Icon' },
+  loading: { id: 'loading', name: 'Loading' },
+  block: { id: 'block', name: 'Block' },
+  api: { id: 'api', name: 'API' },
 }
 
-type ButtonApiColumnsType = {
-  key: keyof ButtonApiDataType
-  label: string
-}
-
-export const ButtonApiColumns: ButtonApiColumnsType[] = [
-  { key: 'prop', label: 'PROPERTY' },
-  { key: 'desc', label: 'DESCRIPTION' },
-  { key: 'val', label: 'POSSIBLE VALUES' },
-  { key: 'default', label: 'DEFAULT' },
-]
-
-export const ButtonApiData: ButtonApiDataType[] = [
+export const buttonApiTableData: ComponentApiGuideData<ButtonProps>[] = [
   {
     prop: 'label',
     desc: 'Text label of the button',

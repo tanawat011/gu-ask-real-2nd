@@ -5,13 +5,15 @@ import { IconHome } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiWithIcon = () => {
   return (
-    <TwContainer id='with-icon'>
+    <TwContainer id={menuList.withIcon.id}>
       <Title
-        title='With Icon'
+        title={menuList.withIcon.name}
         description={
           <>
             Icon can set position with prop <PreCode text='iconPosition' /> to{' '}

@@ -5,13 +5,15 @@ import { IconHome } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiIcon = () => {
   return (
-    <TwContainer id='icon'>
+    <TwContainer id={menuList.icon.id}>
       <Title
-        title='Icon'
+        title={menuList.icon.name}
         description={
           <>
             Button can add an icon by insert icon to <PreCode text='icon' />{' '}

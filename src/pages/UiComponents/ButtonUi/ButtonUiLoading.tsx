@@ -5,13 +5,15 @@ import { IconHome } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiLoading = () => {
   return (
-    <TwContainer id='loading'>
+    <TwContainer id={menuList.loading.id}>
       <Title
-        title='Loading'
+        title={menuList.loading.name}
         description={
           <>
             Button can set <PreCode text='loading' /> prop to{' '}

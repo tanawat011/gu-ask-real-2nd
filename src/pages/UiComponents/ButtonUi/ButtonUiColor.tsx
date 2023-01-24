@@ -4,13 +4,15 @@ import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiColor = () => {
   return (
-    <TwContainer id='color'>
+    <TwContainer id={menuList.color.id}>
       <Title
-        title='Color'
+        title={menuList.color.name}
         description={
           <>
             Button able to apply custom color, available colors option based on
