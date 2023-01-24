@@ -9,7 +9,7 @@ import { useRouteList } from 'hooks/useRouteList'
 const Container = tw(FlexRow)`h-screen w-full bg-slate-300`
 
 export const AuthenticationLayout: React.FC = () => {
-  const { authRoutes } = useRouteList()
+  const { authRootRoute } = useRouteList()
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -19,9 +19,9 @@ export const AuthenticationLayout: React.FC = () => {
   }, [])
 
   const handleRedirectToLogin = () => {
-    const { login } = authRoutes.children
+    const { login } = authRootRoute.children
 
-    if (location.pathname === authRoutes.fullPath) {
+    if (location.pathname === authRootRoute.fullPath) {
       navigate(login.fullPath)
     }
   }
