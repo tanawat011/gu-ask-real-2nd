@@ -5,14 +5,14 @@ import { useRouteList } from 'hooks/useRouteList'
 import { renderRoutes } from 'utils/route'
 
 export const AppRoutes = () => {
-  const { allRoutes } = useRouteList()
+  const { all } = useRouteList()
   const [localSetting] = useLocalSetting()
 
   return (
     <div className={localSetting.theme.mode || 'light'}>
       <BrowserRouter>
         <Routes>
-          {renderRoutes(allRoutes)}
+          {renderRoutes(all)}
 
           <Route path='*' element={<div>error 404</div>} />
         </Routes>
