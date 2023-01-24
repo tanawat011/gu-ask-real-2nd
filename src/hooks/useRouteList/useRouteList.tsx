@@ -1,6 +1,4 @@
-import type { ObjectKeyOf } from 'types'
 import type {
-  AppRoutes,
   AssembleRoutes,
   AuthRoutes,
   AuthRoutesChildren,
@@ -11,7 +9,8 @@ import type {
   MainRoutesChildren,
   TodoRoutes,
   UiComponentRoutes,
-} from 'types/routes'
+  WithJsx,
+} from './types'
 
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
@@ -19,51 +18,60 @@ import { MainLayout } from 'layouts/Main'
 import { ButtonUi } from 'pages/UiComponents'
 import { routeGenerator } from 'utils/route'
 
-const inputRoutes: ObjectKeyOf<InputRoutes, JSX.Element> = {
-  button: <ButtonUi />,
-  buttonGroup: <div>button group</div>,
-  calendar: <div>calendar</div>,
-  checkbox: <div>checkbox</div>,
-  dateAndTime: <div>date & time</div>,
-  radioButton: <div>radio button</div>,
-  rating: <div>rating</div>,
-  select: <div>select</div>,
-  slider: <div>slider</div>,
-  switch: <div>switch</div>,
-  textField: <div>text field</div>,
-  upload: <div>upload</div>,
+type RouteMain = {
+  home: JSX.Element
+  app: {
+    todo: WithJsx<TodoRoutes>
+    article: JSX.Element
+  }
+  uiComponent: WithJsx<UiComponentRoutes, WithJsx<InputRoutes>>
 }
 
-const uiComponentRoutes: ObjectKeyOf<UiComponentRoutes, InputRoutes> = {
-  input: routeGenerator<InputRoutes>('ui-component/input', inputRoutes),
-}
-
-const todoRoutes: ObjectKeyOf<TodoRoutes, JSX.Element> = {
-  dashboard: <div>dashboard</div>,
-}
-
-const appRoutes: ObjectKeyOf<AppRoutes, JSX.Element | TodoRoutes> = {
-  todo: routeGenerator<TodoRoutes>('app/todo', todoRoutes),
-  article: <div>article</div>,
-}
-
-const mainRoutes: ObjectKeyOf<
-  MainRoutes,
-  JSX.Element | AppRoutes | UiComponentRoutes
-> = {
+const routeMain: RouteMain = {
   home: <div>home</div>,
-  app: routeGenerator<AppRoutes, TodoRoutes>('app', appRoutes),
-  uiComponent: routeGenerator<UiComponentRoutes, InputRoutes>(
-    'ui-component',
-    uiComponentRoutes,
-  ),
+  app: {
+    todo: {
+      dashboard: <div>dashboard</div>,
+    },
+    article: <div>article</div>,
+  },
+  uiComponent: {
+    input: {
+      button: <ButtonUi />,
+      buttonGroup: <div>button group</div>,
+      calendar: <div>calendar</div>,
+      checkbox: <div>checkbox</div>,
+      dateAndTime: <div>date & time</div>,
+      radioButton: <div>radio button</div>,
+      rating: <div>rating</div>,
+      select: <div>select</div>,
+      slider: <div>slider</div>,
+      switch: <div>switch</div>,
+      textField: <div>text field</div>,
+      upload: <div>upload</div>,
+    },
+  },
 }
 
-const authRoutes: ObjectKeyOf<AuthRoutes, JSX.Element> = {
+type RouteAuth = {
+  login: JSX.Element
+}
+
+const routeAuth: RouteAuth = {
   login: <div>login</div>,
 }
 
-const errorRoutes: ObjectKeyOf<ErrorRoutes, JSX.Element> = {
+type RouteError = {
+  404: JSX.Element
+  401: JSX.Element
+  403: JSX.Element
+  500: JSX.Element
+  502: JSX.Element
+  503: JSX.Element
+  504: JSX.Element
+}
+
+const routeError: RouteError = {
   404: <div>error 404</div>,
   401: <div>error 401</div>,
   403: <div>error 403</div>,
@@ -73,43 +81,40 @@ const errorRoutes: ObjectKeyOf<ErrorRoutes, JSX.Element> = {
   504: <div>error 504</div>,
 }
 
-export const mainRootRoute: MainRoutesChildren = {
+export const main: MainRoutesChildren = {
   path: '/',
   fullPath: '/',
   element: <MainLayout />,
-  children: routeGenerator<MainRoutes, UiComponentRoutes | AppRoutes>(
-    '',
-    mainRoutes,
-  ),
+  children: routeGenerator<MainRoutes>(routeMain),
 }
 
-export const authRootRoute: AuthRoutesChildren = {
+export const auth: AuthRoutesChildren = {
   path: 'auth',
   fullPath: '/auth',
   element: <AuthenticationLayout />,
-  children: routeGenerator<AuthRoutes>('auth', authRoutes),
+  children: routeGenerator<AuthRoutes>(routeAuth),
 }
 
-export const errorRootRoute: ErrorRoutesChildren = {
+export const error: ErrorRoutesChildren = {
   path: '',
   fullPath: '',
   element: <ErrorLayout />,
-  children: routeGenerator<ErrorRoutes>('', errorRoutes),
+  children: routeGenerator<ErrorRoutes>(routeError),
 }
 
 type RouteList = {
-  allRoutes: AssembleRoutes
-  authRootRoute: AuthRoutesChildren
-  mainRootRoute: MainRoutesChildren
-  errorRootRoute: ErrorRoutesChildren
+  all: AssembleRoutes
+  auth: AuthRoutesChildren
+  main: MainRoutesChildren
+  error: ErrorRoutesChildren
 }
 
 export const useRouteList = (): RouteList => {
-  const allRoutes: AssembleRoutes = {
-    auth: authRootRoute,
-    main: mainRootRoute,
-    error: errorRootRoute,
+  const all: AssembleRoutes = {
+    auth,
+    main,
+    error,
   }
 
-  return { allRoutes, mainRootRoute, authRootRoute, errorRootRoute }
+  return { all, main, auth, error }
 }

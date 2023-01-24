@@ -11,30 +11,30 @@ export const useSidebarMenuList = (): [
   MenuItem[],
   Dispatch<SetStateAction<MenuItem[]>>,
 ] => {
-  const { mainRootRoute } = useRouteList()
+  const { main } = useRouteList()
 
-  const { home, app, uiComponent } = mainRootRoute.children
+  const { home, app, uiComponent } = main.children
   const { todo, article } = app.children
   const { input } = uiComponent.children
 
   const [menuList, setMenuList] = useState<MenuItem[]>([
     {
-      title: 'APPS',
+      title: 'HOME',
       children: [
         {
           to: home.fullPath,
-          label: 'Home',
+          label: 'Dashboard',
           icon: <IconHouse size='lg' />,
         },
+      ],
+    },
+    {
+      title: 'APPS',
+      children: [
         {
           label: 'Todo',
           icon: <IconHouse size='lg' />,
-          children: [
-            {
-              to: todo.fullPath,
-              label: 'Dashboard',
-            },
-          ],
+          children: menuGenerator(todo.children),
         },
         {
           to: article.fullPath,

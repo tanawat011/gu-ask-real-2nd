@@ -5,6 +5,9 @@ import type { WithRequired } from 'types/utilities'
 import type { RenderRoute } from 'utils/route'
 
 export type WithChildrenRoute<T> = WithRequired<RenderRoute<T>, 'children'>
+export type WithJsx<T, K = JSX.Element> = {
+  [key in keyof T]: K
+}
 
 // * ALL BASE ROUTES
 export type AssembleRoutes = {

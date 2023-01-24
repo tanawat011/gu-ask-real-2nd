@@ -15,6 +15,6 @@ describe('useRouteList', () => {
 
     const { result } = renderHook(() => useRouteList())
 
-    expect(Object.keys(result.current.allRoutes).length).toEqual(3)
+    expect(Object.keys(result.current.all).length).toEqual(3)
   })
 })
