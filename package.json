@@ -170,7 +170,8 @@
       "src/types",
       "src/mocks",
       "src/pages",
-      "Routes.tsx"
+      "Routes.tsx",
+      "types"
     ]
   },
   "babelMacros": {
