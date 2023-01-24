@@ -8,9 +8,7 @@ import { TEXT_THEME } from 'constants/twTheme'
 
 type RightMenuContentProps = {
   title: string
-  menuList: {
-    title: string
-  }[]
+  menuList: string[]
 }
 
 const TwUl = styled.ul(() => [TEXT_THEME.DETAIL, tw`grid gap-2`])
@@ -33,9 +31,7 @@ export const RightMenuContent: React.FC<RightMenuContentProps> = ({
 
       <TwUl>
         {menuList.map((item, index) => {
-          const { title: text } = item
-
-          const id = text.replaceAll(' ', '-').toLowerCase()
+          const id = item.replaceAll(' ', '-').toLowerCase()
 
           return (
             <li key={`${index}`}>
@@ -47,7 +43,7 @@ export const RightMenuContent: React.FC<RightMenuContentProps> = ({
                 containerId='main-layout'
                 offset={-16}
               >
-                {text}
+                {item}
               </TwLink>
             </li>
           )

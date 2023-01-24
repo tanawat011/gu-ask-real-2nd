@@ -77,7 +77,7 @@ export const MainLayout: React.FC = () => {
           onScroll={handleScroll}
         >
           <Outlet context={{ scroll } as OutletContextProps} />
-          <div>Container Footer Template</div>
+          <div className='min-h-[64px]'>Container Footer Template</div>
         </MainContentContainer>
       </MainContent>
     </MainContainer>

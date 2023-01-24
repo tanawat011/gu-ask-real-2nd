@@ -11,7 +11,7 @@ describe('<RightMenuContent />', () => {
     const { asFragment } = renderWithProviders(
       <RightMenuContent
         title='Title'
-        menuList={[{ title: 'Variant' }, { title: 'Color' }, { title: 'Size' }]}
+        menuList={['Variant', 'Color', 'Size']}
       />,
     )
 

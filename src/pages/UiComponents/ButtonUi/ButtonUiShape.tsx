@@ -4,13 +4,15 @@ import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiShape = () => {
   return (
-    <TwContainer id='shape'>
+    <TwContainer id={menuList.shape.id}>
       <Title
-        title='Shape'
+        title={menuList.shape.name}
         description={
           <>
             Shape style of the button, can set the <PreCode text='shape' /> prop

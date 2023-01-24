@@ -4,13 +4,15 @@ import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiBlock = () => {
   return (
-    <TwContainer id='block'>
+    <TwContainer id={menuList.block.id}>
       <Title
-        title='Block'
+        title={menuList.block.id}
         description={
           <>
             Button can stretch to fill the width by add <PreCode text='block' />{' '}

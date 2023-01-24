@@ -51,12 +51,20 @@ A Frontend Backoffice Project.
 - [x] [Recoil](https://recoiljs.org/docs/introduction/getting-started) (for state management)
 - [ ] [Tanstack Query](https://react-query.tanstack.com/) (for data fetching)
 - [ ] [Date fns](https://date-fns.org/) (for date formatting)
+- [x] [React Scroll](https://www.npmjs.com/package/react-scroll) (for handle scroll)
+- [ ] [React Intersection Observer](https://www.npmjs.com/package/react-intersection-observer) (for handle scroll to element in viewport)
+- [ ] [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) (for infinite scroll)
 
 ## Utilities Support
 
 - [x] `Simple error Page` (for error handling)
 - [ ] `Simple loading component` (for loading handling)
 - [ ] `Simple modal component` (for modal handling)
+
+## Available Components
+
+- [x] `Button`
+- [ ] `Input`
 
 ## Document
 

@@ -4,13 +4,15 @@ import { Button } from 'components/Button'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
+import { menuList } from './data'
+
 const TwContainer = tw.div`mb-8`
 
 export const ButtonUiSize = () => {
   return (
-    <TwContainer id='size'>
+    <TwContainer id={menuList.size.id}>
       <Title
-        title='Size'
+        title={menuList.size.name}
         description={
           <>
             Size of the button, can set the <PreCode text='size' /> prop value
