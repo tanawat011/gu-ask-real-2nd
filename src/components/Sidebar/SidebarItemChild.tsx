@@ -17,15 +17,15 @@ type SidebarItemContainerProps = Pick<SidebarItemProps, 'selected'> &
 const TwContainer = styled.div(
   ({ fullSidebar, selected }: SidebarItemContainerProps) => [
     [TEXT_THEME.MENU, BG_THEME.MENU],
-    !selected && tw`ml-5 pl-3!`,
+    !selected && tw`ml-5 mb-0 pl-3!`,
     fullSidebar ? tw`h-10 pl-3` : tw`ml-0 h-9 px-4 py-1`,
-    tw`flex cursor-pointer items-center justify-between rounded-lg`,
+    tw`mb-1 flex cursor-pointer items-center justify-between rounded-lg`,
   ],
 )
 const TwItem = tw.div`flex items-center`
 const TwItemSelected = styled.div(() => [
   [TEXT_THEME.MENU_SELECT, BG_THEME.MENU_SELECT],
-  tw`ml-5 rounded-lg pl-0`,
+  tw`ml-5 mb-1 rounded-lg pl-0`,
 ])
 
 export const SidebarItemChild: React.FC<SidebarItemProps> = ({

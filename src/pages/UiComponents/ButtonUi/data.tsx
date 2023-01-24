@@ -10,7 +10,7 @@ export const menuList = {
   shape: { id: 'shape', name: 'Shape' },
   disabled: { id: 'disabled', name: 'Disabled' },
   icon: { id: 'icon', name: 'Icon' },
-  withIcon: { id: 'withIcon', name: 'With Icon' },
+  withIcon: { id: 'with-icon', name: 'With Icon' },
   loading: { id: 'loading', name: 'Loading' },
   block: { id: 'block', name: 'Block' },
   api: { id: 'api', name: 'API' },

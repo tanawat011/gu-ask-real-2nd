@@ -1,128 +1,101 @@
-import type { AssembleRoutes, AuthRoutes, ErrorRoutes, MainRoutes } from 'types'
+import type {
+  AssembleRoutes,
+  AuthRoutesChildren,
+  UiComponentRoutes,
+  ErrorRoutesChildren,
+  MainRoutes,
+  MainRoutesChildren,
+  ObjectKeyOf,
+  AuthRoutes,
+  ErrorRoutes,
+} from 'types'
 
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
-import { ButtonUi, InputUi } from 'pages/UiComponents'
+import { ButtonUi } from 'pages/UiComponents'
+import { routeGenerator } from 'utils/route'
 
-export const mainRoutes: MainRoutes = {
+// const inputList: ObjectKeyOf<UiComponentRoutes, JSX.Element> = {
+//   button: <ButtonUi />,
+//   buttonGroup: <div>button group</div>,
+//   calendar: <div>calendar</div>,
+//   checkbox: <div>checkbox</div>,
+//   dateAndTime: <div>date & time</div>,
+//   radioButton: <div>radio button</div>,
+//   rating: <div>rating</div>,
+//   select: <div>select</div>,
+//   slider: <div>slider</div>,
+//   switch: <div>switch</div>,
+//   textField: <div>text field</div>,
+//   upload: <div>upload</div>,
+// }
+
+const uiComponentList: ObjectKeyOf<UiComponentRoutes, JSX.Element> = {
+  button: <ButtonUi />,
+  buttonGroup: <div>button group</div>,
+  calendar: <div>calendar</div>,
+  checkbox: <div>checkbox</div>,
+  dateAndTime: <div>date & time</div>,
+  radioButton: <div>radio button</div>,
+  rating: <div>rating</div>,
+  select: <div>select</div>,
+  slider: <div>slider</div>,
+  switch: <div>switch</div>,
+  textField: <div>text field</div>,
+  upload: <div>upload</div>,
+}
+
+const mainList: ObjectKeyOf<MainRoutes, JSX.Element | UiComponentRoutes> = {
+  home: <div>home</div>,
+  todo: <div>todo</div>,
+  article: <div>article</div>,
+  uiComponent: routeGenerator<UiComponentRoutes>(
+    'ui-component',
+    uiComponentList,
+  ),
+}
+
+export const mainRoutes: MainRoutesChildren = {
   path: '/',
   fullPath: '/',
   element: <MainLayout />,
-  children: {
-    home: {
-      path: '',
-      fullPath: '/',
-      element: <div>home</div>,
-      isIndex: true,
-    },
-    todo: {
-      path: 'todo',
-      fullPath: '/todo',
-      element: <div>todo</div>,
-    },
-    article: {
-      path: 'article',
-      fullPath: '/article',
-      element: (
-        <div>
-          <div className='popover'>
-            <a href='#'>
-              <h2 className='popover__title'>Hover:me</h2>
-            </a>
-            <div className='popover-content'>
-              <p className='popover__message'>Joseph Francis </p>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    component: {
-      path: 'component',
-      fullPath: '/component',
-      children: {
-        card: {
-          path: 'card',
-          fullPath: '/component/card',
-          element: <div>card</div>,
-        },
-        button: {
-          path: 'button',
-          fullPath: '/component/button',
-          element: <ButtonUi />,
-        },
-        input: {
-          path: 'input',
-          fullPath: '/component/input',
-          element: <InputUi />,
-        },
-      },
-    },
-  },
+  children: routeGenerator<MainRoutes, UiComponentRoutes>('', mainList),
 }
 
-export const authRoutes: AuthRoutes = {
+const authList: ObjectKeyOf<AuthRoutes, JSX.Element> = {
+  login: <div>login</div>,
+}
+
+export const authRoutes: AuthRoutesChildren = {
   path: 'auth',
   fullPath: '/auth',
   element: <AuthenticationLayout />,
-  children: {
-    login: {
-      path: 'login',
-      fullPath: '/auth/login',
-      element: <div>login</div>,
-      isIndex: true,
-    },
-  },
+  children: routeGenerator<AuthRoutes>('auth', authList),
 }
 
-export const errorRoutes: ErrorRoutes = {
+const errorList: ObjectKeyOf<ErrorRoutes, JSX.Element> = {
+  404: <div>error 404</div>,
+  401: <div>error 401</div>,
+  403: <div>error 403</div>,
+  500: <div>error 500</div>,
+  502: <div>error 502</div>,
+  503: <div>error 503</div>,
+  504: <div>error 504</div>,
+}
+
+export const errorRoutes: ErrorRoutesChildren = {
   path: '',
   fullPath: '',
   element: <ErrorLayout />,
-  children: {
-    e401: {
-      path: '401',
-      fullPath: '/401',
-      element: <div>error 401</div>,
-    },
-    e403: {
-      path: '403',
-      fullPath: '/403',
-      element: <div>error 403</div>,
-    },
-    e404: {
-      path: '404',
-      fullPath: '/404',
-      element: <div>error 404</div>,
-    },
-    e500: {
-      path: '500',
-      fullPath: '/500',
-      element: <div>error 500</div>,
-    },
-    e502: {
-      path: '502',
-      fullPath: '/502',
-      element: <div>error 502</div>,
-    },
-    e503: {
-      path: '503',
-      fullPath: '/503',
-      element: <div>error 503</div>,
-    },
-    e504: {
-      path: '504',
-      fullPath: '/504',
-      element: <div>error 504</div>,
-    },
-  },
+  children: routeGenerator<ErrorRoutes>('', errorList),
 }
 
 type RouteList = {
   allRoutes: AssembleRoutes
-  mainRoutes: MainRoutes
-  authRoutes: AuthRoutes
-  errorRoutes: ErrorRoutes
+  mainRoutes: MainRoutesChildren
+  authRoutes: AuthRoutesChildren
+  errorRoutes: ErrorRoutesChildren
 }
 
 export const useRouteList = (): RouteList => {
