@@ -24,12 +24,7 @@ A Frontend Backoffice Project.
 | **NODE_ENV**             | development             | `public` |        |
 | **SKIP_PREFLIGHT_CHECK** | true                    | `public` |        |
 | **GENERATE_SOURCEMAP**   | false                   | `public` |        |
-| **REACT_APP_API_URL**    | `http://localhost:8001` | `public` |        |
-
-## Learn More
-
-- You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-- To learn React, check out the [React documentation](https://reactjs.org/).
+| **REACT_APP_API_URL**    | `http://localhost:3000` | `public` |        |
 
 ## Code Features
 
@@ -79,7 +74,7 @@ A Frontend Backoffice Project.
 
 - Create a new page in `src/pages` with the page name.
 - Add a new route in the `src/hooks/useRouteList` file.
-- Update a type of a new route in the type folder -> `types/routes.ts`.
+- Update a type of a new route in the type folder -> `src/hooks/useRouteList/types`.
 
 ### How to add a new env
 

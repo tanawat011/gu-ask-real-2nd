@@ -53,25 +53,11 @@ const routeMain: RouteMain = {
   },
 }
 
-type RouteAuth = {
-  login: JSX.Element
-}
-
-const routeAuth: RouteAuth = {
+const routeAuth: WithJsx<AuthRoutes> = {
   login: <div>login</div>,
 }
 
-type RouteError = {
-  404: JSX.Element
-  401: JSX.Element
-  403: JSX.Element
-  500: JSX.Element
-  502: JSX.Element
-  503: JSX.Element
-  504: JSX.Element
-}
-
-const routeError: RouteError = {
+const routeError: WithJsx<ErrorRoutes> = {
   404: <div>error 404</div>,
   401: <div>error 401</div>,
   403: <div>error 403</div>,
