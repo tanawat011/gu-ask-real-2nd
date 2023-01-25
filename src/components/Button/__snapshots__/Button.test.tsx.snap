@@ -2,50 +2,7 @@
 
 exports[`<Button /> renders correctly 1`] = `
 <DocumentFragment>
-  .c0 {
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.c1 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-  border-radius: 0.375rem;
-  height: 2.75rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  min-width: 120px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c1:hover {
-  --tw-bg-opacity: 0.8;
-}
-
-.c1:active {
-  --tw-bg-opacity: 0.7;
-}
-
-.c2 {
+  .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -61,20 +18,56 @@ exports[`<Button /> renders correctly 1`] = `
   gap: 0.5rem;
 }
 
-<div
+.c0 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  border-radius: 0.375rem;
+  height: 2.75rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  min-width: 120px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0:hover {
+  --tw-bg-opacity: 0.8;
+}
+
+.c0:active {
+  --tw-bg-opacity: 0.7;
+}
+
+<button
     class="c0"
+    shape="rounded"
+    width="120px"
   >
-    <button
+    <span
       class="c1"
-      shape="rounded"
-      width="120px"
     >
-      <span
-        class="c2"
-      >
-        button
-      </span>
-    </button>
-  </div>
+      button
+    </span>
+  </button>
 </DocumentFragment>
 `;
