@@ -15,7 +15,7 @@ import type {
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
-import { ButtonUi } from 'pages/UiComponents'
+import { ButtonGroupUi, ButtonUi, InputUi } from 'pages/UiComponents'
 import { routeGenerator } from 'utils/route'
 
 type RouteMain = {
@@ -38,7 +38,7 @@ const routeMain: RouteMain = {
   uiComponent: {
     input: {
       button: <ButtonUi />,
-      buttonGroup: <div>button group</div>,
+      buttonGroup: <ButtonGroupUi />,
       calendar: <div>calendar</div>,
       checkbox: <div>checkbox</div>,
       dateAndTime: <div>date & time</div>,
@@ -47,7 +47,7 @@ const routeMain: RouteMain = {
       select: <div>select</div>,
       slider: <div>slider</div>,
       switch: <div>switch</div>,
-      textField: <div>text field</div>,
+      textField: <InputUi />,
       upload: <div>upload</div>,
     },
   },

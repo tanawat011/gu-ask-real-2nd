@@ -8,6 +8,15 @@ jest.mock('./useRouteList', () => ({
 jest.mock('layouts/Authentication')
 jest.mock('layouts/Error')
 jest.mock('layouts/Main')
+jest.mock('utils/route', () => ({
+  routeGenerator: () => ({
+    test: {
+      path: 'test',
+      fullPath: '/test',
+      component: 'Test',
+    },
+  }),
+}))
 
 describe('useRouteList', () => {
   test('should return all routes', () => {
