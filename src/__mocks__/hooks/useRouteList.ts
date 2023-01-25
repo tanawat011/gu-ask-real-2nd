@@ -1,4 +1,4 @@
-export const authRoutes = {
+export const auth = {
   fullPath: '/auth',
   children: {
     login: {
@@ -7,73 +7,81 @@ export const authRoutes = {
   },
 }
 
-export const componentRoutes = {
-  children: {
-    card: {
-      fullPath: '/',
-    },
-    button: {
-      fullPath: '/',
-    },
-    input: {
-      fullPath: '/',
-    },
-  },
-}
-
-export const mainRoutes = {
+export const main = {
+  fullPath: '/',
   children: {
     home: {
       fullPath: '/',
     },
-    todo: {
+    app: {
       fullPath: '/',
+      children: {
+        todo: {
+          fullPath: '/',
+          children: {
+            dashboard: {
+              fullPath: '/',
+            },
+          },
+        },
+        article: {
+          fullPath: '/',
+        },
+      },
     },
-    article: {
+    uiComponent: {
       fullPath: '/',
-    },
-    component: {
-      fullPath: '/',
-      ...componentRoutes,
+      children: {
+        button: {
+          fullPath: '/',
+        },
+        buttonGroup: {
+          fullPath: '/',
+        },
+        input: {
+          fullPath: '/',
+        },
+      },
     },
   },
 }
 
-export const errorRoutes = {
+export const error = {
+  fullPath: '/',
   children: {
-    e401: {
+    401: {
       fullPath: '/',
     },
-    e403: {
+    403: {
       fullPath: '/',
     },
-    e404: {
+    404: {
       fullPath: '/',
     },
-    e500: {
+    500: {
       fullPath: '/',
     },
-    e502: {
+    502: {
       fullPath: '/',
     },
-    e503: {
+    503: {
       fullPath: '/',
     },
-    e504: {
+    504: {
       fullPath: '/',
     },
   },
 }
 
-export const allRoutes = {
-  auth: authRoutes,
-  mainRoutes: mainRoutes,
-  error: errorRoutes,
+export const all = {
+  auth,
+  main,
+  error,
 }
 
 export const useRouteList = () => ({
-  allRoutes,
-  authRoutes,
-  mainRoutes,
-  errorRoutes,
+  all,
+  auth,
+  main,
+  error,
 })

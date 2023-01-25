@@ -3,7 +3,7 @@
 exports[`useSidebarMenuList should return all menu list 1`] = `
 <DocumentFragment>
   <div>
-    APPS
+    HOME
   </div>
 </DocumentFragment>
 `;

@@ -1,23 +1,13 @@
-import type {
-  Variant,
-  Size,
-  Shape,
-  TwColor,
-  TwColorLevel,
-  ThemeMode,
-  WithRequired,
-  TwThemeColor,
-} from 'types'
+import type { Variant, Size, Shape, TwThemeColor } from 'types'
 
 import type { MouseEvent } from 'react'
 
 import { useRecoilValue } from 'recoil'
-import tw, { css, styled } from 'twin.macro'
 
 import { IconLoadingSign } from 'components/Icons'
 import { localSettingAtom } from 'recoils/atoms'
 
-import { twShape, twSize, twSizeIcon, twVariantFn } from './styles'
+import { TwButton, TwSpan } from './Button.styles'
 
 export type ButtonProps = {
   label?: string
@@ -33,66 +23,6 @@ export type ButtonProps = {
   width?: string
   block?: boolean
 }
-
-type TwButtonProps = Omit<
-  ButtonProps,
-  'label' | 'icon' | 'onClick' | 'disabled'
-> & {
-  iconOnly?: boolean
-  isDisabled?: boolean
-  isLoading?: boolean
-  isBlocked?: boolean
-  themeColor: TwColor
-  colorLevel: TwColorLevel
-  themeMode: ThemeMode
-}
-
-const TwContainer = tw.div`relative select-none`
-const TwButton = styled.button(
-  ({
-    variant,
-    color,
-    size,
-    shape,
-    iconOnly,
-    isDisabled,
-    isLoading,
-    isBlocked,
-    width,
-    themeColor,
-    colorLevel,
-    themeMode,
-  }: WithRequired<TwButtonProps, 'variant' | 'size' | 'shape'>) => {
-    const [_color, _level] =
-      (color?.split('-') as [TwColor, TwColorLevel]) || []
-    const variantOptional = {
-      themeColor: _color || themeColor,
-      colorLevel: _level || colorLevel,
-      themeMode,
-      isDisabled,
-      isLoading,
-    }
-
-    return [
-      twVariantFn(variant, variantOptional),
-      twShape[shape],
-      iconOnly
-        ? twSizeIcon[size]
-        : [
-            twSize[size],
-            css`
-              min-width: ${width};
-            `,
-          ],
-      iconOnly && tw`rounded-full`,
-      isDisabled && tw`cursor-not-allowed`,
-      isLoading && tw`bg-opacity-50 text-opacity-50`,
-      isBlocked && tw`w-full`,
-      tw`flex items-center justify-center`,
-    ]
-  },
-)
-const TwSpan = tw.span`flex items-center justify-center gap-2`
 
 export const Button: React.FC<ButtonProps> = ({
   label,
@@ -121,7 +51,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   const RenderContent = () => {
     if (isIconOnly) {
-      return loading ? <IconLoadingSign /> : <>{icon}</>
+      return loading ? <IconLoadingSign width={16} height={16} /> : <>{icon}</>
     }
 
     if (loading && typeof loading === 'string') {
@@ -131,40 +61,40 @@ export const Button: React.FC<ButtonProps> = ({
     if (loading && !icon) {
       return (
         <TwSpan>
-          <IconLoadingSign />
+          <IconLoadingSign width={16} height={16} />
         </TwSpan>
       )
     }
 
     return (
       <TwSpan>
-        {isIconLeft && (loading ? <IconLoadingSign /> : icon)}
+        {isIconLeft &&
+          (loading ? <IconLoadingSign width={16} height={16} /> : icon)}
         {label}
-        {!isIconLeft && (loading ? <IconLoadingSign /> : icon)}
+        {!isIconLeft &&
+          (loading ? <IconLoadingSign width={16} height={16} /> : icon)}
       </TwSpan>
     )
   }
 
   return (
-    <TwContainer>
-      <TwButton
-        onClick={handleOnClick}
-        variant={variant}
-        color={color}
-        size={size}
-        iconOnly={isIconOnly}
-        shape={shape}
-        disabled={isDisabled}
-        isDisabled={isDisabled}
-        isLoading={isLoading}
-        width={width}
-        isBlocked={block}
-        themeColor={theme.color}
-        colorLevel={theme.colorLevel}
-        themeMode={theme.mode}
-      >
-        <RenderContent />
-      </TwButton>
-    </TwContainer>
+    <TwButton
+      onClick={handleOnClick}
+      variant={variant}
+      color={color}
+      size={size}
+      iconOnly={isIconOnly}
+      shape={shape}
+      disabled={isDisabled}
+      isDisabled={isDisabled}
+      isLoading={isLoading}
+      width={width}
+      isBlocked={block}
+      themeColor={theme.color}
+      colorLevel={theme.colorLevel}
+      themeMode={theme.mode}
+    >
+      <RenderContent />
+    </TwButton>
   )
 }
