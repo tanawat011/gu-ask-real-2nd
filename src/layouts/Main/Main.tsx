@@ -1,7 +1,4 @@
-import type { OutletContextProps } from 'types'
-
-import type { UIEvent } from 'react'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
@@ -17,13 +14,6 @@ import { MainContainer, MainContent, MainContentContainer } from './Main.style'
 export const MainLayout: React.FC = () => {
   const location = useLocation()
   const navigate = useNavigate()
-
-  const [scroll, setScroll] = useState({
-    top: 0,
-    left: 0,
-    height: 0,
-    width: 0,
-  })
 
   const [{ fullSidebar }, setFullSidebar] = useRecoilState(sidebarAtom)
 
@@ -48,18 +38,6 @@ export const MainLayout: React.FC = () => {
     setFullSidebar({ fullSidebar: !fullSidebar })
   }
 
-  const handleScroll = (event: UIEvent<HTMLElement>) => {
-    const { scrollTop, scrollLeft, scrollHeight, scrollWidth } =
-      event.currentTarget
-
-    setScroll({
-      top: scrollTop,
-      left: scrollLeft,
-      height: scrollHeight,
-      width: scrollWidth,
-    })
-  }
-
   return (
     <MainContainer fullSidebar={fullSidebar}>
       <Sidebar
@@ -71,12 +49,9 @@ export const MainLayout: React.FC = () => {
       <MainContent>
         <Navbar handleToggleSidebar={handleToggleSidebar} />
 
-        <MainContentContainer
-          data-testid='scrollable-content'
-          id='main-layout'
-          onScroll={handleScroll}
-        >
-          <Outlet context={{ scroll } as OutletContextProps} />
+        <MainContentContainer data-testid='scrollable-content' id='main-layout'>
+          <Outlet />
+
           <div className='min-h-[64px]'>Container Footer Template</div>
         </MainContentContainer>
       </MainContent>

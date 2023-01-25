@@ -7,6 +7,7 @@ import { Title } from 'components/PageUiComponent'
 import { TEXT_THEME } from 'constants/twTheme'
 
 type RightMenuContentProps = {
+  containerId: string
   title: string
   menuList: string[]
 }
@@ -22,6 +23,7 @@ const TwLink = styled(Link)(() => [
 ])
 
 export const RightMenuContent: React.FC<RightMenuContentProps> = ({
+  containerId,
   title,
   menuList,
 }) => {
@@ -40,7 +42,7 @@ export const RightMenuContent: React.FC<RightMenuContentProps> = ({
                 to={id}
                 spy={true}
                 isDynamic
-                containerId='main-layout'
+                containerId={containerId}
                 offset={-16}
               >
                 {item}

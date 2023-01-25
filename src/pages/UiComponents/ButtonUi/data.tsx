@@ -3,6 +3,8 @@ import type { ComponentApiGuideData } from 'types'
 
 import { PreCode } from 'components/PreCode'
 
+export const containerId = 'button-ui'
+
 export const menuList = {
   variant: { id: 'variant', name: 'Variant' },
   color: { id: 'color', name: 'Color' },
