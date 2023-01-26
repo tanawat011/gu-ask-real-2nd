@@ -38,6 +38,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
       const _loading = _props.loading || loading
 
       const newProps = {
+        ..._props,
         variant: _variant,
         color: _color,
         size,

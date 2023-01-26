@@ -48,6 +48,7 @@ export const TwButtonGroup = styled.div(
     ]
 
     const shadowColor = colors[_color][_level]
+    const shadowColorOpacity = colors[_color][_level] + '80'
 
     return [
       tw`flex`,
@@ -56,10 +57,16 @@ export const TwButtonGroup = styled.div(
         twShapeGroup[shape],
         tw`shadow-md`,
         css`
-          --tw-shadow-color: ${shadowColor};
           --tw-shadow: var(--tw-shadow-colored);
+
+          ${isLoading &&
+          `
+            --tw-shadow-color: ${shadowColorOpacity};
+          `}
+
           ${!isLoading &&
           `
+            --tw-shadow-color: ${shadowColor};
             &:hover {
               --tw-shadow-color: ${shadowColor}cc;
             }
