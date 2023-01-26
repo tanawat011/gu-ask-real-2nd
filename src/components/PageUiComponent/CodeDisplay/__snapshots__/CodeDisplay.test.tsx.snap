@@ -53,12 +53,18 @@ exports[`<CodeDisplay /> renders correctly 1`] = `
         class="c3"
       >
         <button
+          data-size="xs"
           data-testid="button"
+          icon="[object Object]"
+          variant="text"
         >
           Button
         </button>
         <button
+          data-size="xs"
           data-testid="button"
+          icon="[object Object]"
+          variant="text"
         >
           Button
         </button>
