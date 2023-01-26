@@ -4,6 +4,13 @@
 export const Button = ({ onClick, size, ...more }) => {
   Object.entries(more).forEach(([key, value]) => {
     if (typeof more[key] === 'boolean') {
+      if (key === 'disabled') {
+        if (more[key]) more[key] = true
+        else delete more[key]
+
+        return
+      }
+
       more[key] = `${value}`
     }
   })

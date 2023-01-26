@@ -123,4 +123,10 @@ export const buttonApiTableData: ComponentApiGuideData<ButtonProps>[] = [
     val: <PreCode text='boolean' />,
     default: <PreCode text='false' />,
   },
+  {
+    prop: 'width',
+    desc: 'Make the button fixed width',
+    val: <PreCode text='string' />,
+    default: <PreCode text='-' />,
+  },
 ]

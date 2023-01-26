@@ -11,7 +11,7 @@ import { TwButtonGroup } from './ButtonGroup.style'
 export type ButtonGroupProps = {
   children: React.ReactNode
   vertical?: boolean
-} & ButtonProps
+} & Omit<ButtonProps, 'label' | 'icon' | 'iconPosition' | 'onClick'>
 
 export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   children,

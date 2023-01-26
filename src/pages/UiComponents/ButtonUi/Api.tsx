@@ -8,7 +8,7 @@ import { buttonApiTableData, menuList } from './data'
 
 const TwContainer = tw.div`mb-8`
 
-export const ButtonUiApi = () => {
+export const Api = () => {
   return (
     <TwContainer id={menuList.api.id}>
       <Title title={menuList.api.name} />
