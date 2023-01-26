@@ -4,7 +4,7 @@ import tw from 'twin.macro'
 
 import { Title } from 'components/PageUiComponent'
 
-import { ButtonUiApi } from './ButtonUiApi'
+import { Api } from './Api'
 import { ButtonUiBlock } from './ButtonUiBlock'
 import { ButtonUiColor } from './ButtonUiColor'
 import { ButtonUiDisabled } from './ButtonUiDisabled'
@@ -48,7 +48,8 @@ export const ButtonUi = () => {
           <ButtonUiWithIcon />
           <ButtonUiLoading />
           <ButtonUiBlock />
-          <ButtonUiApi />
+
+          <Api />
         </TwWrapContent>
 
         <TwWrapMenu>
