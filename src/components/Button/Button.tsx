@@ -1,11 +1,9 @@
-import type { Variant, Size, Shape, TwThemeColor } from 'types'
+import type { VariantButton, Size, Shape, TwThemeColor } from 'types'
 
 import type { MouseEvent } from 'react'
 
-import { useRecoilValue } from 'recoil'
-
 import { IconLoadingSign } from 'components/Icons'
-import { localSettingAtom } from 'recoils/atoms'
+import { useGetThemeColor } from 'hooks/useGetThemeColor'
 
 import { TwButton, TwSpan } from './Button.styles'
 
@@ -14,7 +12,7 @@ export type ButtonProps = {
   icon?: string | React.ReactNode
   iconPosition?: 'left' | 'right'
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
-  variant?: Variant
+  variant?: VariantButton
   color?: TwThemeColor
   size?: Size
   shape?: Shape
@@ -38,7 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
   width = '120px',
   block,
 }) => {
-  const { theme } = useRecoilValue(localSettingAtom)
+  const { hexColor, themeMode } = useGetThemeColor(color)
 
   const handleOnClick = (event: MouseEvent<HTMLButtonElement>) => {
     onClick && onClick(event)
@@ -81,7 +79,6 @@ export const Button: React.FC<ButtonProps> = ({
     <TwButton
       onClick={handleOnClick}
       variant={variant}
-      color={color}
       size={size}
       iconOnly={isIconOnly}
       shape={shape}
@@ -90,9 +87,8 @@ export const Button: React.FC<ButtonProps> = ({
       isLoading={isLoading}
       width={width}
       isBlocked={block}
-      themeColor={theme.color}
-      colorLevel={theme.colorLevel}
-      themeMode={theme.mode}
+      hexColor={hexColor}
+      themeMode={themeMode}
     >
       <RenderContent />
     </TwButton>

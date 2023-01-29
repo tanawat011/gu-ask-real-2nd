@@ -15,7 +15,7 @@ import type {
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
-import { ButtonGroupUi, ButtonUi, InputUi } from 'pages/UiComponents'
+import { ButtonGroupUi, ButtonUi, TextFieldUi } from 'pages/UiComponents'
 import { routeGenerator } from 'utils/route'
 
 type RouteMain = {
@@ -47,7 +47,7 @@ const routeMain: RouteMain = {
       select: <div>select</div>,
       slider: <div>slider</div>,
       switch: <div>switch</div>,
-      textField: <InputUi />,
+      textField: <TextFieldUi />,
       upload: <div>upload</div>,
     },
   },

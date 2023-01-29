@@ -1,5 +1,5 @@
 /* eslint-disable jest/no-conditional-expect */
-import type { Size, ThemeMode, Variant } from 'types'
+import type { Size, ThemeMode, VariantButton } from 'types'
 
 import { useEffect } from 'react'
 
@@ -298,7 +298,7 @@ describe('<Button />', () => {
     shadowHoverColor?: string
   }
 
-  type TestVariant = { [key in Variant]: ColorTestOption }
+  type TestVariant = { [key in VariantButton]: ColorTestOption }
 
   const variantsDark: TestVariant = {
     primary: {
@@ -358,7 +358,7 @@ describe('<Button />', () => {
   }
 
   const execTestCase = (
-    key: Variant,
+    key: VariantButton,
     {
       bgColor,
       bgHoverColor,
@@ -392,7 +392,7 @@ describe('<Button />', () => {
         setTheme({ auth, theme: { ...theme, mode } })
       }, [])
 
-      return <Button label='button' variant={key as Variant} />
+      return <Button label='button' variant={key as VariantButton} />
     }
 
     renderWithProviders(<Component />)
@@ -519,7 +519,7 @@ describe('<Button />', () => {
     test(`renders correctly and variant \`${key}\``, () => {
       expect.hasAssertions()
 
-      execTestCase(key as Variant, val)
+      execTestCase(key as VariantButton, val)
     })
   })
 
@@ -584,7 +584,7 @@ describe('<Button />', () => {
     test(`renders correctly and variant \`${key}\` with light theme`, () => {
       expect.hasAssertions()
 
-      execTestCase(key as Variant, val, 'light')
+      execTestCase(key as VariantButton, val, 'light')
     })
   })
 

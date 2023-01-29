@@ -1,7 +1,6 @@
 import type { ButtonGroupProps } from './ButtonGroup'
-import type { TwColor, TwColorLevel, TwShapeObject, WithRequired } from 'types'
+import type { TwShapeObject, WithRequired } from 'types'
 
-import colors from 'tailwindcss/colors'
 import tw, { css, styled } from 'twin.macro'
 
 const twShapeGroup: TwShapeObject = {
@@ -22,33 +21,19 @@ const twShapeVertical: TwShapeObject = {
   circle: tw`first:rounded-t-full! last:rounded-b-full!`,
 }
 
-type TwButtonGroupProps = Pick<
-  ButtonGroupProps,
-  'shape' | 'vertical' | 'color'
-> & {
-  isShadow?: boolean
-  isLoading?: boolean
-  colorTheme: TwColor
-  colorLevel: TwColorLevel
-}
+type TwButtonGroupProps = WithRequired<
+  Pick<ButtonGroupProps, 'shape' | 'vertical'> & {
+    isShadow?: boolean
+    isLoading?: boolean
+    hexColor: string
+  },
+  'shape'
+>
 
-export const TwButtonGroup = styled.div(
-  ({
-    color,
-    colorLevel,
-    colorTheme,
-    shape,
-    vertical,
-    isShadow,
-    isLoading,
-  }: WithRequired<TwButtonGroupProps, 'shape'>) => {
-    const [_color, _level] = (color?.split('-') as [TwColor, TwColorLevel]) || [
-      colorTheme,
-      colorLevel,
-    ]
-
-    const shadowColor = colors[_color][_level]
-    const shadowColorOpacity = colors[_color][_level] + '80'
+export const TwButtonGroup = styled.div<TwButtonGroupProps>(
+  ({ hexColor, shape, vertical, isShadow, isLoading }) => {
+    const shadowColor = hexColor
+    const shadowColorOpacity = hexColor + '80'
 
     return [
       tw`flex`,
