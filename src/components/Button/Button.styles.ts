@@ -3,11 +3,9 @@ import type { FlattenSimpleInterpolation } from 'styled-components'
 import type { TwStyle } from 'twin.macro'
 import type {
   ThemeMode,
-  TwColor,
-  TwColorLevel,
   TwShapeObject,
   TwSizeObject,
-  Variant,
+  VariantButton,
   WithRequired,
 } from 'types'
 
@@ -17,24 +15,23 @@ import tw, { styled, css } from 'twin.macro'
 import { twColor } from 'utils/jest'
 
 type TwThemeOption = {
-  themeColor: TwColor
-  colorLevel: TwColorLevel
+  hexColor: string
   themeMode: ThemeMode
   isDisabled?: boolean
   isLoading?: boolean
 }
 
 type TwVariantFn = (
-  variant: Variant,
-  { themeColor, colorLevel, themeMode, isDisabled, isLoading }: TwThemeOption,
+  variant: VariantButton,
+  option: TwThemeOption,
 ) => TwStyle | TwStyle[] | FlattenSimpleInterpolation
 
 const twVariantFn: TwVariantFn = (
   variant,
-  { themeColor, colorLevel, themeMode, isDisabled, isLoading },
+  { hexColor, themeMode, isDisabled, isLoading },
 ) => {
   const isDarkMode = themeMode === 'dark'
-  const color = colors[themeColor][colorLevel]
+  const color = hexColor
   const bgColor = twColor(color)
   const bgWhiteColor = twColor(colors.white)
   const borderColor = twColor(color, 'border')
@@ -215,25 +212,23 @@ const twShape: TwShapeObject = {
   circle: tw`rounded-full`,
 }
 
-type TwButtonProps = Omit<
-  ButtonProps,
-  'label' | 'icon' | 'onClick' | 'disabled'
-> & {
-  iconOnly?: boolean
-  isDisabled?: boolean
-  isLoading?: boolean
-  isBlocked?: boolean
-  themeColor: TwColor
-  colorLevel: TwColorLevel
-  themeMode: ThemeMode
-}
+type TwButtonProps = WithRequired<
+  Omit<ButtonProps, 'label' | 'icon' | 'onClick' | 'disabled'> & {
+    iconOnly?: boolean
+    isDisabled?: boolean
+    isLoading?: boolean
+    isBlocked?: boolean
+    hexColor: string
+    themeMode: ThemeMode
+  },
+  'variant' | 'size' | 'shape'
+>
 
 export const TwSpan = tw.span`flex items-center justify-center gap-2`
 
-export const TwButton = styled.button(
+export const TwButton = styled.button<TwButtonProps>(
   ({
     variant,
-    color,
     size,
     shape,
     iconOnly,
@@ -241,39 +236,28 @@ export const TwButton = styled.button(
     isLoading,
     isBlocked,
     width,
-    themeColor,
-    colorLevel,
+    hexColor,
     themeMode,
-  }: WithRequired<TwButtonProps, 'variant' | 'size' | 'shape'>) => {
-    const [_color, _level] = (color?.split('-') as [TwColor, TwColorLevel]) || [
-      themeColor,
-      colorLevel,
-    ]
-
-    const variantOption = {
-      themeColor: _color,
-      colorLevel: _level,
+  }) => [
+    twVariantFn(variant, {
+      hexColor,
       themeMode,
       isDisabled,
       isLoading,
-    }
-
-    return [
-      twVariantFn(variant, variantOption),
-      twShape[shape],
-      iconOnly
-        ? twSizeIcon[size]
-        : [
-            twSize[size],
-            css`
-              min-width: ${width};
-            `,
-          ],
-      iconOnly && tw`rounded-full`,
-      isDisabled && tw`cursor-not-allowed`,
-      isLoading && tw`bg-opacity-50 text-opacity-50`,
-      isBlocked && tw`w-full`,
-      tw`relative flex select-none items-center justify-center`,
-    ]
-  },
+    }),
+    twShape[shape],
+    iconOnly
+      ? twSizeIcon[size]
+      : [
+          twSize[size],
+          css`
+            min-width: ${width};
+          `,
+        ],
+    iconOnly && tw`rounded-full`,
+    isDisabled && tw`cursor-not-allowed`,
+    isLoading && tw`bg-opacity-50 text-opacity-50`,
+    isBlocked && tw`w-full`,
+    tw`relative flex select-none items-center justify-center`,
+  ],
 )

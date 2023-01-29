@@ -2,9 +2,7 @@ import type { ButtonProps } from 'components/Button'
 
 import React from 'react'
 
-import { useRecoilValue } from 'recoil'
-
-import { localSettingAtom } from 'recoils/atoms'
+import { useGetThemeColor } from 'hooks/useGetThemeColor'
 
 import { TwButtonGroup } from './ButtonGroup.style'
 
@@ -24,7 +22,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   block,
   vertical,
 }) => {
-  const { theme } = useRecoilValue(localSettingAtom)
+  const { hexColor } = useGetThemeColor(color)
 
   const isShadow = variant === 'shadow'
 
@@ -53,13 +51,11 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
 
   return (
     <TwButtonGroup
-      color={color}
       shape={shape}
       vertical={vertical}
       isShadow={isShadow}
       isLoading={Boolean(loading)}
-      colorTheme={theme.color}
-      colorLevel={theme.colorLevel}
+      hexColor={hexColor}
     >
       {childrenUpdateProps}
     </TwButtonGroup>
