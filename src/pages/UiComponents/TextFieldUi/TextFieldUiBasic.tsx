@@ -13,11 +13,38 @@ export const TextFieldUiBasic = () => {
       <Title title={menuList.variant.name} description={<></>} />
       <ComponentDisplay
         components={
-          <div className='flex gap-2 items-center flex-wrap'>
-            <TextField placeholder='Text field' />
-            <TextField placeholder='Text field' color='amber-600' />
-            <TextField placeholder='Text field' disabled />
-          </div>
+          <>
+            <div className='flex items-center flex-wrap'>
+              <TextField
+                placeholder='Username'
+                label='Username'
+                id='username'
+                block
+                required
+              />
+              <TextField
+                placeholder='Password'
+                label='Password'
+                id='password'
+                block
+                required
+                error='Password is required'
+              />
+            </div>
+
+            <div className='flex gap-2 items-center flex-wrap'>
+              <TextField placeholder='Text field' error />
+              <TextField placeholder='Text field' color='amber-600' />
+              <TextField placeholder='Text field' disabled />
+              <TextField placeholder='Text field' size='lg' />
+              <TextField placeholder='Text field' size='md' />
+              <TextField placeholder='Text field' size='sm' />
+              <TextField placeholder='Text field' size='xs' />
+              <TextField placeholder='Text field' shape='circle' />
+              <TextField placeholder='Text field' shape='square' />
+              <TextField placeholder='Text field' shape='rounded' />
+            </div>
+          </>
         }
         code={`import React from "react"
 
