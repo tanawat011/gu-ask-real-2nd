@@ -30,7 +30,7 @@ export type TextFieldProps = {
 }
 
 export const TextField: React.FC<TextFieldProps> = ({
-  id,
+  id = '',
   label,
   placeholder,
   variant = 'basic',
@@ -39,16 +39,18 @@ export const TextField: React.FC<TextFieldProps> = ({
   size = 'md',
   shape = 'rounded',
   width = '185px',
-  block,
+  block = false,
   required,
   error,
 }) => {
   const { hexColor, themeMode } = useGetThemeColor(color)
 
+  const isOutline = variant === 'outline'
+
   return (
-    <TwWrapperInput block={block}>
+    <TwWrapperInput block={block} variant={variant}>
       {label && (
-        <TwLabel id={id}>
+        <TwLabel htmlFor={id}>
           <span>{label}</span>
           <span>{required && '*'}</span>
         </TwLabel>
@@ -58,7 +60,7 @@ export const TextField: React.FC<TextFieldProps> = ({
         <TwInput
           id={id}
           name={id}
-          placeholder={placeholder}
+          placeholder={isOutline ? '' : placeholder}
           themeMode={themeMode}
           hexColor={hexColor}
           disabled={disabled}
