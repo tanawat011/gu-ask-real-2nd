@@ -6,15 +6,22 @@ import { PreCode } from 'components/PreCode'
 export const containerId = 'button-ui'
 
 export const menuList = {
-  variant: { id: 'variant', name: 'Variant' },
+  label: { id: 'label', name: 'Label' }, // * string
+  helperText: { id: 'helperText', name: 'HelperText' }, // * string, ReactNode
+  error: { id: 'error', name: 'Error' }, // * boolean, string
+  variant: { id: 'variant', name: 'Variant' }, // * basic, outline, filled, underline
   color: { id: 'color', name: 'Color' },
   size: { id: 'size', name: 'Size' },
   shape: { id: 'shape', name: 'Shape' },
-  disabled: { id: 'disabled', name: 'Disabled' },
-  icon: { id: 'icon', name: 'Icon' },
-  withIcon: { id: 'with-icon', name: 'With Icon' },
-  loading: { id: 'loading', name: 'Loading' },
-  block: { id: 'block', name: 'Block' },
+  required: { id: 'required', name: 'Required' }, // * boolean
+  disabled: { id: 'disabled', name: 'Disabled' }, // * boolean
+  type: { id: 'type', name: 'Type' }, // * email, password, number, tel, url, search
+  multiline: { id: 'multiline', name: 'Multiline' }, // * textarea
+  margin: { id: 'margin', name: 'Margin' }, // * none, dense, normal
+  icon: { id: 'icon', name: 'Icon' }, // * string, ReactNode
+  iconPosition: { id: 'iconPosition', name: 'IconPosition' }, // * left, right
+  loading: { id: 'loading', name: 'Loading' }, // * boolean, string
+  width: { id: 'width', name: 'Width' }, // * string
   api: { id: 'api', name: 'API' },
 }
 
