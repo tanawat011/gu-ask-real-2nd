@@ -12,9 +12,7 @@ import tw, { css, styled } from 'twin.macro'
 
 import { twColor } from 'utils/jest'
 
-type TwWrapperInputProps = {
-  block?: boolean
-}
+type TwWrapperInputProps = Required<Pick<TextFieldProps, 'block' | 'variant'>>
 
 type TwTextFieldProps = WithRequired<
   Omit<TextFieldProps, 'disabled' | 'placeholder' | 'size'>,
@@ -38,10 +36,34 @@ const twShape: TwShapeObject = {
   circle: tw`rounded-full`,
 }
 
-export const TwWrapperInput = styled.div<TwWrapperInputProps>(({ block }) => [
-  block && tw`w-full`,
-  tw`mb-7`,
-])
+export const TwWrapperInput = styled.div<TwWrapperInputProps>(
+  ({ variant, block }) => {
+    return [
+      block && tw`w-full`,
+      tw`mb-7`,
+      variant === 'outline' &&
+        css`
+          ${tw`relative`}
+
+          label {
+            transform-origin: left top;
+            ${tw`pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 transition-all`}
+          }
+
+          label:has(div input:focus) {
+            ${tw`text-indigo-600`}
+            top: 0;
+            transform: translateY(-50%) scale(0.9);
+          }
+
+          label:has(input:not(:placeholder-shown)) {
+            top: 0;
+            transform: translateY(-50%) scale(0.9);
+          }
+        `,
+    ]
+  },
+)
 
 export const TwWrapperInputLv2 = tw.div`relative`
 
@@ -59,6 +81,7 @@ export const TwWrapperError = tw.div`absolute text-red-600`
 
 export const TwInput = styled.input<TwTextFieldProps>(
   ({
+    variant,
     hexColor,
     themeMode,
     disabled,
@@ -71,6 +94,7 @@ export const TwInput = styled.input<TwTextFieldProps>(
     const isDarkMode = themeMode === 'dark'
     const color = hexColor
     const bgColor = twColor(isDarkMode ? colors.gray[800] : colors.white)
+    // const bgColor = colors.transparent
     const borderColorError = twColor(colors.red[600], 'border')
     const borderColor = error
       ? borderColorError
