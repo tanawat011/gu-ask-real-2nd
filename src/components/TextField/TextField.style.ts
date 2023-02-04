@@ -17,7 +17,7 @@ type TwThemeOption = {
   themeMode: ThemeMode
 }
 
-type TwWrapperInputProps = Required<Pick<TextFieldProps, 'block'>>
+type TwWrapperInputProps = Required<Pick<TextFieldProps, 'block' | 'variant'>>
 
 type TwWrapperInput2Props = Required<
   Pick<TextFieldProps, 'variant' | 'error'>
@@ -34,11 +34,18 @@ type GetColorsFn = (option: Omit<TwWrapperInput2Props, 'variant'>) => {
 
 type TwTextFieldProps = WithRequired<
   Omit<TextFieldProps, 'disabled' | 'placeholder' | 'size'>,
-  'shape' | 'width' | 'error'
+  'shape' | 'width' | 'error' | 'variant'
 > &
   TwThemeOption & {
     inputSize: Size
   }
+
+type TwLabelProps = {
+  inputSize: Size
+}
+
+type TwWrapperIconErrorProps = Required<Pick<TextFieldProps, 'variant'>> &
+  TwThemeOption
 
 const twSize: TwSizeObject = {
   xs: tw`h-7 px-3 py-1 text-xs`,
@@ -47,15 +54,25 @@ const twSize: TwSizeObject = {
   lg: tw`h-14 px-3 py-2 text-base`,
 }
 
+const twSizeUnderline: TwSizeObject = {
+  xs: tw`mt-0 h-6 px-0 py-1 text-xs`,
+  sm: tw`mt-1 h-7 px-0 py-1 text-sm`,
+  md: tw`mt-1 h-8 px-0 py-1 text-sm`,
+  lg: tw`mt-2 h-11 px-0 py-1 text-base`,
+}
+
 const twShape: TwShapeObject = {
   square: tw`rounded-none`,
   rounded: tw`rounded-md`,
   circle: tw`rounded-full`,
 }
 
-export const TwWrapperInput = styled.div<TwWrapperInputProps>(({ block }) => {
-  return [block && tw`w-full`, tw`mb-7`]
-})
+const twLabelSize: TwSizeObject = {
+  xs: tw`text-xs`,
+  sm: tw`text-sm`,
+  md: tw`text-base`,
+  lg: tw`text-lg`,
+}
 
 const getColors: GetColorsFn = ({ themeMode, hexColor, error }) => {
   const white = colors.white
@@ -89,6 +106,14 @@ const getColors: GetColorsFn = ({ themeMode, hexColor, error }) => {
   }
 }
 
+export const TwWrapperInput = styled.div<TwWrapperInputProps>(
+  ({ block, variant }) => {
+    const isFilled = variant === 'filled'
+
+    return [block && tw`w-full`, tw`mb-7`, isFilled && tw`bg-gray-900`]
+  },
+)
+
 export const TwWrapperInputLv2 = styled.div<TwWrapperInput2Props>(
   ({ variant, hexColor, themeMode, error }) => {
     const { bg, text, textTheme } = getColors({
@@ -96,24 +121,27 @@ export const TwWrapperInputLv2 = styled.div<TwWrapperInput2Props>(
       hexColor,
       error,
     })
+    const isNotBasic = variant !== 'basic'
+    const isUnderline = ['underline', 'filled'].includes(variant)
 
     return [
       tw`relative`,
-      variant === 'outline' &&
+      isNotBasic &&
         css`
           label {
-            ${tw`pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 transition-all`}
+            ${tw`pointer-events-none absolute top-1/2 z-10 m-0 -translate-y-1/2 transition-all`}
+            ${isUnderline ? tw`left-0` : tw`left-3`}
             ${error && `color: ${text};`}
           }
 
           input:focus + label {
-            ${tw`-top-0.5 left-2 m-0 -translate-y-1/2 px-1 text-xs`}
             color: ${textTheme};
-            background-color: ${bg};
           }
 
+          input:focus + label,
           input:not(:placeholder-shown) + label {
-            ${tw`-top-0.5 left-2 m-0 -translate-y-1/2 px-1 text-xs`}
+            ${tw`-top-0.5 left-2 -translate-y-1/2 text-xs`}
+            ${isUnderline ? tw`left-0` : tw`left-2 px-1`}
             background-color: ${bg};
           }
         `,
@@ -121,8 +149,9 @@ export const TwWrapperInputLv2 = styled.div<TwWrapperInput2Props>(
   },
 )
 
-export const TwLabel = styled.label(() => [
+export const TwLabel = styled.label<TwLabelProps>(({ inputSize }) => [
   tw`mb-2 block`,
+  twLabelSize[inputSize],
   css`
     span:nth-child(2) {
       ${tw`ml-1 text-red-600`}
@@ -130,11 +159,17 @@ export const TwLabel = styled.label(() => [
   `,
 ])
 
-export const TwWrapperIconError = tw.div`absolute right-3 top-1/2 -translate-y-1/2 text-red-600`
+export const TwWrapperIconError = styled.div<TwWrapperIconErrorProps>(
+  ({ variant }) => [
+    variant === 'underline' ? tw`right-1` : tw`right-3`,
+    tw`absolute top-1/2 -translate-y-1/2 text-red-600`,
+  ],
+)
 export const TwWrapperError = tw.div`absolute text-red-600`
 
 export const TwInput = styled.input<TwTextFieldProps>(
   ({
+    variant,
     hexColor,
     themeMode,
     disabled,
@@ -149,18 +184,24 @@ export const TwInput = styled.input<TwTextFieldProps>(
       hexColor,
       error,
     })
+    const isUnderline = ['underline', 'filled'].includes(variant)
 
     return [
-      tw`rounded-lg border outline-none transition-all focus:ring-1`,
-      twSize[inputSize],
-      twShape[shape],
-      error && tw`pr-9`,
+      tw`outline-none transition-all`,
+      !isUnderline && twShape[shape],
+      isUnderline
+        ? [
+            tw`border-b focus:focus-within:border-b-2`,
+            twSizeUnderline[inputSize],
+          ]
+        : [tw`border focus:ring-1`, twSize[inputSize]],
+      error && isUnderline ? tw`pr-6` : tw`pr-9`,
       css`
         ${block ? tw`w-full` : `width: ${width};`}
 
-        background-color: ${bg};
+        background-color: transparent;
 
-        ${tw`border border-opacity-100 text-opacity-100`}
+        ${tw`border-opacity-100 text-opacity-100`}
         border-color: ${border};
 
         color: ${text};

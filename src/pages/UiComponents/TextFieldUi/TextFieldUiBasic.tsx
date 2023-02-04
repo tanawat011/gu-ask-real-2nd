@@ -37,12 +37,12 @@ export const TextFieldUiBasic = () => {
               <TextField placeholder='Text field' color='amber-600' />
               <TextField label='Outline' variant='outline' error />
               <TextField label='Outline' variant='outline' color='amber-600' />
+              <TextField label='Outline' variant='outline' size='sm' />
+              <TextField label='Outline' variant='outline' size='xs' />
               <TextField label='Underline' variant='underline' error />
-              <TextField
-                label='Underline'
-                variant='underline'
-                color='amber-600'
-              />
+              <TextField label='Underline' variant='underline' />
+              <TextField label='Filled' variant='filled' error />
+              <TextField label='Filled' variant='filled' />
               <TextField placeholder='Text field' disabled />
               <TextField placeholder='Text field' size='lg' />
               <TextField placeholder='Text field' size='md' />
