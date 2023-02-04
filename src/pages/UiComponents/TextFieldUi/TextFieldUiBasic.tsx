@@ -35,7 +35,14 @@ export const TextFieldUiBasic = () => {
             <div className='flex gap-2 items-center flex-wrap'>
               <TextField placeholder='Text field' error />
               <TextField placeholder='Text field' color='amber-600' />
-              <TextField label='Outline' variant='outline' />
+              <TextField label='Outline' variant='outline' error />
+              <TextField label='Outline' variant='outline' color='amber-600' />
+              <TextField label='Underline' variant='underline' error />
+              <TextField
+                label='Underline'
+                variant='underline'
+                color='amber-600'
+              />
               <TextField placeholder='Text field' disabled />
               <TextField placeholder='Text field' size='lg' />
               <TextField placeholder='Text field' size='md' />
