@@ -15,7 +15,7 @@ import {
 
 export type TextFieldProps = {
   id?: string
-  label?: string | React.ReactNode
+  label?: string
   placeholder?: string
   variant?: VariantInput
   color?: TwThemeColor
@@ -41,26 +41,34 @@ export const TextField: React.FC<TextFieldProps> = ({
   width = '185px',
   block = false,
   required,
-  error,
+  error = false,
 }) => {
   const { hexColor, themeMode } = useGetThemeColor(color)
 
   const isOutline = variant === 'outline'
+  const isUnderline = variant === 'underline'
+
+  const RenderLabel = () => (
+    <TwLabel htmlFor={id}>
+      <span>{label}</span>
+      {required && <span>*</span>}
+    </TwLabel>
+  )
 
   return (
-    <TwWrapperInput block={block} variant={variant}>
-      {label && (
-        <TwLabel htmlFor={id}>
-          <span>{label}</span>
-          <span>{required && '*'}</span>
-        </TwLabel>
-      )}
+    <TwWrapperInput block={block}>
+      {label && !isOutline && <RenderLabel />}
 
-      <TwWrapperInputLv2>
+      <TwWrapperInputLv2
+        variant={variant}
+        hexColor={hexColor}
+        themeMode={themeMode}
+        error={error}
+      >
         <TwInput
           id={id}
           name={id}
-          placeholder={isOutline ? '' : placeholder}
+          placeholder={isOutline ? ' ' : placeholder}
           themeMode={themeMode}
           hexColor={hexColor}
           disabled={disabled}
@@ -71,6 +79,8 @@ export const TextField: React.FC<TextFieldProps> = ({
           block={block}
           error={error}
         />
+
+        {label && isOutline && <RenderLabel />}
 
         {!label && error && (
           <TwWrapperIconError>

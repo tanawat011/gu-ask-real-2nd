@@ -12,16 +12,33 @@ import tw, { css, styled } from 'twin.macro'
 
 import { twColor } from 'utils/jest'
 
-type TwWrapperInputProps = Required<Pick<TextFieldProps, 'block' | 'variant'>>
+type TwThemeOption = {
+  hexColor: string
+  themeMode: ThemeMode
+}
+
+type TwWrapperInputProps = Required<Pick<TextFieldProps, 'block'>>
+
+type TwWrapperInput2Props = Required<
+  Pick<TextFieldProps, 'variant' | 'error'>
+> &
+  TwThemeOption
+
+type GetColorsFn = (option: Omit<TwWrapperInput2Props, 'variant'>) => {
+  bg: string
+  border: string
+  borderTheme: string
+  text: string
+  textTheme: string
+}
 
 type TwTextFieldProps = WithRequired<
   Omit<TextFieldProps, 'disabled' | 'placeholder' | 'size'>,
-  'shape' | 'width'
-> & {
-  hexColor: string
-  themeMode: ThemeMode
-  inputSize: Size
-}
+  'shape' | 'width' | 'error'
+> &
+  TwThemeOption & {
+    inputSize: Size
+  }
 
 const twSize: TwSizeObject = {
   xs: tw`h-7 px-3 py-1 text-xs`,
@@ -36,36 +53,73 @@ const twShape: TwShapeObject = {
   circle: tw`rounded-full`,
 }
 
-export const TwWrapperInput = styled.div<TwWrapperInputProps>(
-  ({ variant, block }) => {
+export const TwWrapperInput = styled.div<TwWrapperInputProps>(({ block }) => {
+  return [block && tw`w-full`, tw`mb-7`]
+})
+
+const getColors: GetColorsFn = ({ themeMode, hexColor, error }) => {
+  const white = colors.white
+  const black = colors.gray[800]
+  const darkGray = colors.gray[600]
+  const gray = colors.gray[500]
+  const lightGray = colors.gray[300]
+  const red = colors.red[600]
+  const base = hexColor
+
+  const isDarkMode = themeMode === 'dark'
+
+  const bg = twColor(isDarkMode ? black : white)
+
+  const borderError = twColor(red, 'border')
+  const borderTheme = error ? borderError : twColor(base, 'border')
+  const border = error
+    ? borderError
+    : twColor(isDarkMode ? darkGray : lightGray, 'border')
+
+  const textError = twColor(red, 'text')
+  const textTheme = error ? textError : twColor(base, 'text')
+  const text = error ? textError : twColor(isDarkMode ? white : gray, 'text')
+
+  return {
+    bg,
+    borderTheme,
+    border,
+    text,
+    textTheme,
+  }
+}
+
+export const TwWrapperInputLv2 = styled.div<TwWrapperInput2Props>(
+  ({ variant, hexColor, themeMode, error }) => {
+    const { bg, text, textTheme } = getColors({
+      themeMode,
+      hexColor,
+      error,
+    })
+
     return [
-      block && tw`w-full`,
-      tw`mb-7`,
+      tw`relative`,
       variant === 'outline' &&
         css`
-          ${tw`relative`}
-
           label {
-            transform-origin: left top;
             ${tw`pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 transition-all`}
+            ${error && `color: ${text};`}
           }
 
-          label:has(div input:focus) {
-            ${tw`text-indigo-600`}
-            top: 0;
-            transform: translateY(-50%) scale(0.9);
+          input:focus + label {
+            ${tw`-top-0.5 left-2 m-0 -translate-y-1/2 px-1 text-xs`}
+            color: ${textTheme};
+            background-color: ${bg};
           }
 
-          label:has(input:not(:placeholder-shown)) {
-            top: 0;
-            transform: translateY(-50%) scale(0.9);
+          input:not(:placeholder-shown) + label {
+            ${tw`-top-0.5 left-2 m-0 -translate-y-1/2 px-1 text-xs`}
+            background-color: ${bg};
           }
         `,
     ]
   },
 )
-
-export const TwWrapperInputLv2 = tw.div`relative`
 
 export const TwLabel = styled.label(() => [
   tw`mb-2 block`,
@@ -81,7 +135,6 @@ export const TwWrapperError = tw.div`absolute text-red-600`
 
 export const TwInput = styled.input<TwTextFieldProps>(
   ({
-    variant,
     hexColor,
     themeMode,
     disabled,
@@ -91,19 +144,11 @@ export const TwInput = styled.input<TwTextFieldProps>(
     block,
     error,
   }) => {
-    const isDarkMode = themeMode === 'dark'
-    const color = hexColor
-    const bgColor = twColor(isDarkMode ? colors.gray[800] : colors.white)
-    // const bgColor = colors.transparent
-    const borderColorError = twColor(colors.red[600], 'border')
-    const borderColor = error
-      ? borderColorError
-      : twColor(colors.gray[isDarkMode ? 600 : 300], 'border')
-    const borderColorTheme = error ? borderColorError : twColor(color, 'border')
-    const textColor = twColor(
-      isDarkMode ? colors.white : colors.gray[500],
-      'text',
-    )
+    const { bg, border, borderTheme, text } = getColors({
+      themeMode,
+      hexColor,
+      error,
+    })
 
     return [
       tw`rounded-lg border outline-none transition-all focus:ring-1`,
@@ -113,12 +158,12 @@ export const TwInput = styled.input<TwTextFieldProps>(
       css`
         ${block ? tw`w-full` : `width: ${width};`}
 
-        background-color: ${bgColor};
+        background-color: ${bg};
 
         ${tw`border border-opacity-100 text-opacity-100`}
-        border-color: ${borderColor};
+        border-color: ${border};
 
-        color: ${textColor};
+        color: ${text};
 
         &:disabled {
           ${tw`cursor-not-allowed`}
@@ -130,10 +175,10 @@ export const TwInput = styled.input<TwTextFieldProps>(
       `,
       css`
         &:focus:focus-within {
-          border-color: ${borderColorTheme};
+          border-color: ${borderTheme};
 
           ${tw`ring-opacity-100`}
-          --tw-ring-color: ${borderColorTheme};
+          --tw-ring-color: ${borderTheme};
         }
       `,
       disabled && tw`bg-gray-700`,
