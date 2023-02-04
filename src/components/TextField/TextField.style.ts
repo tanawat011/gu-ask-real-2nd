@@ -179,7 +179,7 @@ export const TwInput = styled.input<TwTextFieldProps>(
     block,
     error,
   }) => {
-    const { bg, border, borderTheme, text } = getColors({
+    const { border, borderTheme, text } = getColors({
       themeMode,
       hexColor,
       error,
