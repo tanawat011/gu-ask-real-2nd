@@ -45,19 +45,18 @@ export const TextField: React.FC<TextFieldProps> = ({
 }) => {
   const { hexColor, themeMode } = useGetThemeColor(color)
 
-  const isOutline = variant === 'outline'
-  const isUnderline = variant === 'underline'
+  const isBasic = variant === 'basic'
 
   const RenderLabel = () => (
-    <TwLabel htmlFor={id}>
+    <TwLabel htmlFor={id} inputSize={size}>
       <span>{label}</span>
       {required && <span>*</span>}
     </TwLabel>
   )
 
   return (
-    <TwWrapperInput block={block}>
-      {label && !isOutline && <RenderLabel />}
+    <TwWrapperInput block={block} variant={variant}>
+      {label && isBasic && <RenderLabel />}
 
       <TwWrapperInputLv2
         variant={variant}
@@ -68,7 +67,7 @@ export const TextField: React.FC<TextFieldProps> = ({
         <TwInput
           id={id}
           name={id}
-          placeholder={isOutline ? ' ' : placeholder}
+          placeholder={isBasic ? placeholder : ' '}
           themeMode={themeMode}
           hexColor={hexColor}
           disabled={disabled}
@@ -80,10 +79,14 @@ export const TextField: React.FC<TextFieldProps> = ({
           error={error}
         />
 
-        {label && isOutline && <RenderLabel />}
+        {label && !isBasic && <RenderLabel />}
 
-        {!label && error && (
-          <TwWrapperIconError>
+        {(!label || (label && !isBasic)) && error && (
+          <TwWrapperIconError
+            themeMode={themeMode}
+            hexColor={hexColor}
+            variant={variant}
+          >
             <BsExclamationCircleFill />
           </TwWrapperIconError>
         )}
