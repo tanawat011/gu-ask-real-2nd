@@ -29,6 +29,20 @@ export const main = {
         },
       },
     },
+    demoApp: {
+      fullPath: '/',
+      children: {
+        sudoku: {
+          fullPath: '/',
+        },
+        todo: {
+          fullPath: '/',
+        },
+        xo: {
+          fullPath: '/',
+        },
+      },
+    },
     uiComponent: {
       fullPath: '/',
       children: {
