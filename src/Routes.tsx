@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { useGetRoutes } from 'hooks/useGetRoutes'
 import { useLocalSetting } from 'hooks/useLocalSetting'
-import { useRouteList } from 'hooks/useRouteList'
 import { renderRoutes } from 'utils/route'
 
 export const AppRoutes = () => {
-  const { all } = useRouteList()
+  const { all } = useGetRoutes()
   const [localSetting] = useLocalSetting()
 
   return (

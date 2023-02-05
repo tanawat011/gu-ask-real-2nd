@@ -1,4 +1,4 @@
-import type { RouteOption } from 'hooks/useRouteList'
+import type { RouteOption } from 'hooks/useGetRoutes'
 
 import React from 'react'
 

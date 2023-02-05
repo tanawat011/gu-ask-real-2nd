@@ -4,12 +4,12 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import tw from 'twin.macro'
 
 import { FlexRow } from 'components/Common'
-import { useRouteList } from 'hooks/useRouteList'
+import { useGetRoutes } from 'hooks/useGetRoutes'
 
 const Container = tw(FlexRow)`h-screen w-full bg-slate-300`
 
 export const AuthenticationLayout: React.FC = () => {
-  const { auth } = useRouteList()
+  const { auth } = useGetRoutes()
 
   const location = useLocation()
   const navigate = useNavigate()

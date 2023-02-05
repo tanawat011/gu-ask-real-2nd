@@ -2,7 +2,7 @@ import type {
   RouteOption,
   AllRoutes,
   RouteOptionReal,
-} from 'hooks/useRouteList'
+} from 'hooks/useGetRoutes'
 
 import { isValidElement } from 'react'
 
