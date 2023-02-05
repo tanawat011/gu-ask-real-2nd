@@ -23,7 +23,7 @@ const defaultData: XoData[] = [
 export const XOApp = () => {
   const [isX, setIsX] = useState(true)
   const [data, setData] = useState(defaultData)
-  const [score, setScore] = useState({ x: 0, o: 0 })
+  const [score, setScore] = useState({ x: 0, o: 0, draw: 0 })
 
   useEffect(() => {
     handleStat()
@@ -52,6 +52,7 @@ export const XOApp = () => {
   }
 
   const handleDraw = () => {
+    setScore({ ...score, draw: score.draw + 1 })
     handlePopup('Draw!!!')
   }
 
@@ -95,7 +96,7 @@ export const XOApp = () => {
     setData(defaultData)
     setIsX(true)
 
-    if (isResetScore) setScore({ x: 0, o: 0 })
+    if (isResetScore) setScore({ x: 0, o: 0, draw: 0 })
   }
 
   return (
@@ -103,7 +104,7 @@ export const XOApp = () => {
       <h1 className='text-2xl font-bold text-center'>XO Game</h1>
 
       <div>
-        <h2 className='text-xl font-bold text-center'>
+        <h2 className='text-xl font-bold text-center text-rose-600'>
           {isX ? 'X' : 'O'} Turn
         </h2>
 
