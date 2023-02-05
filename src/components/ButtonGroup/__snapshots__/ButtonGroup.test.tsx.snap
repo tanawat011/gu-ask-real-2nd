@@ -25,7 +25,6 @@ exports[`<ButtonGroup /> renders correctly 1`] = `
 
 <div
     class="c0"
-    color="amber-200"
     shape="rounded"
   >
     <button
