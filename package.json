@@ -177,7 +177,8 @@
       "src/mocks",
       "src/pages",
       "Routes.tsx",
-      "types"
+      "types",
+      "TextField"
     ]
   },
   "babelMacros": {
