@@ -20,7 +20,7 @@ export const MainLayout: React.FC = () => {
   const [menuList, setMenuList] = useSidebarMenuList()
   const { main } = useRouteList()
 
-  const { home } = main.children
+  const { home } = main._
 
   useEffect(() => {
     handleRedirectToHome()

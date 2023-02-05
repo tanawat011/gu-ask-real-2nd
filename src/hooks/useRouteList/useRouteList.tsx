@@ -1,117 +1,159 @@
-import type {
-  AssembleRoutes,
-  AuthRoutes,
-  AuthRoutesChildren,
-  ErrorRoutes,
-  ErrorRoutesChildren,
-  InputRoutes,
-  MainRoutes,
-  MainRoutesChildren,
-  TodoRoutes,
-  UiComponentRoutes,
-  WithJsx,
-} from './types'
+import type { AllRoutes, AllRoutesReal } from './types'
 
+import { IconHouse } from 'components/Icons'
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
-import { SudokuApp, TodoApp, TicTacToeApp } from 'pages/DemoApps'
+import { SudokuApp, TicTacToeApp } from 'pages/DemoApps'
 import { ButtonGroupUi, ButtonUi, TextFieldUi } from 'pages/UiComponents'
 import { routeGenerator } from 'utils/route'
 
-type RouteMain = {
-  home: JSX.Element
-  app: {
-    todo: WithJsx<TodoRoutes>
-    article: JSX.Element
-  }
-  demoApp: {
-    sudoku: JSX.Element
-    todo: JSX.Element
-    ticTacToe: JSX.Element
-  }
-  uiComponent: WithJsx<UiComponentRoutes, WithJsx<InputRoutes>>
-}
-
-const routeMain: RouteMain = {
-  home: <div>home</div>,
-  app: {
-    todo: {
-      dashboard: <div>dashboard</div>,
+const routersOption: AllRoutes = {
+  main: {
+    element: <MainLayout />,
+    _: {
+      home: {
+        _: {
+          dashboard: {
+            element: <div>dashboard</div>,
+            icon: <IconHouse size='lg' />,
+          },
+        },
+      },
+      app: {
+        _: {
+          article: {
+            element: <div>article</div>,
+            icon: <IconHouse size='lg' />,
+          },
+          todo: {
+            icon: <IconHouse size='lg' />,
+            _: {
+              dashboard: {
+                element: <div>dashboard</div>,
+              },
+            },
+          },
+        },
+      },
+      game: {
+        _: {
+          sudoku: {
+            element: <SudokuApp />,
+            icon: <IconHouse size='lg' />,
+          },
+          ticTacToe: {
+            element: <TicTacToeApp />,
+            icon: <IconHouse size='lg' />,
+          },
+        },
+      },
+      uiComponent: {
+        _: {
+          input: {
+            icon: <IconHouse size='lg' />,
+            _: {
+              button: {
+                element: <ButtonUi />,
+              },
+              buttonGroup: {
+                element: <ButtonGroupUi />,
+              },
+              calendar: {
+                element: <div>calendar</div>,
+              },
+              checkbox: {
+                element: <div>checkbox</div>,
+              },
+              dateAndTime: {
+                element: <div>dateAndTime</div>,
+              },
+              radioButton: {
+                element: <div>radioButton</div>,
+              },
+              rating: {
+                element: <div>rating</div>,
+              },
+              select: {
+                element: <div>select</div>,
+              },
+              slider: {
+                element: <div>slider</div>,
+              },
+              switch: {
+                element: <div>switch</div>,
+              },
+              textField: {
+                element: <TextFieldUi />,
+              },
+              upload: {
+                element: <div>calendar</div>,
+              },
+            },
+          },
+        },
+      },
     },
-    article: <div>article</div>,
   },
-  demoApp: {
-    sudoku: <SudokuApp />,
-    todo: <TodoApp />,
-    ticTacToe: <TicTacToeApp />,
+  auth: {
+    element: <AuthenticationLayout />,
+    _: {
+      login: {
+        element: <div>login</div>,
+      },
+      register: {
+        element: <div>register</div>,
+      },
+      forgotPassword: {
+        element: <div>forgotPassword</div>,
+      },
+      resetPassword: {
+        element: <div>resetPassword</div>,
+      },
+    },
   },
-  uiComponent: {
-    input: {
-      button: <ButtonUi />,
-      buttonGroup: <ButtonGroupUi />,
-      calendar: <div>calendar</div>,
-      checkbox: <div>checkbox</div>,
-      dateAndTime: <div>date & time</div>,
-      radioButton: <div>radio button</div>,
-      rating: <div>rating</div>,
-      select: <div>select</div>,
-      slider: <div>slider</div>,
-      switch: <div>switch</div>,
-      textField: <TextFieldUi />,
-      upload: <div>upload</div>,
+  error: {
+    element: <ErrorLayout />,
+    _: {
+      404: {
+        element: <div>404</div>,
+      },
+      401: {
+        element: <div>401</div>,
+      },
+      403: {
+        element: <div>403</div>,
+      },
+      500: {
+        element: <div>500</div>,
+      },
+      502: {
+        element: <div>502</div>,
+      },
+      503: {
+        element: <div>503</div>,
+      },
+      504: {
+        element: <div>504</div>,
+      },
     },
   },
 }
 
-const routeAuth: WithJsx<AuthRoutes> = {
-  login: <div>login</div>,
-}
+const routers = routeGenerator<AllRoutesReal>(routersOption)
 
-const routeError: WithJsx<ErrorRoutes> = {
-  404: <div>error 404</div>,
-  401: <div>error 401</div>,
-  403: <div>error 403</div>,
-  500: <div>error 500</div>,
-  502: <div>error 502</div>,
-  503: <div>error 503</div>,
-  504: <div>error 504</div>,
-}
+export const main = routers.main
 
-export const main: MainRoutesChildren = {
-  path: '/',
-  fullPath: '/',
-  element: <MainLayout />,
-  children: routeGenerator<MainRoutes>(routeMain),
-}
+export const auth = routers.auth
 
-export const auth: AuthRoutesChildren = {
-  path: 'auth',
-  fullPath: '/auth',
-  element: <AuthenticationLayout />,
-  children: routeGenerator<AuthRoutes>(routeAuth),
-}
+export const error = routers.error
 
-export const error: ErrorRoutesChildren = {
-  path: '',
-  fullPath: '',
-  element: <ErrorLayout />,
-  children: routeGenerator<ErrorRoutes>(routeError),
-}
+type Routes = {
+  all: AllRoutes
+} & AllRoutesReal
 
-type RouteList = {
-  all: AssembleRoutes
-  auth: AuthRoutesChildren
-  main: MainRoutesChildren
-  error: ErrorRoutesChildren
-}
+export const useRouteList = (): Routes => {
+  const all = routers
 
-export const useRouteList = (): RouteList => {
-  const all: AssembleRoutes = {
-    auth,
-    main,
-    error,
-  }
-
-  return { all, main, auth, error }
+  return { all, ...routers }
 }
