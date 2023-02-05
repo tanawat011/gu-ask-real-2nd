@@ -1,41 +1,41 @@
+import type { RouteOption } from 'hooks/useRouteList'
+
 import React from 'react'
 
 import { Route } from 'react-router-dom'
 
-export type RenderRoute<T = undefined> = {
-  path: string
-  fullPath: string
-  element?: React.ReactNode
-  isIndex?: boolean
-  children?: T
-}
+export const renderRoutes = <T = { [key: string]: RouteOption },>(
+  routes: T,
+) => {
+  return Object.values(routes as unknown as { [key: string]: RouteOption }).map(
+    (route) => {
+      let routeChildren
 
-export const renderRoutes = <T = { [key: string]: RenderRoute },>(routes: T) => {
-  return Object.values(routes as unknown as { [key: string]: RenderRoute }).map((route) => {
-    let routeChildren
+      if (route._) {
+        routeChildren = renderRoutes(route._)
+      }
 
-    if (route.children) {
-      routeChildren = renderRoutes(route.children)
-    }
+      const routeIndex = route.isIndex && (
+        <Route index element={route.element} />
+      )
 
-    const routeIndex = route.isIndex && <Route index element={route.element} />
+      if (routeChildren) {
+        return (
+          <React.Fragment key={`route-${route.fullPath}`}>
+            {routeIndex}
+            <Route path={route.path} element={route.element}>
+              {routeChildren}
+            </Route>
+          </React.Fragment>
+        )
+      }
 
-    if (routeChildren) {
       return (
         <React.Fragment key={`route-${route.fullPath}`}>
           {routeIndex}
-          <Route path={route.path} element={route.element}>
-            {routeChildren}
-          </Route>
+          <Route path={route.path} element={route.element} />
         </React.Fragment>
       )
-    }
-
-    return (
-      <React.Fragment key={`route-${route.fullPath}`}>
-        {routeIndex}
-        <Route path={route.path} element={route.element} />
-      </React.Fragment>
-    )
-  })
+    },
+  )
 }

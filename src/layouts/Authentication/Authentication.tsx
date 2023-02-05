@@ -19,7 +19,7 @@ export const AuthenticationLayout: React.FC = () => {
   }, [])
 
   const handleRedirectToLogin = () => {
-    const { login } = auth.children
+    const { login } = auth._
 
     if (location.pathname === auth.fullPath) {
       navigate(login.fullPath)
