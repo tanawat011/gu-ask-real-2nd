@@ -38,7 +38,7 @@ export const main = {
         todo: {
           fullPath: '/',
         },
-        xo: {
+        ticTacToe: {
           fullPath: '/',
         },
       },

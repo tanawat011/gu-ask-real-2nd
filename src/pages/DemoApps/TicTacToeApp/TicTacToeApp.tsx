@@ -20,7 +20,7 @@ const defaultData: XoData[] = [
   { id: 9 },
 ]
 
-export const XOApp = () => {
+export const TicTacToeApp = () => {
   const [isX, setIsX] = useState(true)
   const [data, setData] = useState(defaultData)
   const [score, setScore] = useState({ x: 0, o: 0, draw: 0 })

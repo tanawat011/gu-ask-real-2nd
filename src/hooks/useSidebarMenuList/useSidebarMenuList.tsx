@@ -15,7 +15,7 @@ export const useSidebarMenuList = (): [
 
   const { home, app, uiComponent, demoApp } = main.children
   const { todo, article } = app.children
-  const { sudoku, todo: demoTodo, xo } = demoApp.children
+  const { sudoku, todo: demoTodo, ticTacToe } = demoApp.children
   const { input } = uiComponent.children
 
   const [menuList, setMenuList] = useState<MenuItem[]>([
@@ -58,8 +58,8 @@ export const useSidebarMenuList = (): [
           icon: <IconHouse size='lg' />,
         },
         {
-          to: xo.fullPath,
-          label: 'XO',
+          to: ticTacToe.fullPath,
+          label: 'Tic Tac Toe',
           icon: <IconHouse size='lg' />,
         },
       ],

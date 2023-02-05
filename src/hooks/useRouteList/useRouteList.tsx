@@ -15,7 +15,7 @@ import type {
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
-import { SudokuApp, TodoApp, XOApp } from 'pages/DemoApps'
+import { SudokuApp, TodoApp, TicTacToeApp } from 'pages/DemoApps'
 import { ButtonGroupUi, ButtonUi, TextFieldUi } from 'pages/UiComponents'
 import { routeGenerator } from 'utils/route'
 
@@ -28,7 +28,7 @@ type RouteMain = {
   demoApp: {
     sudoku: JSX.Element
     todo: JSX.Element
-    xo: JSX.Element
+    ticTacToe: JSX.Element
   }
   uiComponent: WithJsx<UiComponentRoutes, WithJsx<InputRoutes>>
 }
@@ -44,7 +44,7 @@ const routeMain: RouteMain = {
   demoApp: {
     sudoku: <SudokuApp />,
     todo: <TodoApp />,
-    xo: <XOApp />,
+    ticTacToe: <TicTacToeApp />,
   },
   uiComponent: {
     input: {

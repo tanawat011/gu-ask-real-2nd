@@ -5,6 +5,6 @@ import type { RenderRoute } from 'utils/route'
 export type DemoAppRoutes = {
   sudoku: RenderRoute
   todo: RenderRoute
-  xo: RenderRoute
+  ticTacToe: RenderRoute
 }
 export type DemoAppRoutesChildren = WithChildrenRoute<DemoAppRoutes>
