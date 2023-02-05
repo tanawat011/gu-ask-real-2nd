@@ -3,14 +3,14 @@ import type { MenuItem } from 'components/Sidebar'
 import type { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
 
-import { useRouteList } from 'hooks/useRouteList'
+import { useGetRoutes } from 'hooks/useGetRoutes'
 import { menuGenerator } from 'utils/route'
 
-export const useSidebarMenuList = (): [
+export const useGetSidebarMenu = (): [
   MenuItem[],
   Dispatch<SetStateAction<MenuItem[]>>,
 ] => {
-  const { main } = useRouteList()
+  const { main } = useGetRoutes()
 
   const [menuList, setMenuList] = useState<MenuItem[]>(menuGenerator(main._))
 

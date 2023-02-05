@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { MenuItem } from 'components/Sidebar'
-import type { RouteMain } from 'hooks/useRouteList'
+import type { RouteMain } from 'hooks/useGetRoutes'
 
 import { camelToSentence } from 'utils/string'
 

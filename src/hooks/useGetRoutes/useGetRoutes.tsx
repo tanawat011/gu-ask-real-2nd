@@ -4,7 +4,7 @@ import { IconHouse } from 'components/Icons'
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
-import { SudokuApp, TicTacToeApp } from 'pages/DemoApps'
+import { SudokuApp, TicTacToeApp } from 'pages/Games'
 import { ButtonGroupUi, ButtonUi, TextFieldUi } from 'pages/UiComponents'
 import { routeGenerator } from 'utils/route'
 
@@ -152,7 +152,7 @@ type Routes = {
   all: AllRoutes
 } & AllRoutesReal
 
-export const useRouteList = (): Routes => {
+export const useGetRoutes = (): Routes => {
   const all = routers
 
   return { all, ...routers }

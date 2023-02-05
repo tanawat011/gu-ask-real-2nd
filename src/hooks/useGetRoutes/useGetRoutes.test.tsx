@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react'
 
-import { useRouteList } from './useRouteList'
+import { useGetRoutes } from './useGetRoutes'
 
-jest.mock('./useRouteList', () => ({
-  ...jest.requireActual('./useRouteList'),
+jest.mock('./useGetRoutes', () => ({
+  ...jest.requireActual('./useGetRoutes'),
 }))
 jest.mock('layouts/Authentication')
 jest.mock('layouts/Error')
@@ -18,11 +18,11 @@ jest.mock('utils/route', () => ({
   }),
 }))
 
-describe('useRouteList', () => {
+describe('useGetRoutes', () => {
   test('should return all routes', () => {
     expect.hasAssertions()
 
-    const { result } = renderHook(() => useRouteList())
+    const { result } = renderHook(() => useGetRoutes())
 
     expect(Object.keys(result.current.all).length).toEqual(3)
   })

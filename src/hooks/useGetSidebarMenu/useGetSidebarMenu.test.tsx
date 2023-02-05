@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 
-import { useSidebarMenuList } from './useSidebarMenuList'
+import { useGetSidebarMenu } from './useGetSidebarMenu'
 
 jest.mock('utils/route', () => ({
   menuGenerator: () => [
@@ -12,12 +12,12 @@ jest.mock('utils/route', () => ({
 }))
 
 const ExampleComponent = () => {
-  const [menuList] = useSidebarMenuList()
+  const [menuList] = useGetSidebarMenu()
 
   return <div>{menuList[0].title}</div>
 }
 
-describe('useSidebarMenuList', () => {
+describe('useGetSidebarMenu', () => {
   test('should return all menu list', () => {
     expect.hasAssertions()
 

@@ -5,8 +5,8 @@ import { useRecoilState } from 'recoil'
 
 import { Navbar } from 'components/Navbar'
 import { Sidebar } from 'components/Sidebar'
-import { useRouteList } from 'hooks/useRouteList'
-import { useSidebarMenuList } from 'hooks/useSidebarMenuList'
+import { useGetRoutes } from 'hooks/useGetRoutes'
+import { useGetSidebarMenu } from 'hooks/useGetSidebarMenu'
 import { sidebarAtom } from 'recoils/atoms/sidebar'
 
 import { MainContainer, MainContent, MainContentContainer } from './Main.style'
@@ -17,8 +17,8 @@ export const MainLayout: React.FC = () => {
 
   const [{ fullSidebar }, setFullSidebar] = useRecoilState(sidebarAtom)
 
-  const [menuList, setMenuList] = useSidebarMenuList()
-  const { main } = useRouteList()
+  const [menuList, setMenuList] = useGetSidebarMenu()
+  const { main } = useGetRoutes()
 
   const { home } = main._
 
