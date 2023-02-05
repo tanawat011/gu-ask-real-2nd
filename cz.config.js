@@ -76,6 +76,6 @@ module.exports = {
   scopeOverrides: undefined,
   defaultBody: '',
   defaultIssues: '',
-  defaultScope: '',
+  defaultScope: 'empty',
   defaultSubject: ''
 }
