@@ -15,6 +15,7 @@ import type {
 import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
+import { SudokuApp, TodoApp, XOApp } from 'pages/DemoApps'
 import { ButtonGroupUi, ButtonUi, TextFieldUi } from 'pages/UiComponents'
 import { routeGenerator } from 'utils/route'
 
@@ -23,6 +24,11 @@ type RouteMain = {
   app: {
     todo: WithJsx<TodoRoutes>
     article: JSX.Element
+  }
+  demoApp: {
+    sudoku: JSX.Element
+    todo: JSX.Element
+    xo: JSX.Element
   }
   uiComponent: WithJsx<UiComponentRoutes, WithJsx<InputRoutes>>
 }
@@ -34,6 +40,11 @@ const routeMain: RouteMain = {
       dashboard: <div>dashboard</div>,
     },
     article: <div>article</div>,
+  },
+  demoApp: {
+    sudoku: <SudokuApp />,
+    todo: <TodoApp />,
+    xo: <XOApp />,
   },
   uiComponent: {
     input: {
