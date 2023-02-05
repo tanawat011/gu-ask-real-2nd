@@ -62,7 +62,7 @@ module.exports = {
   allowBreakingChanges: false,
   breaklineNumber: 100,
   breaklineChar: '|',
-  skipQuestions: ['footerPrefix', 'footer'],
+  skipQuestions: ['footerPrefix', 'footer', 'confirmCommit'],
   issuePrefixes: [{ value: 'closed', name: 'closed:   ISSUES has been processed' }],
   customIssuePrefixAlign: 'top',
   emptyIssuePrefixAlias: 'skip',
