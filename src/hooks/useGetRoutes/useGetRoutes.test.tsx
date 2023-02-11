@@ -24,6 +24,6 @@ describe('useGetRoutes', () => {
 
     const { result } = renderHook(() => useGetRoutes())
 
-    expect(Object.keys(result.current.all).length).toEqual(3)
+    expect(Object.keys(result.current.all).length).toEqual(1)
   })
 })

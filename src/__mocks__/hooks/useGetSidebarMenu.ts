@@ -1,4 +1,4 @@
-export const useSidebarMenuList = () => {
+export const useGetSidebarMenu = () => {
   return [
     [
       {

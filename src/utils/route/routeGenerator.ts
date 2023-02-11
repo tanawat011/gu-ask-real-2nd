@@ -6,32 +6,34 @@ import type {
 
 import { isValidElement } from 'react'
 
-import { camelToKebab } from 'utils/string'
+import { camelToKebab, replaceAll } from 'utils/string'
 
 type RouteGenerator = { [key: string]: RouteOption<unknown> | JSX.Element }
 
 export const routeGenerator = <T>(
   menu: RouteGenerator,
   parentPath?: string,
+  isLv1 = true,
 ): T => {
   const newMenu: RouteGenerator = {}
+  const pathReplace = (path: string) => replaceAll(path, '//', '/')
 
-  if ((menu as AllRoutes)?.main) {
+  // For the first level
+  if (isLv1) {
     const _menu = menu as AllRoutes
+    const keys = Object.keys(_menu)
 
-    for (const key in _menu) {
-      const _key = key as keyof AllRoutes
-      const path = key === 'main' ? '/' : camelToKebab(key)
-      const fullPath = (
-        parentPath ? `${parentPath}/${path}` : `/${path}`
-      ).replaceAll('//', '/')
-      const item = _menu[_key]
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i] as keyof AllRoutes
+      const path = i === 0 ? '/' : camelToKebab(key)
+      const fullPath = pathReplace(`/${path}`)
+      const item = _menu[key]
 
-      newMenu[_key] = {
+      newMenu[key] = {
         ...item,
         path,
         fullPath,
-        _: item?._ ? routeGenerator(item._, fullPath) : undefined,
+        _: item?._ ? routeGenerator(item._, fullPath, false) : undefined,
       }
     }
   } else {
@@ -39,15 +41,13 @@ export const routeGenerator = <T>(
 
     for (const key in menu) {
       const path = camelToKebab(key)
-      const fullPath = (
-        parentPath ? `${parentPath}/${path}` : `/${path}`
-      ).replaceAll('//', '/')
+      const fullPath = pathReplace(`${parentPath}/${path}`)
       const item = menu[key]
       const indexed = i === 0 && { isIndex: true }
 
       if (!isValidElement(item)) {
         const children = (item as RouteOptionReal<unknown>)?._ as RouteGenerator
-        const _ = children && { _: routeGenerator(children, fullPath) }
+        const _ = children && { _: routeGenerator(children, fullPath, false) }
 
         newMenu[key] = {
           ...item,

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`useSidebarMenuList should return all menu list 1`] = `
-<DocumentFragment>
-  <div>
-    HOME
-  </div>
-</DocumentFragment>
-`;
