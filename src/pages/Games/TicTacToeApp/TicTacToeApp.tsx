@@ -36,7 +36,11 @@ export const TicTacToeApp = () => {
 
     if (all.length === 9) return handleDraw()
 
-    if (x.length >= 3) return handleWinner('x', x)
+    if (x.length >= 3) {
+      const isWinner = handleWinner('x', x)
+
+      if (isWinner) return
+    }
 
     if (o.length >= 3) return handleWinner('o', o)
   }
@@ -74,6 +78,8 @@ export const TicTacToeApp = () => {
     if (temp.length === 3) {
       setScore({ ...score, [who]: score[who] + 1 })
       handlePopup(`${who.toUpperCase()} Winner!!!`)
+
+      return true
     }
   }
 
