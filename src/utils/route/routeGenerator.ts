@@ -36,6 +36,8 @@ export const routeGenerator = <T>(
         _: item?._ ? routeGenerator(item._, fullPath, false) : undefined,
       }
     }
+
+    // For the other level
   } else {
     let i = 0
 
@@ -45,6 +47,7 @@ export const routeGenerator = <T>(
       const item = menu[key]
       const indexed = i === 0 && { isIndex: true }
 
+      // If it's a route
       if (!isValidElement(item)) {
         const children = (item as RouteOptionReal<unknown>)?._ as RouteGenerator
         const _ = children && { _: routeGenerator(children, fullPath, false) }
@@ -60,6 +63,7 @@ export const routeGenerator = <T>(
         continue
       }
 
+      // If it's a component
       newMenu[key] = {
         path,
         fullPath,
