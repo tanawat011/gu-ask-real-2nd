@@ -2,12 +2,16 @@
   "types": [
     { "type": "feat", "section": "Features" },
     { "type": "fix", "section": "Bug Fixes" },
-    { "type": "chore", "section": "Other" },
     { "type": "docs", "section": "Documentations" },
     { "type": "style", "section": "Other" },
     { "type": "refactor", "section": "Other" },
     { "type": "perf", "section": "Other" },
-    { "type": "test", "section": "Other" }
+    { "type": "test", "hidden": true },
+    { "type": "build", "hidden": true },
+    { "type": "ci", "hidden": true },
+    { "type": "chore", "section": "Other" },
+    { "type": "revert", "hidden": true },
+    { "type": "release", "hidden": true }
   ],
   "commitUrlFormat": "https://github.com/tanawat011/gu-ask-real-2nd/commits/{{hash}}",
   "compareUrlFormat": "https://github.com/tanawat011/gu-ask-real-2nd/compare/{{previousTag}}...{{currentTag}}"
