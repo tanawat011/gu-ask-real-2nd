@@ -39,6 +39,7 @@ A Frontend Backoffice Project.
 - [x] [i18n](https://www.i18next.com/) (for internationalization)
 - [x] [Husky](https://typicode.github.io/husky/#/) (for linting)
 - [x] [Git Commitizen](https://github.com/Zhengqbbb/cz-git) (for commit message)
+- [x] [Git Commit linter](https://github.com/conventional-changelog/commitlint) (for commit message)
 - [ ] [React Hook Form](https://react-hook-form.com/get-started/) (for form validation)
 - [ ] [Yup](https://www.npmjs.com/package/yup) (for schema form validation)
 - [x] [React Router Dom V6](https://reactrouter.com/en/main/start/overview) (for routing)
