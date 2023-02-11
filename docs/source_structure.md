@@ -2,121 +2,121 @@
 
 ```markdown
 gu-ask-real-2nd/
-├── .husky/
-│   ├── pre-commit.sh
-│   ├── pre-push.sh
+├── .husky/           --> Git hooks
+│   ├── pre-commit.sh --> Run before commit
+│   ├── pre-push.sh   --> Run before push
 │   └── ...
 ├── .vscode/
-│   └── settings.json
-├── docker/
-│   ├── Dockerfile
-│   └── local.Dockerfile
-├── docs
-├── k8s/
-│   └── deployment.yaml
+│   ├── extensions.json --> VSCode extensions recommendations
+│   └── settings.json   --> VSCode settings
+├── docker/               --> Dockerfile and docker-compose storage file
+│   ├── Dockerfile        --> Dockerfile for production
+│   └── local.Dockerfile  --> Dockerfile for local development
+├── docs --> Documentation
+├── k8s/                --> Kubernetes
+│   └── deployment.yaml --> Deployment file
 ├── nginx/
-│   └── default.conf
+│   └── default.conf --> Nginx configuration
 ├── public/
-│   ├── template-config.js
+│   ├── template-config.js --> Template configuration env for production mode
 │   └── ...
 ├── scripts/
-│   ├── build_image_gitlab.sh
-│   ├── jest.sh
-│   └── k8s_deployment.sh
+│   ├── build_image_gitlab.sh --> Script for build image in gitlab
+│   ├── jest.sh               --> Script for run jest
+│   └── k8s_deployment.sh     --> Script for deploy to kubernetes
 ├── src/
-│   ├── __mocks__/
+│   ├── __mocks__/ --> Mocks for jest
 │   │   └── ...
-│   ├── components/
+│   ├── components/ --> All Components
 │   │   └── ...
-│   ├── config/
-│   │   ├── fontAwesomeIcon.ts
-│   │   ├── windowEnv.ts
+│   ├── config/                 --> Configuration
+│   │   ├── fontAwesomeIcon.ts  --> Font awesome icon configuration
+│   │   ├── windowEnv.ts        --> Window env configuration
 │   │   └── ...
-│   ├── constants/
+│   ├── constants/ --> All Constants
 │   │   └── ...
-│   ├── hooks/
+│   ├── hooks/ --> All Hooks
 │   │   └── ...
-│   ├── layouts/
-│   │   ├── Authentication
-│   │   ├── Error
-│   │   └── Main
-│   ├── locales/
-│   │   ├── en/
+│   ├── layouts/            --> All Layouts
+│   │   ├── Authentication  --> Authentication Layout
+│   │   ├── Error           --> Error Layout
+│   │   └── Main            --> Main Layout
+│   ├── locales/  --> All localizations
+│   │   ├── en/   --> English
 │   │   │   └── ...
-│   │   ├── th/
+│   │   ├── th/   --> Thai
 │   │   │   └── ...
 │   │   └── ...
-│   ├── pages/
-│   │   └── UiComponents
-│   │       ├── ButtonUi
-│   │       ├── InputUi
+│   ├── pages/            --> All Pages
+│   │   └── UiComponents  --> UI Components Page
+│   │       ├── ButtonUi  --> Button UI
+│   │       ├── InputUi   --> Input UI
 │   │       └── ...
-│   ├── recoils/
-│   │   └── atoms/
+│   ├── recoils/    --> All Recoils storages
+│   │   └── atoms/  --> All Atoms
 │   │       └── ...
-│   ├── styles/
-│   │   ├── components/
+│   ├── styles/               --> All Styles
+│   │   ├── components/       --> All Global components styles
 │   │   │   └── ...
-│   │   ├── tailwind/
+│   │   ├── tailwind/         --> All Tailwind styles
 │   │   │   └── ...
-│   │   ├── global.scss
-│   │   ├── scrollbar.scss
-│   │   └── styles.scss
-│   ├── types/
-│   │   ├── common/
+│   │   ├── global.scss       --> Global styles
+│   │   ├── scrollbar.scss    --> Scrollbar styles
+│   │   └── styles.scss       --> Assemble all styles
+│   ├── types/              --> All Types
+│   │   ├── common/         --> Common types
 │   │   │   └── ...
-│   │   ├── http/
+│   │   ├── http/           --> Http types
 │   │   │   └── ...
-│   │   ├── react/
+│   │   ├── react/          --> Utilities types for react
 │   │   │   └── ...
-│   │   ├── utilities/
+│   │   ├── utilities/      --> Utilities types
 │   │   │   └── ...
-│   │   ├── i18next.d.ts
-│   │   ├── image.d.ts
-│   │   ├── routes.d.ts
-│   │   ├── twin.d.ts
-│   │   ├── windowEnv.d.ts
+│   │   ├── i18next.d.ts    --> i18next types
+│   │   ├── image.d.ts      --> Image types
+│   │   ├── twin.d.ts       --> Twin.macro types
+│   │   ├── windowEnv.d.ts  --> Window env types
 │   │   └── ...
-│   ├── utils/
-│   │   ├── axios/
+│   ├── utils/          --> All Utilities
+│   │   ├── axios/      --> Axios utilities
 │   │   │   └── ...
-│   │   ├── color/
+│   │   ├── color/      --> Color utilities
 │   │   │   └── ...
-│   │   ├── components/
+│   │   ├── components/ --> Components utilities
 │   │   │   └── ...
-│   │   ├── env/
+│   │   ├── env/        --> Env utilities
 │   │   │   └── ...
-│   │   ├── jest/
+│   │   ├── jest/       --> Jest utilities
 │   │   │   └── ...
-│   │   ├── object/
+│   │   ├── object/     --> Object utilities
 │   │   │   └── ...
-│   │   ├── route/
+│   │   ├── route/      --> Route utilities
 │   │   │   └── ...
-│   │   ├── string/
+│   │   ├── string/     --> String utilities
 │   │   │   └── ...
 │   │   └── ...
-│   ├── index.tsx
-│   ├── Routers.tsx
-│   ├── setupTests.ts
+│   ├── index.tsx     --> Entry point
+│   ├── Routers.tsx   --> Routers
+│   ├── setupTests.ts --> Setup for jest
 │   └── ...
-├── .dockerignore
-├── .env
-├── .env.example
-├── .eslintignore
-├── .eslintrc.js
-├── .gitignore
-├── .gitlab-ci.yml
-├── .prettierignore
-├── .prettierrc.js
-├── .yarnrc
-├── changelog.md
-├── docker-compose.yml
-├── makefile
-├── package.json
-├── postcss.config.js
-├── README.md
-├── tailwind.config.js
-├── tsconfig.json
-├── yarn.lock
+├── .dockerignore       --> Docker ignore file
+├── .env                --> Environment variables
+├── .env.example        --> Environment variables example
+├── .eslintignore       --> Eslint ignore file
+├── .eslintrc.js        --> Eslint configuration
+├── .gitignore          --> Git ignore file
+├── .gitlab-ci.yml      --> Gitlab CI/CD configuration
+├── .prettierignore     --> Prettier ignore file
+├── .prettierrc.js      --> Prettier configuration
+├── .yarnrc             --> Yarn configuration
+├── changelog.md        --> Changelog
+├── docker-compose.yml  --> Docker compose file
+├── makefile            --> Makefile
+├── package.json        --> Package.json
+├── postcss.config.js   --> Postcss configuration
+├── README.md           --> Readme
+├── tailwind.config.js  --> Tailwind configuration
+├── tsconfig.json       --> Typescript configuration
+├── yarn.lock           --> Yarn lock file
 └── ...
 ```
