@@ -22,3 +22,15 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GAR2ND_4E089 }}'
           channelId: live
           projectId: gar2nd-4e089
+  tagged_release:
+    name: "Tagged Release"
+    needs: [build_and_deploy]
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            LICENSE.txt
+            *.jar
