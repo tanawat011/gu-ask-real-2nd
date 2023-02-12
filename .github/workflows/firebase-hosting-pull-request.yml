@@ -32,22 +32,22 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GAR2ND_4E089 }}'
           projectId: gar2nd-4e089
-  pre_release:
-    name: "Pre Release"
-    needs: [build_and_preview]
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: 'Get Previous tag'
-        id: previoustag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
-        with:
-          fallback: 1.0.0
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "v0.2.1"
-          prerelease: true
-          title: "Development Build"
-          files: |
-            LICENSE.txt
-            *.jar
+  # pre_release:
+  #   name: "Pre Release"
+  #   needs: [build_and_preview]
+  #   runs-on: "ubuntu-latest"
+  #   steps:
+  #     - name: 'Get Previous tag'
+  #       id: previoustag
+  #       uses: "WyriHaximus/github-action-get-previous-tag@v1"
+  #       with:
+  #         fallback: 1.0.0
+  #     - uses: "marvinpinto/action-automatic-releases@latest"
+  #       with:
+  #         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+  #         automatic_release_tag: "v0.2.1"
+  #         prerelease: true
+  #         title: "Development Build"
+  #         files: |
+  #           LICENSE.txt
+  #           *.jar
