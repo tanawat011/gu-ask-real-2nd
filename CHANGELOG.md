@@ -2,40 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.2.2](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.1...v0.2.2) (2023-02-12)
-
+## [0.2.2](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.1...v0.2.2) (2023-02-12)
 
 ### Bug Fixes
 
 * :bug: wrong version number ([60bc385](https://github.com/tanawat011/gu-ask-real-2nd/commits/60bc385ca4b7830cd8e5ff35de5ff7d5c77242c4))
 
-
 ### Documentation
 
 * :memo: just update readme ([0349a91](https://github.com/tanawat011/gu-ask-real-2nd/commits/0349a912e46e10b231ae041cc89e39e6eb4e8e17))
-
 
 ### Other
 
 * **release:** :rocket: 0.2.2 ([2e4935e](https://github.com/tanawat011/gu-ask-real-2nd/commits/2e4935eb898f88d8787923b5159fb97b5002613e))
 
-### [0.2.2](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.1...v0.2.2) (2023-02-12)
+## [0.2.1](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.0...v0.2.1) (2023-02-12)
 
-
-### Documentations
-
-* :memo: just update readme ([0349a91](https://github.com/tanawat011/gu-ask-real-2nd/commits/0349a912e46e10b231ae041cc89e39e6eb4e8e17))
-
-### [0.2.1](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.0...v0.2.1) (2023-02-12)
-
-
-### Documentations
+### Documentation
 
 * :memo: all document ([933d228](https://github.com/tanawat011/gu-ask-real-2nd/commits/933d228a5715ef2511fe9caabba5c649d603e938))
 * :memo: update document structure, readme and script ([6789d9a](https://github.com/tanawat011/gu-ask-real-2nd/commits/6789d9afb4ae45ea05f881be935e5d4ef27d6cb3))
 
 ## 0.2.0 (2023-02-11)
-
 
 ### Features
 
@@ -47,13 +35,11 @@ All notable changes to this project will be documented in this file. See [standa
 * **types:** :sparkles: union type utilities and document for use ([de2611c](https://github.com/tanawat011/gu-ask-real-2nd/commits/de2611c7c7ac80f10d57dad0a1897615a916b265))
 * **utils:** :sparkles: decide beween 2 color ([e395df9](https://github.com/tanawat011/gu-ask-real-2nd/commits/e395df97b7c5b3ed27d0445028e53b9d6c41dfc6))
 
-
 ### Bug Fixes
 
 * :bug: bug `o` never are winnner ([52bf41a](https://github.com/tanawat011/gu-ask-real-2nd/commits/52bf41ae7274427258ff736828f63a5ab4359df1))
 * :bug: versioning config ([b14a95a](https://github.com/tanawat011/gu-ask-real-2nd/commits/b14a95a77f17566193db406ed843b9a9dafc0eed))
 * **data:** :bug: mock hooks sidebar menu ([ffbc0ee](https://github.com/tanawat011/gu-ask-real-2nd/commits/ffbc0eeba79b8db3a9a872dce7406504db41a974))
-
 
 ### Other
 
@@ -63,8 +49,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **config:** :hammer: git cz ([f54360b](https://github.com/tanawat011/gu-ask-real-2nd/commits/f54360b061c8414fef9d2cdf415d6d315fafeda9))
 * **hooks:** :recycle: change hook names ([dff7aee](https://github.com/tanawat011/gu-ask-real-2nd/commits/dff7aeef26395a3ad230cf0f1a4c14bde1527134))
 
-
-### Documentations
+### Documentation
 
 * :memo: document structure ([6380e65](https://github.com/tanawat011/gu-ask-real-2nd/commits/6380e654f7727eee3c3731ab26e423a17367252a))
 * :memo: important link ([94e3800](https://github.com/tanawat011/gu-ask-real-2nd/commits/94e380044aadb8a4243ba91dcb5f6c7288900faa))
