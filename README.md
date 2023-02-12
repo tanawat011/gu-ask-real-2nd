@@ -19,12 +19,19 @@ A Frontend Backoffice Project.
 
 ⚠ Before develop features please create `.env` file contain these variables.
 
-| ENV VARIABLES            | VALUE                   | type     | REMARK |
-| ------------------------ | ----------------------- | -------- | ------ |
-| **NODE_ENV**             | development             | `public` |        |
-| **SKIP_PREFLIGHT_CHECK** | true                    | `public` |        |
-| **GENERATE_SOURCEMAP**   | false                   | `public` |        |
-| **REACT_APP_API_URL**    | `http://localhost:3000` | `public` |        |
+| ENV VARIABLES                              | VALUE                   | type      | REMARK |
+| ------------------------------------------ | ----------------------- | --------- | ------ |
+| **NODE_ENV**                               | development             | `public`  |        |
+| **SKIP_PREFLIGHT_CHECK**                   | true                    | `public`  |        |
+| **GENERATE_SOURCEMAP**                     | false                   | `public`  |        |
+| **REACT_APP_API_URL**                      | `http://localhost:3000` | `public`  |        |
+| **REACT_APP_FIREBASE_API_KEY**             |                         | `private` |        |
+| **REACT_APP_FIREBASE_AUTH_DOMAIN**         |                         | `private` |        |
+| **REACT_APP_FIREBASE_PROJECT_ID**          |                         | `private` |        |
+| **REACT_APP_FIREBASE_STORAGE_BUCKET**      |                         | `private` |        |
+| **REACT_APP_FIREBASE_MESSAGING_SENDER_ID** |                         | `private` |        |
+| **REACT_APP_FIREBASE_APP_ID**              |                         | `private` |        |
+| **REACT_APP_FIREBASE_MEASUREMENT_ID**      |                         | `private` |        |
 
 ## Code Features
 
