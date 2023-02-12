@@ -18,6 +18,10 @@ const routersOption: AllRoutes = {
             element: <div>dashboard</div>,
             icon: <IconHouse size='lg' />,
           },
+          dashboard2: {
+            element: <div>dashboard2</div>,
+            icon: <IconHouse size='lg' />,
+          },
         },
       },
       app: {

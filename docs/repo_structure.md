@@ -2,6 +2,8 @@
 
 ```markdown
 gu-ask-real-2nd/
+├── .firebase/        --> Firebase hosting cache
+├── .github/          --> Github actions
 ├── .husky/           --> Git hooks
 │   ├── commit-msg    --> Run commit linter
 │   ├── pre-commit.sh --> Run before commit

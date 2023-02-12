@@ -20,6 +20,7 @@ type RouteOptionChildren<T = undefined> = WithRequired<RouteOption<T>, '_'>
 export type RouteMain = {
   home: RouteOptionChildren<{
     dashboard: RouteOption
+    dashboard2: RouteOption
   }>
   app: RouteOptionChildren<{
     todo: RouteOptionChildren<{
