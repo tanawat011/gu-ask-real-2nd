@@ -37,9 +37,13 @@ jobs:
     needs: [build_and_preview]
     runs-on: "ubuntu-latest"
     steps:
+      - name: 'Get Previous tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{ steps.previoustag.outputs.tag }}"
           prerelease: true
           title: "Development Build"
           files: |
