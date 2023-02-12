@@ -48,6 +48,7 @@ A Frontend Backoffice Project.
 - [x] [Git Commitizen](https://github.com/Zhengqbbb/cz-git) (for commit message)
 - [x] [Git Commit linter](https://github.com/conventional-changelog/commitlint) (for commit message)
 - [x] [Auto Standard Version](https://github.com/conventional-changelog/standard-version) (for changelog auto generate and versioning)
+- [x] [Firebase](https://firebase.google.com/docs) (for authentication, database, storage, hosting, etc.)
 - [ ] [React Hook Form](https://react-hook-form.com/get-started/) (for form validation)
 - [ ] [Yup](https://www.npmjs.com/package/yup) (for schema form validation)
 - [x] [React Router Dom V6](https://reactrouter.com/en/main/start/overview) (for routing)
@@ -69,7 +70,8 @@ A Frontend Backoffice Project.
 ## Available Components
 
 - [x] `Button`
-- [ ] `Input`
+- [x] `Button Group`
+- [x] `Text Field`
 
 ## Document
 

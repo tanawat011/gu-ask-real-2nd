@@ -34,6 +34,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+**Note: This will run the shell script `scripts/react_build.sh` to build the app.**
+In this shell script, it will replace the local env(`.env`) to the `public/config.js` that take this file from `public/template-config.js`
 ## `yarn build:css`
 
 **Note: This will not effect with production mode.**
@@ -230,3 +232,15 @@ Use this command to update the minor version and `git tag` the version and auto 
 ## `yarn release:patch`
 
 Use this command to update the patch version and `git tag` the version and auto generate the changelog file.
+
+## `yarn firebase:login`
+
+Use this command to login firebase.
+
+## `yarn firebase:init`
+
+Use this command to init firebase configuration.
+
+## `yarn firebase:deploy`
+
+Use this command to deploy the app to firebase hosting.
