@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file. See [standa
 ### [0.2.2](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.1...v0.2.2) (2023-02-12)
 
 
+### Bug Fixes
+
+* :bug: wrong version number ([60bc385](https://github.com/tanawat011/gu-ask-real-2nd/commits/60bc385ca4b7830cd8e5ff35de5ff7d5c77242c4))
+
+
+### Documentation
+
+* :memo: just update readme ([0349a91](https://github.com/tanawat011/gu-ask-real-2nd/commits/0349a912e46e10b231ae041cc89e39e6eb4e8e17))
+
+
+### Other
+
+* **release:** :rocket: 0.2.2 ([2e4935e](https://github.com/tanawat011/gu-ask-real-2nd/commits/2e4935eb898f88d8787923b5159fb97b5002613e))
+
+### [0.2.2](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.1...v0.2.2) (2023-02-12)
+
+
 ### Documentations
 
 * :memo: just update readme ([0349a91](https://github.com/tanawat011/gu-ask-real-2nd/commits/0349a912e46e10b231ae041cc89e39e6eb4e8e17))
