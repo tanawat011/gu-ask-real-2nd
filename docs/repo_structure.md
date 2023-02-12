@@ -3,6 +3,7 @@
 ```markdown
 gu-ask-real-2nd/
 ├── .husky/           --> Git hooks
+│   ├── commit-msg    --> Run commit linter
 │   ├── pre-commit.sh --> Run before commit
 │   ├── pre-push.sh   --> Run before push
 │   └── ...
@@ -48,12 +49,14 @@ gu-ask-real-2nd/
 │   │   │   └── ...
 │   │   └── ...
 │   ├── pages/            --> All Pages
+│   │   ├── Games/        --> All Games Page
+│   │   │   └── ...
 │   │   └── UiComponents  --> UI Components Page
-│   │       ├── ButtonUi  --> Button UI
-│   │       ├── InputUi   --> Input UI
 │   │       └── ...
 │   ├── recoils/    --> All Recoils storages
 │   │   └── atoms/  --> All Atoms
+│   │       ├── localSetting  --> Local setting storage such as theme, language and etc.
+│   │       ├── sidebar       --> Sidebar storage such as sidebar open or close
 │   │       └── ...
 │   ├── styles/               --> All Styles
 │   │   ├── components/       --> All Global components styles
@@ -63,19 +66,21 @@ gu-ask-real-2nd/
 │   │   ├── global.scss       --> Global styles
 │   │   ├── scrollbar.scss    --> Scrollbar styles
 │   │   └── styles.scss       --> Assemble all styles
-│   ├── types/              --> All Types
-│   │   ├── common/         --> Common types
+│   ├── types/                --> All Types
+│   │   ├── common/           --> Common types
 │   │   │   └── ...
-│   │   ├── http/           --> Http types
+│   │   ├── http/             --> Http types
 │   │   │   └── ...
-│   │   ├── react/          --> Utilities types for react
+│   │   ├── pageUiComponent/  --> Types for UI Components Page
 │   │   │   └── ...
-│   │   ├── utilities/      --> Utilities types
+│   │   ├── react/            --> Utilities types for react
 │   │   │   └── ...
-│   │   ├── i18next.d.ts    --> i18next types
-│   │   ├── image.d.ts      --> Image types
-│   │   ├── twin.d.ts       --> Twin.macro types
-│   │   ├── windowEnv.d.ts  --> Window env types
+│   │   ├── utilities/        --> Utilities types
+│   │   │   └── ...
+│   │   ├── i18next.d.ts      --> i18next types
+│   │   ├── image.d.ts        --> Image types
+│   │   ├── twin.d.ts         --> Twin.macro types
+│   │   ├── windowEnv.d.ts    --> Window env types
 │   │   └── ...
 │   ├── utils/          --> All Utilities
 │   │   ├── axios/      --> Axios utilities
@@ -88,6 +93,8 @@ gu-ask-real-2nd/
 │   │   │   └── ...
 │   │   ├── jest/       --> Jest utilities
 │   │   │   └── ...
+│   │   ├── number/     --> Number utilities
+│   │   │   └── ...
 │   │   ├── object/     --> Object utilities
 │   │   │   └── ...
 │   │   ├── route/      --> Route utilities
@@ -99,24 +106,27 @@ gu-ask-real-2nd/
 │   ├── Routers.tsx   --> Routers
 │   ├── setupTests.ts --> Setup for jest
 │   └── ...
-├── .dockerignore       --> Docker ignore file
-├── .env                --> Environment variables
-├── .env.example        --> Environment variables example
-├── .eslintignore       --> Eslint ignore file
-├── .eslintrc.js        --> Eslint configuration
-├── .gitignore          --> Git ignore file
-├── .gitlab-ci.yml      --> Gitlab CI/CD configuration
-├── .prettierignore     --> Prettier ignore file
-├── .prettierrc.js      --> Prettier configuration
-├── .yarnrc             --> Yarn configuration
-├── changelog.md        --> Changelog
-├── docker-compose.yml  --> Docker compose file
-├── makefile            --> Makefile
-├── package.json        --> Package.json
-├── postcss.config.js   --> Postcss configuration
-├── README.md           --> Readme
-├── tailwind.config.js  --> Tailwind configuration
-├── tsconfig.json       --> Typescript configuration
-├── yarn.lock           --> Yarn lock file
+├── .dockerignore         --> Docker ignore file
+├── .env                  --> Environment variables
+├── .env.example          --> Environment variables example
+├── .eslintignore         --> Eslint ignore file
+├── .eslintrc.js          --> Eslint configuration
+├── .gitignore            --> Git ignore file
+├── .gitlab-ci.yml        --> Gitlab CI/CD configuration
+├── .prettierignore       --> Prettier ignore file
+├── .prettierrc.js        --> Prettier configuration
+├── .versionrc.json       --> Version release configuration and changelog auto generate
+├── .yarnrc               --> Yarn configuration
+├── CHANGELOG.md          --> Changelog
+├── commitlint.config.js  --> Commitlint configuration
+├── cz.config.js          --> Commitizen configuration
+├── docker-compose.yml    --> Docker compose file
+├── makefile              --> Makefile
+├── package.json          --> Package.json
+├── postcss.config.js     --> Postcss configuration
+├── README.md             --> Readme
+├── tailwind.config.js    --> Tailwind configuration
+├── tsconfig.json         --> Typescript configuration
+├── yarn.lock             --> Yarn lock file
 └── ...
 ```

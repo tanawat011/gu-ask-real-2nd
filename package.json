@@ -24,7 +24,7 @@
     "test:w": "react-scripts test --maxWorkers=1",
     "test:cv": "yarn test --coverage",
     "test:cv:msg": "yarn test:cv --verbose",
-    "_test:cv:msg": "/bin/sh ./scripts/jest.sh",
+    "test:ez": "/bin/sh ./scripts/jest.sh",
     "test:cv:w": "yarn test:w --coverage",
     "test:cv:msg:w": "yarn test:cv:w --verbose",
     "pre:commit": "yarn lint && yarn build && yarn build:css",
