@@ -3,7 +3,7 @@
   "types": [
     { "type": "feat", "section": "Features" },
     { "type": "fix", "section": "Bug Fixes" },
-    { "type": "docs", "section": "Documentations" },
+    { "type": "docs", "section": "Documentation" },
     { "type": "style", "section": "Other" },
     { "type": "refactor", "section": "Other" },
     { "type": "perf", "section": "Other" },

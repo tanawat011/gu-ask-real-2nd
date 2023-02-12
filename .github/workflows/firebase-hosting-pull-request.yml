@@ -34,6 +34,7 @@ jobs:
           projectId: gar2nd-4e089
   pre_release:
     name: "Pre Release"
+    needs: [build_and_preview]
     runs-on: "ubuntu-latest"
     steps:
       - uses: "marvinpinto/action-automatic-releases@latest"
