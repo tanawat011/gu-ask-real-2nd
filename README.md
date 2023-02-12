@@ -44,11 +44,6 @@ A Frontend Backoffice Project.
 - [x] [ESLint](https://eslint.org/docs/latest/) (for linting)
 - [x] [Prettier](https://prettier.io/docs/en/index.html) (for formatting)
 - [x] [i18n](https://www.i18next.com/) (for internationalization)
-- [x] [Husky](https://typicode.github.io/husky/#/) (for linting)
-- [x] [Git Commitizen](https://github.com/Zhengqbbb/cz-git) (for commit message)
-- [x] [Git Commit linter](https://github.com/conventional-changelog/commitlint) (for commit message)
-- [x] [Auto Standard Version](https://github.com/conventional-changelog/standard-version) (for changelog auto generate and versioning)
-- [x] [Firebase](https://firebase.google.com/docs) (for authentication, database, storage, hosting, etc.)
 - [ ] [React Hook Form](https://react-hook-form.com/get-started/) (for form validation)
 - [ ] [Yup](https://www.npmjs.com/package/yup) (for schema form validation)
 - [x] [React Router Dom V6](https://reactrouter.com/en/main/start/overview) (for routing)
@@ -61,7 +56,17 @@ A Frontend Backoffice Project.
 - [ ] [React Intersection Observer](https://www.npmjs.com/package/react-intersection-observer) (for handle scroll to element in viewport)
 - [ ] [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) (for infinite scroll)
 
-## Utilities Support
+## Other Features
+
+- [x] [Husky](https://typicode.github.io/husky/#/) (for linting)
+- [x] [Git Commitizen](https://github.com/Zhengqbbb/cz-git) (for commit message)
+- [x] [Git Commit linter](https://github.com/conventional-changelog/commitlint) (for commit message)
+- [x] [Auto Standard Version](https://github.com/conventional-changelog/standard-version) (for changelog auto generate and versioning)
+- [x] [Firebase](https://firebase.google.com/docs) (for authentication, database, storage, hosting, etc.)
+- [x] [Github Action](https://docs.github.com/en/actions) (for CI/CD)
+- [x] [Gitlab CI](https://docs.gitlab.com/ee/ci/) (for CI/CD)
+
+## Simple Page
 
 - [x] `Simple error Page` (for error handling)
 - [ ] `Simple loading component` (for loading handling)
