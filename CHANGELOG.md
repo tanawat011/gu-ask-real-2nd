@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.0...v0.2.1) (2023-02-12)
+
+
+### Documentations
+
+* :memo: all document ([933d228](https://github.com/tanawat011/gu-ask-real-2nd/commits/933d228a5715ef2511fe9caabba5c649d603e938))
+* :memo: update document structure, readme and script ([6789d9a](https://github.com/tanawat011/gu-ask-real-2nd/commits/6789d9afb4ae45ea05f881be935e5d4ef27d6cb3))
+
 ## 0.2.0 (2023-02-11)
 
 
