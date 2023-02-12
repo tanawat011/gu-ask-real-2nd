@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: tanawat011/action-auto-release@v0.0.1
+        uses: tanawat011/action-auto-release@main
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
