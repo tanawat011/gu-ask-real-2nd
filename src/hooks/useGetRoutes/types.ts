@@ -78,3 +78,65 @@ export type AllRoutesReal = {
   auth: RouteOptionReal<DeepRequired<RouteAuth>>
   error: RouteOptionReal<DeepRequired<RouteError>>
 }
+
+export type _RouteOption<T = undefined> = {
+  cd?: RouteOptionDeepChangeReplace<T>
+  element?: JSX.Element
+  params?: string[]
+}
+
+export type AllPaths = {
+  main: {
+    home: {
+      dashboard: string
+    }
+    app: {
+      todo: string
+    }
+    game: {
+      sudoku: string
+      ticTacToe: string
+    }
+    uiComponent: {
+      input: {
+        button: string
+        buttonGroup: string
+        calendar: string
+        checkbox: string
+        dateAndTime: string
+        radioButton: string
+        rating: string
+        select: string
+        slider: string
+        switch: string
+        textField: string
+      }
+    }
+    lv1: {
+      lv2: {
+        lv3: string
+      }
+      lv2Id: string
+    }
+  }
+  auth: {
+    login: string
+    register: string
+    forgotPassword: string
+    resetPassword: string
+  }
+  error: {
+    404: string
+    '*': string
+    401: string
+    403: string
+    500: string
+    502: string
+    503: string
+    504: string
+  }
+}
+
+export type RouteOptionDeepChangeReplace<T> = {
+  [Key in keyof T]: _RouteOption<T[Key]> | JSX.Element
+}

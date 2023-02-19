@@ -1,3 +1,4 @@
+export * from './deepObject'
 export * from './keyOf'
 export * from './merged'
 export * from './union'
