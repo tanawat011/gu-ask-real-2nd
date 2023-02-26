@@ -90,8 +90,9 @@ A Frontend Backoffice Project.
 ### How to add a new page
 
 - Create a new page in `src/pages` with the page name.
-- Add a new route in the `src/hooks/useRouteList` file.
-- Update a type of a new route in the type folder -> `src/hooks/useRouteList/types`.
+- Update a type for new route in the type folder -> `src/routes.tsx`.
+- Add a new route in the `src/routes.tsx` file.
+- Add a new route in the `src/__mocks__/routes.tsx` file (for unit test runner).
 
 ### How to add a new env
 
