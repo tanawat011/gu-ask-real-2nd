@@ -76,7 +76,7 @@ A Frontend Backoffice Project.
 
 - [x] `Button`
 - [x] `Button Group`
-- [x] `Text Field`
+- [x] `Text Input`
 
 ## Document
 

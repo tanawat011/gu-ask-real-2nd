@@ -33,8 +33,8 @@ export const TextInputUiBasic = () => {
             </div>
 
             <div className='flex gap-2 items-center flex-wrap'>
-              <TextInput placeholder='Text field' error />
-              <TextInput placeholder='Text field' color='amber-600' />
+              <TextInput placeholder='Text Input' error />
+              <TextInput placeholder='Text Input' color='amber-600' />
               <TextInput label='Outline' variant='outline' error />
               <TextInput label='Outline' variant='outline' color='amber-600' />
               <TextInput label='Outline' variant='outline' size='sm' />
@@ -43,14 +43,14 @@ export const TextInputUiBasic = () => {
               <TextInput label='Underline' variant='underline' />
               <TextInput label='Filled' variant='filled' error />
               <TextInput label='Filled' variant='filled' />
-              <TextInput placeholder='Text field' disabled />
-              <TextInput placeholder='Text field' size='lg' />
-              <TextInput placeholder='Text field' size='md' />
-              <TextInput placeholder='Text field' size='sm' />
-              <TextInput placeholder='Text field' size='xs' />
-              <TextInput placeholder='Text field' shape='circle' />
-              <TextInput placeholder='Text field' shape='square' />
-              <TextInput placeholder='Text field' shape='rounded' />
+              <TextInput placeholder='Text Input' disabled />
+              <TextInput placeholder='Text Input' size='lg' />
+              <TextInput placeholder='Text Input' size='md' />
+              <TextInput placeholder='Text Input' size='sm' />
+              <TextInput placeholder='Text Input' size='xs' />
+              <TextInput placeholder='Text Input' shape='circle' />
+              <TextInput placeholder='Text Input' shape='square' />
+              <TextInput placeholder='Text Input' shape='rounded' />
             </div>
           </>
         }
