@@ -190,7 +190,7 @@
       "src/pages",
       "routes.tsx",
       "types",
-      "TextField"
+      "TextInput"
     ]
   },
   "babelMacros": {
