@@ -3,8 +3,8 @@ import { useEffect } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import tw from 'twin.macro'
 
-import { authRoute } from 'Routes'
 import { FlexRow } from 'components/Common'
+import { authRoute } from 'routes'
 
 const Container = tw(FlexRow)`h-screen w-full bg-slate-300`
 

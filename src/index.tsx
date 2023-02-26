@@ -9,8 +9,8 @@ import 'configs'
 import 'locales'
 import 'styles/styles.scss'
 
-import { AppRoutes } from './Routes'
 import reportWebVitals from './reportWebVitals'
+import { AppRoutes } from './routes'
 
 const queryClient = new QueryClient()
 

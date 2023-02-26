@@ -2,6 +2,8 @@
 
 exports[`useGetSidebarMenu should return all menu list 1`] = `
 <DocumentFragment>
-  <div />
+  <div>
+     HOME
+  </div>
 </DocumentFragment>
 `;

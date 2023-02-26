@@ -133,7 +133,7 @@ exports[`<SidebarContent /> should render without crashing and match snapshot 1`
   transition-timing-function: cubic-bezier(0.4,0,0.2,1);
   -webkit-transition-duration: 150ms;
   transition-duration: 150ms;
-  height: 40px;
+  height: 80px;
   margin-bottom: 0.5rem;
 }
 

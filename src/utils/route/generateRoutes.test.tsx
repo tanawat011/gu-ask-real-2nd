@@ -25,18 +25,52 @@ describe('utils/route', () => {
     expect.assertions(1)
 
     const routes = generateRoutes({
-      customer: {
-        path: 'customer',
-        element: <div />,
-      },
-      report: {
-        path: 'report',
+      main: {
         children: {
           lv2: {
             path: 'lv2',
             element: <div />,
           },
+          lv22: {
+            path: '',
+            element: <div />,
+          },
+          lv223: {
+            element: <div />,
+          },
         },
+      },
+      customer: {
+        path: 'customer',
+        element: <div />,
+      },
+    })
+
+    expect(routes.length).toEqual(2)
+  })
+
+  test('generateRoutes with 2 level, but first not main', () => {
+    expect.assertions(1)
+
+    const routes = generateRoutes({
+      report: {
+        children: {
+          lv2: {
+            path: 'lv2',
+            element: <div />,
+          },
+          lv22: {
+            path: '',
+            element: <div />,
+          },
+          lv223: {
+            element: <div />,
+          },
+        },
+      },
+      customer: {
+        path: 'customer',
+        element: <div />,
       },
     })
 

@@ -3,11 +3,11 @@ import { useEffect } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
-import { mainRoute } from 'Routes'
 import { Navbar } from 'components/Navbar'
 import { Sidebar } from 'components/Sidebar'
 import { useGetSidebarMenu } from 'hooks/useGetSidebarMenu'
 import { sidebarAtom } from 'recoils/atoms/sidebar'
+import { mainRoute } from 'routes'
 
 import { MainContainer, MainContent, MainContentContainer } from './Main.style'
 

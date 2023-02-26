@@ -18,7 +18,8 @@ export const generateRoutes = <T,>(routes: RouteBase<T>) => {
   return (routesArr as [string, RouteOption<T>][]).map(
     ([key, route], index) => {
       const isMainRoute = index === 0 && key === 'main'
-      const path = route.path || camelToKebab(key)
+      const _path = route?.path === '' ? '' : route.path // when path is empty string, it will be not add the slash
+      const path = route?.path !== undefined ? _path : camelToKebab(key) // validate path is undefined only not included the empty string
 
       if (route.children) {
         const finalPath = isMainRoute ? '' : path
@@ -32,13 +33,11 @@ export const generateRoutes = <T,>(routes: RouteBase<T>) => {
         )
       }
 
-      const finalPath = isMainRoute ? '' : path
-
       return (
         <React.Fragment key={index}>
           {index === 0 && <Route index element={route.element} />}
 
-          <Route path={finalPath} element={route.element} />
+          <Route path={path} element={route.element} />
         </React.Fragment>
       )
     },

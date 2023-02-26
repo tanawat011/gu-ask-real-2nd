@@ -62,6 +62,27 @@ describe('utils/route', () => {
     expect(paths.report.lv2).toEqual('/report')
   })
 
+  test('generatePaths with 2 level and level 2 is undefined path', () => {
+    expect.assertions(1)
+
+    const paths = generatePaths<{ customer: string; report: { lv2: string } }>({
+      customer: {
+        path: 'customer',
+        element: <div />,
+      },
+      report: {
+        path: 'report',
+        children: {
+          lv2: {
+            element: <div />,
+          },
+        },
+      },
+    })
+
+    expect(paths.report.lv2).toEqual('/report/lv2')
+  })
+
   test('generatePaths with *', () => {
     expect.assertions(1)
 
@@ -80,4 +101,22 @@ describe('utils/route', () => {
       customer: '/customer',
     })
   })
+})
+
+test('generatePaths with main module', () => {
+  expect.assertions(1)
+
+  const paths = generatePaths<{ main: { customer: string } }>({
+    main: {
+      element: <div />,
+      children: {
+        customer: {
+          path: 'customer',
+          element: <div />,
+        },
+      },
+    },
+  } as never)
+
+  expect(paths.main.customer).toEqual('/customer')
 })

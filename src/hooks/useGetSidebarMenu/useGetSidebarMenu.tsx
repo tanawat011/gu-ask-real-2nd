@@ -3,8 +3,8 @@ import type { MenuItem } from 'components/Sidebar'
 import type { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
 
-import { mainRoute } from 'Routes'
 import { IconHome } from 'components/Icons'
+import { mainRoute } from 'routes'
 
 export const useGetSidebarMenu = (): [
   MenuItem[],

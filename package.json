@@ -188,7 +188,7 @@
       "src/locales",
       "src/mocks",
       "src/pages",
-      "Routes.tsx",
+      "routes.tsx",
       "types",
       "TextField"
     ]
