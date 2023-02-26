@@ -11,9 +11,9 @@ import {
   TwWrapperIconError,
   TwWrapperInput,
   TwWrapperInputLv2,
-} from './TextField.style'
+} from './TextInput.style'
 
-export type TextFieldProps = {
+export type TextInputProps = {
   id?: string
   label?: string
   placeholder?: string
@@ -29,7 +29,7 @@ export type TextFieldProps = {
   error?: boolean | string
 }
 
-export const TextField: React.FC<TextFieldProps> = ({
+export const TextInput: React.FC<TextInputProps> = ({
   id = '',
   label,
   placeholder,

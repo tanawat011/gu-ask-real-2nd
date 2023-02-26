@@ -6,13 +6,13 @@ import { Title } from 'components/PageUiComponent'
 
 import { Api } from './Api'
 import { RightMenuButtonUi } from './RightMenuButtonUi'
-import { TextFieldUiBasic } from './TextFieldUiBasic'
+import { TextInputUiBasic } from './TextInputUiBasic'
 
 const TwContainer = tw.div`relative grid grid-cols-1 gap-8 overflow-x-auto px-8 py-6 desktop:grid-cols-5`
 const TwWrapContent = tw.div`xl:col-span-4`
 const TwWrapMenu = tw.div`col-span-1 hidden desktop:block`
 
-export const TextFieldUi = () => {
+export const TextInputUi = () => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   const handleScroll = () => {
@@ -31,7 +31,7 @@ export const TextFieldUi = () => {
             />
           </div>
 
-          <TextFieldUiBasic />
+          <TextInputUiBasic />
 
           <Api />
         </TwWrapContent>

@@ -10,13 +10,15 @@ export const useGetSidebarMenu = (): [
   MenuItem[],
   Dispatch<SetStateAction<MenuItem[]>>,
 ] => {
+  const { app, game, home, uiComponent } = mainRoute
+
   const menuSidebar: MenuItem[] = [
     {
       title: ' HOME',
       children: [
         {
           label: 'Dashboard',
-          to: mainRoute.home.dashboard,
+          to: home.dashboard,
           icon: <IconHome />,
         },
       ],
@@ -26,7 +28,7 @@ export const useGetSidebarMenu = (): [
       children: [
         {
           label: 'Todo',
-          to: mainRoute.app.todo,
+          to: app.todo,
           icon: <IconHome />,
         },
       ],
@@ -36,12 +38,12 @@ export const useGetSidebarMenu = (): [
       children: [
         {
           label: 'Sudoku',
-          to: mainRoute.game.sudoku,
+          to: game.sudoku,
           icon: <IconHome />,
         },
         {
           label: 'Tic Tac Toe',
-          to: mainRoute.game.ticTacToe,
+          to: game.ticTacToe,
           icon: <IconHome />,
         },
       ],
@@ -50,52 +52,268 @@ export const useGetSidebarMenu = (): [
       title: 'UI COMPONENT',
       children: [
         {
-          label: 'Input',
+          label: 'Screen',
+          icon: <IconHome />,
+          children: [
+            {
+              label: 'Breakpoint',
+              to: uiComponent.screen.breakpoint,
+            },
+            {
+              label: 'Display',
+              to: uiComponent.screen.display,
+            },
+            {
+              label: 'Box',
+              to: uiComponent.screen.box,
+            },
+            {
+              label: 'Position',
+              to: uiComponent.screen.position,
+            },
+            {
+              label: 'Overflow',
+              to: uiComponent.screen.overflow,
+            },
+          ],
+        },
+        {
+          label: 'Flexbox / Grid',
+          icon: <IconHome />,
+          children: [
+            {
+              label: 'Flexbox',
+              to: uiComponent.flexboxAndGrid.flex,
+            },
+            {
+              label: 'Grid',
+              to: uiComponent.flexboxAndGrid.grid,
+            },
+            {
+              label: 'Gap',
+              to: uiComponent.flexboxAndGrid.gap,
+            },
+            {
+              label: 'Justify',
+              to: uiComponent.flexboxAndGrid.justify,
+            },
+            {
+              label: 'Align',
+              to: uiComponent.flexboxAndGrid.align,
+            },
+            {
+              label: 'Place',
+              to: uiComponent.flexboxAndGrid.place,
+            },
+          ],
+        },
+        {
+          label: 'Typography',
+          icon: <IconHome />,
+          to: uiComponent.typography,
+        },
+        {
+          label: 'Action',
           icon: <IconHome />,
           children: [
             {
               label: 'Button',
-              to: mainRoute.uiComponent.input.button,
+              to: uiComponent.action.button,
             },
             {
               label: 'Button Group',
-              to: mainRoute.uiComponent.input.buttonGroup,
+              to: uiComponent.action.buttonGroup,
             },
             {
+              label: 'Dropdown',
+              to: uiComponent.action.dropdown,
+            },
+            {
+              label: 'Modal',
+              to: uiComponent.action.modal,
+            },
+            {
+              label: 'Swap',
+              to: uiComponent.action.swap,
+            },
+          ],
+        },
+        {
+          label: 'Data Display',
+          icon: <IconHome />,
+          children: [
+            {
+              label: 'Alert',
+              to: uiComponent.dataDisplay.alert,
+            },
+            {
+              label: 'Avatar',
+              to: uiComponent.dataDisplay.avatar,
+            },
+            {
+              label: 'Badge',
+              to: uiComponent.dataDisplay.badge,
+            },
+            {
+              label: 'Card',
+              to: uiComponent.dataDisplay.card,
+            },
+            {
+              label: 'Carousel',
+              to: uiComponent.dataDisplay.carousel,
+            },
+            {
+              label: 'Chat Bubble',
+              to: uiComponent.dataDisplay.chatBubble,
+            },
+            {
+              label: 'Collapse',
+              to: uiComponent.dataDisplay.collapse,
+            },
+            {
+              label: 'Countdown',
+              to: uiComponent.dataDisplay.countdown,
+            },
+            {
+              label: 'KBD',
+              to: uiComponent.dataDisplay.kbd,
+            },
+            {
+              label: 'Progress',
+              to: uiComponent.dataDisplay.progress,
+            },
+            {
+              label: 'Radial Progress',
+              to: uiComponent.dataDisplay.radialProgress,
+            },
+            {
+              label: 'Stat',
+              to: uiComponent.dataDisplay.stat,
+            },
+            {
+              label: 'Tooltip',
+              to: uiComponent.dataDisplay.tooltip,
+            },
+          ],
+        },
+        {
+          label: 'Input',
+          icon: <IconHome />,
+          children: [
+            {
               label: 'Calendar',
-              to: mainRoute.uiComponent.input.calendar,
+              to: uiComponent.input.calendar,
             },
             {
               label: 'Checkbox',
-              to: mainRoute.uiComponent.input.checkbox,
+              to: uiComponent.input.checkbox,
             },
             {
               label: 'Date And Time',
-              to: mainRoute.uiComponent.input.dateAndTime,
+              to: uiComponent.input.dateTimeInput,
             },
             {
               label: 'Radio Button',
-              to: mainRoute.uiComponent.input.radioButton,
+              to: uiComponent.input.radioButton,
             },
             {
               label: 'Rating',
-              to: mainRoute.uiComponent.input.rating,
+              to: uiComponent.input.rating,
             },
             {
               label: 'Select',
-              to: mainRoute.uiComponent.input.select,
+              to: uiComponent.input.select,
             },
             {
-              label: 'Slider',
-              to: mainRoute.uiComponent.input.slider,
+              label: 'Range',
+              to: uiComponent.input.range,
             },
             {
               label: 'Switch',
-              to: mainRoute.uiComponent.input.switch,
+              to: uiComponent.input.switch,
             },
             {
               label: 'Text Field',
-              to: mainRoute.uiComponent.input.textField,
+              to: uiComponent.input.textInput,
+            },
+          ],
+        },
+        {
+          label: 'Table',
+          icon: <IconHome />,
+          to: uiComponent.table,
+        },
+        {
+          label: 'Navigation',
+          icon: <IconHome />,
+          children: [
+            {
+              label: 'Bottom Navigation',
+              to: uiComponent.navigation.bottomNavigation,
+            },
+            {
+              label: 'Breadcrumb',
+              to: uiComponent.navigation.breadcrumb,
+            },
+            {
+              label: 'Link',
+              to: uiComponent.navigation.link,
+            },
+            {
+              label: 'Menu',
+              to: uiComponent.navigation.menu,
+            },
+            {
+              label: 'Navbar',
+              to: uiComponent.navigation.navbar,
+            },
+            {
+              label: 'Pagination',
+              to: uiComponent.navigation.pagination,
+            },
+            {
+              label: 'Steps',
+              to: uiComponent.navigation.steps,
+            },
+            {
+              label: 'Tab',
+              to: uiComponent.navigation.tab,
+            },
+          ],
+        },
+        {
+          label: 'Mockup',
+          icon: <IconHome />,
+          children: [
+            {
+              label: 'Code',
+              to: uiComponent.mockup.code,
+            },
+            {
+              label: 'Phone',
+              to: uiComponent.mockup.phone,
+            },
+            {
+              label: 'Window',
+              to: uiComponent.mockup.window,
+            },
+          ],
+        },
+        {
+          label: 'Icon',
+          icon: <IconHome />,
+          children: [
+            {
+              label: 'A',
+              to: uiComponent.icon.a,
+            },
+            {
+              label: 'B',
+              to: uiComponent.icon.b,
+            },
+            {
+              label: 'C',
+              to: uiComponent.icon.c,
             },
           ],
         },

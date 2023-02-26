@@ -1,4 +1,4 @@
-import type { TextFieldProps } from './TextField'
+import type { TextInputProps } from './TextInput'
 import type {
   Size,
   ThemeMode,
@@ -17,10 +17,10 @@ type TwThemeOption = {
   themeMode: ThemeMode
 }
 
-type TwWrapperInputProps = Required<Pick<TextFieldProps, 'block' | 'variant'>>
+type TwWrapperInputProps = Required<Pick<TextInputProps, 'block' | 'variant'>>
 
 type TwWrapperInput2Props = Required<
-  Pick<TextFieldProps, 'variant' | 'error'>
+  Pick<TextInputProps, 'variant' | 'error'>
 > &
   TwThemeOption
 
@@ -32,8 +32,8 @@ type GetColorsFn = (option: Omit<TwWrapperInput2Props, 'variant'>) => {
   textTheme: string
 }
 
-type TwTextFieldProps = WithRequired<
-  Omit<TextFieldProps, 'disabled' | 'placeholder' | 'size'>,
+type TwTextInputProps = WithRequired<
+  Omit<TextInputProps, 'disabled' | 'placeholder' | 'size'>,
   'shape' | 'width' | 'error' | 'variant'
 > &
   TwThemeOption & {
@@ -44,7 +44,7 @@ type TwLabelProps = {
   inputSize: Size
 }
 
-type TwWrapperIconErrorProps = Required<Pick<TextFieldProps, 'variant'>> &
+type TwWrapperIconErrorProps = Required<Pick<TextInputProps, 'variant'>> &
   TwThemeOption
 
 const twSize: TwSizeObject = {
@@ -167,7 +167,7 @@ export const TwWrapperIconError = styled.div<TwWrapperIconErrorProps>(
 )
 export const TwWrapperError = tw.div`absolute text-red-600`
 
-export const TwInput = styled.input<TwTextFieldProps>(
+export const TwInput = styled.input<TwTextInputProps>(
   ({
     variant,
     hexColor,
