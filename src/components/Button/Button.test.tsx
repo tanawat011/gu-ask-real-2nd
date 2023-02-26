@@ -386,10 +386,11 @@ describe('<Button />', () => {
     const active = { modifier: ':active' }
 
     const Component = () => {
-      const [{ auth, theme }, setTheme] = useRecoilState(localSettingAtom)
+      const [{ auth, theme, sidebar }, setTheme] =
+        useRecoilState(localSettingAtom)
 
       useEffect(() => {
-        setTheme({ auth, theme: { ...theme, mode } })
+        setTheme({ auth, sidebar, theme: { ...theme, mode } })
       }, [])
 
       return <Button label='button' variant={key as VariantButton} />

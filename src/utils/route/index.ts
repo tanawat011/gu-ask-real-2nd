@@ -1,3 +1,2 @@
-export * from './menuGenerator'
-export * from './renderRoutes'
-export * from './routeGenerator'
+export * from './generatePaths'
+export * from './generateRoutes'

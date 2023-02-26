@@ -36,6 +36,10 @@ export type LocalSettingState = {
       authority: string[] // ['admin', 'user']
     }
   }
+  sidebar: {
+    current: string
+    expanses: string[]
+  }
 }
 
 export const defaultLocalSetting: LocalSettingState = {
@@ -63,6 +67,10 @@ export const defaultLocalSetting: LocalSettingState = {
       email: '',
       authority: ['admin', 'user'],
     },
+  },
+  sidebar: {
+    current: '/',
+    expanses: [],
   },
 }
 

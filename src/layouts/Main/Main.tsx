@@ -3,9 +3,9 @@ import { useEffect } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
+import { mainRoute } from 'Routes'
 import { Navbar } from 'components/Navbar'
 import { Sidebar } from 'components/Sidebar'
-import { useGetRoutes } from 'hooks/useGetRoutes'
 import { useGetSidebarMenu } from 'hooks/useGetSidebarMenu'
 import { sidebarAtom } from 'recoils/atoms/sidebar'
 
@@ -18,9 +18,8 @@ export const MainLayout: React.FC = () => {
   const [{ fullSidebar }, setFullSidebar] = useRecoilState(sidebarAtom)
 
   const [menuList, setMenuList] = useGetSidebarMenu()
-  const { main } = useGetRoutes()
 
-  const { home } = main._
+  const { home } = mainRoute
 
   useEffect(() => {
     handleRedirectToHome()
@@ -30,7 +29,7 @@ export const MainLayout: React.FC = () => {
     const defaultPaths = ['', '/']
 
     if (defaultPaths.includes(location.pathname)) {
-      navigate(home.fullPath)
+      navigate(home.dashboard)
     }
   }
 

@@ -1,6 +1,7 @@
 export * from './deepObject'
 export * from './keyOf'
 export * from './merged'
+export * from './number'
 export * from './union'
 export * from './withRequired'
 export * from './withSpecRequired'

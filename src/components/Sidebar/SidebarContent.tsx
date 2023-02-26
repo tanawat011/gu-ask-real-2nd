@@ -7,7 +7,11 @@ import tw, { css, styled } from 'twin.macro'
 import { IconCaretLeft } from 'components/Icons'
 import { Popover } from 'components/Popover'
 import { FLEX } from 'constants/twTheme'
-import { expandItem, selectChildItem, selectItem } from 'utils/components/sidebar'
+import {
+  expandItem,
+  selectChildItem,
+  selectItem,
+} from 'utils/components/sidebar'
 
 import { SidebarItem } from './SidebarItem'
 import { SidebarItemChild } from './SidebarItemChild'
@@ -19,18 +23,24 @@ export type SidebarContentProps = {
 }
 
 const TwHeightContainer = tw.div`h-[calc(100% - theme(height.sidebar-header) - theme(height.sidebar-footer) - 1px)]`
-const TwContainer = styled(TwHeightContainer)(({ fullSidebar }: SidebarState) => [
-  tw`select-none px-4 pb-4 font-semibold text-sm`,
-  fullSidebar && tw`[overflow-y: overlay]`,
-])
+const TwContainer = styled(TwHeightContainer)(
+  ({ fullSidebar }: SidebarState) => [
+    tw`select-none px-4 pb-4 font-semibold text-sm`,
+    fullSidebar && tw`[overflow-y: overlay]`,
+  ],
+)
 const TwContentWrap = styled.div(() => [FLEX.COL])
 const TwContentTitle = tw.div`mt-4 mb-2 px-3`
 
 const TwWrapChildItem = styled.div(
-  ({ expanded, totalItem }: { expanded?: boolean; totalItem: number }) => [
-    tw`overflow-hidden opacity-100 transition-all`,
-    expanded ? [css({ height: `${totalItem * 40}px` }), tw`mb-2`] : tw`h-0 opacity-0`,
-  ],
+  ({ expanded, totalItem }: { expanded?: boolean; totalItem: number }) => {
+    return [
+      tw`overflow-hidden opacity-100 transition-all`,
+      expanded
+        ? [css({ height: `${(totalItem + 1) * 40}px` }), tw`mb-2`]
+        : tw`h-0 opacity-0`,
+    ]
+  },
 )
 
 export const SidebarContent: React.FC<SidebarContentProps> = ({
@@ -103,7 +113,9 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({
                               '-',
                             )}-${i}-${j}`}
                             label={child.label}
-                            onClick={() => handleClickItem(child, child.to, item)}
+                            onClick={() =>
+                              handleClickItem(child, child.to, item)
+                            }
                             selected={child.selected}
                             fullSidebar={fullSidebar}
                           />
@@ -116,10 +128,16 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({
                 ))}
 
               {fullSidebar && item.children && (
-                <TwWrapChildItem expanded={item.expanded} totalItem={item.children.length}>
+                <TwWrapChildItem
+                  expanded={item.expanded}
+                  totalItem={item.children.length}
+                >
                   {item.children.map((child, j) => (
                     <SidebarItemChild
-                      key={`sidebar-menu-item-child-${child.label.replaceAll(' ', '-')}-${i}-${j}`}
+                      key={`sidebar-menu-item-child-${child.label.replaceAll(
+                        ' ',
+                        '-',
+                      )}-${i}-${j}`}
                       label={child.label}
                       onClick={() => handleClickItem(child, child.to, item)}
                       selected={child.selected}
