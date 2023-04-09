@@ -6,7 +6,7 @@ import { oneDark as theme } from 'react-syntax-highlighter/dist/esm/styles/prism
 import tw, { styled } from 'twin.macro'
 
 import { Button } from 'components/Button'
-import { IconCode, IconCopy } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { BG_THEME, BORDER_THEME } from 'constants/twTheme'
 
 type CodeDisplayProps = {
@@ -33,12 +33,12 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({ code }) => {
     <TwContainer>
       <TwWrapButton>
         <TwWrapButton2>
-          <Button variant='text' size='xs' icon={<IconCopy />} />
+          <Button variant='text' size='xs' icon={<IconFa icon='copy' />} />
 
           <Button
             variant='text'
             size='xs'
-            icon={<IconCode />}
+            icon={<IconFa icon='code' />}
             onClick={handleShowCode}
           />
         </TwWrapButton2>

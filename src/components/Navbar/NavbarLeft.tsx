@@ -1,6 +1,6 @@
 import tw, { styled } from 'twin.macro'
 
-import { IconBars } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { BORDER_THEME } from 'constants/twTheme'
 
 export type NavbarLeftProps = {
@@ -21,7 +21,7 @@ export const NavbarLeft: React.FC<NavbarLeftProps> = ({
   return (
     <TwNavbarLeft>
       <TwWrapBurger onClick={handleToggleSidebar}>
-        <IconBars size='lg' />
+        <IconFa icon='bars' size='lg' />
       </TwWrapBurger>
 
       <TwNavbarSearchInput placeholder='Search...' />

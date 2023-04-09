@@ -4,7 +4,7 @@ import type { SidebarState } from 'recoils/atoms'
 import { useNavigate } from 'react-router-dom'
 import tw, { css, styled } from 'twin.macro'
 
-import { IconCaretLeft } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { Popover } from 'components/Popover'
 import { FLEX } from 'constants/twTheme'
 import {
@@ -103,7 +103,10 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({
                 (item.children ? (
                   <Popover>
                     <div className='relative'>
-                      <IconCaretLeft className='absolute text-charcoal left-1 top-1/2 -translate-y-1/2' />
+                      <IconFa
+                        icon='caret-left'
+                        className='absolute text-charcoal left-1 top-1/2 -translate-y-1/2'
+                      />
 
                       <div className='bg-charcoal ml-2 text-white rounded-lg shadow-lg mb-2'>
                         {item.children.map((child, j) => (

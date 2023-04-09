@@ -3,7 +3,7 @@ import type { MenuItem } from 'components/Sidebar'
 import type { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
 
-import { IconHome } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { mainRoute } from 'routes'
 
 export const useGetSidebarMenu = (): [
@@ -19,7 +19,7 @@ export const useGetSidebarMenu = (): [
         {
           label: 'Dashboard',
           to: home.dashboard,
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
         },
       ],
     },
@@ -29,7 +29,7 @@ export const useGetSidebarMenu = (): [
         {
           label: 'Todo',
           to: app.todo,
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
         },
       ],
     },
@@ -39,12 +39,12 @@ export const useGetSidebarMenu = (): [
         {
           label: 'Sudoku',
           to: game.sudoku,
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
         },
         {
           label: 'Tic Tac Toe',
           to: game.ticTacToe,
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
         },
       ],
     },
@@ -53,7 +53,7 @@ export const useGetSidebarMenu = (): [
       children: [
         {
           label: 'Screen',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           children: [
             {
               label: 'Breakpoint',
@@ -79,7 +79,7 @@ export const useGetSidebarMenu = (): [
         },
         {
           label: 'Flexbox / Grid',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           children: [
             {
               label: 'Flexbox',
@@ -109,12 +109,12 @@ export const useGetSidebarMenu = (): [
         },
         {
           label: 'Typography',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           to: uiComponent.typography,
         },
         {
           label: 'Action',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           children: [
             {
               label: 'Button',
@@ -140,7 +140,7 @@ export const useGetSidebarMenu = (): [
         },
         {
           label: 'Data Display',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           children: [
             {
               label: 'Alert',
@@ -198,7 +198,7 @@ export const useGetSidebarMenu = (): [
         },
         {
           label: 'Input',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           children: [
             {
               label: 'Calendar',
@@ -240,12 +240,12 @@ export const useGetSidebarMenu = (): [
         },
         {
           label: 'Table',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           to: uiComponent.table,
         },
         {
           label: 'Navigation',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           children: [
             {
               label: 'Bottom Navigation',
@@ -283,7 +283,7 @@ export const useGetSidebarMenu = (): [
         },
         {
           label: 'Mockup',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           children: [
             {
               label: 'Code',
@@ -301,7 +301,7 @@ export const useGetSidebarMenu = (): [
         },
         {
           label: 'Icon',
-          icon: <IconHome />,
+          icon: <IconFa icon='home' />,
           children: [
             {
               label: 'A',

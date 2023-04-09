@@ -1,7 +1,7 @@
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
-import { IconHome } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
@@ -27,11 +27,11 @@ export const ButtonUiLoading = () => {
           <div className='flex gap-2 items-center flex-wrap'>
             <Button label='Default' loading />
             <Button label='Text Indicator' loading='Loading...' />
-            <Button label='Icon' loading icon={<IconHome />} />
+            <Button label='Icon' loading icon={<IconFa icon='home' />} />
             <Button
               label='Icon Right'
               loading
-              icon={<IconHome />}
+              icon={<IconFa icon='home' />}
               iconPosition='right'
             />
           </div>
@@ -42,11 +42,11 @@ export const Component = () => {
   return (
     <Button label='Default' loading />
     <Button label='Text Indicator' loading='Loading...' />
-    <Button label='Icon' loading icon={<IconHome />} />
+    <Button label='Icon' loading icon={<IconFa icon='home' />} />
     <Button
       label='Icon Right'
       loading
-      icon={<IconHome />}
+      icon={<IconFa icon='home' />}
       iconPosition='right'
     />
   )

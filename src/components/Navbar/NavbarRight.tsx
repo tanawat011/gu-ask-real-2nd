@@ -3,7 +3,7 @@ import type { LocalSettingState } from 'recoils/atoms'
 import { US } from 'country-flag-icons/react/3x2'
 import tw from 'twin.macro'
 
-import { IconBell, IconGear } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { useLocalSetting } from 'hooks/useLocalSetting'
 import { defaultLocalSetting } from 'recoils/atoms'
 
@@ -70,13 +70,13 @@ export const NavbarRight = () => {
 
       <TwNavbarItem>
         <TwWrapIcon>
-          <IconBell size='lg' />
+          <IconFa icon='bell' size='lg' />
         </TwWrapIcon>
       </TwNavbarItem>
 
       <TwNavbarItem>
         <TwWrapIcon>
-          <IconGear size='lg' />
+          <IconFa icon='gear' size='lg' />
         </TwWrapIcon>
       </TwNavbarItem>
 

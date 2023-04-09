@@ -2,7 +2,7 @@ import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ButtonGroup } from 'components/ButtonGroup'
-import { IconBell, IconCode, IconGear } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
@@ -28,15 +28,15 @@ export const ButtonGroupUiShape = () => {
         components={
           <>
             <ButtonGroup shape='square' color='violet-600'>
-              <Button label='First' icon={<IconBell />} />
-              <Button label='Second' icon={<IconCode />} />
-              <Button label='Third' icon={<IconGear />} />
+              <Button label='First' icon={<IconFa icon='bell' />} />
+              <Button label='Second' icon={<IconFa icon='code' />} />
+              <Button label='Third' icon={<IconFa icon='gear' />} />
             </ButtonGroup>
 
             <ButtonGroup shape='circle' color='sky-600'>
-              <Button label='First' icon={<IconBell />} />
-              <Button label='Second' icon={<IconCode />} />
-              <Button label='Third' icon={<IconGear />} />
+              <Button label='First' icon={<IconFa icon='bell' />} />
+              <Button label='Second' icon={<IconFa icon='code' />} />
+              <Button label='Third' icon={<IconFa icon='gear' />} />
             </ButtonGroup>
           </>
         }

@@ -4,7 +4,7 @@ import React from 'react'
 
 import tw, { styled } from 'twin.macro'
 
-import { IconAngleDown } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { BG_THEME, TEXT_THEME } from 'constants/twTheme'
 
 export type SidebarItemProps = {
@@ -59,7 +59,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
 
       {fullSidebar && hasChildren && (
         <TwWrapAngleIcon expanded={expanded}>
-          <IconAngleDown size='lg' />
+          <IconFa icon='angle-down' size='lg' />
         </TwWrapAngleIcon>
       )}
     </TwContainer>

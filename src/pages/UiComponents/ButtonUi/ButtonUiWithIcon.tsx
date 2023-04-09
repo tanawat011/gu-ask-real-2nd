@@ -1,7 +1,7 @@
 import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
-import { IconHome } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
@@ -24,9 +24,9 @@ export const ButtonUiWithIcon = () => {
       <ComponentDisplay
         components={
           <div className='flex gap-2 items-center flex-wrap'>
-            <Button icon={<IconHome />} label='Icon' />
+            <Button icon={<IconFa icon='home' />} label='Icon' />
             <Button
-              icon={<IconHome />}
+              icon={<IconFa icon='home' />}
               iconPosition='right'
               label='Right Icon'
             />
@@ -36,8 +36,8 @@ export const ButtonUiWithIcon = () => {
 
 export const Component = () => {
   return (
-    <Button icon={<IconHome />} label='Icon' />
-    <Button icon={<IconHome />} iconPosition='right' label='Right Icon' />
+    <Button icon={<IconFa icon='home' />} label='Icon' />
+    <Button icon={<IconFa icon='home' />} iconPosition='right' label='Right Icon' />
   )
 }`}
       />

@@ -176,24 +176,7 @@ exports[`<SidebarContent /> should render without crashing and match snapshot 1`
 
 exports[`<SidebarContent /> should render without crashing and mini sidebar 1`] = `
 <DocumentFragment>
-  .c3 {
-  width: 0;
-  height: 0;
-  border: 7px solid transparent;
-  border-top: 7px solid;
-  border-right: 7px solid;
-}
-
-.c4 {
-  --tw-rotate: -135deg;
-  -webkit-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  -ms-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.c0 {
+  .c0 {
   height: calc(100% - 64px - 64px - 1px);
 }
 
@@ -238,9 +221,9 @@ exports[`<SidebarContent /> should render without crashing and mini sidebar 1`] 
           <div
             class="relative"
           >
-            <i
-              class="c3 c4 absolute left-1 top-1/2 -translate-y-1/2"
-            />
+            <svg>
+              caret-left
+            </svg>
             <div
               class="bg-black ml-2 text-white p-2 rounded-lg shadow-lg mb-2"
             >
@@ -261,9 +244,9 @@ exports[`<SidebarContent /> should render without crashing and mini sidebar 1`] 
           <div
             class="relative"
           >
-            <i
-              class="c3 c4 absolute text-charcoal left-1 top-1/2 -translate-y-1/2"
-            />
+            <svg>
+              caret-left
+            </svg>
             <div
               class="bg-charcoal ml-2 text-white rounded-lg shadow-lg mb-2"
             >
@@ -281,24 +264,7 @@ exports[`<SidebarContent /> should render without crashing and mini sidebar 1`] 
 
 exports[`<SidebarContent /> should render without crashing and mini sidebar but no route 1`] = `
 <DocumentFragment>
-  .c3 {
-  width: 0;
-  height: 0;
-  border: 7px solid transparent;
-  border-top: 7px solid;
-  border-right: 7px solid;
-}
-
-.c4 {
-  --tw-rotate: -135deg;
-  -webkit-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  -ms-transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.c0 {
+  .c0 {
   height: calc(100% - 64px - 64px - 1px);
 }
 
@@ -343,9 +309,9 @@ exports[`<SidebarContent /> should render without crashing and mini sidebar but 
           <div
             class="relative"
           >
-            <i
-              class="c3 c4 absolute left-1 top-1/2 -translate-y-1/2"
-            />
+            <svg>
+              caret-left
+            </svg>
             <div
               class="bg-black ml-2 text-white p-2 rounded-lg shadow-lg mb-2"
             >
@@ -366,9 +332,9 @@ exports[`<SidebarContent /> should render without crashing and mini sidebar but 
           <div
             class="relative"
           >
-            <i
-              class="c3 c4 absolute text-charcoal left-1 top-1/2 -translate-y-1/2"
-            />
+            <svg>
+              caret-left
+            </svg>
             <div
               class="bg-charcoal ml-2 text-white rounded-lg shadow-lg mb-2"
             >

@@ -9,9 +9,9 @@ import {
   IconLoadingCircle,
   IconLoadingCircle2,
   IconLoadingSign,
-} from '../IconLoading'
+} from './IconLoading'
 
-jest.mock('../IconLoading', () => jest.requireActual('../IconLoading'))
+jest.mock('./IconLoading', () => jest.requireActual('./IconLoading'))
 
 describe('IconLoading', () => {
   test('<IconLoadingBar /> renders correctly', () => {

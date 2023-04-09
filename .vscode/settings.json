@@ -89,8 +89,9 @@
     "tw\\.[^`]+`([^`]*)`", // tw.xxx<xxx>`...`
     "tw\\(.*?\\).*?`([^`]*)", // tw(Component)<xxx>`...`
     "return\\ '([^']*)'", // return '...'
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"], // clsx(...)
     "[a-zA-Z]*ClassName='([^']*)'", // customClassName='...'
-    "className[a-zA-Z]*='([^']*)'" // classNameCustom='...'
+    "className[:]* '([^']*)'" // className: '...'
   ],
   "better-comments.tags": [
     {

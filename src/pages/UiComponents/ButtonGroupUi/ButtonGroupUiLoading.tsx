@@ -2,7 +2,7 @@ import tw from 'twin.macro'
 
 import { Button } from 'components/Button'
 import { ButtonGroup } from 'components/ButtonGroup'
-import { IconBell, IconCode, IconGear } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 
@@ -27,15 +27,15 @@ export const ButtonGroupUiLoading = () => {
         components={
           <>
             <ButtonGroup loading>
-              <Button label='First' icon={<IconBell />} />
-              <Button label='Second' icon={<IconCode />} />
-              <Button label='Third' icon={<IconGear />} />
+              <Button label='First' icon={<IconFa icon='bell' />} />
+              <Button label='Second' icon={<IconFa icon='code' />} />
+              <Button label='Third' icon={<IconFa icon='gear' />} />
             </ButtonGroup>
 
             <ButtonGroup>
-              <Button label='First' icon={<IconBell />} loading />
-              <Button label='Second' icon={<IconCode />} />
-              <Button label='Third' icon={<IconGear />} />
+              <Button label='First' icon={<IconFa icon='bell' />} loading />
+              <Button label='Second' icon={<IconFa icon='code' />} />
+              <Button label='Third' icon={<IconFa icon='gear' />} />
             </ButtonGroup>
           </>
         }
@@ -44,15 +44,15 @@ export const ButtonGroupUiLoading = () => {
 export const Component = () => {
   return (
     <ButtonGroup loading>
-      <Button label='First' icon={<IconBell />} />
-      <Button label='Second' icon={<IconCode />} />
-      <Button label='Third' icon={<IconGear />} />
+      <Button label='First' icon={<IconFa icon='bell' />} />
+      <Button label='Second' icon={<IconFa icon='code' />} />
+      <Button label='Third' icon={<IconFa icon='gear' />} />
     </ButtonGroup>
 
     <ButtonGroup>
-      <Button label='First' icon={<IconBell />} loading />
-      <Button label='Second' icon={<IconCode />} />
-      <Button label='Third' icon={<IconGear />} />
+      <Button label='First' icon={<IconFa icon='bell' />} loading />
+      <Button label='Second' icon={<IconFa icon='code' />} />
+      <Button label='Third' icon={<IconFa icon='gear' />} />
     </ButtonGroup>
   )
 }`}

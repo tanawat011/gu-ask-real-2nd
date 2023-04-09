@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import { fireEvent, screen } from '@testing-library/react'
 import { useRecoilState } from 'recoil'
 
-import { IconHome } from 'components/Icons'
+import { IconFa } from 'components/Icons'
 import { localSettingAtom } from 'recoils/atoms'
 import { renderWithProviders, twColor } from 'utils/jest'
 
@@ -158,7 +158,7 @@ describe('<Button />', () => {
   test('renders correctly and display icon only', async () => {
     expect.assertions(1)
 
-    renderWithProviders(<Button icon={<IconHome />} />)
+    renderWithProviders(<Button icon={<IconFa icon='home' />} />)
 
     const button = screen.getByRole('button')
 
@@ -262,7 +262,9 @@ describe('<Button />', () => {
       test(`renders correctly and display icon only with size \`${key}\``, () => {
         expect.assertions(6)
 
-        renderWithProviders(<Button icon={<IconHome />} size={key as Size} />)
+        renderWithProviders(
+          <Button icon={<IconFa icon='home' />} size={key as Size} />,
+        )
 
         const button = screen.getByRole('button')
 
