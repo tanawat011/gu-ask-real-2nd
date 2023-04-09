@@ -304,16 +304,8 @@ export const useGetSidebarMenu = (): [
           icon: <IconFa icon='home' />,
           children: [
             {
-              label: 'A',
-              to: uiComponent.icon.a,
-            },
-            {
-              label: 'B',
-              to: uiComponent.icon.b,
-            },
-            {
-              label: 'C',
-              to: uiComponent.icon.c,
+              label: 'Font Awesome',
+              to: uiComponent.icon.fontAwesome,
             },
           ],
         },

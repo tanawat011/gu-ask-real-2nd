@@ -7,7 +7,12 @@ import { AuthenticationLayout } from 'layouts/Authentication'
 import { ErrorLayout } from 'layouts/Error'
 import { MainLayout } from 'layouts/Main'
 import { SudokuApp, TicTacToeApp } from 'pages/Games'
-import { ButtonGroupUi, ButtonUi, TextInputUi } from 'pages/UiComponents'
+import {
+  ButtonGroupUi,
+  ButtonUi,
+  IconFa,
+  TextInputUi,
+} from 'pages/UiComponents'
 import { generatePaths, generateRoutes } from 'utils/route'
 
 type AllPaths = {
@@ -101,9 +106,7 @@ type AllPaths = {
         window: string
       }
       icon: {
-        a: string
-        b: string
-        c: string
+        fontAwesome: string
       }
     }
     lv1: {
@@ -377,14 +380,8 @@ const baseRoutes: RouteBase<AllPaths> = {
           },
           icon: {
             children: {
-              a: {
-                element: <div>a</div>,
-              },
-              b: {
-                element: <div>b</div>,
-              },
-              c: {
-                element: <div>c</div>,
+              fontAwesome: {
+                element: <IconFa />,
               },
             },
           },

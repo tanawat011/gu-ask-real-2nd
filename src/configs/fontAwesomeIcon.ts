@@ -11,6 +11,18 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 
+export const ICON_LIST = [
+  faBars,
+  faHouse,
+  faUser,
+  faAngleDown,
+  faBell,
+  faGear,
+  faCopy,
+  faCode,
+  faSpinner,
+]
+
 export const execFontAwesomeIcon = () => {
-  library.add(faBars, faHouse, faUser, faAngleDown, faBell, faGear, faCopy, faCode, faSpinner)
+  library.add(...ICON_LIST)
 }
