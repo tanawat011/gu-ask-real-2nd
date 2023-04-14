@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.2...v0.2.3) (2023-04-14)
+
+
+### Features
+
+* :sparkles: new deep object type and example new route config ([c9c67c4](https://github.com/tanawat011/gu-ask-real-2nd/commits/c9c67c4d2ccbf4161bc65280c46e34c8cffeceb0))
+* :sparkles: prepare menu for ui component ([6bde34f](https://github.com/tanawat011/gu-ask-real-2nd/commits/6bde34ffcc3f7db5f0b548e099f1fcf7448c71d7))
+* **components:** :sparkles: new layout component ui component utilities ([f5fb938](https://github.com/tanawat011/gu-ask-real-2nd/commits/f5fb938aedae3e6f628cc0661d4d67c6461d545a))
+* new route generator ([1c72808](https://github.com/tanawat011/gu-ask-real-2nd/commits/1c72808f7716612ecbbe839930b9fde850462467))
+* **pages:** :sparkles: show icon used ([ecaefd1](https://github.com/tanawat011/gu-ask-real-2nd/commits/ecaefd1f8dcce4b32d0eddf7974ae39262cebf76))
+
+
+### Bug Fixes
+
+* :bug: ignore unit test TextInput temporary ([35fef05](https://github.com/tanawat011/gu-ask-real-2nd/commits/35fef05c81e71cf7176e41c73684790c6d57c179))
+* **styles:** :bug: adjust styled for IconFa page ([19bb170](https://github.com/tanawat011/gu-ask-real-2nd/commits/19bb170895323727c6663907a1f920195c7392a1))
+
+
+### Documentation
+
+* :memo: readme ([a86821b](https://github.com/tanawat011/gu-ask-real-2nd/commits/a86821b7cb68c7914a523bd5114352eef4b7fc64))
+
+
+### Chores
+
+* :hammer: example action ([3a66cb6](https://github.com/tanawat011/gu-ask-real-2nd/commits/3a66cb6b33b0f1b2449a187b0f55d8322810549f))
+* :hammer: example again ([8135429](https://github.com/tanawat011/gu-ask-real-2nd/commits/8135429d25ff940f87d5ff7898df9a74cd1c572b))
+* :hammer: rename text field to text input ([89f651c](https://github.com/tanawat011/gu-ask-real-2nd/commits/89f651cd0449ca6ede61007dbd6eed9b780627f7))
+
+
+### Code Refactoring
+
+* **components:** :recycle: remove unnecessary ([b966792](https://github.com/tanawat011/gu-ask-real-2nd/commits/b966792d716c08f000a716a3862fbf35a64c9741))
+
+
+### Tests
+
+* :white_check_mark: generatePath and generateRoute ([9a40fdd](https://github.com/tanawat011/gu-ask-real-2nd/commits/9a40fddc41aada2812fa125e7b8f64c125fee3eb))
+* **components:** :white_check_mark: sub-layout ui component and hook ([77609c9](https://github.com/tanawat011/gu-ask-real-2nd/commits/77609c969db1201f52573d44c3d8c4756869f5eb))
+
 ## [0.2.2](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.1...v0.2.2) (2023-02-12)
 
 ### Bug Fixes
