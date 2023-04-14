@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.3...v0.2.4) (2023-04-14)
+
+
+### Features
+
+* **pages:** :sparkles: showoff TextField ([275a81b](https://github.com/tanawat011/gu-ask-real-2nd/commits/275a81b25822ba3207706da9b38e9c1ea01bf671))
+
+
+### Documentation
+
+* **docs:** :memo: how to release and deploy ([13c18d3](https://github.com/tanawat011/gu-ask-real-2nd/commits/13c18d38158cd76e482c433c9c22ddd96cc4c02c))
+
+
+### Tests
+
+* **components:** :white_check_mark: textField ([5269959](https://github.com/tanawat011/gu-ask-real-2nd/commits/5269959d1ada1d5f49b1eeaa1e32b0803c19c79b))
+
 ### [0.2.3](https://github.com/tanawat011/gu-ask-real-2nd/compare/v0.2.2...v0.2.3) (2023-04-14)
 
 
