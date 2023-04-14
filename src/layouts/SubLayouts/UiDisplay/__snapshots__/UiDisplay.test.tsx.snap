@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UiDisplayLayout /> match snapshot 1`] = `
+<DocumentFragment>
+  .c4 {
+  z-index: 10;
+}
+
+.c2 {
+  margin-bottom: 2rem;
+}
+
+.c0 {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1,minmax(0,1fr));
+  gap: 2rem;
+  overflow-x: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.c3 {
+  grid-column: span 1 / span 1;
+  display: none;
+}
+
+@media (min-width:1280px) {
+  .c0 {
+    grid-template-columns: repeat(5,minmax(0,1fr));
+  }
+}
+
+@media (min-width:1280px) {
+  .c1 {
+    grid-column: span 4 / span 4;
+  }
+}
+
+@media (min-width:1280px) {
+  .c3 {
+    display: block;
+  }
+}
+
+<div
+    class="c0"
+    data-testid="ui-display-container-layout"
+    id=""
+  >
+    <div
+      class="c1"
+    >
+      <div>
+        <div
+          data-testid="title"
+        >
+          Title
+        </div>
+      </div>
+      <div
+        class="c2"
+        id=""
+      >
+        <div
+          data-testid="title"
+        >
+          Title
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                1
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                x
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      <div
+        class="c4"
+      >
+        <div
+          data-testid="right-menu-content"
+        >
+          RightMenuContent
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<UiDisplayLayout /> should can handle scroll event and handle child prop successful 1`] = `
+<DocumentFragment>
+  .c4 {
+  z-index: 10;
+  position: fixed;
+}
+
+.c2 {
+  margin-bottom: 2rem;
+}
+
+.c0 {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1,minmax(0,1fr));
+  gap: 2rem;
+  overflow-x: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.c3 {
+  grid-column: span 1 / span 1;
+  display: none;
+}
+
+@media (min-width:1280px) {
+  .c0 {
+    grid-template-columns: repeat(5,minmax(0,1fr));
+  }
+}
+
+@media (min-width:1280px) {
+  .c1 {
+    grid-column: span 4 / span 4;
+  }
+}
+
+@media (min-width:1280px) {
+  .c3 {
+    display: block;
+  }
+}
+
+<div
+    class="c0"
+    data-testid="ui-display-container-layout"
+    id=""
+  >
+    <div
+      class="c1"
+    >
+      <div>
+        <div
+          data-testid="title"
+        >
+          Title
+        </div>
+      </div>
+      <div
+        data-testid="fake-component"
+      >
+        Fake Component
+      </div>
+      <div
+        class="c2"
+        id=""
+      >
+        <div
+          data-testid="title"
+        >
+          Title
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                1
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                x
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      <div
+        class="c4"
+      >
+        <div
+          data-testid="right-menu-content"
+        >
+          RightMenuContent
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -49,7 +49,11 @@ export const UiDisplayLayout = () => {
   }
 
   return (
-    <TwContainer id={childProps.containerId} onScroll={handleScroll}>
+    <TwContainer
+      id={childProps.containerId}
+      onScroll={handleScroll}
+      data-testid='ui-display-container-layout'
+    >
       <TwWrapContent>
         <div>
           <Title
