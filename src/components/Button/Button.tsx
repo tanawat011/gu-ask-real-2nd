@@ -1,4 +1,9 @@
-import type { VariantButton, Size, Shape, TwThemeColor } from 'types'
+import type {
+  VariantButton,
+  DefaultProps,
+  DefaultEffectProps,
+  defaultButtonEventProps,
+} from 'types'
 
 import type { MouseEvent } from 'react'
 
@@ -8,19 +13,11 @@ import { useGetThemeColor } from 'hooks/useGetThemeColor'
 import { TwButton, TwSpan } from './Button.styles'
 
 export type ButtonProps = {
-  label?: string
   icon?: string | React.ReactNode
   iconPosition?: 'left' | 'right'
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void
-  variant?: VariantButton
-  color?: TwThemeColor
-  size?: Size
-  shape?: Shape
-  disabled?: boolean
-  loading?: boolean | string
-  width?: string
-  block?: boolean
-}
+} & DefaultProps<VariantButton> &
+  DefaultEffectProps &
+  defaultButtonEventProps
 
 export const Button: React.FC<ButtonProps> = ({
   label,

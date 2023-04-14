@@ -1,4 +1,10 @@
-import type { Shape, Size, TwThemeColor, VariantInput } from 'types'
+import type {
+  DefaultEffectProps,
+  DefaultInputProps,
+  DefaultProps,
+  VariantInput,
+  defaultInputEventProps,
+} from 'types'
 
 import { BsExclamationCircleFill } from 'react-icons/bs'
 
@@ -11,30 +17,22 @@ import {
   TwWrapperIconError,
   TwWrapperInput,
   TwWrapperInputLv2,
-} from './TextInput.style'
+} from './TextField.style'
 
-export type TextInputProps = {
-  id?: string
-  label?: string
-  placeholder?: string
-  variant?: VariantInput
-  color?: TwThemeColor
-  size?: Size
-  shape?: Shape
-  disabled?: boolean
-  loading?: boolean | string
-  width?: string
-  block?: boolean
-  required?: boolean
-  error?: boolean | string
-}
+export type TextFieldProps = DefaultProps<VariantInput> &
+  DefaultEffectProps &
+  DefaultInputProps &
+  defaultInputEventProps
 
-export const TextInput: React.FC<TextInputProps> = ({
-  id = '',
+export const TextField: React.FC<TextFieldProps> = ({
+  id,
+  name,
   label,
+  value,
   placeholder,
   variant = 'basic',
   color,
+  forceColor = false,
   disabled,
   size = 'md',
   shape = 'rounded',
@@ -55,21 +53,24 @@ export const TextInput: React.FC<TextInputProps> = ({
   )
 
   return (
-    <TwWrapperInput block={block} variant={variant}>
+    <TwWrapperInput block={block} variant={variant} shape={shape} width={width}>
       {label && isBasic && <RenderLabel />}
 
       <TwWrapperInputLv2
         variant={variant}
         hexColor={hexColor}
+        forceColor={forceColor}
         themeMode={themeMode}
         error={error}
       >
         <TwInput
           id={id}
-          name={id}
+          name={name}
+          value={value}
           placeholder={isBasic ? placeholder : ' '}
           themeMode={themeMode}
           hexColor={hexColor}
+          forceColor={forceColor}
           disabled={disabled}
           variant={variant}
           inputSize={size}
@@ -77,6 +78,7 @@ export const TextInput: React.FC<TextInputProps> = ({
           width={width}
           block={block}
           error={error}
+          label={label}
         />
 
         {label && !isBasic && <RenderLabel />}

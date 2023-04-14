@@ -233,8 +233,8 @@ export const useGetSidebarMenu = (): [
               to: uiComponent.input.switch,
             },
             {
-              label: 'Text Input',
-              to: uiComponent.input.textInput,
+              label: 'Text Field',
+              to: uiComponent.input.textField,
             },
           ],
         },

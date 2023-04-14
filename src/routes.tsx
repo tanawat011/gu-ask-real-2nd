@@ -10,7 +10,7 @@ import {
 } from 'layouts/BaseLayouts'
 import { UiDisplayLayout } from 'layouts/SubLayouts'
 import { SudokuApp, TicTacToeApp } from 'pages/Games'
-import { ButtonGroupUi, ButtonUi, IconFa, TextInputUi } from 'pages/UiComponent'
+import { ButtonGroupUi, ButtonUi, IconFa, TextFieldUi } from 'pages/UiComponent'
 import { generatePaths, generateRoutes } from 'utils/route'
 
 type AllPaths = {
@@ -74,7 +74,7 @@ type AllPaths = {
         rating: string
         select: string
         switch: string
-        textInput: string
+        textField: string
         inputGroup: string
       }
       table: string
@@ -300,8 +300,8 @@ const baseRoutes: RouteBase<AllPaths> = {
               switch: {
                 element: <div>switch</div>,
               },
-              textInput: {
-                element: <TextInputUi />,
+              textField: {
+                element: <TextFieldUi />,
               },
             },
           },
