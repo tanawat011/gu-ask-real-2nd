@@ -3,16 +3,14 @@ import type { RouteBase } from 'utils/route'
 import { BrowserRouter, Routes } from 'react-router-dom'
 
 import { useLocalSetting } from 'hooks/useLocalSetting'
-import { AuthenticationLayout } from 'layouts/Authentication'
-import { ErrorLayout } from 'layouts/Error'
-import { MainLayout } from 'layouts/Main'
-import { SudokuApp, TicTacToeApp } from 'pages/Games'
 import {
-  ButtonGroupUi,
-  ButtonUi,
-  IconFa,
-  TextInputUi,
-} from 'pages/UiComponents'
+  AuthenticationLayout,
+  ErrorLayout,
+  MainLayout,
+} from 'layouts/BaseLayouts'
+import { UiDisplayLayout } from 'layouts/SubLayouts'
+import { SudokuApp, TicTacToeApp } from 'pages/Games'
+import { ButtonGroupUi, ButtonUi, IconFa, TextInputUi } from 'pages/UiComponent'
 import { generatePaths, generateRoutes } from 'utils/route'
 
 type AllPaths = {
@@ -162,6 +160,7 @@ const baseRoutes: RouteBase<AllPaths> = {
         },
       },
       uiComponent: {
+        element: <UiDisplayLayout />,
         children: {
           screen: {
             children: {
