@@ -18,16 +18,19 @@ type TwThemeOption = {
 }
 
 type TwWrapperInputProps = Required<
-  Pick<TextFieldProps, 'block' | 'variant' | 'shape' | 'width'>
+  Pick<TextFieldProps, 'block' | 'shape' | 'width'>
 >
 
 type TwWrapperInput2Props = Required<
-  Pick<TextFieldProps, 'variant' | 'error' | 'forceColor'>
+  Pick<TextFieldProps, 'variant' | 'error'>
 > &
+  Pick<TextFieldProps, 'forceColor'> &
   TwThemeOption
 
-type GetColorsFn = (option: Omit<TwWrapperInput2Props, 'variant'>) => {
+type GetColorsFn = (option: TwWrapperInput2Props) => {
   bg: string
+  bgInput: string
+  bgInputDisabled: string
   border: string
   borderTheme: string
   text: string
@@ -69,17 +72,26 @@ const twLabelSize: TwSizeObject = {
   lg: tw`text-lg`,
 }
 
-const getColors: GetColorsFn = ({ themeMode, hexColor, error }) => {
+const getColors: GetColorsFn = ({ themeMode, hexColor, error, variant }) => {
   const white = colors.white
+  const darkBlack = colors.gray[900]
   const black = colors.gray[800]
+  const darkedGray = colors.gray[700]
   const darkGray = colors.gray[600]
   const gray = colors.gray[500]
   const lightGray = colors.gray[300]
+  const whiteGray = colors.gray[100]
   const red = colors.red[600]
   const base = hexColor
 
   const isDarkMode = themeMode === 'dark'
+  const isFilled = variant === 'filled'
 
+  const bgInputDisabled = twColor(isDarkMode ? darkedGray : lightGray)
+
+  const bgInputDarkMode = isFilled ? darkBlack : colors.transparent
+  const bgInputLightMode = isFilled ? whiteGray : colors.transparent
+  const bgInput = twColor(isDarkMode ? bgInputDarkMode : bgInputLightMode)
   const bg = twColor(isDarkMode ? black : white)
 
   const borderError = twColor(red, 'border')
@@ -94,6 +106,8 @@ const getColors: GetColorsFn = ({ themeMode, hexColor, error }) => {
 
   return {
     bg,
+    bgInput,
+    bgInputDisabled,
     borderTheme,
     border,
     text,
@@ -102,9 +116,7 @@ const getColors: GetColorsFn = ({ themeMode, hexColor, error }) => {
 }
 
 export const TwWrapperInput = styled.div<TwWrapperInputProps>(
-  ({ block, variant, shape, width }) => {
-    const isFilled = variant === 'filled'
-
+  ({ block, shape, width }) => {
     return [
       block
         ? tw`w-full`
@@ -112,7 +124,6 @@ export const TwWrapperInput = styled.div<TwWrapperInputProps>(
             width: ${width};
           `,
       tw`mb-7`,
-      isFilled && tw`bg-gray-900`,
       twShape[shape],
     ]
   },
@@ -125,6 +136,7 @@ export const TwWrapperInputLv2 = styled.div<TwWrapperInput2Props>(
       hexColor,
       forceColor,
       error,
+      variant,
     })
     const isBasic = variant === 'basic'
     const isOutline = variant === 'outline'
@@ -182,7 +194,7 @@ export const TwInput = styled.input<TwTextFieldProps>(
   ({
     variant,
     hexColor,
-    forceColor = false,
+    forceColor,
     themeMode,
     disabled,
     inputSize,
@@ -192,11 +204,12 @@ export const TwInput = styled.input<TwTextFieldProps>(
     error,
     label,
   }) => {
-    const { border, borderTheme, text } = getColors({
+    const { border, borderTheme, text, bgInput, bgInputDisabled } = getColors({
       themeMode,
       hexColor,
       forceColor,
       error,
+      variant,
     })
     const isBasic = variant === 'basic'
     const isUnderline = variant === 'underline'
@@ -226,7 +239,7 @@ export const TwInput = styled.input<TwTextFieldProps>(
       css`
         ${block ? tw`w-full` : `width: ${width};`}
 
-        background-color: transparent;
+        background-color: ${bgInput};
 
         ${tw`border-opacity-100 text-opacity-100`}
         border-color: ${forceColor ? borderTheme : border};
@@ -249,7 +262,10 @@ export const TwInput = styled.input<TwTextFieldProps>(
           --tw-ring-color: ${borderTheme};
         }
       `,
-      disabled && tw`bg-gray-700`,
+      disabled &&
+        css`
+          background-color: ${bgInputDisabled};
+        `,
     ]
   },
 )

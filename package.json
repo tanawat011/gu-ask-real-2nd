@@ -189,8 +189,7 @@
       "src/mocks",
       "src/pages",
       "routes.tsx",
-      "types",
-      "TextInput"
+      "types"
     ]
   },
   "babelMacros": {

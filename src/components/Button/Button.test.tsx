@@ -519,7 +519,7 @@ describe('<Button />', () => {
   }
 
   Object.entries(variantsDark).forEach(([key, val]) => {
-    test(`renders correctly and variant \`${key}\``, () => {
+    test(`renders correctly with dark theme with variant \`${key}\``, () => {
       expect.hasAssertions()
 
       execTestCase(key as VariantButton, val)
@@ -584,14 +584,14 @@ describe('<Button />', () => {
   }
 
   Object.entries(variantsLight).forEach(([key, val]) => {
-    test(`renders correctly and variant \`${key}\` with light theme`, () => {
+    test(`renders correctly with light theme with variant \`${key}\``, () => {
       expect.hasAssertions()
 
       execTestCase(key as VariantButton, val, 'light')
     })
   })
 
-  test('renders correctly and custom color', () => {
+  test('renders correctly with custom color', () => {
     expect.hasAssertions()
 
     const hover = { modifier: ':hover' }

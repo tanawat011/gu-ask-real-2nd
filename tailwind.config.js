@@ -8,7 +8,7 @@ module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   presets: [],
   darkMode: 'class', // or 'class'
-  important: true,
+  // important: true,
   theme: {
     ...defaultTheme,
     extend: {

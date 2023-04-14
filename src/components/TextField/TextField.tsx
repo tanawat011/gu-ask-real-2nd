@@ -53,7 +53,7 @@ export const TextField: React.FC<TextFieldProps> = ({
   )
 
   return (
-    <TwWrapperInput block={block} variant={variant} shape={shape} width={width}>
+    <TwWrapperInput block={block} shape={shape} width={width}>
       {label && isBasic && <RenderLabel />}
 
       <TwWrapperInputLv2
@@ -88,6 +88,7 @@ export const TextField: React.FC<TextFieldProps> = ({
             themeMode={themeMode}
             hexColor={hexColor}
             variant={variant}
+            data-testid='text-field-error-icon'
           >
             <BsExclamationCircleFill />
           </TwWrapperIconError>
