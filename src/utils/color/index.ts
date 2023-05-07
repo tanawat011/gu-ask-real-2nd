@@ -1,3 +1,5 @@
-export * from './decideBetweenColor'
+export * from './getContrastColor'
+export * from './hex2Hsl'
 export * from './hex2Rgb'
+export * from './opacity2Hex'
 export * from './rgb2Hex'

@@ -1,4 +1,4 @@
-export const opacityToHex = (opacity: number) => {
+export const opacity2Hex = (opacity: number) => {
   if (opacity < 0 || opacity > 100) {
     throw new Error('Opacity must be between 0 and 100')
   }

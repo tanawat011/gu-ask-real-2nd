@@ -1,4 +1,4 @@
-import { hex2rgb } from 'utils/color'
+import { hex2Rgb } from 'utils/color'
 
 export const twColor = (hexColor: string, type?: 'bg' | 'border' | 'text') => {
   if (hexColor === 'transparent') {
@@ -9,11 +9,11 @@ export const twColor = (hexColor: string, type?: 'bg' | 'border' | 'text') => {
     return 'undefined'
   }
 
-  const rgb = hex2rgb(hexColor)
+  const rgb = hex2Rgb(hexColor, { isArray: true }) as string[]
 
   if (!type) {
     type = 'bg'
   }
 
-  return `rgb(${rgb} / var(--tw-${type}-opacity))`
+  return `rgb(${rgb.join(' ')} / var(--tw-${type}-opacity))`
 }
