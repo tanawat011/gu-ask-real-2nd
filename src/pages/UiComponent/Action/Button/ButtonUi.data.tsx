@@ -1,4 +1,4 @@
-import type { ButtonProps } from 'components/Button'
+import type { ButtonProps } from 'components/Common'
 import type { UiDisplayRightMenuItems } from 'layouts/SubLayouts/UiDisplay/UiDisplayRightMenu'
 import type { ComponentApiGuideData } from 'types'
 

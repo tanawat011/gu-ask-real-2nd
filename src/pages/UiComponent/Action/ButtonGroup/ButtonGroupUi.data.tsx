@@ -1,4 +1,4 @@
-import type { ButtonGroupProps } from 'components/ButtonGroup'
+import type { ButtonGroupProps } from 'components/Common'
 import type { ComponentApiGuideData } from 'types'
 
 import { PreCode } from 'components/PreCode'

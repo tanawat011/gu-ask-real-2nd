@@ -4,7 +4,9 @@ import { useOutletContext } from 'react-router-dom'
 
 import { useContentContext } from './useContentContext'
 
-jest.mock('./useContentContext', () => jest.requireActual('./useContentContext'))
+jest.mock('./useContentContext', () =>
+  jest.requireActual('./useContentContext'),
+)
 jest.mock('react-router-dom')
 
 describe('useContentContext', () => {

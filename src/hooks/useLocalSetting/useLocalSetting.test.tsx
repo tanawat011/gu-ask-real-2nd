@@ -13,7 +13,9 @@ describe('useLocalSetting', () => {
   test('should return correctly result', () => {
     expect.hasAssertions()
 
-    const { result } = renderHook(() => useLocalSetting(), { wrapper: RecoilRoot })
+    const { result } = renderHook(() => useLocalSetting(), {
+      wrapper: RecoilRoot,
+    })
 
     expect('theme' in result.current[0]).toEqual(true)
   })
@@ -23,7 +25,9 @@ describe('useLocalSetting', () => {
 
     localStorage.setItem('setting', JSON.stringify(defaultLocalSetting))
 
-    const { result } = renderHook(() => useLocalSetting(), { wrapper: RecoilRoot })
+    const { result } = renderHook(() => useLocalSetting(), {
+      wrapper: RecoilRoot,
+    })
 
     expect('theme' in result.current[0]).toEqual(true)
   })
@@ -37,7 +41,9 @@ describe('useLocalSetting', () => {
 
     localStorage.setItem('setting', JSON.stringify(mockData))
 
-    const { result } = renderHook(() => useLocalSetting(), { wrapper: RecoilRoot })
+    const { result } = renderHook(() => useLocalSetting(), {
+      wrapper: RecoilRoot,
+    })
 
     expect('theme' in result.current[0]).toEqual(true)
   })
@@ -51,7 +57,9 @@ describe('useLocalSetting', () => {
 
     localStorage.setItem('setting', JSON.stringify(mockData))
 
-    const { result } = renderHook(() => useLocalSetting(), { wrapper: RecoilRoot })
+    const { result } = renderHook(() => useLocalSetting(), {
+      wrapper: RecoilRoot,
+    })
 
     expect('theme' in result.current[0]).toEqual(true)
   })

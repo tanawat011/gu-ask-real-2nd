@@ -19,7 +19,11 @@ describe('utils/axios/fetchApi', () => {
       return [200, {}, {}]
     })
 
-    const response = await fetchApi({ method: 'GET', uri: '/test', qsEncode: { test: 'test' } })
+    const response = await fetchApi({
+      method: 'GET',
+      uri: '/test',
+      qsEncode: { test: 'test' },
+    })
 
     expect(response.status).toEqual(200)
   })

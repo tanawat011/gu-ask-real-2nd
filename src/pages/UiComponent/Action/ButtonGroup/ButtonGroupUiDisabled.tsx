@@ -2,8 +2,7 @@ import type { UiComponentDefaultProps } from 'types'
 
 import tw from 'twin.macro'
 
-import { Button } from 'components/Button'
-import { ButtonGroup } from 'components/ButtonGroup'
+import { ButtonGroup, Button } from 'components/Common'
 import { ComponentDisplay, Title } from 'components/PageUiComponent'
 import { PreCode } from 'components/PreCode'
 

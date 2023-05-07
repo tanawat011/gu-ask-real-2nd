@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 
-import { Button } from 'components/Button'
+import { Button } from 'components/Common'
 import { renderWithProviders } from 'utils/jest'
 
 import { ButtonGroup } from './ButtonGroup'

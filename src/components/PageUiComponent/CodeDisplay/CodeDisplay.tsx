@@ -5,7 +5,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light'
 import { oneDark as theme } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import tw, { styled } from 'twin.macro'
 
-import { Button } from 'components/Button'
+import { Button } from 'components/Common'
 import { IconFa } from 'components/Icons'
 import { BG_THEME, BORDER_THEME } from 'constants/twTheme'
 

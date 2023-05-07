@@ -1,16 +1,16 @@
 import { render } from '@testing-library/react'
 
-import { FlexCol } from './FlexCol'
+import { Column } from './Column'
 
-jest.mock('./FlexCol', () => jest.requireActual('./FlexCol'))
+jest.mock('./Column', () => jest.requireActual('./Column'))
 
-describe('<FlexCol />', () => {
+describe('<Column />', () => {
   test('renders correctly', async () => {
     expect.assertions(4)
 
     const {
       container: { firstChild },
-    } = render(<FlexCol />)
+    } = render(<Column />)
 
     expect(firstChild).toHaveStyleRule('display', 'flex')
     expect(firstChild).toHaveStyleRule('flex-direction', 'column')

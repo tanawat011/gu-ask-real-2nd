@@ -10,7 +10,9 @@ describe('<Title />', () => {
   test('renders correctly with default size', () => {
     expect.assertions(4)
 
-    const { asFragment } = renderWithProviders(<Title title='Title' description='Detail' />)
+    const { asFragment } = renderWithProviders(
+      <Title title='Title' description='Detail' />,
+    )
 
     const firstElement = screen.getByTestId('container')
     const headTitle = screen.getByRole('heading', { level: 4 })

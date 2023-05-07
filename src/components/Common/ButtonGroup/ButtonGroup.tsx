@@ -1,4 +1,4 @@
-import type { ButtonProps } from 'components/Button'
+import type { ButtonProps } from 'components/Common'
 
 import React from 'react'
 

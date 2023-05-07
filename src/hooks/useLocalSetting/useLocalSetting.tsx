@@ -6,7 +6,10 @@ import { useRecoilState } from 'recoil'
 
 import { defaultLocalSetting, localSettingAtom } from 'recoils/atoms'
 
-type UseSettingHook = () => [LocalSettingState, (localSetting: LocalSettingState) => void]
+type UseSettingHook = () => [
+  LocalSettingState,
+  (localSetting: LocalSettingState) => void,
+]
 
 export const useLocalSetting: UseSettingHook = () => {
   const [localSetting, setLocalSetting] = useRecoilState(localSettingAtom)
@@ -21,7 +24,10 @@ export const useLocalSetting: UseSettingHook = () => {
     if (strOldLocalSetting) {
       const localSettingKeys = Object.keys(oldLocalSetting)
 
-      if (!localSettingKeys.includes('theme') || !localSettingKeys.includes('auth')) {
+      if (
+        !localSettingKeys.includes('theme') ||
+        !localSettingKeys.includes('auth')
+      ) {
         setLocalSetting(defaultLocalSetting)
         localStorage.setItem('setting', JSON.stringify(defaultLocalSetting))
 
